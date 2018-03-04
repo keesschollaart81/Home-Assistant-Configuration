@@ -74,7 +74,7 @@ cloud:
 
 group: !include groups.yaml
 automation: !include automations.yaml
-script: !include scripts.yaml
+#script: !include scripts.yaml
 scene: !include scene.yaml
 
 panel_iframe:
