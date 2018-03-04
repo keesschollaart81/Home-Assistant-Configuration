@@ -64,6 +64,13 @@ sun:
 # Weather prediction
 sensor:
   - platform: yr
+  - platform: google_travel_time
+    name: Kees naar huis
+    api_key: !secret google_api_key
+    origin: device_tracker.kees_kees01
+    destination: zone.home
+    options:
+      mode: driving
 
 # Text to speech
 tts:
@@ -163,14 +170,6 @@ notify:
     platform: simplepush
     device_key: !secret notify_device_key
 
-sensor:
-  - platform: google_travel_time
-    name: Kees naar huis
-    api_key: !secret google_api_key
-    origin: device_tracker.kees_kees01
-    destination: zone.home
-    options:
-      mode: driving
 
 #alexa:
 #  smart_home:
