@@ -1,0 +1,103 @@
+- id: knop1
+  alias: Schakelaar 1 links > Eating
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.wall_switch_left_158d0001639d5a
+      click_type: single
+  action:
+    - service: homeassistant.turn_on
+      entity_id: scene.Eating
+
+- id: knop2
+  alias: Schakelaar 1 rechts > Evening
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.wall_switch_right_158d0001639d5a
+      click_type: single
+  action:
+    - service: homeassistant.turn_on
+      entity_id: scene.evening
+
+- id: knop3
+  alias: Schakelaar 2 links > Maximum
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.wall_switch_left_158d0001710729
+      click_type: single
+  action:
+  - service: light.toggle
+    data:
+      entity_id: light.keukenlamp
+
+- id: knop4
+  alias: Schakelaar 2 rechts > Off
+  trigger:
+    platform: event
+    event_type: click
+    event_data:
+      entity_id: binary_sensor.wall_switch_right_158d0001710729
+      click_type: single
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: group.all_lights
+      
+- id: LightsOnAutoWhenMotion
+  alias: Lights on when motion
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d000222df56
+      to: 'on'
+  condition: 
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: light.lampentafel
+      state: 'off'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: scene.Eating
+
+- id: GetSonoffStateOnHAStartUp
+  alias: "Get Sonoff state on HA start-up"
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/sonoffs/power1"
+        payload: ""
+
+      
+#- id: LightsOffAfter10Minutes
+#  alias: Turn off kitchen light 10 minutes after last movement
+#  trigger:
+#    platform: state
+#    entity_id: binary_sensor.motion_sensor_158d000222df56
+#    to: 'off'
+#    for:
+#      minutes: 10
+#  action:
+#    service: homeassistant.turn_off
+#    entity_id: group.default_view
+    
+#- id: regioleave
+#  alias: Marleen verplaatst
+#  trigger:
+#    platform: state
+#    entity_id: device_tracker.marleen_marleen01
+#  action:     
+#   - service: notify.notifier
+#     data:
+#        title: "Marleen verplaatst"
+#        message: "doei"

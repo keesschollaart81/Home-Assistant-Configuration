@@ -1,0 +1,57 @@
+-   name: Evening
+    entities: 
+      light.lampentafel:
+        state: on
+        color_temp: 333
+        brightness: 30  
+      light.staandelamp:
+        state: on
+        color_temp: 333
+        brightness: 150 
+      light.bank:
+        state: on
+        color_temp: 333
+        brightness: 150  
+        
+-   name: Eating
+    entities: 
+      light.lampentafel:
+        state: on
+        color_temp: 333
+        brightness: 125 
+      light.staandelamp:
+        state: on
+        color_temp: 333
+        brightness: 100 
+      light.bank:
+        state: on
+        color_temp: 333
+        brightness: 100  
+        
+-   name: Maximum
+    entities: 
+      light.lampentafel:
+        state: on
+        color_temp: 333
+        brightness: 255 
+      light.staandelamp:
+        state: on
+        color_temp: 333
+        brightness: 255 
+      light.bank:
+        state: on
+        color_temp: 333
+        brightness: 255  
+      light.keukenlamp:
+        state: on
+        
+-   name: Off
+    entities: 
+      light.lampentafel:
+        state: off
+      light.staandelamp:
+        state: off
+      light.bank:
+        state: off 
+      light.keukenlamp:
+        state: off 

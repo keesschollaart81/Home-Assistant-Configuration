@@ -1,0 +1,22 @@
+default_view:
+  name: Woonkamer
+  view: yes
+  icon: mdi:home
+  entities:
+    - device_tracker.marleen_marleen01
+    - device_tracker.Kees_kees01
+    - light.xiaomi_philips_smart_led_ball
+    - light.staandelamp 
+    - light.bank 
+    - light.LampenTafel
+    - media_player.woonkamer
+    - binary_sensor.burner_status
+    - sensor.temperature_158d0001f5358e
+    - sensor.gas_today
+    - sensor.power_today
+    - updater.updater
+    - scene.eating
+    - scene.evening
+    - scene.maximum
+    - scene.off 
+    - light.keukenlamp

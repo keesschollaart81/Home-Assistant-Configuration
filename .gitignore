@@ -1,0 +1,21 @@
+# Wildcards
+
+*                   # Ignore everything
+!*/                 # Descend into directories
+
+!*.yaml             # Don't ignore yaml files
+!*.gif
+!*.md
+
+google_calendars.yaml     # Ignore google_calendars.yaml
+known_devices.yaml
+secrets.yaml
+zwave_device_config.yaml
+
+# Directories
+
+lib                       # Ignore lib directory
+icloud
+deps
+tts
+www

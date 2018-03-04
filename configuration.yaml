@@ -1,0 +1,180 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Thuis
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret thuis_latitude
+  longitude: !secret thuis_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Amsterdam
+  # Customization file
+  customize: !include customize.yaml
+
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+logger:
+  default: warn
+  #logs:
+    #homeassistant.components.light: debug
+    #homeassistant.components.mqtt: debug
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+sensor:
+  - platform: yr
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scene.yaml
+
+panel_iframe:
+  configurator:
+    title: Configurator
+    icon: mdi:wrench
+    url: http://hassio.local:3218
+
+toon:
+    username: keesschollaart81@hotmail.com
+    password: !secret toon
+
+mqtt:
+    broker: core-mosquitto
+    username: hassio
+    password: !secret mqtt
+  
+device_tracker:
+  - platform: owntracks
+    max_gps_accuracy: 200 
+  - platform: experiaboxv8
+    host: 192.168.2.254
+    username: Admin
+    password: !secret experiabox
+    track_new_devices: no
+      
+xiaomi_aqara:
+  discovery_retry: 5
+  gateways:
+    - key: !secret xiaomi_aqara_key
+    
+light:
+  - platform: xiaomi_miio
+    name: staandelamp
+    host: 192.168.2.4
+    token: !secret staandelamp_token
+  - platform: xiaomi_miio
+    name: bank
+    host: 192.168.2.6
+    token: !secret bank_token
+  - platform: xiaomi_miio
+    name: tafel1
+    host: 192.168.2.7
+    token: !secret tafel1_token
+  - platform: xiaomi_miio
+    name: tafel2
+    host: 192.168.2.5
+    token: !secret tafel2_token
+  - platform: xiaomi_miio
+    name: tafel3
+    host: 192.168.2.3
+    token: !secret tafel3_token
+  - platform: grouped_light
+    name: LampenTafel
+    entities:
+      - light.tafel1
+      - light.tafel2
+      - light.tafel3 
+  - platform: mqtt
+    name: keukenlamp
+    state_topic: "stat/keukenlamp/POWER"
+    command_topic: "cmnd/keukenlamp/POWER"
+    availability_topic: "tele/keukenlamp/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: true
+
+zone:
+  - name: Thuis
+    latitude: !secret thuis_latitude
+    longitude:  !secret thuis_longitude
+    radius: 100
+    icon: mdi:account-multiple
+    
+  - name: School
+    latitude: !secret school_latitude
+    longitude: !secret school_longitude
+    radius: 100
+    icon: mdi:school
+    
+notify:
+  - name: Notifier
+    platform: simplepush
+    device_key: !secret notify_device_key
+
+    
+#alexa:
+#  smart_home:
+#    filter:
+#      include_entities:
+#        - light.staandelamp
+#        - light.bank
+#        - light.LampenTafel
+#      include_domains:
+#        - climate
+#    entity_config:
+#      group.default_view:
+#        name: Living Room
+#      climate.toon_van_eneco:
+#        name: Thermostat

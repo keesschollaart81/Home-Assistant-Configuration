@@ -1,0 +1,21 @@
+binary_sensor.burner_status:
+    friendly_name: CV
+      
+sensor.gas_today:
+    friendly_name: Gas
+      
+sensor.power_today:
+    friendly_name: Electra
+      
+climate.toon_van_eneco:
+    friendly_name: Toon
+    
+light.bank:
+    friendly_name: Bank
+
+light.staandelamp:
+    friendly_name: Staande lamp
+
+light.keukenlamp:
+    friendly_name: Keuken lamp
+
