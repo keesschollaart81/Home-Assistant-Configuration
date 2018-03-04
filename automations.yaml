@@ -78,6 +78,16 @@
         topic: "cmnd/sonoffs/power1"
         payload: ""
 
+- id: HassioRebootNotification
+  alias: "Notification when Hassio reboots"
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+   - service: notify.notifier
+     data:
+        title: "Hassio herstart"
+        message: "Hassio herstart"
       
 #- id: LightsOffAfter10Minutes
 #  alias: Turn off kitchen light 10 minutes after last movement
@@ -90,14 +100,3 @@
 #  action:
 #    service: homeassistant.turn_off
 #    entity_id: group.default_view
-    
-#- id: regioleave
-#  alias: Marleen verplaatst
-#  trigger:
-#    platform: state
-#    entity_id: device_tracker.marleen_marleen01
-#  action:     
-#   - service: notify.notifier
-#     data:
-#        title: "Marleen verplaatst"
-#        message: "doei"

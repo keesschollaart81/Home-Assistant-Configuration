@@ -20,3 +20,4 @@ default_view:
     - scene.maximum
     - scene.off 
     - light.keukenlamp
+    - sensor.kees_naar_huis
