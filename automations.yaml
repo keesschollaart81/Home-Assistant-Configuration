@@ -78,16 +78,27 @@
         topic: "cmnd/sonoffs/power1"
         payload: ""
 
-- id: HassioRebootNotification
-  alias: "Notification when Hassio reboots"
+- id: HassioBootNotification
+  alias: "Notification when Hassio boots"
   trigger:
     platform: homeassistant
     event: start
   action:
    - service: notify.notifier
      data:
-        title: "Hassio herstart"
-        message: "Hassio herstart"
+        title: "Hassio boots"
+        message: "Hassio boots"
+
+- id: HassioStopsNotification
+  alias: "Notification when Hassio stops"
+  trigger:
+    platform: homeassistant
+    event: stop
+  action:
+   - service: notify.notifier
+     data:
+        title: "Hassio stops"
+        message: "Hassio stops"
       
 #- id: LightsOffAfter10Minutes
 #  alias: Turn off kitchen light 10 minutes after last movement
