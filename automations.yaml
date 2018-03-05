@@ -89,16 +89,16 @@
         title: "Hassio boots"
         message: "Hassio boots"
 
-- id: HassioStopsNotification
-  alias: "Notification when Hassio stops"
-  trigger:
-    platform: homeassistant
-    event: stop
-  action:
-   - service: notify.notifier
-     data:
-        title: "Hassio stops"
-        message: "Hassio stops"
+#- id: HassioStopsNotification
+#  alias: "Notification when Hassio stops"
+#  trigger:
+#    platform: homeassistant
+#    event: stop
+#  action:
+#   - service: notify.notifier
+#     data:
+#        title: "Hassio stops"
+#        message: "Hassio stops"
       
 #- id: LightsOffAfter10Minutes
 #  alias: Turn off kitchen light 10 minutes after last movement
