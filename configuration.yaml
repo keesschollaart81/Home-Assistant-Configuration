@@ -91,8 +91,10 @@ panel_iframe:
     url: http://hassio.local:3218
 
 toon:
-    username: keesschollaart81@hotmail.com
-    password: !secret toon
+    username: !secret toon_username
+    password: !secret toon_password
+    consumer_key: !secret toon_key
+    consumer_secret: !secret toon_secret
 
 mqtt:
     broker: core-mosquitto
