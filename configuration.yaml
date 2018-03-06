@@ -73,7 +73,11 @@ sensor:
     destination: zone.home
     options:
       mode: driving
-
+  - platform: postnl
+    name: PostNl
+    username: !secret postnl_username
+    password: !secret postnl_password 
+    
 # Text to speech
 tts:
   - platform: google
@@ -190,7 +194,4 @@ notify:
 #      climate.toon_van_eneco:
 #        name: Thermostat
 
-- platform: postnl
-  name: PostNl
-  username: !secret postnl_username
-  password: !secret postnl_password 
+
