@@ -22,5 +22,5 @@ default_view:
     - light.keukenlamp
     - sensor.kees_naar_huis
     - sensor.postnl
-    - sensors.wasmachine
-    - input_boolean.washingmachine_busy
+    - sensor.wasmachine
+    - input_boolean.washingmachine_bezig
