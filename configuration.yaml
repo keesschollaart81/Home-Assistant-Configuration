@@ -22,6 +22,8 @@ frontend:
 # Enables configuration UI
 config:
 
+ios:
+
 http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
@@ -82,7 +84,7 @@ sensor:
       wasmachine:
         friendly_name: "Wasmachine"
         value_template: '{{ states.switch.plug_158d0001fa64a8.attributes.load_power|int }}'
-        unit_of_measurement: 'watt'
+        unit_of_measurement: 'Watt'
            
 # Text to speech
 tts:
