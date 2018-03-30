@@ -80,8 +80,10 @@ sensor:
   - platform: template
     sensors:
       wasmachine:
+        friendly_name: "Wasmachine"
         value_template: '{{ states.switch.plug_158d0001fa64a8.attributes.load_power|int }}'
-   
+        unit_of_measurement: 'watt'
+           
 # Text to speech
 tts:
   - platform: google
