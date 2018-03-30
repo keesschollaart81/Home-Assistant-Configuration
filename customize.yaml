@@ -19,3 +19,5 @@ light.staandelamp:
 light.keukenlamp:
     friendly_name: Keuken lamp
 
+switch.plug_158d0001fa64a8:
+    friendly_name: Wasmachine

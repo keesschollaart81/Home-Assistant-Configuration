@@ -76,8 +76,12 @@ sensor:
   - platform: postnl
     name: PostNl
     username: !secret postnl_username
-    password: !secret postnl_password 
-    
+    password: !secret postnl_password  
+  - platform: template
+    sensors:
+      wasmachine:
+        value_template: '{{ states.switch.plug_158d0001fa64a8.attributes.load_power|int }}'
+   
 # Text to speech
 tts:
   - platform: google
