@@ -111,3 +111,31 @@
 #  action:
 #    service: homeassistant.turn_off
 #    entity_id: group.default_view
+
+- id: 'WasmachineKlaar'
+  alias: Wasmachine - klaar
+  condition: []
+  trigger:
+  - below: '5'
+    entity_id: sensor.wasmachine
+    platform: numeric_state
+  action:
+  - data:
+      entity_id: input_boolean.washingmachine_bezig
+    service: input_boolean.turn_off
+
+- id: 'WasmachineNotificatie'
+  alias: Wasmachine - notificatie
+  condition: []
+  trigger:
+  - platform: state
+    entity_id: input_boolean.washingmachine_bezig
+    from: 'on' 
+    to: 'off'
+    for:
+      minutes: 10
+  action: 
+   - service: notify.notifier
+     data:
+        title: "Wasmachine klaar"
+        message: "Wasmachine klaar"

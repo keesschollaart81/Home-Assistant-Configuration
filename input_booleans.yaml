@@ -1,0 +1,4 @@
+washingmachine_bezig:
+  name: Wasmachine bezig
+  initial: off
+  icon: "mdi:arrow-right-drop-circle-outline"

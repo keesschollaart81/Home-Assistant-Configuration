@@ -95,6 +95,7 @@ group: !include groups.yaml
 automation: !include automations.yaml
 #script: !include scripts.yaml
 scene: !include scene.yaml
+input_boolean: !include input_booleans.yaml
 
 panel_iframe:
   configurator:
