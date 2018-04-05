@@ -151,7 +151,7 @@ light:
     name: tafel3
     host: 192.168.2.3
     token: !secret tafel3_token
-  - platform: grouped_light
+  - platform: group
     name: LampenTafel
     entities:
       - light.tafel1
