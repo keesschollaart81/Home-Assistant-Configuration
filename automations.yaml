@@ -124,6 +124,18 @@
       entity_id: input_boolean.washingmachine_bezig
     service: input_boolean.turn_off
 
+- id: 'WasmachineBezig'
+  action:
+  - data:
+      entity_id: input_boolean.washingmachine_bezig
+    service: input_boolean.turn_on
+  alias: Wasmachine - bezig
+  condition: []
+  trigger:
+  - above: '2'
+    entity_id: sensor.wasmachine
+    platform: numeric_state
+
 - id: 'WasmachineNotificatie'
   alias: Wasmachine - notificatie
   condition: []
