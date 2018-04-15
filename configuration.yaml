@@ -188,7 +188,7 @@ notify:
     device_key: !secret notify_device_key
 
 
-#alexa:
+alexa:
 #  smart_home:
 #    filter:
 #      include_entities:
