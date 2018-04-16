@@ -198,6 +198,11 @@ alexa:
         - light
         - climate
         - scene
+      exclude_entities:
+        - light.gateway_light_7811dcb27b0d
+        - light.tafel1
+        - light.tafel2
+        - light.tafel3
     entity_config:
       climate.toon_van_eneco:
         name: Toon
