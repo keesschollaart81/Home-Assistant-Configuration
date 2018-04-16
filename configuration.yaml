@@ -198,16 +198,16 @@ alexa:
         - light
         - climate
         - scene
-  entity_config:
-    climate.toon_van_eneco:
-      name: Toon
-    scene.Evening:
-      name: Evening
-    scene.Eating:
-      name: Eating
-    light.LampenTafel:
-      name: Kitchen
-    
+    entity_config:
+      climate.toon_van_eneco:
+        name: Toon
+      scene.Evening:
+        name: Evening
+      scene.Eating:
+        name: Eating
+      light.LampenTafel:
+        name: Kitchen
+      
 
 
 
