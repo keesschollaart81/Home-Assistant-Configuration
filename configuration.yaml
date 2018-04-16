@@ -190,17 +190,24 @@ notify:
 
 alexa:
   smart_home:
-   filter:
-     include_entities:
-       - light.staandelamp
-       - light.bank
-       - light.LampenTafel
-     include_domains:
-       - climate
-   entity_config:
-     group.default_view:
-       name: Living Room
-     climate.toon_van_eneco:
-       name: Thermostat
+    filter:
+      # include_entities:
+      #   - light.staandelamp
+      #   - light.bank 
+      include_domains:
+        - light
+        - climate
+        - scene
+  entity_config:
+    climate.toon_van_eneco:
+      name: Toon
+    scene.Evening:
+      name: Evening
+    scene.Eating:
+      name: Eating
+    light.LampenTafel:
+      name: Kitchen
+    
+
 
 
