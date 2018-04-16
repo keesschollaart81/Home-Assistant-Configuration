@@ -15,7 +15,7 @@ import homeassistant.helpers.config_validation as cv
 from homeassistant.util import Throttle
 
 # Home Assistant depends on 3rd party packages for API specific code.
-REQUIREMENTS = ['toonapilib==1.2.0']
+REQUIREMENTS = ['toonapilib==3.0.0']
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -25,10 +25,18 @@ DOMAIN = 'toon'
 TOON_HANDLE = 'toon_handle'
 CONF_KEY = 'consumer_key'
 CONF_SECRET = 'consumer_secret'
+
 CONF_GAS = 'gas'
 DEFAULT_GAS = True
+
 CONF_SOLAR = 'solar'
 DEFAULT_SOLAR = False
+
+CONF_TENANT = 'tenant'
+DEFAULT_TENANT = 'eneco'
+
+CONF_NAME = 'display_name'
+DEFAULT_NAME = ''
 
 # Validation of the user's configuration
 CONFIG_SCHEMA = vol.Schema({
@@ -39,6 +47,8 @@ CONFIG_SCHEMA = vol.Schema({
         vol.Required(CONF_SECRET): cv.string,
         vol.Optional(CONF_GAS, default=DEFAULT_GAS): cv.boolean,
         vol.Optional(CONF_SOLAR, default=DEFAULT_SOLAR): cv.boolean,
+        vol.Optional(CONF_TENANT, default=DEFAULT_TENANT): cv.string,
+        vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
     }),
 }, extra=vol.ALLOW_EXTRA)
 
@@ -48,16 +58,16 @@ def setup(hass, config):
     from toonapilib.toonapilibexceptions import (InvalidConsumerSecret,
                                                  InvalidConsumerKey,
                                                  InvalidCredentials)
-    gas = config['toon']['gas']
-    solar = config['toon']['solar']
 
     try:
         hass.data[TOON_HANDLE] = ToonDataStore(config['toon'][CONF_USERNAME],
                                                config['toon'][CONF_PASSWORD],
                                                config['toon'][CONF_KEY],
                                                config['toon'][CONF_SECRET],
-                                               gas,
-                                               solar)
+                                               config['toon'][CONF_GAS],
+                                               config['toon'][CONF_SOLAR],
+                                               config['toon'][CONF_TENANT],
+                                               config['toon'][CONF_NAME])
 
     except InvalidCredentials:
         _LOGGER.warning("The credentials in your config are invalid")
@@ -81,12 +91,21 @@ class ToonDataStore:
     """An object to store the toon data."""
 
     def __init__(self, username, password, consumer_key, consumer_secret,
-                 gas=DEFAULT_GAS, solar=DEFAULT_SOLAR):
+                 gas=DEFAULT_GAS, solar=DEFAULT_SOLAR, tenant=DEFAULT_TENANT,
+                 name=DEFAULT_NAME):
         """Initialize toon."""
         from toonapilib import Toon
 
+        if name == '':
+            name = None
+
         # Creating the class
-        toon = Toon(username, password, consumer_key, consumer_secret)
+        toon = Toon(username,
+                    password,
+                    consumer_key,
+                    consumer_secret,
+                    tenant_id=tenant,
+                    display_common_name=name)
 
         self.toon = toon
         self.gas = gas
@@ -105,10 +124,10 @@ class ToonDataStore:
         self.data['power_today'] = round(
             (float(self.toon.power.daily_usage) +
              float(self.toon.power.daily_usage_low)) / 1000, 2)
-
+        
         self.data['power_meter_reading'] = float(self.toon.power.meter_reading)/1000.0
-        self.data['power_meter_reading_low'] = float(self.toon.power.meter_reading_low)/1000.0
-
+        self.data['power_meter_reading_low'] = float(self.toon.power.meter_reading_low)/1000.0	
+        
         self.data['temp'] = self.toon.temperature
         self.data['burner_status'] = self.toon.burner_state
 
@@ -122,7 +141,7 @@ class ToonDataStore:
         self.data['gas_current'] = self.toon.gas.value
         self.data['gas_today'] = round(float(self.toon.gas.daily_usage) /
                                        1000, 2)
-
+        
         self.data['gas_meter_reading'] = float(self.toon.gas.meter_reading) / 1000.0
 
         for plug in self.toon.smartplugs:

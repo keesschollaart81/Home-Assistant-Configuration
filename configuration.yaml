@@ -211,6 +211,8 @@ alexa:
       scene.Eating:
         name: Eating
       light.LampenTafel:
+        name: Table
+      light.keukenlamp:
         name: Kitchen
       
 
