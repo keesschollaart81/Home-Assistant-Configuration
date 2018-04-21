@@ -203,6 +203,7 @@ alexa:
         - light.tafel1
         - light.tafel2
         - light.tafel3
+        - scene.false
     entity_config:
       climate.toon_van_eneco:
         name: Toon

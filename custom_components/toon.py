@@ -120,7 +120,7 @@ class ToonDataStore:
         """Update toon data."""
         self.last_update = datetime.now()
 
-        self.data['power_current'] = self.toon.power.value
+        #self.data['power_current'] = self.toon.power.value
         self.data['power_today'] = round(
             (float(self.toon.power.daily_usage) +
              float(self.toon.power.daily_usage_low)) / 1000, 2)
