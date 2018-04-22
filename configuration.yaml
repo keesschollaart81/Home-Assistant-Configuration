@@ -1,25 +1,14 @@
 homeassistant:
-  # Name of the location where Home Assistant is running
   name: Thuis
-  # Location required to calculate the time the sun rises and sets
   latitude: !secret thuis_latitude
   longitude: !secret thuis_longitude
-  # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 0
-  # metric for Metric, imperial for Imperial
   unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Amsterdam
-  # Customization file
   customize: !include customize.yaml
 
-#recorder:
-#  db_url: !secret db_url
-
-# Enables the frontend
 frontend:
 
-# Enables configuration UI
 config:
 
 ios:
@@ -42,14 +31,9 @@ logbook:
 
 logger:
   default: warn
-  #logs:
-    #homeassistant.components.light: debug
-    #homeassistant.components.mqtt: debug
 
-# Enables a map showing the location of tracked devices
 map:
 
-# Track the sun
 sun:
  
 sensor:
@@ -82,7 +66,6 @@ cloud:
 
 group: !include groups.yaml
 automation: !include automations.yaml
-#script: !include scripts.yaml
 scene: !include scene.yaml
 input_boolean: !include input_booleans.yaml
 
@@ -178,9 +161,6 @@ notify:
 alexa:
   smart_home:
     filter:
-      # include_entities:
-      #   - light.staandelamp
-      #   - light.bank 
       include_domains:
         - light
         - climate
