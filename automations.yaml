@@ -84,33 +84,10 @@
     platform: homeassistant
     event: start
   action:
-   - service: notify.notifier
+   - service: notify.simplepush
      data:
         title: "Hassio boots"
         message: "Hassio boots"
-
-#- id: HassioStopsNotification
-#  alias: "Notification when Hassio stops"
-#  trigger:
-#    platform: homeassistant
-#    event: stop
-#  action:
-#   - service: notify.notifier
-#     data:
-#        title: "Hassio stops"
-#        message: "Hassio stops"
-      
-#- id: LightsOffAfter10Minutes
-#  alias: Turn off kitchen light 10 minutes after last movement
-#  trigger:
-#    platform: state
-#    entity_id: binary_sensor.motion_sensor_158d000222df56
-#    to: 'off'
-#    for:
-#      minutes: 10
-#  action:
-#    service: homeassistant.turn_off
-#    entity_id: group.default_view
 
 - id: 'WasmachineKlaar'
   alias: Wasmachine - klaar
@@ -146,9 +123,13 @@
     from: 'on' 
     to: 'off'
     for:
-      minutes: 10
+      minutes: 5
   action: 
-   - service: notify.notifier
+   - service: notify.simplepush
+     data:
+        title: "Wasmachine klaar"
+        message: "Wasmachine klaar"
+   - service: notify.ios_marleen_marleen01
      data:
         title: "Wasmachine klaar"
         message: "Wasmachine klaar"
