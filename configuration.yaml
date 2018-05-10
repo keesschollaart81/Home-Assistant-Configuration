@@ -54,7 +54,11 @@ sensor:
       wasmachine:
         friendly_name: "Wasmachine"
         value_template: '{{ states.switch.plug_158d0001fa64a8.attributes.load_power|int }}'
-        unit_of_measurement: 'Watt'
+        unit_of_measurement: 'Watt' 
+      temperatuur_tuin:
+        friendly_name: "Temperatuur Tuin"
+        value_template: '{{ states.switch.switch.licht_in_tuin.attributes.temperature|int }}'
+        unit_of_measurement: '°C'
            
 tts:
   - platform: google
@@ -145,7 +149,7 @@ switch:
     host: 192.168.2.18
     token:  !secret xiaomi_plug_tuin
     model: chuangmi.plug.v2
-    
+
 zone:
   - name: Thuis
     latitude: !secret thuis_latitude
