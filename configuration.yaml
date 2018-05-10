@@ -38,7 +38,7 @@ sun:
 
 camera:
   - platform: ffmpeg
-    name: DaFang3
+    name: DaFang
     input: -rtsp_transport tcp -i rtsp://192.168.2.19:8554/unicast
  
 sensor:
