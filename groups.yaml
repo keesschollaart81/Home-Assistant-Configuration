@@ -5,10 +5,6 @@ default_view:
   entities:
     - device_tracker.marleen_marleen01
     - device_tracker.Kees_kees01
-    - light.staandelamp 
-    - light.bank 
-    - light.LampenTafel
-    - light.keukenlamp
     - media_player.woonkamer
     - binary_sensor.burner_status
     - sensor.temperature_158d0001f5358e
@@ -21,4 +17,14 @@ default_view:
     - scene.off 
     - sensor.kees_naar_huis
     - sensor.postnl
-    - light.licht_in_tuin
+
+  lights:
+    name: Licht
+    view: yes
+    icon: mdi:lightbulb-on-outline
+    entities:
+    - light.staandelamp 
+    - light.bank 
+    - light.LampenTafel
+    - light.keukenlamp
+    - switch.licht_in_tuin

@@ -138,6 +138,8 @@ light:
     payload_available: "Online"
     payload_not_available: "Offline"
     retain: true
+
+switch:
   - platform: xiaomi_miio
     name: Licht in tuin
     host: 192.168.2.18

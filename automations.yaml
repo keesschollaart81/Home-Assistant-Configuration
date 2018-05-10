@@ -141,7 +141,7 @@
     offset: "-00:45:00"
   action:
     service: homeassistant.turn_on
-    entity_id: light.licht_in_tuin
+    entity_id: switch.licht_in_tuin
 
 - id: 'TuinlichtUitNaEenTijdje'
   trigger:
@@ -150,4 +150,4 @@
     offset: "+02:00:00"
   action:
     service: homeassistant.turn_off
-    entity_id: light.licht_in_tuin
+    entity_id: switch.licht_in_tuin
