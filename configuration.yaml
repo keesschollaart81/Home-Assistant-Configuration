@@ -99,13 +99,6 @@ xiaomi_aqara:
   discovery_retry: 5
   gateways:
     - key: !secret xiaomi_aqara_key
-
-switch:
-  - platform: xiaomi_miio
-    name: Licht in tuin
-    host: 192.168.2.18
-    token:  !secret xiaomi_plug_tuin
-    model: chuangmi.plug.v2
     
 light:
   - platform: xiaomi_miio
@@ -145,7 +138,12 @@ light:
     payload_available: "Online"
     payload_not_available: "Offline"
     retain: true
-
+  - platform: xiaomi_miio
+    name: Licht in tuin
+    host: 192.168.2.18
+    token:  !secret xiaomi_plug_tuin
+    model: chuangmi.plug.v2
+    
 zone:
   - name: Thuis
     latitude: !secret thuis_latitude

@@ -133,3 +133,21 @@
      data:
         title: "Wasmachine klaar"
         message: "Wasmachine klaar"
+
+- id: 'TuinlichtAanBijZonsondergang'
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:45:00"
+  action:
+    service: homeassistant.turn_on
+    entity_id: light.licht_in_tuin
+
+- id: 'TuinlichtUitNaEenTijdje'
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "+02:00:00"
+  action:
+    service: homeassistant.turn_off
+    entity_id: light.licht_in_tuin
