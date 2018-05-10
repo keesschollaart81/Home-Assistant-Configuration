@@ -57,7 +57,7 @@ sensor:
         unit_of_measurement: 'Watt' 
       temperatuur_tuin:
         friendly_name: "Temperatuur Tuin"
-        value_template: '{{ states.switch.switch.licht_in_tuin.attributes.temperature|int }}'
+        value_template: '{{ states.switch.licht_in_tuin.attributes.temperature|int }}'
         unit_of_measurement: '°C'
            
 tts:
