@@ -59,11 +59,7 @@ sensor:
       wasmachine:
         friendly_name: "Wasmachine"
         value_template: '{{ states.switch.plug_158d0001fa64a8.attributes.load_power|int }}'
-        unit_of_measurement: 'Watt' 
-      temperatuur_tuin:
-        friendly_name: "Temperatuur Tuin"
-        value_template: '{{ states.switch.licht_in_tuin.attributes.temperature|int }}'
-        unit_of_measurement: '°C'
+        unit_of_measurement: 'Watt'
            
 tts:
   - platform: google
