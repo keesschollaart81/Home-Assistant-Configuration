@@ -21,3 +21,4 @@ default_view:
     - scene.off 
     - sensor.kees_naar_huis
     - sensor.postnl
+    - switch.licht_in_tuin
