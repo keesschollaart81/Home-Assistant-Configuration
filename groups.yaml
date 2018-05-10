@@ -17,14 +17,11 @@ default_view:
     - scene.off 
     - sensor.kees_naar_huis
     - sensor.postnl
+    - group.lichten
 
-  lights:
-    name: Licht
-    view: yes
-    icon: mdi:lightbulb-on-outline
-    entities:
-    - light.staandelamp 
-    - light.bank 
-    - light.LampenTafel
-    - light.keukenlamp
-    - switch.licht_in_tuin
+Lichten: 
+  - light.staandelamp 
+  - light.bank 
+  - light.LampenTafel
+  - light.keukenlamp
+  - switch.licht_in_tuin
