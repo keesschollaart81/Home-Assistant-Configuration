@@ -35,6 +35,11 @@ logger:
 map:
 
 sun:
+
+camera:
+  - platform: ffmpeg
+    name: DaFang3
+    input: -rtsp_transport tcp -i rtsp://192.168.2.19:8554/unicast
  
 sensor:
   - platform: yr
@@ -89,6 +94,8 @@ mqtt:
     broker: core-mosquitto
     username: hassio
     password: !secret mqtt
+    discovery: true
+    discovery_prefix: homeassistant
   
 device_tracker:
   - platform: owntracks
