@@ -31,6 +31,8 @@ logbook:
 
 logger:
   default: warn
+  logs:
+    homeassistant.components.mqtt: debug
 
 map:
 
@@ -60,7 +62,13 @@ sensor:
         friendly_name: "Wasmachine"
         value_template: '{{ states.switch.plug_158d0001fa64a8.attributes.load_power|int }}'
         unit_of_measurement: 'Watt'
-           
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /
+      - type: memory_free
+      - type: processor_use
+
 tts:
   - platform: google
 
@@ -196,7 +204,6 @@ alexa:
         name: Table
       light.keukenlamp:
         name: Kitchen
-      
-
+       
 
 
