@@ -70,19 +70,15 @@ sensor:
       - type: processor_use
   - platform: mqtt
     name: Schuurdeur
-    expire_after: 43200 # expire after half a day
     state_topic: "motion/door"
   - platform: mqtt
     name: Poortdeur
-    expire_after: 43200
     state_topic: "motion/gate"
   - platform: mqtt
-    name: Fiets Jasmijn
-    expire_after: 43200
+    name: FietsJasmijn
     state_topic: "motion/bike/jasmijn"
   - platform: mqtt
-    name: Fiets Marleen
-    expire_after: 43200
+    name: FietsMarleen
     state_topic: "motion/bike/marleen"
 
 tts:
