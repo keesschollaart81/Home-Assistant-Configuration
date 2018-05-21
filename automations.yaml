@@ -151,3 +151,35 @@
   action:
     service: homeassistant.turn_off
     entity_id: switch.licht_in_tuin
+
+
+- id: 'TuinNotificatie'
+  alias: Poort of schuur open / niemand thuis
+  condition: [
+    condition: and
+    conditions:
+    - condition: template
+      value_template: "{{ states('device_tracker.marleen_marleen01') != 'home' }}"
+    - condition: template
+      value_template: "{{ states('device_tracker.Kees_kees01') != 'home' }}"
+       ]
+  trigger:
+  - platform: state
+    entity_id: sensor.poortdeur
+    to: 'open'
+    for:
+      minutes: 2
+  - platform: state
+    entity_id: sensor.schuurdeur
+    to: 'open'
+    for:
+      minutes: 2
+  action: 
+   - service: notify.simplepush
+     data:
+        title: "Schuur/poort open"
+        message: "En er is niemand thuis!"
+   - service: notify.ios_marleen_marleen01
+     data:
+        title: "Schuur/poort open"
+        message: "En er is niemand thuis!"
