@@ -28,12 +28,13 @@ Lichten:
   - switch.licht_in_tuin
  
 Tuin:
-  - camera.dafang_motion_snapshot
   - sensor.schuurdeur
   - sensor.poortdeur
   - sensor.fietsjasmijn
   - sensor.fietsmarleen
-
+  - camera.dafang_motion_snapshot
+  - camera.dafang
+  
 DafangTab:
   name: Dafang
   view: yes
