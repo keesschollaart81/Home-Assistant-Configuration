@@ -155,14 +155,13 @@
 
 - id: 'TuinNotificatie'
   alias: Poort of schuur open / niemand thuis
-  condition: [
+  condition: 
     condition: and
     conditions:
     - condition: template
       value_template: "{{ states('device_tracker.marleen_marleen01') != 'home' }}"
     - condition: template
       value_template: "{{ states('device_tracker.Kees_kees01') != 'home' }}"
-       ]
   trigger:
   - platform: state
     entity_id: sensor.poortdeur
@@ -191,4 +190,4 @@
   - platform: time
     at: '01:00:00'
   action: 
-      service: rest_command.reboot_dafang
+    service: rest_command.reboot_dafang
