@@ -217,5 +217,10 @@ alexa:
       light.keukenlamp:
         name: Kitchen
        
+rest_command:
+  reboot_dafang:
+    url: !secret dafang_rebooturl 
+    username:  !secret dafang_username
+    password: !secret dafang_password
 
 
