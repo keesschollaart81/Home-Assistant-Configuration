@@ -36,3 +36,10 @@ sensor.poortdeur:
  
 switch.plug_158d0001fa64a8:
     friendly_name: Washing Machine
+
+camera.dafang:
+    friendly_name: Backyard live
+
+camera.dafang_motion_snapshot:
+    friendly_name: Backyard latest motion snapshot
+

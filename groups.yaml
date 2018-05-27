@@ -17,8 +17,8 @@ default_view:
     - scene.off 
     - sensor.kees_naar_huis
     - sensor.postnl
-    - group.lichten
-    - group.tuin
+    - group.lights
+    - group.backyard
 
 Lights: 
   - light.staandelamp 
