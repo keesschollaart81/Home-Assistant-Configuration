@@ -1,5 +1,5 @@
 default_view:
-  name: Woonkamer
+  name: Living room
   view: yes
   icon: mdi:home
   entities:
@@ -20,14 +20,14 @@ default_view:
     - group.lichten
     - group.tuin
 
-Lichten: 
+Lights: 
   - light.staandelamp 
   - light.bank 
   - light.LampenTafel
   - light.keukenlamp
   - switch.licht_in_tuin
  
-Tuin:
+Backyard:
   - sensor.schuurdeur
   - sensor.poortdeur
   - sensor.fietsjasmijn

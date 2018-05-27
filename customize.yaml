@@ -11,13 +11,28 @@ climate.toon_van_eneco:
     friendly_name: Toon
     
 light.bank:
-    friendly_name: Bank
+    friendly_name: Couch
 
 light.staandelamp:
-    friendly_name: Staande lamp
+    friendly_name: Standing
 
 light.keukenlamp:
-    friendly_name: Keuken lamp
+    friendly_name: Kitchen
 
+light.lampentafel:
+    friendly_name: Table
+
+sensor.fietsjasmijn:
+    friendly_name: Bike Jasmijn
+
+sensor.fietsmarleen:
+    friendly_name: Bike Marleen
+
+sensor.schuurdeur:
+    friendly_name: Barn door
+
+sensor.poortdeur:
+    friendly_name: Gate
+ 
 switch.plug_158d0001fa64a8:
-    friendly_name: Wasmachine
+    friendly_name: Washing Machine
