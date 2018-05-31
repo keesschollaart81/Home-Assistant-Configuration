@@ -152,7 +152,6 @@
     service: homeassistant.turn_off
     entity_id: switch.licht_in_tuin
 
-
 - id: 'TuinNotificatie'
   alias: Poort of schuur open / niemand thuis
   condition: 
@@ -182,7 +181,6 @@
      data:
         title: "Schuur/poort open"
         message: "En er is niemand thuis!"
-
 
 - id: 'RebootDafangEveryNight'
   alias: Reboot Dafang every night 
