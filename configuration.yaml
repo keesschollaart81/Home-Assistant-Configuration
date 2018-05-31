@@ -187,9 +187,9 @@ zone:
     icon: mdi:school
     
 notify:
-  - name: simplepush
-    platform: simplepush
-    device_key: !secret notify_device_key
+  - name: pushbullet
+    platform: pushbullet
+    api_key: !secret pushbullet_api_key
   - name: eventgrid
     platform: azure_event_grid
     host: !secret eventgrid_host

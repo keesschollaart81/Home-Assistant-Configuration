@@ -84,7 +84,7 @@
     platform: homeassistant
     event: start
   action:
-   - service: notify.simplepush
+   - service: notify.pushbullet
      data:
         title: "Hassio boots"
         message: "Hassio boots"
@@ -125,7 +125,7 @@
     for:
       minutes: 5
   action: 
-   - service: notify.simplepush
+   - service: notify.pushbullet
      data:
         title: "Wasmachine klaar"
         message: "Wasmachine klaar"
@@ -173,7 +173,7 @@
     for:
       minutes: 2
   action: 
-   - service: notify.simplepush
+   - service: notify.pushbullet
      data:
         title: "Schuur/poort open"
         message: "En er is niemand thuis!"
