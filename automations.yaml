@@ -198,5 +198,6 @@
     seconds: 00
   action: 
     service: notify.eventgrid
-    message: "Your message goes here"
-    title: "Custom subject"
+    data:
+      message: "Your message goes here"
+      title: "Custom subject"
