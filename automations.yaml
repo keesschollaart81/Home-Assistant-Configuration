@@ -191,3 +191,15 @@
     at: '01:00:00'
   action: 
     service: rest_command.reboot_dafang
+
+- id: 'EventGridTest'
+  alias: EventGridTest
+  trigger:
+  - platform: time
+    minutes: '/3'
+    seconds: 00
+  action: 
+    service: notify.eventgrid
+    message: "Your message goes here"
+    title: "Custom subject"
+    data: "{ }"
