@@ -200,4 +200,3 @@
     service: notify.eventgrid
     message: "Your message goes here"
     title: "Custom subject"
-    data: "{ }"
