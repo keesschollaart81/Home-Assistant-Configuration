@@ -33,11 +33,7 @@ CONF_DATA_VERSION_DEFAULT = 1
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Required(CONF_HOST): cv.string,
-    vol.Inclusive(CONF_TOPIC_KEY,'authentication'): cv.string,
-    vol.Required(CONF_SUBJECT): cv.string,
-    vol.Required(CONF_EVENT_TYPE, default=CONF_EVENT_TYPE_DEFAULT): cv.string,
-    vol.Required(CONF_DATA_VERSION, default=CONF_DATA_VERSION_DEFAULT): vol.Coerce(int),
-    vol.Required(ATTR_DATA): cv.string
+    vol.Inclusive(CONF_TOPIC_KEY,'authentication'): cv.string
 })
 
 def get_service(hass, config, discovery_info=None):
@@ -59,9 +55,9 @@ class AzureEventGrid(BaseNotificationService):
 
     def send_message(self, message="", **kwargs):
         subject = kwargs.get(CONF_SUBJECT)
-        data = kwargs.get(ATTR_DATA)
-        eventType = kwargs.get(CONF_EVENT_TYPE)
-        dataVersion = kwargs.get(CONF_DATA_VERSION)
+        data = kwargs.get(ATTR_DATA, {})
+        eventType = kwargs.get(CONF_EVENT_TYPE, CONF_EVENT_TYPE_DEFAULT)
+        dataVersion = kwargs.get(CONF_DATA_VERSION, CONF_DATA_VERSION_DEFAULT)
 
         #create the payload, with subject, data and type coming in from the notify platform
         payload = {
