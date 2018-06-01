@@ -43,12 +43,12 @@ def get_service(hass, config, discovery_info=None):
     credentials = TopicCredentials(config[CONF_TOPIC_KEY])
     event_grid_client = EventGridClient(credentials)
 
-    return AzureEventGrid(config[CONF_HOST], event_grid_client, context)
+    return AzureEventGrid(config[CONF_HOST], event_grid_client)
 
 class AzureEventGrid(BaseNotificationService):
     """Implement the notification service for the azure event grid."""
 
-    def __init__(self, endpoint, event_grid_client, context):
+    def __init__(self, endpoint, event_grid_client):
         """Initialize the service."""
         self.endpoint = endpoint
         self.client = event_grid_client
