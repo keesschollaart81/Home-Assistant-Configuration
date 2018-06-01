@@ -63,7 +63,7 @@ class AzureEventGrid(BaseNotificationService):
         payload = {
             'id' : str(uuid.uuid4()),
             'subject': subject,
-            'data': data,
+            'data': message,
             'event_type': eventType,
             'event_time': datetime.utcnow().replace(tzinfo=pytz.UTC),
             'data_version': dataVersion
