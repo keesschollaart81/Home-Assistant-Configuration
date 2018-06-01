@@ -199,5 +199,5 @@
   action: 
     service: notify.eventgrid
     data:
-      message: "Your message goes here"
-      title: "Custom subject"
+      subject: "Custom subject"
+      data: ""
