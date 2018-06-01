@@ -200,4 +200,4 @@
     service: notify.eventgrid
     data:
       subject: "Custom subject"
-      data: ""
+      data: "test"
