@@ -135,10 +135,12 @@ light:
     name: staandelamp
     host: 192.168.2.4
     token: !secret staandelamp_token
+    icon: mdi:floor-lamp
   - platform: xiaomi_miio
     name: bank
     host: 192.168.2.6
     token: !secret bank_token
+    icon: mdi:lamp
   - platform: xiaomi_miio
     name: tafel1
     host: 192.168.2.7
@@ -153,12 +155,14 @@ light:
     token: !secret tafel3_token
   - platform: group
     name: LampenTafel
+    icon: mdi:ceiling-light
     entities:
       - light.tafel1
       - light.tafel2
       - light.tafel3 
   - platform: mqtt
     name: keukenlamp
+    icon: mdi:ceiling-light
     state_topic: "stat/keukenlamp/POWER"
     command_topic: "cmnd/keukenlamp/POWER"
     availability_topic: "tele/keukenlamp/LWT"
@@ -175,6 +179,7 @@ switch:
     host: 192.168.2.9
     token:  !secret xiaomi_plug_tuin
     model: chuangmi.plug.v2
+    icon: mdi:flower
   - platform: mqtt
     name: "Doorbell Sound"
     state_topic: "home/doorbell/sound"
@@ -182,6 +187,7 @@ switch:
     payload_on: "1"
     payload_off: "0"
     optimistic: false
+    icon: mdi:bell-ring
     qos: 0
     retain: true
 
