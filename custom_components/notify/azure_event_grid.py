@@ -54,7 +54,7 @@ class AzureEventGrid(BaseNotificationService):
         self.client = event_grid_client
 
     def send_message(self, message="", **kwargs):
-        data = kwargs.get(ATTR_DATA)
+        data = kwargs.get(ATTR_DATA,{})
         subject = data.get(CONF_SUBJECT)
         eventType = data.get(CONF_EVENT_TYPE, CONF_EVENT_TYPE_DEFAULT)
         dataVersion = data.get(CONF_DATA_VERSION, CONF_DATA_VERSION_DEFAULT)

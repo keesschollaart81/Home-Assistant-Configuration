@@ -80,6 +80,9 @@ sensor:
   - platform: mqtt
     name: FietsMarleen
     state_topic: "motion/bike/marleen"
+  - platform: mqtt
+    name: Doorbell
+    state_topic: "home/doorbell/doorbell"
 
 tts:
   - platform: google

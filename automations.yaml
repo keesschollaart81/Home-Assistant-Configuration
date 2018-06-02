@@ -202,3 +202,19 @@
       message: "message"
       data: 
         subject: "Custom subject"
+
+- id: 'DoorbellNotification'
+  alias: Doorbell Notification
+  trigger:
+  - platform: state
+    entity_id: sensor.Doorbell
+    to: '1'
+  action: 
+   - service: notify.pushbullet
+     data:
+        title: "Er wordt aan de deur gebeld"
+        message: "Er wordt aan de deur gebeld"
+   - service: notify.ios_marleen_marleen01
+     data:
+        title: "Er wordt aan de deur gebeld"
+        message: "Er wordt aan de deur gebeld"
