@@ -218,3 +218,23 @@
      data:
         title: "Er wordt aan de deur gebeld"
         message: "Er wordt aan de deur gebeld"
+
+- id: 'DoorbellSoundSilendAtNight'
+  trigger:
+  - platform: time
+    at: '18:30:00'
+  action:
+    service: mqtt.publish
+    data:
+      topic: "home/doorbell/sound"
+      payload: "0"
+
+- id: 'DoorbellSoundBackToNormall'
+  trigger:
+  - platform: time
+    at: '07:00:00'
+  action:
+    service: mqtt.publish
+    data:
+      topic: "home/doorbell/sound"
+      payload: "1"
