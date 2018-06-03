@@ -36,12 +36,10 @@
 
 - id: 'FlashTheLightsWhenFrontDoorbellPressed'
   alias: 'Flash the light when front doorbell pressed'
-  initial_state: 'on'
   trigger:
-    - platform: state
-      entity_id: binary_sensor.doorbell
-      from: 'off'
-      to: 'on'
+  - platform: state
+    entity_id: sensor.Doorbell
+    to: '1'
   action:
     - service: light.toggle
       data:
