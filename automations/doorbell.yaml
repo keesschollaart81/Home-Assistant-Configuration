@@ -33,15 +33,3 @@
     data:
       topic: "home/doorbell/sound"
       payload: "1"
-
-- id: 'FlashTheLightsWhenFrontDoorbellPressed'
-  alias: 'Flash the light when front doorbell pressed'
-  trigger:
-  - platform: state
-    entity_id: sensor.Doorbell
-    to: '1'
-  action:
-    - service: light.toggle
-      data:
-        entity_id: light.Livingroom
-        flash: long

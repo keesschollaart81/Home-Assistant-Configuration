@@ -20,15 +20,15 @@
         title: "Hassio boots"
         message: "Hassio boots"
 
-- id: 'EventGridTest'
-  alias: EventGridTest
-  trigger:
-  - platform: time
-    minutes: '/3'
-    seconds: 00
-  action: 
-    service: notify.eventgrid
-    data:
-      message: "message"
-      data: 
-        subject: "Custom subject"
+# - id: 'EventGridTest'
+#   alias: EventGridTest
+#   trigger:
+#   - platform: time
+#     minutes: '/3'
+#     seconds: 00
+#   action: 
+#     service: notify.eventgrid
+#     data:
+#       message: "message"
+#       data: 
+#         subject: "Custom subject"
