@@ -1,0 +1,34 @@
+- id: GetSonoffStateOnHAStartUp
+  alias: "Get Sonoff state on HA start-up"
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    - service: mqtt.publish
+      data:
+        topic: "cmnd/sonoffs/power1"
+        payload: ""
+
+- id: HassioBootNotification
+  alias: "Notification when Hassio boots"
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+   - service: notify.pushbullet
+     data:
+        title: "Hassio boots"
+        message: "Hassio boots"
+
+- id: 'EventGridTest'
+  alias: EventGridTest
+  trigger:
+  - platform: time
+    minutes: '/3'
+    seconds: 00
+  action: 
+    service: notify.eventgrid
+    data:
+      message: "message"
+      data: 
+        subject: "Custom subject"

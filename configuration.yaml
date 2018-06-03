@@ -93,7 +93,7 @@ weather:
 cloud:
 
 group: !include groups.yaml
-automation: !include automations.yaml
+automation: !include_dir_merge_list automations
 scene: !include scene.yaml
 input_boolean: !include input_booleans.yaml
 
@@ -168,6 +168,13 @@ light:
     payload_available: "Online"
     payload_not_available: "Offline"
     retain: true
+  - platform: group
+    name: Livingroom
+    entities:
+      - light.staandelamp
+      - light.bank
+      - light.LampenTafel
+      - light.keukenlamp
 
 switch:
   - platform: xiaomi_miio

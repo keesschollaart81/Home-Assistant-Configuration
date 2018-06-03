@@ -1,0 +1,49 @@
+- id: 'DoorbellNotification'
+  alias: Doorbell Notification
+  trigger:
+  - platform: state
+    entity_id: sensor.Doorbell
+    to: '1'
+  action: 
+   - service: notify.pushbullet
+     data:
+        title: "Er wordt aan de deur gebeld"
+        message: "Beter ga je ff lopen te kijken!"
+   - service: notify.ios_marleen_marleen01
+     data:
+        title: "Er wordt aan de deur gebeld"
+        message: "Beter ga je ff lopen te kijken!"
+
+- id: 'DoorbellSoundSilendAtNight'
+  trigger:
+  - platform: time
+    at: '18:30:00'
+  action:
+    service: mqtt.publish
+    data:
+      topic: "home/doorbell/sound"
+      payload: "0"
+
+- id: 'DoorbellSoundBackToNormall'
+  trigger:
+  - platform: time
+    at: '07:00:00'
+  action:
+    service: mqtt.publish
+    data:
+      topic: "home/doorbell/sound"
+      payload: "1"
+
+- id: 'FlashTheLightsWhenFrontDoorbellPressed'
+  alias: 'Flash the light when front doorbell pressed'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doorbell
+      from: 'off'
+      to: 'on'
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.Livingroom
+        flash: long
