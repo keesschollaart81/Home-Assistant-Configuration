@@ -17,6 +17,7 @@ import re
 import requests.certs
 import attr
 import uuid
+import pytz
 
 import voluptuous as vol
 
@@ -31,6 +32,7 @@ from homeassistant.helpers.entity import Entity
 from homeassistant.util.async_ import (
     run_coroutine_threadsafe, run_callback_threadsafe)
 from homeassistant.const import CONF_HOST, CONF_PAYLOAD, CONF_NAME
+from datetime import datetime
 
 REQUIREMENTS = ['azure.eventgrid==0.1.0', 'msrest==0.4.29']
 
