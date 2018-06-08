@@ -30,7 +30,6 @@ from homeassistant.helpers.entity import Entity
 from homeassistant.util.async_ import (
     run_coroutine_threadsafe, run_callback_threadsafe)
 from homeassistant.const import CONF_HOST, CONF_PAYLOAD
-from homeassistant.components.mqtt.server import HBMQTT_CONFIG_SCHEMA
 
 REQUIREMENTS = ['azure.eventgrid==0.1.0', 'msrest==0.4.29']
 
@@ -51,9 +50,16 @@ ATTR_PAYLOAD_TEMPLATE = 'payload_template'
 DEFAULT_EVENT_TYPE = 'HomeAssistant'
 DEFAULT_DATA_VERSION = 1 
 
-CONFIG_SCHEMA = vol.Schema({
+TOPIC_CONFIG_SCHEMA = vol.Schema({
     vol.Required(CONF_HOST): cv.string,
     vol.Required(CONF_TOPIC_KEY): cv.string
+})
+
+CONFIG_SCHEMA = vol.Schema({
+    DOMAIN: vol.Schema({
+        vol.Required("topics"):
+            vol.All(cv.ensure_list, [TOPIC_CONFIG_SCHEMA]),
+    }),
 }, extra=vol.ALLOW_EXTRA)
 
 # Service call validation schema
