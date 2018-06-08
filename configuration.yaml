@@ -209,8 +209,12 @@ notify:
   - name: pushbullet
     platform: pushbullet
     api_key: !secret pushbullet_api_key
-  - name: eventgrid
-    platform: azure_event_grid
+  # - name: eventgrid
+  #   platform: azure_event_grid
+  #   host: !secret eventgrid_host
+  #   topic key: !secret eventgrid_key
+
+azure_event_grid:
     host: !secret eventgrid_host
     topic key: !secret eventgrid_key
 
