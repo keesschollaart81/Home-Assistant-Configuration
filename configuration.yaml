@@ -221,6 +221,9 @@ azure_event_grid:
     - name: test
       host: !secret eventgrid_host
       topic key: !secret eventgrid_key
+    - name: second
+      host: !secret eventgrid_host2
+      topic key: !secret eventgrid_key2
 
 alexa:
   smart_home:
