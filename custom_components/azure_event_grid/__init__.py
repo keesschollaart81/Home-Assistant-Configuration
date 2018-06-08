@@ -106,6 +106,8 @@ async def async_setup(hass: HomeAssistantType, config: ConfigType) -> bool:
     except Exception  as err:
         LOGGER.error("Error async_setup: %s", err)
 
+    return True
+
 class AzureEventGrid(object):
     """Implement the notification service for the azure event grid."""
 
