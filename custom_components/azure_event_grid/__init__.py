@@ -122,42 +122,47 @@ class AzureEventGrid(object):
     
     async def async_setup(self):
         """Set up this event grid based on host parameter."""
-        from azure.eventgrid import EventGridClient
-        from msrest.authentication import TopicCredentials
-    
-        credentials = TopicCredentials(config[CONF_TOPIC_KEY])
-        self.client = EventGridClient(credentials) 
+        try:
+            from azure.eventgrid import EventGridClient
+            from msrest.authentication import TopicCredentials
+            
+            self.name = TopicCredentials(config[CONF_TOPIC_NAME])
+        
+            _LOGGER.debug("Subscribing to %s", self.name)
 
-        self.hass.services.async_register(
-            DOMAIN, SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE, self.event_grid_publish_message,
-            schema=MQTT_PUBLISH_SCHEMA)
+            credentials = TopicCredentials(config[CONF_TOPIC_KEY])
+            self.client = EventGridClient(credentials) 
+
+            self.hass.services.async_register(DOMAIN, SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE, self.event_grid_publish_message, schema=MQTT_PUBLISH_SCHEMA)
+        except Exception  as err:
+            _LOGGER.error("Error while setting up the client: %s", err)
 
     async def event_grid_publish_message(self, call, updated=False):
         """Service to publish message to event grid."""
        
-        data = call.data[ATTR_DATA]
-        subject = call.data[CONF_SUBJECT]
-       
-        eventType = call.data[CONF_EVENT_TYPE]
-        if eventType is None:
-            eventType = CONF_EVENT_TYPE_DEFAULT
-       
-        dataVersion = call.data[CONF_DATA_VERSION]
-        if dataVersion is None:
-            dataVersion = CONF_DATA_VERSION_DEFAULT
-  
-        #create the payload, with subject, data and type coming in from the notify platform
-        payload = {
-            'id' : str(uuid.uuid4()),
-            'subject': subject,
-            'data': data,
-            'event_type': eventType,
-            'event_time': datetime.utcnow().replace(tzinfo=pytz.UTC),
-            'data_version': dataVersion
-        }
-
-        #Send the event to event grid
         try:
+            data = call.data[ATTR_DATA]
+            subject = call.data[CONF_SUBJECT]
+        
+            eventType = call.data[CONF_EVENT_TYPE]
+            if eventType is None:
+                eventType = CONF_EVENT_TYPE_DEFAULT
+        
+            dataVersion = call.data[CONF_DATA_VERSION]
+            if dataVersion is None:
+                dataVersion = CONF_DATA_VERSION_DEFAULT
+    
+            #create the payload, with subject, data and type coming in from the notify platform
+            payload = {
+                'id' : str(uuid.uuid4()),
+                'subject': subject,
+                'data': data,
+                'event_type': eventType,
+                'event_time': datetime.utcnow().replace(tzinfo=pytz.UTC),
+                'data_version': dataVersion
+            }
+
+            #Send the event to event grid
             self.client.publish_events(
                 self.host,
                 events=[payload]

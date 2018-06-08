@@ -33,6 +33,7 @@ logger:
   default: warn
   logs:
     homeassistant.components.mqtt: info
+    homeassistant.components.azure_event_grid: debug
 
 map:
 
