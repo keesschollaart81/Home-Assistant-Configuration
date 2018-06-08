@@ -12,15 +12,27 @@ climate.toon_van_eneco:
     
 light.bank:
     friendly_name: Couch
+    icon: mdi:lamp
 
 light.staandelamp:
     friendly_name: Standing
+    icon: mdi:floor-lamp
 
 light.keukenlamp:
     friendly_name: Kitchen
+    icon: mdi:ceiling-light
 
 light.lampentafel:
     friendly_name: Table
+    icon: mdi:ceiling-light
+
+switch.licht_in_tuin:
+    friendly_name: Garden
+    icon: mdi:flower
+
+switch.doorbell_sound:
+    friendly_name: Doorbell Sound
+    icon: mdi:bell-ring
 
 sensor.fietsjasmijn:
     friendly_name: Bike Jasmijn
@@ -42,4 +54,5 @@ camera.dafang:
 
 camera.dafang_motion_snapshot:
     friendly_name: Backyard latest motion snapshot
+
 

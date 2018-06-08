@@ -80,6 +80,9 @@ sensor:
   - platform: mqtt
     name: FietsMarleen
     state_topic: "motion/bike/marleen"
+  - platform: mqtt
+    name: Doorbell
+    state_topic: "home/doorbell/doorbell"
 
 tts:
   - platform: google
@@ -90,7 +93,7 @@ weather:
 cloud:
 
 group: !include groups.yaml
-automation: !include automations.yaml
+automation: !include_dir_merge_list automations
 scene: !include scene.yaml
 input_boolean: !include input_booleans.yaml
 
@@ -165,6 +168,13 @@ light:
     payload_available: "Online"
     payload_not_available: "Offline"
     retain: true
+  - platform: group
+    name: Livingroom
+    entities:
+      - light.staandelamp
+      - light.bank
+      - light.LampenTafel
+      - light.keukenlamp
 
 switch:
   - platform: xiaomi_miio
@@ -172,6 +182,15 @@ switch:
     host: 192.168.2.9
     token:  !secret xiaomi_plug_tuin
     model: chuangmi.plug.v2
+  - platform: mqtt
+    name: "Doorbell Sound"
+    state_topic: "home/doorbell/sound"
+    command_topic: "home/doorbell/sound"
+    payload_on: "1"
+    payload_off: "0"
+    optimistic: false
+    qos: 0
+    retain: true
 
 zone:
   - name: Thuis

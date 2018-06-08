@@ -1,0 +1,45 @@
+- id: 'WasmachineKlaar'
+  alias: Wasmachine - klaar
+  condition: []
+  trigger:
+  - below: '10'
+    entity_id: sensor.wasmachine
+    platform: numeric_state
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.washingmachine_bezig
+      
+
+- id: 'WasmachineBezig'
+  alias: Wasmachine - bezig
+  condition: []
+  trigger:
+  - above: '10'
+    entity_id: sensor.wasmachine
+    platform: numeric_state
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.washingmachine_bezig
+
+- id: 'WasmachineNotificatie'
+  alias: Wasmachine - notificatie
+  condition: []
+  trigger:
+  - platform: state
+    entity_id: input_boolean.washingmachine_bezig
+    from: 'on' 
+    to: 'off'
+    for:
+      minutes: 5
+  action: 
+   - service: notify.pushbullet
+     data:
+        title: "Wasmachine klaar"
+        message: "Wasmachine klaar"
+   - service: notify.ios_marleen_marleen01
+     data:
+        title: "Wasmachine klaar"
+        message: "Wasmachine klaar"
+

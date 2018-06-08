@@ -138,7 +138,11 @@ class ToonDataStore:
 
         self.data['setpoint'] = float(
             self.toon.thermostat_info.current_set_point) / 100
-        self.data['gas_current'] = self.toon.gas.value
+        if self.toon.gas.value < 0:
+            self.data['gas_current'] = 0
+        else:
+            self.data['gas_current'] = self.toon.gas.value
+		
         self.data['gas_today'] = round(float(self.toon.gas.daily_usage) /
                                        1000, 2)
         

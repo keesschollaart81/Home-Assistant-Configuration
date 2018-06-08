@@ -17,6 +17,7 @@ default_view:
     - scene.off 
     - sensor.kees_naar_huis
     - sensor.postnl
+    - switch.doorbell_sound
     - group.lights
     - group.backyard
 
