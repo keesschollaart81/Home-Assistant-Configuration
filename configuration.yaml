@@ -216,7 +216,8 @@ notify:
 
 azure_event_grid:
   topics:
-    - host: !secret eventgrid_host
+    - name: test
+      host: !secret eventgrid_host
       topic key: !secret eventgrid_key
 
 alexa:
