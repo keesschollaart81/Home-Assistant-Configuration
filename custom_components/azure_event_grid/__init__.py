@@ -16,6 +16,7 @@ import ssl
 import re
 import requests.certs
 import attr
+import uuid
 
 import voluptuous as vol
 
