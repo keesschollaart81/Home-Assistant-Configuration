@@ -142,11 +142,11 @@ class AzureEventGrid(object):
         subject = call.data[CONF_SUBJECT]
        
         eventType = call.data[CONF_EVENT_TYPE]
-        if eventType is None 
+        if eventType is None:
             eventType = CONF_EVENT_TYPE_DEFAULT
        
         dataVersion = call.data[CONF_DATA_VERSION]
-        if dataVersion is None 
+        if dataVersion is None:
             dataVersion = CONF_DATA_VERSION_DEFAULT
   
         #create the payload, with subject, data and type coming in from the notify platform
