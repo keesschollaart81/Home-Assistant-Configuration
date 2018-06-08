@@ -34,6 +34,7 @@ logger:
   logs:
     homeassistant.components.mqtt: info
     homeassistant.components.azure_event_grid: debug
+    azure_event_grid: debug
 
 map:
 
