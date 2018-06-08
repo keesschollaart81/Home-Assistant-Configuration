@@ -49,6 +49,7 @@ ATTR_EVENT_TYPE = 'eventtype'
 ATTR_DATA_VERSION = 'dataversion'
 ATTR_PAYLOAD = 'payload'
 ATTR_PAYLOAD_TEMPLATE = 'payload_template'
+# { "subject": "subject", "eventtype":"eventtype","payload":{} }
 
 DEFAULT_EVENT_TYPE = 'HomeAssistant'
 DEFAULT_DATA_VERSION = 1 
@@ -144,16 +145,16 @@ class AzureEventGrid(object):
         """Service to publish message to event grid."""
        
         try:
-            data = call.data[ATTR_DATA]
-            subject = call.data[CONF_SUBJECT]
+            data = call.data[ATTR_PAYLOAD]
+            subject = call.data[ATTR_SUBJECT]
         
-            eventType = call.data[CONF_EVENT_TYPE]
+            eventType = call.data[ATTR_EVENT_TYPE]
             if eventType is None:
-                eventType = CONF_EVENT_TYPE_DEFAULT
+                eventType = DEFAULT_EVENT_TYPE
         
-            dataVersion = call.data[CONF_DATA_VERSION]
+            dataVersion = call.data[ATTR_DATA_VERSION]
             if dataVersion is None:
-                dataVersion = CONF_DATA_VERSION_DEFAULT
+                dataVersion = DEFAULT_DATA_VERSION
     
             #create the payload, with subject, data and type coming in from the notify platform
             payload = {
