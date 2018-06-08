@@ -121,7 +121,7 @@ class AzureEventGrid(object):
     @property
     def host(self):
         """Return the host of this bridge."""
-        return self.config_entry.data[CONF_HOST]
+        return self.config_entry[CONF_HOST]
     
     async def async_setup(self):
         """Set up this event grid based on host parameter."""
@@ -129,11 +129,11 @@ class AzureEventGrid(object):
             from azure.eventgrid import EventGridClient
             from msrest.authentication import TopicCredentials
             
-            self.name = TopicCredentials(self.config_entry.data[CONF_TOPIC_NAME])
+            self.name = TopicCredentials(self.config_entry[CONF_TOPIC_NAME])
         
             LOGGER.debug("Subscribing to %s", self.name)
 
-            credentials = TopicCredentials(self.config_entry.data[CONF_TOPIC_KEY])
+            credentials = TopicCredentials(self.config_entry[CONF_TOPIC_KEY])
             self.client = EventGridClient(credentials) 
 
             self.hass.services.async_register(DOMAIN, SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE, self.event_grid_publish_message, schema=MQTT_PUBLISH_SCHEMA)
