@@ -33,7 +33,8 @@ from homeassistant.const import CONF_HOST, CONF_PAYLOAD, CONF_NAME
 
 REQUIREMENTS = ['azure.eventgrid==0.1.0', 'msrest==0.4.29']
 
-_LOGGER = logging.getLogger(__name__)
+#_LOGGER = logging.getLogger(__name__)
+LOGGER = logging.getLogger('homeassistant.components.azure_event_grid')
 
 DOMAIN = "azure_event_grid" 
 
@@ -74,44 +75,36 @@ MQTT_PUBLISH_SCHEMA = vol.Schema({
     vol.Optional(ATTR_DATA_VERSION, default=DEFAULT_DATA_VERSION): cv.string,
 }, required=True)
 
-async def async_setup(hass, config):
+
+async def async_setup(hass: HomeAssistantType, config: ConfigType) -> bool:
     """Set up the Azure Event Grid platform."""
-   
-    _LOGGER.debug("async_setup")
+    try:
+        LOGGER.debug("async_setup")
 
-    conf = config.get(DOMAIN)
-    if conf is None:
-        conf = {}
+        conf = config.get(DOMAIN)
+        if conf is None:
+            conf = {}
 
-    hass.data[DOMAIN] = {}
+        hass.data[DOMAIN] = {}
 
-    # User has configured topic
-    if CONF_TOPICS in conf:
-        topics = conf[CONF_TOPICS]
- 
-    #if not topics:
-    #    return True
-
-    for topic_conf in topics:
-        name = topic_conf[CONF_TOPIC_NAME]
-
-        # Store config in hass.data so the config entry can find it
-        hass.data[DOMAIN][name] = topic_conf
-
-    return True
-
-
-async def async_setup_entry(hass, entry):
-    """Set up a topic from a config entry."""
+        # User has configured topic
+        if CONF_TOPICS in conf:
+            topics = conf[CONF_TOPICS]
     
-    _LOGGER.debug("async_setup_entry")
+        #if not topics:
+        #    return True
 
-    name = entry.data[CONF_TOPIC_NAME]
-    config = hass.data[DOMAIN].get(name)
+        for topic_conf in topics:
+            name = topic_conf[CONF_TOPIC_NAME]
 
-    topic = AzureEventGrid(hass, entry, allow_unreachable, allow_groups)
-    hass.data[DOMAIN][name] = topic
-    return await bridge.async_setup()
+            # Store config in hass.data so the config entry can find it
+            hass.data[DOMAIN][name] = topic_conf
+
+            topic = AzureEventGrid(hass, topic_conf)
+            await topic.async_setup()
+
+    except Exception  as err:
+        LOGGER.error("Error async_setup: %s", err)
 
 class AzureEventGrid(object):
     """Implement the notification service for the azure event grid."""
@@ -134,14 +127,14 @@ class AzureEventGrid(object):
             
             self.name = TopicCredentials(config[CONF_TOPIC_NAME])
         
-            _LOGGER.debug("Subscribing to %s", self.name)
+            LOGGER.debug("Subscribing to %s", self.name)
 
             credentials = TopicCredentials(config[CONF_TOPIC_KEY])
             self.client = EventGridClient(credentials) 
 
             self.hass.services.async_register(DOMAIN, SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE, self.event_grid_publish_message, schema=MQTT_PUBLISH_SCHEMA)
         except Exception  as err:
-            _LOGGER.error("Error while setting up the client: %s", err)
+            LOGGER.error("Error while setting up the client: %s", err)
 
     async def event_grid_publish_message(self, call, updated=False):
         """Service to publish message to event grid."""
@@ -174,4 +167,4 @@ class AzureEventGrid(object):
                 events=[payload]
             )
         except HomeAssistantError as err:
-            _LOGGER.error("Unable to send event to Event Grid: %s", err)
+            LOGGER.error("Unable to send event to Event Grid: %s", err)
