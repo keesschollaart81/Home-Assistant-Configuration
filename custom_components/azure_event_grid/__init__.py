@@ -96,6 +96,8 @@ async def async_setup(hass: HomeAssistantType, config: ConfigType) -> bool:
 
         for topic_conf in topics:
             name = topic_conf[CONF_TOPIC_NAME]
+        
+            LOGGER.debug("setting up topic: %s",name)
 
             # Store config in hass.data so the config entry can find it
             hass.data[DOMAIN][name] = topic_conf
@@ -127,11 +129,11 @@ class AzureEventGrid(object):
             from azure.eventgrid import EventGridClient
             from msrest.authentication import TopicCredentials
             
-            self.name = TopicCredentials(config[CONF_TOPIC_NAME])
+            self.name = TopicCredentials(self.config_entry.data[CONF_TOPIC_NAME])
         
             LOGGER.debug("Subscribing to %s", self.name)
 
-            credentials = TopicCredentials(config[CONF_TOPIC_KEY])
+            credentials = TopicCredentials(self.config_entry.data[CONF_TOPIC_KEY])
             self.client = EventGridClient(credentials) 
 
             self.hass.services.async_register(DOMAIN, SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE, self.event_grid_publish_message, schema=MQTT_PUBLISH_SCHEMA)
