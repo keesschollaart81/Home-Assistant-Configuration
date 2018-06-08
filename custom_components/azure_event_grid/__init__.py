@@ -76,6 +76,9 @@ MQTT_PUBLISH_SCHEMA = vol.Schema({
 
 async def async_setup(hass, config):
     """Set up the Azure Event Grid platform."""
+   
+    _LOGGER.debug("async_setup")
+
     conf = config.get(DOMAIN)
     if conf is None:
         conf = {}
@@ -100,6 +103,9 @@ async def async_setup(hass, config):
 
 async def async_setup_entry(hass, entry):
     """Set up a topic from a config entry."""
+    
+    _LOGGER.debug("async_setup_entry")
+
     name = entry.data[CONF_TOPIC_NAME]
     config = hass.data[DOMAIN].get(name)
 
