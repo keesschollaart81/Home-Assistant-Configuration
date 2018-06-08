@@ -29,7 +29,7 @@ from homeassistant.helpers import template, config_validation as cv
 from homeassistant.helpers.entity import Entity
 from homeassistant.util.async_ import (
     run_coroutine_threadsafe, run_callback_threadsafe)
-from homeassistant.const import CONF_HOST, CONF_PAYLOAD
+from homeassistant.const import CONF_HOST, CONF_PAYLOAD, CONF_NAME
 
 REQUIREMENTS = ['azure.eventgrid==0.1.0', 'msrest==0.4.29']
 
@@ -39,6 +39,8 @@ DOMAIN = "azure_event_grid"
 
 SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE = "event_grid_publish_Message"
 
+CONF_TOPICS = "topics"
+CONF_TOPIC_NAME = "name"
 CONF_TOPIC_KEY = 'topic key'
 
 ATTR_SUBJECT = 'subject'
@@ -51,13 +53,14 @@ DEFAULT_EVENT_TYPE = 'HomeAssistant'
 DEFAULT_DATA_VERSION = 1 
 
 TOPIC_CONFIG_SCHEMA = vol.Schema({
+    vol.Required(CONF_TOPIC_NAME) : cv.string,
     vol.Required(CONF_HOST): cv.string,
     vol.Required(CONF_TOPIC_KEY): cv.string
 })
 
 CONFIG_SCHEMA = vol.Schema({
     DOMAIN: vol.Schema({
-        vol.Required("topics"):
+        vol.Required(CONF_TOPICS):
             vol.All(cv.ensure_list, [TOPIC_CONFIG_SCHEMA]),
     }),
 }, extra=vol.ALLOW_EXTRA)
@@ -78,33 +81,31 @@ async def async_setup(hass, config):
         conf = {}
 
     hass.data[DOMAIN] = {}
-    configured = configured_hosts(hass)
 
     # User has configured topic
-    if CONF_TOPIC_KEY in conf:
-        topics = conf[CONF_TOPIC_KEY]
+    if CONF_TOPICS in conf:
+        topics = conf[CONF_TOPICS]
  
-    if not topics:
-        return True
+    #if not topics:
+    #    return True
 
     for topic_conf in topics:
-        host = topic_conf[CONF_HOST]
+        name = topic_conf[CONF_TOPIC_NAME]
 
         # Store config in hass.data so the config entry can find it
-        hass.data[DOMAIN][host] = topic_conf
+        hass.data[DOMAIN][name] = topic_conf
 
     return True
 
 
 async def async_setup_entry(hass, entry):
     """Set up a topic from a config entry."""
-    host = entry.data[CONF_HOST]
-    config = hass.data[DOMAIN].get(host)
+    name = entry.data[CONF_TOPIC_NAME]
+    config = hass.data[DOMAIN].get(name)
 
-    bridge = AzureEventGrid(hass, entry, allow_unreachable, allow_groups)
-    hass.data[DOMAIN][host] = bridge
+    topic = AzureEventGrid(hass, entry, allow_unreachable, allow_groups)
+    hass.data[DOMAIN][name] = topic
     return await bridge.async_setup()
-
 
 class AzureEventGrid(object):
     """Implement the notification service for the azure event grid."""
@@ -118,26 +119,16 @@ class AzureEventGrid(object):
     def host(self):
         """Return the host of this bridge."""
         return self.config_entry.data[CONF_HOST]
-
-    @property
-    def host(self):
-        """Return the host of this bridge."""
-        return self.config_entry.data[CONF_TOPIC_KEY]
     
     async def async_setup(self):
         """Set up this event grid based on host parameter."""
         from azure.eventgrid import EventGridClient
         from msrest.authentication import TopicCredentials
     
-        host = self.host
-        hass = self.hass
-
         credentials = TopicCredentials(config[CONF_TOPIC_KEY])
-        event_grid_client = EventGridClient(credentials) 
+        self.client = EventGridClient(credentials) 
 
-        self.client = AzureEventGrid(config[CONF_HOST], event_grid_client)
-
-        hass.services.async_register(
+        self.hass.services.async_register(
             DOMAIN, SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE, self.event_grid_publish_message,
             schema=MQTT_PUBLISH_SCHEMA)
 
