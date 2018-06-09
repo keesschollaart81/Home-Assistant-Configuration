@@ -31,7 +31,7 @@ from homeassistant.helpers import template, config_validation as cv
 from homeassistant.helpers.entity import Entity
 from homeassistant.util.async_ import (
     run_coroutine_threadsafe, run_callback_threadsafe)
-from homeassistant.const import CONF_HOST, CONF_PAYLOAD, CONF_ENTITY_ID
+from homeassistant.const import CONF_HOST, CONF_PAYLOAD, CONF_NAME
 from datetime import datetime
 
 REQUIREMENTS = ['azure.eventgrid==0.1.0', 'msrest==0.4.29']
@@ -67,7 +67,7 @@ CONFIG_SCHEMA = vol.Schema({
 }, extra=vol.ALLOW_EXTRA)
 
 MQTT_PUBLISH_SCHEMA = vol.Schema({
-    vol.Required(CONF_ENTITY_ID): cv.entity_id,
+    vol.Required(CONF_NAME): cv.string,
     vol.Required(ATTR_SUBJECT): cv.string,
     vol.Exclusive(ATTR_PAYLOAD, CONF_PAYLOAD): object,
     vol.Exclusive(ATTR_PAYLOAD_TEMPLATE, CONF_PAYLOAD): cv.string,
@@ -87,18 +87,17 @@ async def async_setup(hass: HomeAssistantType, config: ConfigType) -> bool:
         @asyncio.coroutine
         def async_handle_event_grid_service(service_call):
             """Handle calls to event grid services."""
-            topic_ids = service.extract_entity_ids(hass, service_call)
-            LOGGER.debug("receiving service call for: %s", topic_ids)
+            topic_name = service_call.data[CONF_NAME]
+            LOGGER.debug("receiving service call for: %s", topic_name)
+ 
+            eventGrid = all_event_grids[topic_name]
+            if service_call.service == SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE:
+                eventGrid.event_grid_publish_message(service_call)
 
-            for topic_id in topic_ids:
-                eventGrid = all_event_grids[topic_id]
-                if service_call.service == SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE:
-                    eventGrid.event_grid_publish_message(service_call)
-
-        for entity_id, topic in topics.items():
-            LOGGER.debug("setting up topic: %s",entity_id)
-            eventGrid = AzureEventGrid(hass, topic[CONF_HOST], entity_id, topic[CONF_TOPIC_KEY])
-            all_event_grids[entity_id] = eventGrid
+        for name, topic in topics.items():
+            LOGGER.debug("setting up topic: %s",name)
+            eventGrid = AzureEventGrid(hass, topic[CONF_HOST], name, topic[CONF_TOPIC_KEY])
+            all_event_grids[name] = eventGrid
 
         hass.services.async_register(
             DOMAIN, SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE, async_handle_event_grid_service,
