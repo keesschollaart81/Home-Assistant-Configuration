@@ -50,7 +50,7 @@ ATTR_EVENT_TYPE = 'eventtype'
 ATTR_DATA_VERSION = 'dataversion'
 ATTR_PAYLOAD = 'payload'
 ATTR_PAYLOAD_TEMPLATE = 'payload_template'
-# { "subject": "subject", "eventtype":"eventtype","payload":{} }
+# { "subject": "subject", "eventtype":"eventtype","payload":{}, "name": "second" }
 
 DEFAULT_EVENT_TYPE = 'HomeAssistant'
 DEFAULT_DATA_VERSION = 1 
@@ -92,6 +92,7 @@ async def async_setup(hass: HomeAssistantType, config: ConfigType) -> bool:
  
             eventGrid = all_event_grids[topic_name]
             if service_call.service == SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE:
+                LOGGER.debug("calling: %s", topic_name)
                 eventGrid.event_grid_publish_message(service_call)
 
         for name, topic in topics.items():
@@ -113,7 +114,7 @@ class AzureEventGrid(object):
 
     def __init__(self, hass, host, name, key):
 
-        LOGGER.debug("Subscribing to %s", name)
+        LOGGER.debug("Setting up to %s", name)
 
         from azure.eventgrid import EventGridClient
         from msrest.authentication import TopicCredentials
@@ -127,6 +128,8 @@ class AzureEventGrid(object):
         """Service to publish message to event grid."""
        
         try:
+            LOGGER.debug("event_grid_publish_message %s", name)
+           
             data = call.data[ATTR_PAYLOAD]
             subject = call.data[ATTR_SUBJECT]
         
@@ -148,7 +151,9 @@ class AzureEventGrid(object):
                 'data_version': dataVersion
             }
  
+            LOGGER.debug("publishing")
             self.client.publish_events(self.host,events=[payload])
+            LOGGER.debug("published")
 
         except HomeAssistantError as err:
             LOGGER.error("Unable to send event to Event Grid: %s", err)
