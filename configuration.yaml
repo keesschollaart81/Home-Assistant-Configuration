@@ -217,13 +217,12 @@ notify:
   #   topic key: !secret eventgrid_key
 
 azure_event_grid:
-  topics:
-    - name: test
-      host: !secret eventgrid_host
-      topic key: !secret eventgrid_key
-    - name: second
-      host: !secret eventgrid_host2
-      topic key: !secret eventgrid_key2
+  test:
+    host: !secret eventgrid_host
+    topic key: !secret eventgrid_key
+  second:
+    host: !secret eventgrid_host2
+    topic key: !secret eventgrid_key2
 
 alexa:
   smart_home:
