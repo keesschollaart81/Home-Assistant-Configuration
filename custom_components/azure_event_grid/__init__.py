@@ -89,8 +89,12 @@ async def async_setup(hass: HomeAssistantType, config: ConfigType) -> bool:
             """Handle calls to event grid services."""
             topic_name = service_call.data[CONF_NAME]
             LOGGER.debug("receiving service call for: %s", topic_name)
+            LOGGER.debug("service_call.service: %s", service_call.service)
+            LOGGER.debug("SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE: %s", SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE)
  
             eventGrid = all_event_grids[topic_name]
+            LOGGER.debug("eventGrid: %s", eventGrid)
+            
             if service_call.service == SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE:
                 LOGGER.debug("calling: %s", topic_name)
                 eventGrid.event_grid_publish_message(service_call)
