@@ -41,7 +41,7 @@ LOGGER = logging.getLogger('homeassistant.components.azure_event_grid')
 
 DOMAIN = "azure_event_grid" 
 
-SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE = "publish_Message"
+SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE = "publish_message"
 
 CONF_TOPIC_KEY = 'topic key'
 
