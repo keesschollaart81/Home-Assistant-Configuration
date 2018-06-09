@@ -31,7 +31,7 @@ from homeassistant.helpers import template, config_validation as cv
 from homeassistant.helpers.entity import Entity
 from homeassistant.util.async_ import (
     run_coroutine_threadsafe, run_callback_threadsafe)
-from homeassistant.const import CONF_HOST, CONF_PAYLOAD, CONF_NAME
+from homeassistant.const import CONF_HOST, CONF_PAYLOAD, CONF_NAME, CONF_ENTITY_ID
 from datetime import datetime
 
 REQUIREMENTS = ['azure.eventgrid==0.1.0', 'msrest==0.4.29']
@@ -114,8 +114,7 @@ class AzureEventGrid(object):
     """Implement the notification service for the azure event grid."""
 
     def __init__(self, hass, host, name, key):
-        """Initialize the system."""
-        
+
         LOGGER.debug("Subscribing to %s", name)
 
         from azure.eventgrid import EventGridClient
