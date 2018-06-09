@@ -94,7 +94,7 @@ async def async_setup(hass: HomeAssistantType, config: ConfigType) -> bool:
             for topic_id in topic_ids:
                 eventGrid = all_event_grids[topic_id]
                 if service_call.service == SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE:
-                    await eventGrid.event_grid_publish_message(service_call)
+                    eventGrid.event_grid_publish_message(service_call)
 
         for entity_id, topic in topics.items():
             LOGGER.debug("setting up topic: %s",entity_id)
@@ -126,7 +126,7 @@ class AzureEventGrid(object):
         self.hass = hass 
         self.client = EventGridClient(TopicCredentials(key)) 
 
-    async def event_grid_publish_message(self, call):
+    def event_grid_publish_message(self, call):
         """Service to publish message to event grid."""
        
         try:
@@ -152,6 +152,6 @@ class AzureEventGrid(object):
             }
  
             self.client.publish_events(self.host,events=[payload])
-            
+
         except HomeAssistantError as err:
             LOGGER.error("Unable to send event to Event Grid: %s", err)
