@@ -31,7 +31,7 @@ from homeassistant.helpers import template, config_validation as cv
 from homeassistant.helpers.entity import Entity
 from homeassistant.util.async_ import (
     run_coroutine_threadsafe, run_callback_threadsafe)
-from homeassistant.const import CONF_HOST, CONF_PAYLOAD, CONF_NAME, CONF_ENTITY_ID
+from homeassistant.const import CONF_HOST, CONF_PAYLOAD, CONF_ENTITY_ID
 from datetime import datetime
 
 REQUIREMENTS = ['azure.eventgrid==0.1.0', 'msrest==0.4.29']
@@ -43,7 +43,6 @@ DOMAIN = "azure_event_grid"
 
 SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE = "publish_Message"
 
-CONF_TOPIC_NAME = "name"
 CONF_TOPIC_KEY = 'topic key'
 
 ATTR_SUBJECT = 'subject'
@@ -98,7 +97,7 @@ async def async_setup(hass: HomeAssistantType, config: ConfigType) -> bool:
 
         for entity_id, topic in topics.items():
             LOGGER.debug("setting up topic: %s",entity_id)
-            eventGrid = AzureEventGrid(hass, entity_id, topic[CONF_HOST], topic[CONF_TOPIC_NAME], topic[CONF_TOPIC_KEY])
+            eventGrid = AzureEventGrid(hass, topic[CONF_HOST], entity_id, topic[CONF_TOPIC_KEY])
             all_event_grids[entity_id] = eventGrid
 
         hass.services.async_register(
