@@ -88,19 +88,13 @@ async def async_setup(hass: HomeAssistantType, config: ConfigType) -> bool:
         def async_handle_event_grid_service(service_call):
             """Handle calls to event grid services."""
             topic_name = service_call.data[CONF_NAME]
-            LOGGER.debug("receiving service call for: %s", topic_name)
-            LOGGER.debug("service_call.service: %s", service_call.service)
-            LOGGER.debug("SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE: %s", SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE)
- 
             eventGrid = all_event_grids[topic_name]
-            LOGGER.debug("eventGrid: %s", eventGrid)
             
             if service_call.service == SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE:
-                LOGGER.debug("calling: %s", topic_name)
                 eventGrid.event_grid_publish_message(service_call)
 
         for name, topic in topics.items():
-            LOGGER.debug("setting up topic: %s",name)
+            LOGGER.debug("setting up topic: %s", name)
             eventGrid = AzureEventGrid(hass, topic[CONF_HOST], name, topic[CONF_TOPIC_KEY])
             all_event_grids[name] = eventGrid
 
@@ -117,9 +111,6 @@ class AzureEventGrid(object):
     """Implement the notification service for the azure event grid."""
 
     def __init__(self, hass, host, name, key):
-
-        LOGGER.debug("Setting up to %s", name)
-
         from azure.eventgrid import EventGridClient
         from msrest.authentication import TopicCredentials
 
@@ -129,11 +120,7 @@ class AzureEventGrid(object):
         self.client = EventGridClient(TopicCredentials(key)) 
 
     def event_grid_publish_message(self, call):
-        """Service to publish message to event grid."""
-       
         try:
-            LOGGER.debug("event_grid_publish_message %s", name)
-           
             data = call.data[ATTR_PAYLOAD]
             subject = call.data[ATTR_SUBJECT]
         
@@ -145,7 +132,6 @@ class AzureEventGrid(object):
             if dataVersion is None:
                 dataVersion = DEFAULT_DATA_VERSION
     
-            #create the payload, with subject, data and type coming in from the notify platform
             payload = {
                 'id' : str(uuid.uuid4()),
                 'subject': subject,
@@ -155,9 +141,8 @@ class AzureEventGrid(object):
                 'data_version': dataVersion
             }
  
-            LOGGER.debug("publishing")
             self.client.publish_events(self.host,events=[payload])
-            LOGGER.debug("published")
+            LOGGER.debug("message published for topic %s", self.name)
 
         except HomeAssistantError as err:
             LOGGER.error("Unable to send event to Event Grid: %s", err)
