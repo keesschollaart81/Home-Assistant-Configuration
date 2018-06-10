@@ -157,7 +157,7 @@ class EventGridView(http.HomeAssistantView):
     name = 'api:event_grid'
 
     @asyncio.coroutine
-    def post(self, request, topic_name):
+    async def post(self, request, topic_name):
         from azure.eventgrid.models import SubscriptionValidationResponse
         
         LOGGER.debug("Received request")
