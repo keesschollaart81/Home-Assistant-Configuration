@@ -21,6 +21,7 @@ import pytz
 
 import voluptuous as vol
 
+from homeassistant.components import (http)
 from homeassistant.helpers.typing import HomeAssistantType, ConfigType, \
     ServiceDataType
 from homeassistant.core import callback, Event, ServiceCall
@@ -40,8 +41,9 @@ REQUIREMENTS = ['azure.eventgrid==0.1.0', 'msrest==0.4.29']
 LOGGER = logging.getLogger('homeassistant.components.azure_event_grid')
 
 DOMAIN = "azure_event_grid" 
+EVENT_GRID_HTTP_ENDPOINT = '/api/event_grid'
 
-SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE = "publish_message"
+SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE = "`publish_message`"
 
 CONF_TOPIC_KEY = 'topic key'
 
@@ -102,6 +104,8 @@ async def async_setup(hass: HomeAssistantType, config: ConfigType) -> bool:
             DOMAIN, SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE, async_handle_event_grid_service,
             schema=MQTT_PUBLISH_SCHEMA)
 
+        hass.http.register_view(EventGridView())
+
     except Exception  as err:
         LOGGER.error("Error async_setup: %s", err)
 
@@ -146,3 +150,19 @@ class AzureEventGrid(object):
 
         except HomeAssistantError as err:
             LOGGER.error("Unable to send event to Event Grid: %s", err)
+
+class EventGridView(http.HomeAssistantView):
+
+    url = EVENT_GRID_HTTP_ENDPOINT
+    name = 'api:event_grid'
+
+    def __init__(self):
+
+    @asyncio.coroutine
+    def get(self, request):
+        hass = request.app['hass']
+        message = yield from request.json()
+
+        _LOGGER.debug("Received request: %s", message)
+
+        return self.json({})
