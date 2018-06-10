@@ -35,7 +35,7 @@ from homeassistant.util.async_ import (
 from homeassistant.const import CONF_HOST, CONF_PAYLOAD, CONF_NAME
 from datetime import datetime
 
-REQUIREMENTS = ['azure.eventgrid==0.1.0', 'msrest==0.4.29']
+REQUIREMENTS = ['azure.eventgrid==1.1.0', 'msrest==0.4.29']
 
 #_LOGGER = logging.getLogger(__name__)
 LOGGER = logging.getLogger('homeassistant.components.azure_event_grid')
