@@ -41,7 +41,7 @@ REQUIREMENTS = ['azure.eventgrid==0.1.0', 'msrest==0.4.29']
 LOGGER = logging.getLogger('homeassistant.components.azure_event_grid')
 
 DOMAIN = "azure_event_grid" 
-EVENT_GRID_HTTP_ENDPOINT = '/api/event_grid'
+EVENT_GRID_HTTP_ENDPOINT = '/api/event_grid/{topic_name}'
 
 SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE = "`publish_message`"
 
@@ -157,9 +157,9 @@ class EventGridView(http.HomeAssistantView):
     name = 'api:event_grid'
 
     @asyncio.coroutine
-    def get(self, request):
+    def get(self, request, topic_name):
         hass = request.app['hass']
 
-        _LOGGER.debug("Received request")
+        LOGGER.debug("Received request")
 
         return self.json_message("{}")
