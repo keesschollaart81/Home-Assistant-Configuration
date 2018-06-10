@@ -113,7 +113,7 @@ async def async_setup(hass: HomeAssistantType, config: ConfigType) -> bool:
 
 class AzureEventGrid(object):
     """Implement the notification service for the azure event grid."""
-
+    
     def __init__(self, hass, host, name, key):
         from azure.eventgrid import EventGridClient
         from msrest.authentication import TopicCredentials
@@ -155,8 +155,6 @@ class EventGridView(http.HomeAssistantView):
 
     url = EVENT_GRID_HTTP_ENDPOINT
     name = 'api:event_grid'
-
-    def __init__(self):
 
     @asyncio.coroutine
     def get(self, request):
