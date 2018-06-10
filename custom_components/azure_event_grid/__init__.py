@@ -185,9 +185,9 @@ class EventGridView(http.HomeAssistantView):
                 LOGGER.debug("asd4 %s", eventHubRequestEntry.get('eventType'))
             except Exception as err:
                 LOGGER.error("iel4 %s", err) 
-    
-            response = SubscriptionValidationResponse(validationResponse=eventHubRequestEntry['data']['validationCode'])
 
-            return self.json(response)
+            return self.json({  
+                validationResponse=eventHubRequestEntry['data']['validationCode']
+            })
 
         return self.json({})
