@@ -157,9 +157,9 @@ class EventGridView(http.HomeAssistantView):
     name = 'api:event_grid'
 
     @asyncio.coroutine
-    def get(self, request, topic_name):
+    def post(self, request, topic_name, data):
         hass = request.app['hass']
 
         LOGGER.debug("Received request")
 
-        return self.json_message("{}")
+        return self.json(data)
