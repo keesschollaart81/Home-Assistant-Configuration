@@ -43,7 +43,7 @@ LOGGER = logging.getLogger('homeassistant.components.azure_event_grid')
 DOMAIN = "azure_event_grid" 
 EVENT_GRID_HTTP_ENDPOINT = '/api/event_grid/{topic_name}'
 
-SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE = "`publish_message`"
+SERVICE_AZURE_EVENT_GRID__PUBLISH_MESSAGE = "publish_message"
 
 CONF_TOPIC_KEY = 'topic key'
 
@@ -160,34 +160,21 @@ class EventGridView(http.HomeAssistantView):
     async def post(self, request, topic_name):
         from azure.eventgrid.models import SubscriptionValidationResponse
 
-        LOGGER.debug("Received request")
-        
-        data = await request.json()
-        LOGGER.debug("dit dus: %s", data) 
-        #[{'id': '58f9787a-6cf8-4efb-xxxx-4fbb31c69398', 'topic': '/subscriptions/f2da982c-fc6f-xxxx-ad1e-46a186f9fa84/resourceGroups/eventgridtest/providers/Microsoft.EventGrid/topics/keestesttopic', 'subject': '', 'data': {'validationCode': '09E2E428-7729-4DE4-xxxx-BCD800D109A3', 'validationUrl': 'https://rp-westeurope.eventgrid.azure.net/eventsubscriptions/test/validate?id=09E2E428-7729-xxxx-B47A-BCD800D109A3&t=2018-06-10T12:23:49.7126308Z&apiVersion=2018-05-01-preview&token=xxxx%2fXT1Uy8ndIfaro1mo%3d'}, 'eventType': 'Microsoft.EventGrid.SubscriptionValidationEvent', 'eventTime': '2018-06-10T12:23:49.7126308Z', 'metadataVersion': '1', 'dataVersion': '2'}]
+        data = await request.json() 
 
-        for eventHubRequestEntry in data: 
-            try:
-                LOGGER.debug("asd1 %s", eventHubRequestEntry['eventType'])
-            except Exception as err:
-                LOGGER.error("iell1 %s", err)
-            try:
-                LOGGER.debug("asd2 %s", eventHubRequestEntry['validationCode'])
-            except Exception as err:
-                LOGGER.error("iell2 %s", err)
+        for eventHubRequestEntry in data:
+            LOGGER.debug("Processing EventGrid message")
 
-            try:
-                LOGGER.debug("asd3 %s", eventHubRequestEntry['eventType'])
-            except Exception as err:
-                LOGGER.error("iel3 %s", err)
+            if eventHubRequestEntry['eventType'] == 'Microsoft.EventGrid.SubscriptionValidationEvent':
+                #[{'id': '58f9787a-xxxx-xxxx-xxxx-4fbb31c69398', 'topic': '/subscriptions/f2da982c-fc6f-xxxx-ad1e-46a186f9fa84/resourceGroups/eventgridtest/providers/Microsoft.EventGrid/topics/keestesttopic', 'subject': '', 'data': {'validationCode': '09E2E428-xxxx-xxxx-xxxx-BCD800D109A3', 'validationUrl': 'https://rp-westeurope.eventgrid.azure.net/eventsubscriptions/test/validate?id=09E2E428-xxxx-xxxx-xxxx-BCD800D109A3&t=2018-06-10T12:23:49.7126308Z&apiVersion=2018-05-01-preview&token=xxxx%2fXT1Uy8ndIfaro1mo%3d'}, 'eventType': 'Microsoft.EventGrid.SubscriptionValidationEvent', 'eventTime': '2018-06-10T12:23:49.7126308Z', 'metadataVersion': '1', 'dataVersion': '2'}]
 
-            try:
-                LOGGER.debug("asd4 %s", eventHubRequestEntry.get('eventType'))
-            except Exception as err:
-                LOGGER.error("iel4 %s", err) 
+                return self.json({  
+                    'validationResponse': eventHubRequestEntry['data']['validationCode']
+                })
 
-            return self.json({  
-                'validationResponse': eventHubRequestEntry['data']['validationCode']
-            })
+            else 
+                # [{'id': '0919d8a2-85d5-4966-xxxx-4f477c4f86e5', 'subject': 'subject', 'data': {}, 'eventType': 'eventtype', 'eventTime': '2018-06-10T13:08:42.761632Z', 'dataVersion': '1', 'metadataVersion': '1', 'topic': '/subscriptions/f2da982c-xxxx-xxxx-xxxx-46a186f9fa84/resourceGroups/eventgridtest/providers/Microsoft.EventGrid/topics/keestesttopic'}]
+                
+                # Todo do simething with this message
 
-        return self.json({})
+        raise Exception('Unknown request on EventGrid api')
