@@ -163,22 +163,29 @@ class EventGridView(http.HomeAssistantView):
         LOGGER.debug("Received request")
         
         data = await request.json()
+        LOGGER.debug("dit dus: %s", data) 
+
         try:
             LOGGER.debug("asd %s", request.eventType)
         except Exception as err:
             LOGGER.error("iell %s", err)
 
         try:
-            LOGGER.debug("asd1 %s", data["eventType"])
+            LOGGER.debug("asd1 %s", data['eventType'])
         except Exception as err:
             LOGGER.error("iell1 %s", err)
         try:
-            LOGGER.debug("asd2 %s", data["validationCode"])
+            LOGGER.debug("asd2 %s", data['validationCode'])
         except Exception as err:
             LOGGER.error("iell2 %s", err)
 
+        try:
+            LOGGER.debug("asd3 %s", request['eventType'])
+        except Exception as err:
+            LOGGER.error("iel3 %s", err)
+
         #hass = request.app['hass']
  
-        response = SubscriptionValidationResponse(validation_response=data["validationCode"])  
+        response = SubscriptionValidationResponse(validation_response=data['validationCode'])
 
         return self.json(response)
