@@ -186,7 +186,7 @@ class EventGridView(http.HomeAssistantView):
             except Exception as err:
                 LOGGER.error("iel4 %s", err) 
     
-            response = SubscriptionValidationResponse(validation_response=eventHubRequestEntry['data']['validationCode'])
+            response = SubscriptionValidationResponse(validationResponse=eventHubRequestEntry['data']['validationCode'])
 
             return self.json(response)
 
