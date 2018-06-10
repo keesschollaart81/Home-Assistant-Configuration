@@ -167,4 +167,4 @@ class EventGridView(http.HomeAssistantView):
  
         response = SubscriptionValidationResponse(validation_response="123")  
 
-        return self.json(data)
+        return self.json(response)
