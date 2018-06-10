@@ -163,4 +163,4 @@ class EventGridView(http.HomeAssistantView):
 
         _LOGGER.debug("Received request: %s", message)
 
-        return self.json({})
+        return {}
