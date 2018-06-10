@@ -159,8 +159,7 @@ class EventGridView(http.HomeAssistantView):
     @asyncio.coroutine
     def get(self, request):
         hass = request.app['hass']
-        message = yield from request.json()
 
-        _LOGGER.debug("Received request: %s", message)
+        _LOGGER.debug("Received request")
 
         return self.json_message("{}")
