@@ -187,7 +187,7 @@ class EventGridView(http.HomeAssistantView):
                 LOGGER.error("iel4 %s", err) 
 
             return self.json({  
-                validationResponse=eventHubRequestEntry['data']['validationCode']
+                'validationResponse': eventHubRequestEntry['data']['validationCode']
             })
 
         return self.json({})
