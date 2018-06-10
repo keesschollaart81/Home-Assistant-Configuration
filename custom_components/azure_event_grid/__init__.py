@@ -182,7 +182,7 @@ class EventGridView(http.HomeAssistantView):
                 LOGGER.error("iel3 %s", err)
 
             try:
-                LOGGER.debug("asd4 %s", eventHubRequestEntry.get('eventType')))
+                LOGGER.debug("asd4 %s", eventHubRequestEntry.get('eventType'))
             except Exception as err:
                 LOGGER.error("iel4 %s", err) 
     
