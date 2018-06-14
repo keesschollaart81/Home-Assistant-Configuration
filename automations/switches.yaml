@@ -1,11 +1,11 @@
 - id: knop1
   alias: Schakelaar 1 links > Eating
   trigger:
-    platform: event
-    event_type: click
-    event_data:
-      entity_id: binary_sensor.wall_switch_left_158d0001639d5a
-      click_type: single
+    platform: mqtt
+    topic: 'zigbee2mqtt/0x00158d0001639d5a'
+  condition:
+    condition: template
+    value_template: "{{ 'left' == trigger.payload_json.click }}"
   action:
     - service: homeassistant.turn_on
       entity_id: scene.Eating
@@ -13,11 +13,11 @@
 - id: knop2
   alias: Schakelaar 1 rechts > Evening
   trigger:
-    platform: event
-    event_type: click
-    event_data:
-      entity_id: binary_sensor.wall_switch_right_158d0001639d5a
-      click_type: single
+    platform: mqtt
+    topic: 'zigbee2mqtt/0x00158d0001639d5a'
+  condition:
+    condition: template
+    value_template: "{{ 'right' == trigger.payload_json.click }}"
   action:
     - service: homeassistant.turn_on
       entity_id: scene.evening
@@ -25,11 +25,11 @@
 - id: knop3
   alias: Schakelaar 2 links > Maximum
   trigger:
-    platform: event
-    event_type: click
-    event_data:
-      entity_id: binary_sensor.wall_switch_left_158d0001710729
-      click_type: single
+    platform: mqtt
+    topic: 'zigbee2mqtt/0x00158d0001710729'
+  condition:
+    condition: template
+    value_template: "{{ 'left' == trigger.payload_json.click }}"
   action:
   - service: light.toggle
     data:
@@ -38,11 +38,11 @@
 - id: knop4
   alias: Schakelaar 2 rechts > Off
   trigger:
-    platform: event
-    event_type: click
-    event_data:
-      entity_id: binary_sensor.wall_switch_right_158d0001710729
-      click_type: single
+    platform: mqtt
+    topic: 'zigbee2mqtt/0x00158d0001710729'
+  condition:
+    condition: template
+    value_template: "{{ 'right' == trigger.payload_json.click }}"
   action:
   - service: light.turn_off
     data:
@@ -70,10 +70,10 @@
 - alias: Respond to button clicks
   trigger:
     platform: mqtt
-    topic: 'zigbee2mqtt/0x00158d0002138221'
+    topic: 'zigbee2mqtt/0x00158d0001639d5a'
   condition:
     condition: template
-    value_template: "{{ 'single' == trigger.payload_json.click }}"
+    value_template: "{{ 'left' == trigger.payload_json.click }}"
   action:
    - service: notify.pushbullet
      data:

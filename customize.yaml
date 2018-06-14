@@ -73,3 +73,6 @@ binary_sensor.0x00158d000222df56_occupancy:
 sensor.0x00158d000222df56_illuminance:
     friendly_name: Living Room - Illuminance
 
+sensor.0x00158d0001639d5a:
+    friendly_name: Living Room - Left
+    
