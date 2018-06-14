@@ -1,5 +1,5 @@
 - id: knop1
-  alias: Schakelaar 1 links > Eating
+  alias: Living Room - Switch 1 (Eating)
   trigger:
     platform: mqtt
     topic: 'zigbee2mqtt/0x00158d0001639d5a'
@@ -11,7 +11,7 @@
       entity_id: scene.Eating
 
 - id: knop2
-  alias: Schakelaar 1 rechts > Evening
+  alias: Living Room - Switch 2 (Evening)
   trigger:
     platform: mqtt
     topic: 'zigbee2mqtt/0x00158d0001639d5a'
@@ -23,7 +23,7 @@
       entity_id: scene.evening
 
 - id: knop3
-  alias: Schakelaar 2 links > Maximum
+  alias: Living Room - Switch 3 (Kitchen)
   trigger:
     platform: mqtt
     topic: 'zigbee2mqtt/0x00158d0001710729'
@@ -36,7 +36,7 @@
       entity_id: light.keukenlamp
 
 - id: knop4
-  alias: Schakelaar 2 rechts > Off
+  alias:  Living Room - Switch 1 (All off)
   trigger:
     platform: mqtt
     topic: 'zigbee2mqtt/0x00158d0001710729'

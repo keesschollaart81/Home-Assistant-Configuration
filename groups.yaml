@@ -14,7 +14,8 @@ default_view:
     - sensor.postnl
     - group.living_room
     - group.backyard
-    - group.Hall
+    - group.hall
+    - group.attic
 
 Living Room:
   - light.staandelamp 
