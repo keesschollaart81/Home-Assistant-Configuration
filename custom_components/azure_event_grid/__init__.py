@@ -172,7 +172,7 @@ class EventGridView(http.HomeAssistantView):
                     'validationResponse': eventHubRequestEntry['data']['validationCode']
                 })
 
-            else:
+            #else:
                 # [{'id': '0919d8a2-85d5-4966-xxxx-4f477c4f86e5', 'subject': 'subject', 'data': {}, 'eventType': 'eventtype', 'eventTime': '2018-06-10T13:08:42.761632Z', 'dataVersion': '1', 'metadataVersion': '1', 'topic': '/subscriptions/f2da982c-xxxx-xxxx-xxxx-46a186f9fa84/resourceGroups/eventgridtest/providers/Microsoft.EventGrid/topics/keestesttopic'}]
                 
                 # Todo do simething with this message
