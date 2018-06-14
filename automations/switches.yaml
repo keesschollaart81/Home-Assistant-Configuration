@@ -33,7 +33,7 @@
   action:
   - service: light.toggle
     data:
-      entity_id: light.keukenlamp
+      entity_id: light.kitchen
 
 - id: knop4
   alias:  Living Room - Switch 1 (All off)

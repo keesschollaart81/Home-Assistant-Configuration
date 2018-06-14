@@ -21,7 +21,7 @@ Living Room:
   - light.staandelamp 
   - light.bank 
   - light.LampenTafel
-  - light.keukenlamp
+  - light.kitchen
   - sensor.0x00158d000222df56_occupancy
   - scene.eating
   - scene.evening
