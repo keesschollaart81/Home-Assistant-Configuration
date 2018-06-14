@@ -140,10 +140,10 @@ device_tracker:
     password: !secret experiabox
     track_new_devices: no
       
-xiaomi_aqara:
-  discovery_retry: 5
-  gateways:
-    - key: !secret xiaomi_aqara_key
+# xiaomi_aqara:
+#   discovery_retry: 5
+#   gateways:
+#     - key: !secret xiaomi_aqara_key
     
 light:
   - platform: xiaomi_miio

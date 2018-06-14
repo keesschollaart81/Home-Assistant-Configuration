@@ -66,3 +66,7 @@ sensor.0x00158d0001f5358e_temperature:
 
 sensor.0x00158d0002138221:
     friendly_name: Single switch
+
+sensor.0x00158d0001639d5a:
+    friendly_name: Living Room - Left
+    
