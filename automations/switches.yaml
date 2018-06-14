@@ -66,3 +66,16 @@
   action:
     - service: homeassistant.turn_on
       entity_id: scene.Eating
+
+- alias: Respond to button clicks
+  trigger:
+    platform: mqtt
+    topic: 'zigbee2mqtt/0x00158d0002138221'
+  condition:
+    condition: template
+    value_template: "{{ 'single' == trigger.payload_json.click }}"
+  action:
+   - service: notify.pushbullet
+     data:
+        title: "Button push"
+        message: "Button push"
