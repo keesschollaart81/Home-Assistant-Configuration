@@ -42,7 +42,7 @@
         state: on
         color_temp: 333
         brightness: 255  
-      light.keukenlamp:
+      light.kitchen:
         state: on
         
 -   name: Off
@@ -53,5 +53,5 @@
         state: off
       light.bank:
         state: off 
-      light.keukenlamp:
+      light.kitchen:
         state: off 
