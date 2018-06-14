@@ -5,43 +5,52 @@ default_view:
   entities:
     - device_tracker.marleen_marleen01
     - device_tracker.Kees_kees01
-    - media_player.woonkamer
     - binary_sensor.burner_status
     - sensor.temperature_158d0001f5358e
     - sensor.gas_today
     - sensor.power_today
     - updater.updater
-    - scene.eating
-    - scene.evening
-    - scene.maximum
-    - scene.off 
     - sensor.kees_naar_huis
     - sensor.postnl
-    - switch.doorbell_sound
-    - group.lights
+    - group.living_room
     - group.backyard
-    - group.zigbee_group
+    - group.Hall
 
-Lights: 
+Living Room:
   - light.staandelamp 
   - light.bank 
   - light.LampenTafel
   - light.keukenlamp
-  - switch.licht_in_tuin
- 
+  - sensor.0x00158d000222df56_occupancy
+  - scene.eating
+  - scene.evening
+  - scene.off 
+  - media_player.woonkamer
+  
 Backyard:
+  - switch.licht_in_tuin
   - sensor.schuurdeur
   - sensor.poortdeur
   - sensor.fietsjasmijn
   - sensor.fietsmarleen
   - camera.dafang_motion_snapshot
   - camera.dafang
+
+Hall:
+    - switch.doorbell_sound
+
+Attic:
+  - light.attic
   
-DafangTab:
-  name: Dafang
+System:
+  name: Systeem
   view: yes
   icon: mdi:camera
   entities:
+    - group.dafang
+    - group.zigbee_group
+
+Dafang:
     - camera.dafang
     - switch.dafang_h264_rtsp_server
     - switch.dafang_mjpeg_rtsp_server
