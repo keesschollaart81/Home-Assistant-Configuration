@@ -52,7 +52,7 @@
   alias: Lights on when motion
   trigger:
     - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000222df56
+      entity_id: binary_sensor.0x00158d000222df56_occupancy
       to: 'on'
   condition: 
     condition: and
