@@ -29,6 +29,11 @@ history:
 
 logbook:
 
+timer:
+  zigbee_permit_join:
+    name: Time remaining
+    duration: 600 # Updated this to the number of seconds you wish
+
 logger:
   default: warn
   logs:
@@ -85,7 +90,11 @@ sensor:
   - platform: mqtt
     name: Doorbell
     state_topic: "home/doorbell/doorbell"
-
+  - platform: mqtt
+    name: Bridge state
+    state_topic: "zigbee2mqtt/bridge/state"
+    icon: mdi:router-wireless
+    
 tts:
   - platform: google
 
