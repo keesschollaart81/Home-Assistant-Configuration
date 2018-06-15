@@ -36,7 +36,7 @@
       entity_id: light.kitchen
 
 - id: knop4
-  alias:  Living Room - Switch 1 (All off)
+  alias:  Living Room - Switch 4 (All off)
   trigger:
     platform: mqtt
     topic: 'zigbee2mqtt/0x00158d0001710729'

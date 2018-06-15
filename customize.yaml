@@ -64,6 +64,9 @@ sensor.0x00158d0001f5358e_humidity:
 sensor.0x00158d0001f5358e_temperature:
     friendly_name: Living Room - Temperature
 
+sensor.0x00158d0001f5358e_battery:
+    friendly_name: Living Room - Environment Sensor
+
 sensor.0x00158d0002138221:
     friendly_name: Single switch
 
@@ -72,6 +75,9 @@ binary_sensor.0x00158d000222df56_occupancy:
 
 sensor.0x00158d000222df56_illuminance:
     friendly_name: Living Room - Illuminance
+
+sensor.0x00158d000222df56_battery:
+    friendly_name: Living Room - Motion Sensor
 
 sensor.0x00158d0001639d5a:
     friendly_name: Living Room - Left
