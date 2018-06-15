@@ -78,5 +78,5 @@ zigbee_group:
     - sensor.bridge_state
   
 batteries:
-  sensor.0x00158d0001f5358e_battery
-  sensor.0x00158d000222df56_battery
+  - sensor.0x00158d0001f5358e_battery
+  - sensor.0x00158d000222df56_battery
