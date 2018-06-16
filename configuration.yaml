@@ -31,7 +31,6 @@ history:
       - automation
       - weblink
       - updater
-      - device_tracker
     entities:
       - camera.dafang_motion_snapshot
       - group.zigbee_group
@@ -43,12 +42,6 @@ history:
       - sensor.iphone_van_marleen_battery_level_2
       - sensor.iphone_van_marleen_battery_state
       - sensor.iphone_van_marleen_battery_state_2
-  include:
-    entities:
-      - device_tracker.kees_kees01
-      - device_tracker.marleen_marleen01
-      - input_boolean.zigbee_permit_join
-      - input_boolean.washingmachine_bezig
 
 recorder:
   db_url: !secret recorder_db_url
