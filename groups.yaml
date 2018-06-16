@@ -42,7 +42,7 @@ Hall:
 
 Attic:
   - light.attic
-  - input_boolean.washingmachine_bezig
+  - input_boolean.washingmachine_busy
   
 System:
   name: Systeem
