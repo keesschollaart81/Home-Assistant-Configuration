@@ -1,0 +1,55 @@
+- platform: xiaomi_miio
+  name: staandelamp
+  host: 192.168.2.4
+  token: !secret staandelamp_token
+- platform: xiaomi_miio
+  name: bank
+  host: 192.168.2.6
+  token: !secret bank_token
+- platform: xiaomi_miio
+  name: tafel1
+  host: 192.168.2.7
+  token: !secret tafel1_token
+- platform: xiaomi_miio
+  name: tafel2
+  host: 192.168.2.5
+  token: !secret tafel2_token
+- platform: xiaomi_miio
+  name: tafel3
+  host: 192.168.2.3
+  token: !secret tafel3_token
+- platform: group
+  name: LampenTafel
+  entities:
+    - light.tafel1
+    - light.tafel2
+    - light.tafel3 
+- platform: mqtt
+  name: kitchen
+  state_topic: "stat/kitchen/POWER"
+  command_topic: "cmnd/kitchen/POWER"
+  availability_topic: "tele/kitchen/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+- platform: mqtt
+  name: Attic
+  state_topic: "stat/attic/POWER"
+  command_topic: "cmnd/attic/POWER"
+  availability_topic: "tele/attic/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+- platform: group
+  name: Livingroom
+  entities:
+    - light.staandelamp
+    - light.bank
+    - light.LampenTafel
+    - light.kitchen

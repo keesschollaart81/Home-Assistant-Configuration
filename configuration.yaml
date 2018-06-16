@@ -7,6 +7,14 @@ homeassistant:
   time_zone: Europe/Amsterdam
   customize: !include customize.yaml
 
+switch: !include switches.yaml
+light: !include lights.yaml
+sensor: !include sensors.yaml
+group: !include groups.yaml
+automation: !include_dir_merge_list automations
+scene: !include scene.yaml
+input_boolean: !include input_booleans.yaml
+
 frontend:
 
 config:
@@ -31,10 +39,23 @@ history:
       - automation
       - weblink
       - updater
+      - group
     entities:
+      - camera.dafang
       - camera.dafang_motion_snapshot
-      - group.zigbee_group
-      - group.backyard
+      - binary_sensor.dafang_motion_sensor
+      - cover.dafang_move_leftright
+      - cover.dafang_move_updown
+      - switch.dafang_blue_led
+      - switch.dafang_h264_rtsp_server
+      - switch.dafang_ir_filter
+      - switch.dafang_ir_led
+      - switch.dafang_mjpeg_rtsp_server
+      - switch.dafang_motion_detection
+      - switch.dafang_motion_tracking
+      - switch.dafang_night_mode
+      - switch.dafang_night_mode_auto
+      - switch.dafang_yellow_led
       - sensor.0x00158d0001639d5a
       - sensor.0x00158d0001710729
       - sensor.0x00158d0002138221
@@ -42,6 +63,10 @@ history:
       - sensor.iphone_van_marleen_battery_level_2
       - sensor.iphone_van_marleen_battery_state
       - sensor.iphone_van_marleen_battery_state_2
+      - light.tafel1
+      - light.tafel2
+      - light.tafel3
+      - timer.zigbee_permit_join
 
 recorder:
   db_url: !secret recorder_db_url
@@ -69,57 +94,6 @@ camera:
   - platform: ffmpeg
     name: Dafang
     input: -rtsp_transport tcp -i rtsp://192.168.2.11:8554/unicast
- 
-sensor:
-  - platform: yr
-  - platform: google_travel_time
-    name: Kees naar huis
-    api_key: !secret google_api_key
-    origin: device_tracker.kees_kees01
-    destination: zone.home
-    options:
-      mode: driving
-  - platform: postnl
-    name: PostNl
-    username: !secret postnl_username
-    password: !secret postnl_password
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /
-      - type: memory_free
-      - type: processor_use
-  - platform: mqtt
-    name: Schuurdeur
-    state_topic: "motion/door"
-  - platform: mqtt
-    name: Poortdeur
-    state_topic: "motion/gate"
-  - platform: mqtt
-    name: FietsJasmijn
-    state_topic: "motion/bike/jasmijn"
-  - platform: mqtt
-    name: FietsMarleen
-    state_topic: "motion/bike/marleen"
-  - platform: mqtt
-    name: Doorbell
-    state_topic: "home/doorbell/doorbell"
-  - platform: mqtt
-    name: Bridge state
-    state_topic: "zigbee2mqtt/bridge/state"
-    icon: mdi:router-wireless
-  - platform: mqtt
-    state_topic: "zigbee2mqtt/0x00158d0001f5358e"
-    name: 0x00158d0001f5358e_battery
-    unit_of_measurement: "%"
-    value_template: '{{ value_json.battery }}'
-    device_class: battery
-  - platform: mqtt
-    state_topic: "zigbee2mqtt/0x00158d000222df56"
-    name: 0x00158d000222df56_battery
-    unit_of_measurement: "%"
-    value_template: '{{ value_json.battery }}'
-    device_class: battery
 
 tts:
   - platform: google
@@ -128,11 +102,6 @@ weather:
   - platform: buienradar
 
 cloud:
-
-group: !include groups.yaml
-automation: !include_dir_merge_list automations
-scene: !include scene.yaml
-input_boolean: !include input_booleans.yaml
 
 panel_iframe:
   configurator:
@@ -161,84 +130,6 @@ device_tracker:
     username: Admin
     password: !secret experiabox
     track_new_devices: no
-      
-# xiaomi_aqara:
-#   discovery_retry: 5
-#   gateways:
-#     - key: !secret xiaomi_aqara_key
-    
-light:
-  - platform: xiaomi_miio
-    name: staandelamp
-    host: 192.168.2.4
-    token: !secret staandelamp_token
-  - platform: xiaomi_miio
-    name: bank
-    host: 192.168.2.6
-    token: !secret bank_token
-  - platform: xiaomi_miio
-    name: tafel1
-    host: 192.168.2.7
-    token: !secret tafel1_token
-  - platform: xiaomi_miio
-    name: tafel2
-    host: 192.168.2.5
-    token: !secret tafel2_token
-  - platform: xiaomi_miio
-    name: tafel3
-    host: 192.168.2.3
-    token: !secret tafel3_token
-  - platform: group
-    name: LampenTafel
-    entities:
-      - light.tafel1
-      - light.tafel2
-      - light.tafel3 
-  - platform: mqtt
-    name: kitchen
-    state_topic: "stat/kitchen/POWER"
-    command_topic: "cmnd/kitchen/POWER"
-    availability_topic: "tele/kitchen/LWT"
-    qos: 1
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
-    retain: true
-  - platform: mqtt
-    name: Attic
-    state_topic: "stat/attic/POWER"
-    command_topic: "cmnd/attic/POWER"
-    availability_topic: "tele/attic/LWT"
-    qos: 1
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
-    retain: true
-  - platform: group
-    name: Livingroom
-    entities:
-      - light.staandelamp
-      - light.bank
-      - light.LampenTafel
-      - light.kitchen
-
-switch:
-  - platform: xiaomi_miio
-    name: Licht in tuin
-    host: 192.168.2.9
-    token:  !secret xiaomi_plug_tuin
-    model: chuangmi.plug.v2
-  - platform: mqtt
-    name: "Doorbell Sound"
-    state_topic: "home/doorbell/sound"
-    command_topic: "home/doorbell/sound"
-    payload_on: "1"
-    payload_off: "0"
-    optimistic: false
-    qos: 0
-    retain: true
 
 zone:
   - name: Thuis
@@ -257,10 +148,6 @@ notify:
   - name: pushbullet
     platform: pushbullet
     api_key: !secret pushbullet_api_key
-  # - name: eventgrid
-  #   platform: azure_event_grid
-  #   host: !secret eventgrid_host
-  #   topic key: !secret eventgrid_key
 
 azure_event_grid:
   test:
@@ -300,5 +187,3 @@ rest_command:
     url: !secret dafang_rebooturl 
     username:  !secret dafang_username
     password: !secret dafang_password
-
-

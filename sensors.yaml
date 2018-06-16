@@ -1,0 +1,49 @@
+- platform: yr
+- platform: google_travel_time
+  name: Kees naar huis
+  api_key: !secret google_api_key
+  origin: device_tracker.kees_kees01
+  destination: zone.home
+  options:
+    mode: driving
+- platform: postnl
+  name: PostNl
+  username: !secret postnl_username
+  password: !secret postnl_password
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /
+    - type: memory_free
+    - type: processor_use
+- platform: mqtt
+  name: Schuurdeur
+  state_topic: "motion/door"
+- platform: mqtt
+  name: Poortdeur
+  state_topic: "motion/gate"
+- platform: mqtt
+  name: FietsJasmijn
+  state_topic: "motion/bike/jasmijn"
+- platform: mqtt
+  name: FietsMarleen
+  state_topic: "motion/bike/marleen"
+- platform: mqtt
+  name: Doorbell
+  state_topic: "home/doorbell/doorbell"
+- platform: mqtt
+  name: Bridge state
+  state_topic: "zigbee2mqtt/bridge/state"
+  icon: mdi:router-wireless
+- platform: mqtt
+  state_topic: "zigbee2mqtt/0x00158d0001f5358e"
+  name: 0x00158d0001f5358e_battery
+  unit_of_measurement: "%"
+  value_template: '{{ value_json.battery }}'
+  device_class: battery
+- platform: mqtt
+  state_topic: "zigbee2mqtt/0x00158d000222df56"
+  name: 0x00158d000222df56_battery
+  unit_of_measurement: "%"
+  value_template: '{{ value_json.battery }}'
+  device_class: battery

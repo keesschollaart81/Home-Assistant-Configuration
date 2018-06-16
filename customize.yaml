@@ -46,8 +46,6 @@ sensor.schuurdeur:
 sensor.poortdeur:
     friendly_name: Gate
  
-switch.plug_158d0001fa64a8:
-    friendly_name: Washing Machine
 
 camera.dafang:
     friendly_name: Backyard live
@@ -84,9 +82,9 @@ sensor.0x00158d0001639d5a:
     
 sensor.0x00158d0001710729:
     friendly_name: Living Room - Switch Right
-    
+
 switch.0x00158d0001fa64a8_switch:
     friendly_name: Washing Machine - Switch
-    
+
 sensor.0x00158d0001fa64a8_power:
     friendly_name: Washing Machine - Power

@@ -1,0 +1,14 @@
+- platform: xiaomi_miio
+  name: Licht in tuin
+  host: 192.168.2.9
+  token:  !secret xiaomi_plug_tuin
+  model: chuangmi.plug.v2
+- platform: mqtt
+  name: "Doorbell Sound"
+  state_topic: "home/doorbell/sound"
+  command_topic: "home/doorbell/sound"
+  payload_on: "1"
+  payload_off: "0"
+  optimistic: false
+  qos: 0
+  retain: true
