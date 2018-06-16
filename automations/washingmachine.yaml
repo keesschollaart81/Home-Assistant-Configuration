@@ -1,9 +1,9 @@
-- id: 'WasmachineKlaar'
-  alias: Wasmachine - klaar
+- id: 'WashingmachineReady'
+  alias: Washing Machine - Ready
   condition: []
   trigger:
   - below: '10'
-    entity_id: sensor.wasmachine
+    entity_id: sensor.0x00158d0001fa64a8_power
     platform: numeric_state
   action:
   - service: input_boolean.turn_off
@@ -11,20 +11,20 @@
       entity_id: input_boolean.washingmachine_bezig
       
 
-- id: 'WasmachineBezig'
-  alias: Wasmachine - bezig
+- id: 'WashingMachineBusy'
+  alias: Washing Machine - Busy
   condition: []
   trigger:
   - above: '10'
-    entity_id: sensor.wasmachine
+    entity_id: sensor.0x00158d0001fa64a8_power
     platform: numeric_state
   action:
   - service: input_boolean.turn_on
     data:
       entity_id: input_boolean.washingmachine_bezig
 
-- id: 'WasmachineNotificatie'
-  alias: Wasmachine - notificatie
+- id: 'WashingMachineNotification'
+  alias: Washing Machine - Notification
   condition: []
   trigger:
   - platform: state

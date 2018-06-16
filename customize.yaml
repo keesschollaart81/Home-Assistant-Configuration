@@ -80,5 +80,13 @@ sensor.0x00158d000222df56_battery:
     friendly_name: Living Room - Motion Sensor
 
 sensor.0x00158d0001639d5a:
-    friendly_name: Living Room - Left
+    friendly_name: Living Room - Switch Left
     
+sensor.0x00158d0001710729:
+    friendly_name: Living Room - Switch Right
+    
+switch.0x00158d0001fa64a8_switch:
+    friendly_name: Washing Machine - Switch
+    
+sensor.0x00158d0001fa64a8_power:
+    friendly_name: Washing Machine - Power
