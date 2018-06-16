@@ -47,3 +47,9 @@
   unit_of_measurement: "%"
   value_template: '{{ value_json.battery }}'
   device_class: battery
+- platform: mqtt
+  state_topic: "zigbee2mqtt/0x00158d0001639d5a"
+  name: 0x00158d0001639d5a_battery
+  unit_of_measurement: "%"
+  value_template: '{{ value_json.battery }}'
+  device_class: battery
