@@ -67,6 +67,7 @@ history:
       - light.tafel2
       - light.tafel3
       - timer.zigbee_permit_join
+      - sensor.bridge_state
 
 recorder:
   db_url: !secret recorder_db_url

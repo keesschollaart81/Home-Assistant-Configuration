@@ -11,23 +11,23 @@ climate.toon_van_eneco:
     friendly_name: Toon
     
 light.bank:
-    friendly_name: Couch
+    friendly_name: Couch lamp
     icon: mdi:lamp
 
 light.staandelamp:
-    friendly_name: Standing
+    friendly_name: Standing lamp
     icon: mdi:floor-lamp
 
 light.kitchen:
-    friendly_name: Kitchen
+    friendly_name: Kitchen Light
     icon: mdi:ceiling-light
 
 light.lampentafel:
-    friendly_name: Table
+    friendly_name: Table Lights
     icon: mdi:ceiling-light
 
 switch.licht_in_tuin:
-    friendly_name: Garden
+    friendly_name: Garden - Light Switch
     icon: mdi:flower
 
 switch.doorbell_sound:
@@ -36,16 +36,19 @@ switch.doorbell_sound:
 
 sensor.fietsjasmijn:
     friendly_name: Bike Jasmijn
+    icon: mdi:bike
 
 sensor.fietsmarleen:
     friendly_name: Bike Marleen
+    icon: mdi:bike
 
 sensor.schuurdeur:
     friendly_name: Barn door
+    icon: mdi:door
 
 sensor.poortdeur:
     friendly_name: Gate
- 
+    icon: mdi:gate
 
 camera.dafang:
     friendly_name: Backyard live
@@ -63,7 +66,7 @@ sensor.0x00158d0001f5358e_temperature:
     friendly_name: Living Room - Temperature
 
 sensor.0x00158d0001f5358e_battery:
-    friendly_name: Living Room - Environment Sensor
+    friendly_name: Living Room - Environment Sensor Battery
 
 sensor.0x00158d0002138221:
     friendly_name: Single switch
@@ -75,7 +78,7 @@ sensor.0x00158d000222df56_illuminance:
     friendly_name: Living Room - Illuminance
 
 sensor.0x00158d000222df56_battery:
-    friendly_name: Living Room - Motion Sensor
+    friendly_name: Living Room - Motion Sensor Battery
 
 sensor.0x00158d0001639d5a:
     friendly_name: Living Room - Switch Left

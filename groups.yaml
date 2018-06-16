@@ -42,11 +42,12 @@ Hall:
 
 Attic:
   - light.attic
+  - input_boolean.washingmachine_bezig
   
 System:
   name: Systeem
   view: yes
-  icon: mdi:camera
+  icon: mdi:settings
   entities:
     - group.dafang
     - group.zigbee_group
