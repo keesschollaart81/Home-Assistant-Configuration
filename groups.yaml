@@ -10,8 +10,7 @@ default_view:
     - sensor.power_today
     - updater.updater
     - sensor.kees_naar_huis
-    - sensor.postnl
-    - sensor.ups
+    - sensor.total_packages
     - group.living_room
     - group.backyard
     - group.hall
