@@ -56,6 +56,7 @@ history:
       - switch.dafang_night_mode
       - switch.dafang_night_mode_auto
       - switch.dafang_yellow_led
+      - sensor.dafang_light_sensor
       - sensor.0x00158d0001639d5a
       - sensor.0x00158d0001710729
       - sensor.0x00158d0002138221
