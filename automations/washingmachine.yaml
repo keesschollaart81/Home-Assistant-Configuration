@@ -8,7 +8,7 @@
   action:
   - service: input_boolean.turn_off
     data:
-      entity_id: input_boolean.washingmachine_bezig
+      entity_id: input_boolean.washingmachine_busy
       
 
 - id: 'WashingMachineBusy'
@@ -21,14 +21,14 @@
   action:
   - service: input_boolean.turn_on
     data:
-      entity_id: input_boolean.washingmachine_bezig
+      entity_id: input_boolean.washingmachine_busy
 
 - id: 'WashingMachineNotification'
   alias: Washing Machine - Notification
   condition: []
   trigger:
   - platform: state
-    entity_id: input_boolean.washingmachine_bezig
+    entity_id: input_boolean.washingmachine_busy
     from: 'on' 
     to: 'off'
     for:
