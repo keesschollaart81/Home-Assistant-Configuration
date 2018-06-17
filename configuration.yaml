@@ -101,16 +101,7 @@ tts:
 
 weather:
   - platform: buienradar
-    name: 'Rotterdam' 
-    monitored_conditions:
-      - temperature
-      - symbol
-      - condition
-      - conditiondetailed
-      - windspeed
-      - condition_1d
-    
-
+  
 cloud:
 
 panel_iframe:

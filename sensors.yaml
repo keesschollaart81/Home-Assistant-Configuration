@@ -53,9 +53,20 @@
   unit_of_measurement: "%"
   value_template: '{{ value_json.battery }}'
   device_class: battery
-- platform: yahoo_finance
+- platform: alpha_vantage
+  api_key: !secret: alpha_vantage_key
   symbols:
-    - MSFT
+  - symbol: MSFT
+    name: Microsoft
 - platform: ups
   username: !secret ups_username
   password: !secret ups_password
+- platform: buienradar
+  name: 'Rotterdam' 
+  monitored_conditions:
+    - temperature
+    - symbol
+    - condition
+    - conditiondetailed
+    - windspeed
+    - condition_1d
