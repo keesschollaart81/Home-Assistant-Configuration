@@ -56,8 +56,10 @@
   username: !secret postnl_username
   password: !secret postnl_password
 - platform: template
-  name: Total packages
-  value_template: '{{ sensor.postnl + sensor.ups }}'
+  sensors:
+    total_packages:
+      friendly_name: Total packages
+      value_template: "{{ states('sensor.postnl')|int + states('sensor.ups')|int }}"
 - platform: buienradar
   name: 'Rotterdam' 
   monitored_conditions:
