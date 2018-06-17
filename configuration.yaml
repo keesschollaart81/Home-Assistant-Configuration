@@ -68,6 +68,8 @@ history:
       - light.tafel3
       - timer.zigbee_permit_join
       - sensor.bridge_state
+      - sensor.rotterdam_condition_1d
+      - sensor.temperature_1d
 
 recorder:
   db_url: !secret recorder_db_url
@@ -101,7 +103,7 @@ tts:
 
 weather:
   - platform: buienradar
-  
+
 cloud:
 
 panel_iframe:

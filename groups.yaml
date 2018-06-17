@@ -87,8 +87,6 @@ batteries:
 
 Weather:
   - sensor.rotterdam_condition
-  - sensor.rotterdam_symbol
   - sensor.rotterdam_temperature
   - sensor.rotterdam_condition_1d
-  - sensor.rotterdam_symbol_1d
   - sensor.temperature_1d

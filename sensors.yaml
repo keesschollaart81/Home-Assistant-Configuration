@@ -64,11 +64,7 @@
 - platform: buienradar
   name: 'Rotterdam' 
   monitored_conditions:
-    - temperature
-    - symbol
     - condition
-    - conditiondetailed
-    - windspeed
+    - temperature
     - condition_1d
-    - symbol_1d
     - temperature_1d
