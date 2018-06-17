@@ -70,3 +70,5 @@
     - conditiondetailed
     - windspeed
     - condition_1d
+    - symbol_1d
+    - temperature_1d
