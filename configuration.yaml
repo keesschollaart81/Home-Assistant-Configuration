@@ -101,6 +101,15 @@ tts:
 
 weather:
   - platform: buienradar
+    name: 'Rotterdam' 
+    monitored_conditions:
+      - temperature
+      - symbol
+      - condition
+      - conditiondetailed
+      - windspeed
+      - condition_1d
+    
 
 cloud:
 
@@ -109,6 +118,14 @@ panel_iframe:
     title: Configurator
     icon: mdi:wrench
     url: http://hassio.local:3218
+  dafang:
+    title: Dafang camera
+    icon: mdi:cctv
+    url: http://schollaartthuis.duckdns.org:1234/
+  dafang:
+    title: Custom Vision
+    icon: mdi:animation
+    url: https://customvision.ai/projects/55e5c331-4a89-48fa-9525-7a77754bd019#/manage
 
 toon:
     username: !secret toon_username

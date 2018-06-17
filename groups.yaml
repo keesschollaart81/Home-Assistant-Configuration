@@ -6,12 +6,12 @@ default_view:
     - device_tracker.marleen_marleen01
     - device_tracker.Kees_kees01
     - binary_sensor.burner_status
-    - sensor.temperature_158d0001f5358e
     - sensor.gas_today
     - sensor.power_today
     - updater.updater
     - sensor.kees_naar_huis
     - sensor.postnl
+    - sensor.ups
     - group.living_room
     - group.backyard
     - group.hall
@@ -23,7 +23,7 @@ Living Room:
   - light.LampenTafel
   - light.kitchen
   - binary_sensor.0x00158d000222df56_occupancy
-  - binary_sensor.0x00158d0001f9faa1_occupancy
+  - sensor.0x00158d0001f5358e_temperature
   - scene.eating
   - scene.evening
   - scene.off 
