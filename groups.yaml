@@ -83,7 +83,6 @@ zigbee_group:
 batteries:
   - sensor.0x00158d0001f5358e_battery
   - sensor.0x00158d000222df56_battery
-  - sensor.0x00158d0001639d5a_battery
 
 Weather:
   - sensor.rotterdam_condition
