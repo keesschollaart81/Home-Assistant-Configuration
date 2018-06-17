@@ -88,4 +88,4 @@ Weather:
   - sensor.rotterdam_condition
   - sensor.rotterdam_temperature
   - sensor.rotterdam_condition_1d
-  - sensor.temperature_1d
+  - sensor.rotterdam_temperature_1d
