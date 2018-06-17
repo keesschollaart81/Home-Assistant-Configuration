@@ -103,13 +103,13 @@ input_boolean.washingmachine_busy:
     icon: mdi:washing-machine
 
 sensor.rotterdam_condition:
-    friendly_name: Weather
+    friendly_name: Today
 
 sensor.rotterdam_temperature:
-    friendly_name: Temperature outside
+    friendly_name: Today
 
 sensor.rotterdam_condition_1d:
-    friendly_name: Weather tomorrow
+    friendly_name: Tomorrow
 
-sensor.temperature_1d:
-    friendly_name: Temperature tomorrow
+sensor.rotterdam_temperature_1d:
+    friendly_name: Tomorrow

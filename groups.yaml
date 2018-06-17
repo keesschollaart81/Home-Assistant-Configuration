@@ -16,7 +16,7 @@ default_view:
     - group.backyard
     - group.hall
     - group.attic
-    - group.weather
+    - group.weather_outside
 
 Living Room:
   - light.staandelamp 
@@ -84,7 +84,7 @@ batteries:
   - sensor.0x00158d0001f5358e_battery
   - sensor.0x00158d000222df56_battery
 
-Weather:
+Weather outside:
   - sensor.rotterdam_condition
   - sensor.rotterdam_temperature
   - sensor.rotterdam_condition_1d
