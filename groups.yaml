@@ -22,7 +22,8 @@ Living Room:
   - light.bank 
   - light.LampenTafel
   - light.kitchen
-  - sensor.0x00158d000222df56_occupancy
+  - binary_sensor.0x00158d000222df56_occupancy
+  - binary_sensor.0x00158d0001f9faa1_occupancy
   - scene.eating
   - scene.evening
   - scene.off 

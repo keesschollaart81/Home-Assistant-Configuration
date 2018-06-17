@@ -77,6 +77,12 @@ binary_sensor.0x00158d000222df56_occupancy:
 sensor.0x00158d000222df56_illuminance:
     friendly_name: Living Room - Illuminance
 
+binary_sensor.0x00158d0001f9faa1_occupancy:
+    friendly_name: Living Room - Motion2
+
+sensor.0x00158d0001f9faa1_illuminance:
+    friendly_name: Living Room - Illuminance2
+
 sensor.0x00158d000222df56_battery:
     friendly_name: Living Room - Motion Sensor Battery
 
@@ -95,3 +101,4 @@ sensor.0x00158d0001fa64a8_power:
 input_boolean.washingmachine_busy:
     friendly_name: Washing Machine - Busy
     icon: mdi:washing-machine
+
