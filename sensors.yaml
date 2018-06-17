@@ -54,7 +54,7 @@
   value_template: '{{ value_json.battery }}'
   device_class: battery
 - platform: alpha_vantage
-  api_key: !secret: alpha_vantage_key
+  api_key: !secret alpha_vantage_key
   symbols:
   - symbol: MSFT
     name: Microsoft
