@@ -60,7 +60,7 @@
     total_packages:
       friendly_name: Total packages
       unit_of_measurement: 'packages'
-      value_template: {{ states('sensor.postnl')|int + states('sensor.ups')|int }}
+      value_template: "{{ states('sensor.postnl')|int + states('sensor.ups')|int }}""
 - platform: buienradar
   name: 'Rotterdam' 
   monitored_conditions:
