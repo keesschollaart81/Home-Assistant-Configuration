@@ -6,10 +6,6 @@
   destination: zone.home
   options:
     mode: driving
-- platform: postnl
-  name: PostNl
-  username: !secret postnl_username
-  password: !secret postnl_password
 - platform: systemmonitor
   resources:
     - type: disk_use_percent
@@ -55,6 +51,13 @@
 - platform: ups
   username: !secret ups_username
   password: !secret ups_password
+- platform: postnl
+  name: PostNl
+  username: !secret postnl_username
+  password: !secret postnl_password
+- platform: template
+  name: Total packages
+  value_template: '{{ sensor.postnl + sensor.ups }}'
 - platform: buienradar
   name: 'Rotterdam' 
   monitored_conditions:
