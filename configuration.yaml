@@ -193,6 +193,8 @@ alexa:
         name: Table
       light.kitchen:
         name: Kitchen
+      switch.licht_in_tuin:
+        name: Backyard
        
 rest_command:
   reboot_dafang:
