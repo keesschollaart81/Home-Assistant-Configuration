@@ -176,6 +176,7 @@ alexa:
         - light
         - climate
         - scene
+        - switch
       exclude_entities:
         - light.gateway_light_7811dcb27b0d
         - light.tafel1
