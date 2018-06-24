@@ -120,6 +120,10 @@ panel_iframe:
     title: Custom Vision
     icon: mdi:animation
     url: https://customvision.ai/projects/55e5c331-4a89-48fa-9525-7a77754bd019#/manage
+  pihole:
+    title: Pi-hole
+    icon: mdi:block-helper
+    url: http://hassio.local/admin/index.php
 
 toon:
     username: !secret toon_username
