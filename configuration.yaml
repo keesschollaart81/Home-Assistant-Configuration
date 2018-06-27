@@ -111,7 +111,7 @@ panel_iframe:
   configurator:
     title: Configurator
     icon: mdi:wrench
-    url: http://hassio.local:3218
+    url: https://schollaartthuis.duckdns.org:3218/
   dafang:
     title: Dafang camera
     icon: mdi:cctv
@@ -123,7 +123,7 @@ panel_iframe:
   pihole:
     title: Pi-hole
     icon: mdi:block-helper
-    url: http://hassio.local/admin/index.php
+    url: https://schollaartthuis.duckdns.org:8125/
 
 toon:
     username: !secret toon_username
