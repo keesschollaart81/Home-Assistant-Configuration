@@ -108,7 +108,8 @@ camera:
 tts:
   - platform: microsoft
     api_key: !secret cogntive_services_api_key
-    language: 'nl'
+    language: 'nl-NL'
+    type: 'HannaRUS'
 
 weather:
   - platform: buienradar
