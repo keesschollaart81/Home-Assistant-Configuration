@@ -107,7 +107,7 @@ camera:
 
 tts:
   - platform: google
-    language: 'nl-NL'
+    language: 'nl'
 
 weather:
   - platform: buienradar
