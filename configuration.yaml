@@ -28,7 +28,10 @@ http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
   api_password: !secret http_password
-
+  base_url: schollaartthuis.duckdns.org
+  trusted_networks:
+    - 192.168.2.0/24
+    
 updater:
   include_used_components: true
 
