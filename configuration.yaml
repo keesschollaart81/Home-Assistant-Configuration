@@ -106,8 +106,9 @@ camera:
     input: -rtsp_transport tcp -i rtsp://192.168.2.11:8554/unicast
 
 tts:
-  - platform: google
-    language: 'nl'
+  - platform: microsoft
+    api_key: !secret cogntive_services_api_key
+    language: 'nl-NL'
 
 weather:
   - platform: buienradar
