@@ -17,7 +17,7 @@
      data:
         sonos_entity: media_player.woonkamer
         volume: 0.5
-        message: 'The doorbell is ringing'
+        message: 'Er wordt aan de deur gebeld'
         delay: '00:00:05'
 
 - id: 'DoorbellSoundSilendAtNight'
