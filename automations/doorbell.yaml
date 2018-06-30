@@ -13,6 +13,12 @@
      data:
         title: "Er wordt aan de deur gebeld"
         message: "Beter ga je ff lopen te kijken!"
+   - service: script.sonos_say
+     data:
+        sonos_entity: media_player.woonkamer
+        volume: 0.5
+        message: 'The doorbell is ringing'
+        delay: '00:00:05'
 
 - id: 'DoorbellSoundSilendAtNight'
   trigger:
@@ -33,3 +39,5 @@
     data:
       topic: "home/doorbell/sound"
       payload: "1"
+
+  
