@@ -116,3 +116,6 @@ sensor.rotterdam_condition_1d:
 
 sensor.rotterdam_temperature_1d:
     friendly_name: Outside Tomorrow
+
+binary_sensor.0x00158d000208e0e0:
+    friendly_name: Front door
