@@ -108,8 +108,13 @@ camera:
 tts:
   - platform: microsoft
     api_key: !secret cogntive_services_api_key
-    language: 'nl-nl'
-    type: 'HannaRUS'
+    language: en-us
+    gender: Female
+    type: JessaRUS
+    rate: 20
+    volume: -50
+    pitch: high
+    contour: (0, 0) (100, 100)
 
 weather:
   - platform: buienradar
