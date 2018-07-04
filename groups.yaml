@@ -17,6 +17,7 @@ default_view:
     - group.hall
     - group.attic
     - group.weather_outside
+    - group.locations
 
 Living Room:
   - light.staandelamp 
@@ -90,3 +91,6 @@ Weather outside:
   - sensor.rotterdam_temperature
   - sensor.rotterdam_condition_1d
   - sensor.rotterdam_temperature_1d
+
+Locations:
+  - camera.KeesLocation

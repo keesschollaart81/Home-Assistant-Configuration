@@ -104,6 +104,10 @@ camera:
   - platform: ffmpeg
     name: Dafang
     input: -rtsp_transport tcp -i rtsp://192.168.2.11:8554/unicast
+  - name: KeesLocation
+    platform: generic
+    still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{ states.device_tracker.kees_kees01.attributes.latitude }},{{ states.device_tracker.kees_kees01.attributes.longitude }}&zoom=13&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:E%7C{{ states.device_tracker.kees_kees01.attributes.latitude }},{{ states.device_tracker.kees_kees01.attributes.longitude }}
+    limit_refetch_to_url_change: true
 
 tts:
   - platform: microsoft
