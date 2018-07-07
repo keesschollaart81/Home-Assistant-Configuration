@@ -113,6 +113,7 @@ camera:
 
 tts:
   - platform: google
+    language: 'nl'
   - platform: microsoft
     api_key: !secret cogntive_services_api_key
     language: en-us
