@@ -10,6 +10,8 @@
   resources:
     - type: disk_use_percent
       arg: /
+    - type: disk_use
+      arg: /
     - type: memory_free
     - type: processor_use
 - platform: mqtt
