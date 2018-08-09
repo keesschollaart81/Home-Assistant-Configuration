@@ -12,6 +12,8 @@
       arg: /
     - type: disk_use
       arg: /
+    - type: disk_free
+      arg: /
     - type: memory_free
     - type: processor_use
 - platform: mqtt
