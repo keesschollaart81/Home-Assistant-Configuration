@@ -137,14 +137,14 @@ panel_iframe:
     title: Configurator
     icon: mdi:wrench
     url: https://schollaartthuis.duckdns.org:3218/
-  dafang:
-    title: Dafang camera
-    icon: mdi:cctv
-    url: http://schollaartthuis.duckdns.org:1234/
-  custom_vision:
-    title: Custom Vision
-    icon: mdi:animation
-    url: https://customvision.ai/projects/55e5c331-4a89-48fa-9525-7a77754bd019#/manage
+  # dafang:
+  #   title: Dafang camera
+  #   icon: mdi:cctv
+  #   url: http://schollaartthuis.duckdns.org:1234/
+  # custom_vision:
+  #   title: Custom Vision
+  #   icon: mdi:animation
+  #   url: https://customvision.ai/projects/55e5c331-4a89-48fa-9525-7a77754bd019#/manage
   pihole:
     title: Pi-hole
     icon: mdi:block-helper
