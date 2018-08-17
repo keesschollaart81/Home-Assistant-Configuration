@@ -149,7 +149,7 @@ panel_iframe:
     title: Pi-hole
     icon: mdi:block-helper
     url: https://schollaartthuis.duckdns.org:8125/
-  pihole:
+  esphomeyaml:
     title: Esphomeyaml
     icon: mdi:code-not-equal-variant
     url: http://schollaartthuis.duckdns.org:6052/
