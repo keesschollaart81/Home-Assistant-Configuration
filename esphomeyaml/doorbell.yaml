@@ -16,7 +16,7 @@ mqtt:
 logger:
 
 ota:
-  password: !secret doorbell-ota-password
+  password: !secret doorbell_ota_password
 
 switch:
   - id: "doorbell"
