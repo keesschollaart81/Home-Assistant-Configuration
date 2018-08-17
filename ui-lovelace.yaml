@@ -1,0 +1,115 @@
+title: Home
+views:
+  - title: Living room
+    icon: mdi:home
+    cards:
+      - type: entities
+        entities:
+          - device_tracker.marleen_marleen01
+          - device_tracker.kees_kees01
+          - sensor.gas_today
+          - sensor.power_today
+          - sensor.kees_naar_huis
+          - sensor.ups
+      - type: entities
+        title: Living Room
+        show_header_toggle: true
+        entities:
+          - light.staandelamp
+          - light.bank
+          - light.lampentafel
+          - light.kitchen
+          - binary_sensor.0x00158d000222df56_occupancy
+          - sensor.0x00158d0001f5358e_temperature
+          - scene.eating
+          - scene.evening
+      - type: entities
+        title: Backyard
+        show_header_toggle: true
+        entities:
+          - switch.licht_in_tuin
+          - sensor.schuurdeur
+          - sensor.poortdeur
+          - sensor.fietsjasmijn
+          - sensor.fietsmarleen
+      - type: picture-entity
+        title: Backyard latest motion snapshot
+        entity: camera.dafang_motion_snapshot
+        camera_image: camera.dafang_motion_snapshot
+        show_info: true
+        tap_action: dialog
+      - type: picture-entity
+        title: Backyard live
+        entity: camera.dafang
+        camera_image: camera.dafang
+        show_info: true
+        tap_action: dialog
+      - type: entities
+        title: Hall
+        show_header_toggle: true
+        entities:
+          - switch.doorbell_sound
+      - type: entities
+        title: Attic
+        show_header_toggle: true
+        entities:
+          - light.attic
+          - input_boolean.washingmachine_busy
+      - type: entities
+        title: Weather outside
+        show_header_toggle: true
+        entities:
+          - sensor.rotterdam_condition
+          - sensor.rotterdam_temperature
+          - sensor.rotterdam_condition_1d
+          - sensor.rotterdam_temperature_1d
+      - type: picture-entity
+        title: KeesLocation
+        entity: camera.keeslocation
+        camera_image: camera.keeslocation
+        show_info: true
+        tap_action: dialog
+  - title: Systeem
+    icon: mdi:settings
+    cards:
+      - type: entities
+        title: Dafang
+        show_header_toggle: true
+        entities:
+          - switch.dafang_h264_rtsp_server
+          - switch.dafang_mjpeg_rtsp_server
+          - sensor.dafang_light_sensor
+          - switch.dafang_ir_filter
+          - switch.dafang_ir_led
+          - switch.dafang_night_mode
+          - switch.dafang_night_mode_auto
+          - switch.dafang_blue_led
+          - switch.dafang_yellow_led
+          - switch.dafang_motion_detection
+          - switch.dafang_motion_tracking
+          - binary_sensor.dafang_motion_sensor
+      - type: picture-entity
+        title: Backyard live
+        entity: camera.dafang
+        camera_image: camera.dafang
+        show_info: true
+        tap_action: dialog
+      - type: picture-entity
+        title: Backyard latest motion snapshot
+        entity: camera.dafang_motion_snapshot
+        camera_image: camera.dafang_motion_snapshot
+        show_info: true
+        tap_action: dialog
+      - type: entities
+        title: Zigbee
+        show_header_toggle: true
+        entities:
+          - input_boolean.zigbee_permit_join
+          - timer.zigbee_permit_join
+          - sensor.bridge_state
+      - type: entities
+        title: batteries
+        show_header_toggle: true
+        entities:
+          - sensor.0x00158d0001f5358e_battery
+          - sensor.0x00158d000222df56_battery

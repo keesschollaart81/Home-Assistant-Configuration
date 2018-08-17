@@ -93,4 +93,4 @@ Weather outside:
   - sensor.rotterdam_temperature_1d
 
 Locations:
-  - camera.KeesLocation
+  - camera.Locations
