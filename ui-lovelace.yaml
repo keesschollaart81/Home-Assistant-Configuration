@@ -3,12 +3,20 @@ views:
   - title: Living room
     icon: mdi:home
     cards:
-      - type: entities
+      - type: history-graph
+        title: 'Locations'
         entities:
-          - device_tracker.marleen_marleen01
-          - device_tracker.kees_kees01
-          - sensor.gas_today
-          - sensor.power_today
+        - device_tracker.marleen_marleen01
+        - device_tracker.kees_kees01
+      - type: picture-entity
+        title: Locations
+        entity: camera.Locations
+        camera_image: camera.Locations
+        show_info: true
+        tap_action: dialog
+      - type: entities
+        title: 'Misc'
+        entities:
           - sensor.kees_naar_huis
           - sensor.ups
       - type: entities
@@ -55,20 +63,9 @@ views:
         entities:
           - light.attic
           - input_boolean.washingmachine_busy
-      - type: entities
-        title: Weather outside
-        show_header_toggle: true
-        entities:
-          - sensor.rotterdam_condition
-          - sensor.rotterdam_temperature
-          - sensor.rotterdam_condition_1d
-          - sensor.rotterdam_temperature_1d
-      - type: picture-entity
-        title: KeesLocation
-        entity: camera.keeslocation
-        camera_image: camera.keeslocation
-        show_info: true
-        tap_action: dialog
+
+      - type: weather-forecast
+        entity: weather.rotterdam
   - title: Systeem
     icon: mdi:settings
     cards:

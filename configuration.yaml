@@ -127,6 +127,8 @@ tts:
 
 weather:
   - platform: buienradar
+    name: 'rotterdam'
+    forecast: True
 
 cloud:
 
