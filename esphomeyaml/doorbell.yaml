@@ -1,0 +1,48 @@
+esphomeyaml:
+  name: doorbell
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: !secret doorbell_wifi_ssid
+  password: !secret doorbell_wifi_password
+
+mqtt:
+  broker: !secret doorbell_mqtt_broker
+  username: !secret doorbell_mqtt_user
+  password: !secret doorbell_mqtt_password
+
+# Enable logging
+logger:
+
+ota:
+  password: !secret doorbell-ota-password
+
+switch:
+  - id: "doorbell"
+    platform: gpio
+    pin: D4
+    name: "doorbell"
+  - id: "doorbellsound"
+    platform: gpio
+    pin: D2
+    name: "doorbellsound"
+    
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: D5
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "Doorbell Button"
+    filters:
+      - delayed_off: 1000ms
+    on_press:
+      if:
+        lambda: 'return id(doorbellsound).value;'
+      then:
+        - switch.turn_on:
+            id: doorbell
+        - delay: 2s
+        - switch.turn_off:
+            id: doorbell
