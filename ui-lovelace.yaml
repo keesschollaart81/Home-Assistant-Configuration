@@ -3,6 +3,16 @@ views:
   - title: Living room
     icon: mdi:home
     cards:
+      - type: glance
+        column_width: calc(100% / 3)
+        entities:
+          - sensor.kees_naar_huis
+          - entity: sensor.ups
+            name: UPS
+          - sensor.postnl
+          - entity: switch.doorbell_buzzer_enabled
+            name: Doorbell
+            tap_action: toggle
       - type: history-graph
         title: 'Locations'
         entities:
@@ -15,13 +25,8 @@ views:
         show_info: true
         tap_action: dialog
       - type: entities
-        title: 'Misc'
-        entities:
-          - sensor.kees_naar_huis
-          - sensor.ups
-      - type: entities
         title: Living Room
-        show_header_toggle: true
+        show_header_toggle: false
         entities:
           - light.staandelamp
           - light.bank
@@ -33,7 +38,7 @@ views:
           - scene.evening
       - type: entities
         title: Backyard
-        show_header_toggle: true
+        show_header_toggle: false
         entities:
           - switch.licht_in_tuin
           - sensor.schuurdeur
@@ -52,11 +57,6 @@ views:
         camera_image: camera.dafang
         show_info: true
         tap_action: dialog
-      - type: entities
-        title: Hall
-        show_header_toggle: true
-        entities:
-          - switch.doorbell_buzzer_enabled
       - type: entities
         title: Attic
         show_header_toggle: true
