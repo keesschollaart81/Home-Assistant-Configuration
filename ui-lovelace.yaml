@@ -56,7 +56,7 @@ views:
         title: Hall
         show_header_toggle: true
         entities:
-          - switch.doorbell_sound
+          - switch.doorbell_buzzer_enabled
       - type: entities
         title: Attic
         show_header_toggle: true

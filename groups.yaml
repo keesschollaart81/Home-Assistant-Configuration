@@ -41,7 +41,7 @@ Backyard:
   - camera.dafang
 
 Hall:
-    - switch.doorbell_sound
+    - switch.doorbell_buzzer_enabled
 
 Attic:
   - light.attic

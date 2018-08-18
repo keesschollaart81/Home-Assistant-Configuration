@@ -2,7 +2,7 @@
   alias: Doorbell Notification
   trigger:
   - platform: state
-    entity_id: sensor.doorbell_button
+    entity_id: binary_sensor.doorbell_button
     to: 'ON'
   action: 
    - service: notify.pushbullet

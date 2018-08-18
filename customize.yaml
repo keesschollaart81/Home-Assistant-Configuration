@@ -30,8 +30,8 @@ switch.licht_in_tuin:
     friendly_name: Garden - Light Switch
     icon: mdi:flower
 
-switch.doorbell_sound:
-    friendly_name: Doorbell Sound
+switch.doorbell_buzzer_enabled:
+    friendly_name: Doorbell Buzzer enabled
     icon: mdi:bell-ring
 
 sensor.fietsjasmijn:
