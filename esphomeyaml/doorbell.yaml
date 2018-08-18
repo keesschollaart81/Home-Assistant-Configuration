@@ -26,6 +26,7 @@ switch:
   - id: "doorbellsound"
     platform: gpio
     pin: D2
+    inverted: true
     name: "doorbellsound"
     
 binary_sensor:
@@ -43,6 +44,6 @@ binary_sensor:
       then:
         - switch.turn_on:
             id: doorbell
-        - delay: 2s
+        - delay: 750
         - switch.turn_off:
             id: doorbell
