@@ -2,8 +2,8 @@
   alias: Doorbell Notification
   trigger:
   - platform: state
-    entity_id: sensor.Doorbell
-    to: '1'
+    entity_id: sensor.doorbell_button
+    to: 'ON'
   action: 
    - service: notify.pushbullet
      data:
@@ -25,19 +25,14 @@
   - platform: time
     at: '18:30:00'
   action:
-    service: mqtt.publish
-    data:
-      topic: "home/doorbell/sound"
-      payload: "0"
+    service: homeassistant.turn_off
+    entity_id: switch.doorbell_buzzer_enabled
 
 - id: 'DoorbellSoundBackToNormall'
   trigger:
   - platform: time
     at: '07:00:00'
-  action:
-    service: mqtt.publish
-    data:
-      topic: "home/doorbell/sound"
-      payload: "1"
-
+  action: 
+    service: homeassistant.turn_on
+    entity_id: switch.doorbell_buzzer_enabled
   

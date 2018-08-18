@@ -12,38 +12,40 @@ mqtt:
   username: !secret doorbell_mqtt_user
   password: !secret doorbell_mqtt_password
 
-# Enable logging
 logger:
 
 ota:
   password: !secret doorbell_ota_password
 
 switch:
-  - id: "doorbell"
+  - id: "doorbell_buzzer"
+    name: "doorbell_buzzer"
     platform: gpio
-    pin: D4
-    name: "doorbell"
-  - id: "doorbellsound"
+    pin:
+      number: D4
+      inverted: True
+
+  - id: "doorbell_buzzer_enabled"
+    name: "Doorbell Buzzer Enabled"
     platform: gpio
-    pin: D2
-    inverted: true
-    name: "doorbellsound"
+    pin:
+      number: D2 # Nothing connected to this pin, just acts as an input_boolean / state variable
     
 binary_sensor:
   - platform: gpio
+    id: doorbell_button
+    name: "Doorbell Button"
     pin:
       number: D5
       mode: INPUT_PULLUP
-      inverted: True
-    name: "Doorbell Button"
     filters:
-      - delayed_off: 1000ms
+      - delayed_off: 750ms # someone cannot push the button twice
     on_press:
       if:
-        lambda: 'return id(doorbellsound).value;'
+        lambda: 'return id(doorbell_buzzer_enabled).value;'
       then:
         - switch.turn_on:
-            id: doorbell
+            id: doorbell_buzzer
         - delay: 750ms
         - switch.turn_off:
-            id: doorbell
+            id: doorbell_buzzer

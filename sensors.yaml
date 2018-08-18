@@ -27,9 +27,6 @@
   name: FietsMarleen
   state_topic: "motion/bike/marleen"
 - platform: mqtt
-  name: Doorbell
-  state_topic: "home/doorbell/doorbell"
-- platform: mqtt
   name: Bridge state
   state_topic: "zigbee2mqtt/bridge/state"
   icon: mdi:router-wireless

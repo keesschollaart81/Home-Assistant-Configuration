@@ -18,3 +18,5 @@ lib                       # Ignore lib directory
 icloud
 deps
 tts
+
+esphomeyaml/*/
