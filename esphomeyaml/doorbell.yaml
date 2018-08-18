@@ -44,6 +44,6 @@ binary_sensor:
       then:
         - switch.turn_on:
             id: doorbell
-        - delay: 750
+        - delay: 750ms
         - switch.turn_off:
             id: doorbell
