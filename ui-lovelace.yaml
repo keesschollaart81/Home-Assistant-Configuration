@@ -18,8 +18,18 @@ views:
         entities:
         - device_tracker.marleen_marleen01
         - device_tracker.kees_kees01
+      - type: picture-glance
+        title: Backyard
+        entities:
+          - switch.licht_in_tuin
+          - sensor.schuurdeur
+          - sensor.poortdeur
+          - sensor.fietsjasmijn
+          - sensor.fietsmarleen
+        camera_image: camera.dafang_motion_snapshot
+        tap_action: dialog
       - type: picture-entity
-        title: Locations
+        title: Kees & Marleen
         entity: camera.Locations
         camera_image: camera.Locations
         show_info: true
@@ -32,38 +42,17 @@ views:
           - light.bank
           - light.lampentafel
           - light.kitchen
+          - light.attic
           - binary_sensor.0x00158d000222df56_occupancy
           - sensor.0x00158d0001f5358e_temperature
           - scene.eating
           - scene.evening
-      - type: entities
-        title: Backyard
-        show_header_toggle: false
-        entities:
-          - switch.licht_in_tuin
-          - sensor.schuurdeur
-          - sensor.poortdeur
-          - sensor.fietsjasmijn
-          - sensor.fietsmarleen
-      - type: picture-entity
-        title: Backyard latest motion snapshot
-        entity: camera.dafang_motion_snapshot
-        camera_image: camera.dafang_motion_snapshot
-        show_info: true
-        tap_action: dialog
-      - type: picture-entity
-        title: Backyard live
-        entity: camera.dafang
-        camera_image: camera.dafang
-        show_info: true
-        tap_action: dialog
-      - type: entities
-        title: Attic
-        show_header_toggle: true
-        entities:
-          - light.attic
-          - input_boolean.washingmachine_busy
-
+      # - type: picture-entity
+      #   title: Backyard live
+      #   entity: camera.dafang
+      #   camera_image: camera.dafang
+      #   show_info: true
+      #   tap_action: dialog
       - type: weather-forecast
         entity: weather.rotterdam
   - title: Systeem
