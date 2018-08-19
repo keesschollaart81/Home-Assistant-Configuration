@@ -16,6 +16,7 @@ automation: !include_dir_merge_list automations
 scene: !include scene.yaml
 input_boolean: !include input_booleans.yaml
 script: !include script.yaml
+history: !include history.yaml
 
 frontend:
 
@@ -42,44 +43,6 @@ conversation:
 
 history_graph:
 
-history:
-  exclude:
-    domains:
-      - automation
-      - weblink
-      - updater
-      - group
-    entities:
-      - camera.dafang
-      - camera.dafang_motion_snapshot
-      - binary_sensor.dafang_motion_sensor
-      - cover.dafang_move_leftright
-      - cover.dafang_move_updown
-      - switch.dafang_blue_led
-      - switch.dafang_h264_rtsp_server
-      - switch.dafang_ir_filter
-      - switch.dafang_ir_led
-      - switch.dafang_mjpeg_rtsp_server
-      - switch.dafang_motion_detection
-      - switch.dafang_motion_tracking
-      - switch.dafang_night_mode
-      - switch.dafang_night_mode_auto
-      - switch.dafang_yellow_led
-      - sensor.dafang_light_sensor
-      - sensor.0x00158d0001639d5a
-      - sensor.0x00158d0001710729
-      - sensor.0x00158d0002138221
-      - sensor.iphone_van_marleen_battery_level
-      - sensor.iphone_van_marleen_battery_level_2
-      - sensor.iphone_van_marleen_battery_state
-      - sensor.iphone_van_marleen_battery_state_2
-      - light.tafel1
-      - light.tafel2
-      - light.tafel3
-      - timer.zigbee_permit_join
-      - sensor.bridge_state
-      - sensor.rotterdam_condition_1d
-      - sensor.temperature_1d
 
 recorder:
   db_url: !secret recorder_db_url
