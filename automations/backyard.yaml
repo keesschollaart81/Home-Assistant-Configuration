@@ -27,12 +27,12 @@
       value_template: "{{ states('device_tracker.Kees_kees01') != 'home' }}"
   trigger:
   - platform: state
-    entity_id: sensor.poortdeur
+    entity_id: binary_sensor.poortdeur
     to: 'open'
     for:
       minutes: 2
   - platform: state
-    entity_id: sensor.schuurdeur
+    entity_id: binary_sensor.schuurdeur
     to: 'open'
     for:
       minutes: 2

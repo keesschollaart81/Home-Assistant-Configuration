@@ -34,19 +34,19 @@ switch.doorbell_buzzer_enabled:
     friendly_name: Doorbell Buzzer enabled
     icon: mdi:bell-ring
 
-sensor.fietsjasmijn:
+binary_sensor.fietsjasmijn:
     friendly_name: Bike Jasmijn
     icon: mdi:bike
 
-sensor.fietsmarleen:
+binary_sensor.fietsmarleen:
     friendly_name: Bike Marleen
     icon: mdi:bike
 
-sensor.schuurdeur:
+binary_sensor.schuurdeur:
     friendly_name: Barn door
     icon: mdi:door
 
-sensor.poortdeur:
+binary_sensor.poortdeur:
     friendly_name: Gate
     icon: mdi:gate
 

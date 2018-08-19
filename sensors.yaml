@@ -15,26 +15,6 @@
     - type: memory_free
     - type: processor_use
 - platform: mqtt
-  name: Schuurdeur
-  state_topic: "motion/door"
-  payload_on: "open"
-  payload_off: "closed"
-- platform: mqtt
-  name: Poortdeur
-  state_topic: "motion/gate"
-  payload_on: "open"
-  payload_off: "closed"
-- platform: mqtt
-  name: FietsJasmijn
-  state_topic: "motion/bike/jasmijn"
-  payload_on: "visible"
-  payload_off: "not visible"
-- platform: mqtt
-  name: FietsMarleen
-  state_topic: "motion/bike/marleen"
-  payload_on: "visible"
-  payload_off: "not visible"
-- platform: mqtt
   name: Bridge state
   state_topic: "zigbee2mqtt/bridge/state"
   icon: mdi:router-wireless

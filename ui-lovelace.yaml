@@ -22,18 +22,70 @@ views:
         title: Backyard
         entities:
           - switch.licht_in_tuin
-          - sensor.schuurdeur
-          - sensor.poortdeur
-          - sensor.fietsjasmijn
-          - sensor.fietsmarleen
+          - binary_sensor.schuurdeur
+          - binary_sensor.poortdeur
+          - binary_sensor.fietsjasmijn
+          - binary_sensor.fietsmarleen
+          - entity: camera.dafang
+            name: Live
         camera_image: camera.dafang_motion_snapshot
         tap_action: dialog
       - type: picture-entity
         title: Kees & Marleen
         entity: camera.Locations
         camera_image: camera.Locations
-        show_info: true
+        show_state: false
+        show_name: false
         tap_action: dialog
+      - type: glance
+        title: Living room
+        column_width: calc(100% / 3)
+        show_header_toggle: false
+        show_name: false
+        entities:
+          - entity: binary_sensor.0x00158d000222df56_occupancy
+            name: Occupancy
+          - entity: sensor.0x00158d0001f5358e_temperature
+            name: Temperature
+          - entity: light.kitchen
+            name: Kitchen
+            tap_action: toggle
+      - type: glance
+        column_width: calc(100% / 3)
+        show_header_toggle: false
+        show_state: false
+        entities:
+          - entity: scene.eating
+            name: Eating
+            icon: mdi:food
+            tap_action: call-service
+            service: scene.turn_on
+          - entity: scene.evening
+            name: Evening
+            icon: mdi:weather-sunset
+            tap_action: call-service
+            service: scene.turn_on
+          - entity: scene.false
+            name: All off
+            icon: mdi:weather-night
+            tap_action: call-service
+            service: scene.turn_on
+      - type: entity-filter
+        entities:
+          - entity: light.bed_light
+            name: Lights on
+          - light.staandelamp
+          - light.bank
+          - light.lampentafel
+          - light.kitchen
+          - light.attic
+        state_filter:
+          - "on"
+      - type: weather-forecast
+        entity: weather.rotterdam
+  - title: Living room
+    icon: mdi:house
+    cards:
       - type: entities
         title: Living Room
         show_header_toggle: false
@@ -47,14 +99,6 @@ views:
           - sensor.0x00158d0001f5358e_temperature
           - scene.eating
           - scene.evening
-      # - type: picture-entity
-      #   title: Backyard live
-      #   entity: camera.dafang
-      #   camera_image: camera.dafang
-      #   show_info: true
-      #   tap_action: dialog
-      - type: weather-forecast
-        entity: weather.rotterdam
   - title: Systeem
     icon: mdi:settings
     cards:

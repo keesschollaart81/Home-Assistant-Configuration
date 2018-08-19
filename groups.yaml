@@ -33,10 +33,10 @@ Living Room:
   
 Backyard:
   - switch.licht_in_tuin
-  - sensor.schuurdeur
-  - sensor.poortdeur
-  - sensor.fietsjasmijn
-  - sensor.fietsmarleen
+  - binary_sensor.schuurdeur
+  - binary_sensor.poortdeur
+  - binary_sensor.fietsjasmijn
+  - binary_sensor.fietsmarleen
   - camera.dafang_motion_snapshot
   - camera.dafang
 
