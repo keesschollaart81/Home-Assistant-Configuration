@@ -1,0 +1,42 @@
+- id: 'VoordeurNotificatieNiemandThuis'
+  alias: Voordeur of schuur open / niemand thuis
+  condition: 
+    condition: and
+    conditions:
+    - condition: template
+      value_template: "{{ states('device_tracker.marleen_marleen01') != 'home' }}"
+    - condition: template
+      value_template: "{{ states('device_tracker.Kees_kees01') != 'home' }}"
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.0x00158d000208e0e0
+    to: 'on'
+    for:
+      seconds: 2
+  action: 
+   - service: notify.pushbullet
+     data:
+        title: "Voordeur open"
+        message: "En er is niemand thuis!"
+   - service: notify.ios_marleen_marleen01
+     data:
+        title: "Voordeur open"
+        message: "En er is niemand thuis!"
+
+- id: 'VoordeurNotificatieTeLangOpen'
+  alias: Voordeur te lang open
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.0x00158d000208e0e0
+    to: 'on'
+    for:
+      minutes: 2
+  action: 
+   - service: notify.pushbullet
+     data:
+        title: "Voordeur meer dan 2 minuten open"
+        message: "Misschien vergeten dicht te doen?"
+   - service: notify.ios_marleen_marleen01
+     data:
+        title: "Voordeur meer dan 2 minuten open"
+        message: "Misschien vergeten dicht te doen?"

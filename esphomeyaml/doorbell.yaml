@@ -41,6 +41,7 @@ binary_sensor:
       inverted: True
     filters:
       - delayed_off: 750ms # someone cannot push the button twice
+      - delayed_on: 200ms # you have to push it for 0,2 sec
     on_press:
       if:
         lambda: 'return id(doorbell_buzzer_enabled).value;'
