@@ -6,6 +6,10 @@ homeassistant:
   unit_system: metric
   time_zone: Europe/Amsterdam
   customize: !include customize.yaml
+  auth_providers:
+    - type: homeassistant
+    - type: trusted_networks
+        - 192.168.2.0/24
 
 switch: !include switches.yaml
 light: !include lights.yaml
@@ -34,10 +38,6 @@ http:
   trusted_networks:
     - 192.168.2.0/24
 
-auth_providers:
-   - type: homeassistant
-   - type: trusted_networks
-      - 192.168.2.0/24
 
 updater:
   include_used_components: true
