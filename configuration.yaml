@@ -8,8 +8,6 @@ homeassistant:
   customize: !include customize.yaml
   auth_providers:
     - type: homeassistant
-    - type: trusted_networks
-        - 192.168.2.0/24
 
 switch: !include switches.yaml
 light: !include lights.yaml
