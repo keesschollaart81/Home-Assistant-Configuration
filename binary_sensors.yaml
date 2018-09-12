@@ -23,20 +23,20 @@
     kees1:
       entity_id: sensor.kees_naar_huis
       device_class: moving
-      min_gradient: -0,0138 #if remaining travel time drops 50min per hour (-50)/(60*60)
+      min_gradient: -0.0138 #if remaining travel time drops 50min per hour (-50)/(60*60)
     kees2:
       entity_id: sensor.kees_naar_huis
       device_class: moving
-      min_gradient: -0,00138 
+      min_gradient: -0.00138 
     kees3:
       entity_id: sensor.kees_naar_huis
       device_class: moving
-      min_gradient: 0,00138 
+      min_gradient: 0.00138 
     kees4:
       entity_id: sensor.kees_naar_huis
       device_class: moving
-      min_gradient: 0,0138 
+      min_gradient: 0.0138 
     kees5:
       entity_id: sensor.kees_naar_huis
       device_class: moving
-      min_gradient: -0,138
+      min_gradient: -0.138
