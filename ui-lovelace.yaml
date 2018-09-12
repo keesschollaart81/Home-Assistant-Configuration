@@ -34,7 +34,7 @@ views:
             tap_action: dialog
         - type: conditional
           conditions:
-            - entity: device_tracker.kees_kees01
+            - entity: device_tracker.marleen_marleen01
               state_not: "home"
           card:
             type: picture-entity
