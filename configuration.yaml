@@ -161,13 +161,13 @@ zone:
     icon: mdi:school
     
 notify:
-  - name: pushbullet
-    platform: pushbullet
-    api_key: !secret pushbullet_api_key
+  # - name: pushbullet
+  #   platform: pushbullet
+  #   api_key: !secret pushbullet_api_key
   - name: html5
     platform: html5
-    # gcm_api_key: 'gcm-server-key'
-    # gcm_sender_id: 'gcm-sender-id'
+    gcm_api_key: !secret gcm_server_key
+    gcm_sender_id: !secret gcm_sender_id
 
 azure_event_grid:
   test:

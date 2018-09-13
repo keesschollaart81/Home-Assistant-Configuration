@@ -14,7 +14,7 @@
     for:
       seconds: 2
   action: 
-   - service: notify.pushbullet
+   - service: notify.html5
      data:
         title: "Voordeur open"
         message: "En er is niemand thuis!"
@@ -32,7 +32,7 @@
     for:
       minutes: 2
   action: 
-   - service: notify.pushbullet
+   - service: notify.html5
      data:
         title: "Voordeur meer dan 2 minuten open"
         message: "Misschien vergeten dicht te doen?"

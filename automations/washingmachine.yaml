@@ -34,7 +34,7 @@
     for:
       minutes: 5
   action: 
-   - service: notify.pushbullet
+   - service: notify.html5
      data:
         title: "Wasmachine klaar"
         message: "Wasmachine klaar"

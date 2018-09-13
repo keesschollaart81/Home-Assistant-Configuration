@@ -5,7 +5,7 @@
     entity_id: binary_sensor.doorbell_button
     to: 'on'
   action: 
-   - service: notify.pushbullet
+   - service: notify.html5
      data:
         title: "Er wordt aan de deur gebeld"
         message: "Beter ga je ff lopen te kijken!"
