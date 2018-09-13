@@ -40,3 +40,24 @@
       entity_id: sensor.kees_naar_huis
       device_class: moving
       min_gradient: -0.027 
+
+    kees_5_10min:
+      entity_id: sensor.kees_naar_huis
+      device_class: moving
+      min_gradient: -0.00138  
+      sample_duration: 600
+    kees_30_10min:
+      entity_id: sensor.kees_naar_huis
+      device_class: moving
+      min_gradient: -0.009 
+      sample_duration: 600
+    kees_50_10min:
+      entity_id: sensor.kees_naar_huis
+      device_class: moving
+      min_gradient: -0.0138 
+      sample_duration: 600
+    kees_100_10min:
+      entity_id: sensor.kees_naar_huis
+      device_class: moving
+      min_gradient: -0.027 
+      sample_duration: 600
