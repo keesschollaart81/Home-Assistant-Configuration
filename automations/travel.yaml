@@ -11,9 +11,10 @@
      data:
         title: "Reistijd neemt af"
         message: "Marleen informeren over ETA?"
-        actions: 
-        - action: inform_marleen
-          title: Ja
+        data:
+          actions: 
+          - action: inform_marleen
+            title: Ja
 
 - id: inform_marleen_automation
   alias: "Inform Marleen"
