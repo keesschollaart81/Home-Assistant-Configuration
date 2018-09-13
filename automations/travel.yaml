@@ -1,0 +1,29 @@
+- id: GettingBackHome
+  alias: "Detect when Kees gets back to home"
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.kees_30
+    to: 'on'
+    for:
+      minutes: 2
+  action:
+   - service: notify.html5
+     data:
+        title: "Reistijd neemt af"
+        message: "Marleen informeren over ETA?"
+        actions: 
+        - action: inform_marleen
+          title: Ja
+
+- id: inform_marleen_automation
+  alias: "Inform Marleen"
+  trigger:
+    platform: event
+    event_type: html5_notification.clicked
+    event_data:
+      action: inform_marleen
+  action:
+   - service: notify.html5
+     data:
+        title: "Kees komt terug"
+        message: "Kees komt terug"
