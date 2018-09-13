@@ -28,3 +28,8 @@
      data:
         title: "Kees komt terug"
         message: "ETA {{ (as_timestamp (now()) + (states.sensor.kees_naar_huis | int)) | timestamp_custom('%H:%M') }}"
+        data:
+          actions: 
+          - action: open
+            icon: "/static/icons/favicon-192x192.png"
+            title: "Open Home Assistant"
