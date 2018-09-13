@@ -1,4 +1,5 @@
 - platform: yr
+
 - platform: google_travel_time
   name: Kees naar huis
   api_key: !secret google_api_key
@@ -6,6 +7,7 @@
   destination: zone.home
   options:
     mode: driving
+
 - platform: systemmonitor
   resources:
     - type: disk_use
@@ -14,34 +16,41 @@
       arg: /
     - type: memory_free
     - type: processor_use
+
 - platform: mqtt
   name: Bridge state
   state_topic: "zigbee2mqtt/bridge/state"
   icon: mdi:router-wireless
+
 - platform: mqtt
   state_topic: "zigbee2mqtt/0x00158d0001f5358e"
   name: 0x00158d0001f5358e_battery
   unit_of_measurement: "%"
   value_template: '{{ value_json.battery }}'
   device_class: battery
+
 - platform: mqtt
   state_topic: "zigbee2mqtt/0x00158d000222df56"
   name: 0x00158d000222df56_battery
   unit_of_measurement: "%"
   value_template: '{{ value_json.battery }}'
   device_class: battery
+
 - platform: alpha_vantage
   api_key: !secret alpha_vantage_key
   symbols:
   - symbol: MSFT
     name: Microsoft
+
 - platform: ups
   username: !secret ups_username
   password: !secret ups_password
+
 - platform: postnl
   name: PostNl
   username: !secret postnl_username
   password: !secret postnl_password
+
 - platform: buienradar
   name: 'Rotterdam' 
   monitored_conditions:

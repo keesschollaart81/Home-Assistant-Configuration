@@ -27,4 +27,4 @@
    - service: notify.html5
      data:
         title: "Kees komt terug"
-        message: "Kees komt terug"
+        message: "ETA {{ (as_timestamp (now()) + (states.sensor.kees_naar_huis | int)) | timestamp_custom('%H:%M') }}"
