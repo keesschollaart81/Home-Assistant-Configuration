@@ -10,10 +10,12 @@
 
 - platform: template
   sensors:
-    solar_angle:
-      friendly_name: "Sun angle"
+    kees_travel_km_back_home: 
       unit_of_measurement: 'km'
       value_template: "{{ states.sensor.kees_naar_huis.distance.elevation | float }}"
+    kees_distance_km_back_home: 
+      unit_of_measurement: 'km'
+      value_template: "{{ states.proximity.home.state | float }}"
 
 - platform: systemmonitor
   resources:
