@@ -8,6 +8,13 @@
   options:
     mode: driving
 
+- platform: template
+  sensors:
+    solar_angle:
+      friendly_name: "Sun angle"
+      unit_of_measurement: 'km'
+      value_template: "{{ states.sensor.kees_naar_huis.distance.elevation | float }}"
+
 - platform: systemmonitor
   resources:
     - type: disk_use

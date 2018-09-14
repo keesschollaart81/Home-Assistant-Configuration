@@ -24,40 +24,11 @@
   
 - platform: trend
   sensors:
-    kees_5:
+    kees_travel_time:
       entity_id: sensor.kees_naar_huis
       device_class: moving
-      min_gradient: -0.00138  
-    kees_30:
-      entity_id: sensor.kees_naar_huis
+      min_gradient: -0.009  #if remaining travel time drops at least 30 min per hour (-30)/(60*60)
+    kees_distance:
+      entity_id: states.proximity.home.state
       device_class: moving
-      min_gradient: -0.009 
-    kees_50:
-      entity_id: sensor.kees_naar_huis
-      device_class: moving
-      min_gradient: -0.0138 #if remaining travel time drops 50 min per hour (-50)/(60*60)
-    kees_100:
-      entity_id: sensor.kees_naar_huis
-      device_class: moving
-      min_gradient: -0.027 
-
-    kees_5_10min:
-      entity_id: sensor.kees_naar_huis
-      device_class: moving
-      min_gradient: -0.00138  
-      sample_duration: 600
-    kees_30_10min:
-      entity_id: sensor.kees_naar_huis
-      device_class: moving
-      min_gradient: -0.009 
-      sample_duration: 600
-    kees_50_10min:
-      entity_id: sensor.kees_naar_huis
-      device_class: moving
-      min_gradient: -0.0138 
-      sample_duration: 600
-    kees_100_10min:
-      entity_id: sensor.kees_naar_huis
-      device_class: moving
-      min_gradient: -0.027 
-      sample_duration: 600
+      min_gradient: -0.009  #if remaining distance drops at least 30 km per hour (-30)/(60*60)

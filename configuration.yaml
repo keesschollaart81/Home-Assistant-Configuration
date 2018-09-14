@@ -210,3 +210,10 @@ rest_command:
     url: !secret dafang_rebooturl 
     username:  !secret dafang_username
     password: !secret dafang_password
+
+proximity:
+  thuis:
+    devices:
+      - device_tracker.kees_kees01
+    tolerance: 50
+    unit_of_measurement: km
