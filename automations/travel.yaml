@@ -2,7 +2,7 @@
   alias: "Detect when Kees gets back to home"
   trigger:
   - platform: state
-    entity_id: binary_sensor.kees_30
+    entity_id: binary_sensor.trend_kees_travel_time_decreasing
     to: 'on'
     for:
       minutes: 2
