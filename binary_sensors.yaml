@@ -29,5 +29,5 @@
       device_class: moving
       min_gradient: -0.009  #if remaining travel time drops at least 30 min per hour (-30)/(60*60)
     trend_kees_distance_decreasing:
-      entity_id: states.proximity.thuis.state
+      entity_id: sensor.kees_distance_km_back_home
       min_gradient: -0.009  #if remaining distance drops at least 30 km per hour (-30)/(60*60)
