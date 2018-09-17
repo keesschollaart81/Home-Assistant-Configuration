@@ -21,6 +21,10 @@
   state_topic: "motion/bike/marleen"
   payload_on: "visible"
   payload_off: "not visible"
+
+- platform: mqtt
+  name: TelefoonKeesConnectedWithCar
+  state_topic: "telefoonkees/connectedwithcar"
   
 - platform: trend
   sensors:
