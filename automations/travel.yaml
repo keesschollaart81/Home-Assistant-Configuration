@@ -2,7 +2,7 @@
   alias: "Detect when Kees gets back to home"
   trigger:
   - platform: state
-    entity_id: binary_sensor.trend_kees_travel_time_decreasing
+    entity_id: binary_sensor.telefoonkeesconnectedwithcar
     to: 'on'
     for:
       minutes: 2
@@ -10,7 +10,7 @@
    - service: notify.html5
      data:
         title: "Reistijd neemt af"
-        message: "Marleen informeren over ETA ({{ (as_timestamp (now()) + ((states.sensor.kees_naar_huis | int) * 60)) | timestamp_custom('%H:%M') }})?"
+        message: "Marleen informeren over ETA ({{ (as_timestamp (now()) + ((states.sensor.kees_naar_huis | int) * 60)) | timestamp_custom('%H:%M') }})? ({{ sensor.kees_naar_huis }}"
         data:
           actions: 
           - action: inform_marleen
