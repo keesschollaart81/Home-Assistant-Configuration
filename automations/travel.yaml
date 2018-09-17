@@ -4,8 +4,8 @@
   - platform: state
     entity_id: binary_sensor.telefoonkeesconnectedwithcar
     to: 'on'
-    for:
-      minutes: 2
+    # for:
+    #   minutes: 2
   action:
    - service: notify.html5
      data:
