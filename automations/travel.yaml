@@ -10,7 +10,7 @@
    - service: notify.html5
      data:
         title: "In auto gestapt"
-        message: "Marleen informeren over ETA ({{ (as_timestamp (now()) + (( states.sensor.kees_naar_huis.state | int) * 60)) | timestamp_custom('%H:%M') }}) ({{ ( state.sensor.kees_naar_huis.state | int) }})?"
+        message: "Marleen informeren over ETA ({{ (as_timestamp (now()) + (( states.sensor.kees_naar_huis.state | int) * 60)) | timestamp_custom('%H:%M') }}) ({{ ( states.sensor.kees_naar_huis.state | int) }})?"
         data:
           actions: 
           - action: inform_marleen
