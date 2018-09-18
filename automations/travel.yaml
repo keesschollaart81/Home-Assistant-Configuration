@@ -1,16 +1,19 @@
-- id: GettingBackHome
-  alias: "Detect when Kees gets back to home"
+- id: kees_in_car_prompt_to_share_eta_back_home
+  alias: "Kees in car: prompt to share ETA back home"
   trigger:
   - platform: state
     entity_id: binary_sensor.telefoonkeesconnectedwithcar
     to: 'on'
-    # for:
-    #   minutes: 2
+  condition:
+    - condition: state
+      entity_id: sensor.kees_naar_huis.state
+      above: 15 # not when getting back from super market or so
+      below: 180 # when out of country
   action:
    - service: notify.html5
      data:
         title: "In auto gestapt"
-        message: "Marleen informeren over ETA ({{ (as_timestamp (now()) + (( states.sensor.kees_naar_huis.state | int) * 60)) | timestamp_custom('%H:%M') }}) ({{ ( states.sensor.kees_naar_huis.state | int) }})?"
+        message: "Marleen informeren over ETA ({{ (as_timestamp (now()) + (( states.sensor.kees_naar_huis.state | int) * 60)) | timestamp_custom('%H:%M') }})?"
         data:
           actions: 
           - action: inform_marleen
@@ -27,4 +30,4 @@
    - service: notify.ios_marleen_marleen01
      data:
         title: "Kees komt terug"
-        message: "ETA {{ (as_timestamp (now()) + ((states.sensor.kees_naar_huis | int) * 60)) | timestamp_custom('%H:%M') }}"
+        message: "ETA {{ (as_timestamp (now()) + (( states.sensor.kees_naar_huis.state | int) * 60)) | timestamp_custom('%H:%M') }}"
