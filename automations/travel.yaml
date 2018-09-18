@@ -5,10 +5,10 @@
     entity_id: binary_sensor.telefoonkeesconnectedwithcar
     to: 'on'
   condition:
-    - condition: state
-      entity_id: sensor.kees_naar_huis
-      above: 15 # not when getting back from super market or so
-      below: 180 # when out of country
+    condition: state
+    entity_id: sensor.kees_naar_huis
+    above: 15 # not when getting back from super market or so
+    below: 180 # when out of country
   action:
    - service: notify.html5
      data:
