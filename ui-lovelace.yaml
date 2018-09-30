@@ -136,6 +136,12 @@ views:
           - switch.dafang_motion_detection
           - switch.dafang_motion_tracking
           - binary_sensor.dafang_motion_sensor
+      - type: picture-glance
+        title: frontdoorjpgstream 
+        camera_image: camera.frontdoorjpgstream
+      - type: picture-glance
+        title: frontdoorgeneric 
+        camera_image: camera.frontdoorgeneric
       - type: picture-entity
         title: Backyard live
         entity: camera.dafang
