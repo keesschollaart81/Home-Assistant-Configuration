@@ -10,20 +10,20 @@
         title: "Er wordt aan de deur gebeld"
         message: "Beter ga je ff lopen te kijken!"
         data:
-          file_url: "https://schollaartthuis.duckdns.org:3218{{ states.camera.front_door.attributes.entity_picture }}"
-  #  - service: notify.html5
-  #    data_template:
-  #       title: "Er wordt aan de deur gebeld"
-  #       message: "Beter ga je ff lopen te kijken!"
-  #       data:
-  #         image: "https://schollaartthuis.duckdns.org:3218{{ states.camera.front_door.attributes.entity_picture }}"
+          file_url: "https://schollaartthuis.duckdns.org:8123{{ states.camera.front_door.attributes.entity_picture }}"
+   - service: notify.html5
+     data_template:
+        title: "Er wordt aan de deur gebeld"
+        message: "Beter ga je ff lopen te kijken!"
+        data:
+          image: "https://schollaartthuis.duckdns.org:8123{{ states.camera.front_door.attributes.entity_picture }}"
    - service: notify.ios_marleen_marleen01
      data_template:
         title: "Er wordt aan de deur gebeld"
         message: "Beter ga je ff lopen te kijken!"
         data:
           attachment:
-            - url: "https://schollaartthuis.duckdns.org:3218{{ states.camera.front_door.attributes.entity_picture }}"
+            - url: "https://schollaartthuis.duckdns.org:8123{{ states.camera.front_door.attributes.entity_picture }}"
               content-type: jpg
    - service: script.sonos_say
      data:
