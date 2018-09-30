@@ -6,13 +6,13 @@
     to: 'on'
   action: 
    - service: notify.html5
-     data:
+     data_template:
         title: "Er wordt aan de deur gebeld"
         message: "Beter ga je ff lopen te kijken!"
         data:
           - image: "https://schollaartthuis.duckdns.org:3218{{ states.camera.front_door.attributes.entity_picture }}"
    - service: notify.ios_marleen_marleen01
-     data:
+     data_template:
         title: "Er wordt aan de deur gebeld"
         message: "Beter ga je ff lopen te kijken!"
         attachment:
