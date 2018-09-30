@@ -84,9 +84,6 @@ camera:
   - platform: generic
     name: front_door
     still_image_url: http://192.168.2.24/jpg
-  - platform: proxy
-    name: front_door_proxy
-    entity_id: camera.front_door
 
 tts:
   - platform: google
