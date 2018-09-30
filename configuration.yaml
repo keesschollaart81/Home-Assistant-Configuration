@@ -83,10 +83,10 @@ camera:
     limit_refetch_to_url_change: true
   - platform: mjpeg
     name: FrontDoorJpgStream
-    mjpeg_url: http://192.168.2.24/jpg_stream
+    mjpeg_url: http://192.168.2.24/jpg
   - platform: generic
     name: FrontDoorGeneric
-    still_image_url: http://192.168.2.24/jpg_stream
+    still_image_url: http://192.168.2.24/jpg
 
 tts:
   - platform: google
