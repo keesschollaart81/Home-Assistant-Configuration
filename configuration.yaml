@@ -81,12 +81,12 @@ camera:
     platform: generic
     still_image_url: https://maps.googleapis.com/maps/api/staticmap?size=500x300&maptype=roadmap&markers=color:blue%7Clabel:K%7C{{ states.device_tracker.kees_kees01.attributes.latitude }},{{ states.device_tracker.kees_kees01.attributes.longitude }}&markers=color:red%7Clabel:M%7C{{ states.device_tracker.marleen_marleen01.attributes.latitude }},{{ states.device_tracker.marleen_marleen01.attributes.longitude }}
     limit_refetch_to_url_change: true
-  - platform: mjpeg
-    name: FrontDoorJpgStream
-    mjpeg_url: http://192.168.2.24/jpg
   - platform: generic
-    name: FrontDoorGeneric
+    name: front_door
     still_image_url: http://192.168.2.24/jpg
+  - platform: proxy
+    name: front_door_proxy
+    entity_id: camera.front_door
 
 tts:
   - platform: google
@@ -168,9 +168,9 @@ zone:
     icon: mdi:school
     
 notify:
-  # - name: pushbullet
-  #   platform: pushbullet
-  #   api_key: !secret pushbullet_api_key
+  - name: pushbullet
+    platform: pushbullet
+    api_key: !secret pushbullet_api_key
   - name: html5
     platform: html5
     gcm_api_key: !secret gcm_server_key
