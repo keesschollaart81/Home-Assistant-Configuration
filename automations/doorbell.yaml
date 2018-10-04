@@ -7,7 +7,7 @@
   action: 
    - service: camera.snapshot
      data:
-        entity_id: camera.kitchen
+        entity_id: camera.front_door
         filename: "/config/www/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
    - service: notify.pushbullet
      data_template:
