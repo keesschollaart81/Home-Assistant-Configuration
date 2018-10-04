@@ -19,8 +19,8 @@
           file_type: "image/jpeg"
    - service: notify.pushbullet
      data_template:
-        title: "Er wordt aan de deur gebeld"
-        message: "Beter ga je ff lopen te kijken!"
+        title: "Er wordt aan de deur gebeld2"
+        message: "Beter ga je ff lopen te kijken!2"
         data:
           file: "/config/www/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
           file_type: "image/jpeg"
