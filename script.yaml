@@ -19,3 +19,26 @@ sonos_say:
     - service: media_player.sonos_restore
       data_template:
         entity_id: "{{ sonos_entity }}"
+
+
+flash_light_kitchen:
+  alias: Flash Light Kitchen
+  sequence:
+    - service: light.toggle
+      data:
+        entity_id: light.kitchen
+    - delay:
+        seconds: 0.5
+    - service: light.toggle
+      data:
+        entity_id: light.kitchen  
+    - delay:
+        seconds: 0.5
+    - service: light.toggle
+      data:
+        entity_id: light.kitchen
+    - delay:
+        seconds: 0.5
+    - service: light.toggle
+      data:
+        entity_id: light.kitchen  

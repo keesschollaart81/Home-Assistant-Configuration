@@ -9,31 +9,20 @@
      data:
         entity_id: camera.front_door
         filename: "/config/www/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
+   - service: script.sonos_say
+     data:
+        sonos_entity: media_player.woonkamer
+        volume: 0.5
+        message: 'Er wordt aan de deur gebeld'
+        # delay: '00:00:05'
    - service: notify.pushbullet
      data_template:
         title: "Er wordt aan de deur gebeld"
-        message: "Beter ga je ff lopen te kijken!"
+        message: "Wie zou dat zijn!?"
         data:
-          # url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
-          file_url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
-          file_type: "image/jpeg"
-   - service: notify.pushbullet
-     data_template:
-        title: "Er wordt aan de deur gebeld2"
-        message: "Beter ga je ff lopen te kijken!2"
-        data:
+          #file_url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
           file: "/config/www/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
           file_type: "image/jpeg"
-  #  - service: notify.pushbullet
-  #    data_template:
-  #       title: "Er wordt aan de deur gebeld"
-  #       message: "Beter ga je ff lopen te kijken!"
-  #       data:
-  #         url: "https://schollaartthuis.duckdns.org:8123{{ states.camera.front_door.attributes.entity_picture }}"
-  #         file_url: "https://schollaartthuis.duckdns.org:8123{{ states.camera.front_door.attributes.entity_picture }}"
-  #         image_url: "https://schollaartthuis.duckdns.org:8123{{ states.camera.front_door.attributes.entity_picture }}"
-  #         file_type: "image/jpeg"
-  #         type: "file"
   #  - service: notify.html5
   #    data_template:
   #       title: "Er wordt aan de deur gebeld"
@@ -42,21 +31,17 @@
   #         tag: "doorbell"
   #         url: "https://schollaartthuis.duckdns.org:8123{{ states.camera.front_door.attributes.entity_picture }}"
   #         image: "https://schollaartthuis.duckdns.org:8123{{ states.camera.front_door.attributes.entity_picture }}"
-  #  - service: notify.ios_marleen_marleen01
-  #    data_template:
-  #       title: "Er wordt aan de deur gebeld"
-  #       message: "Beter ga je ff lopen te kijken!"
-  #       data:
-  #         url: "https://schollaartthuis.duckdns.org:8123{{ states.camera.front_door.attributes.entity_picture }}"
-  #         attachment:
-  #           - url: "https://schollaartthuis.duckdns.org:8123{{ states.camera.front_door.attributes.entity_picture }}"
-  #             content-type: jpg
-   - service: script.sonos_say
-     data:
-        sonos_entity: media_player.woonkamer
-        volume: 0.5
-        message: 'Er wordt aan de deur gebeld'
-        delay: '00:00:05'
+   - service: notify.ios_marleen_marleen01
+     data_template:
+        title: "Er wordt aan de deur gebeld"
+        message: "Wie zou dat zijn?"
+        data:
+          url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
+          attachment:
+            - url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
+              content-type: jpg
+   - service: script.flash_light_kitchen
+
 
 - id: 'DoorbellSoundSilendAtNight'
   trigger:
