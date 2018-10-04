@@ -14,14 +14,26 @@
     for:
       seconds: 2
   action: 
-   - service: notify.html5
+   - service: camera.snapshot
      data:
+        entity_id: camera.front_door
+        filename: "/config/www/camera_snapshots/front_door_open_nobody_home_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
+   - service: notify.pushbullet
+     data_template:
         title: "Voordeur open"
         message: "En er is niemand thuis!"
+        data:
+          file: "/config/www/camera_snapshots/front_door_open_nobody_home_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
+          file_type: "image/jpeg"
    - service: notify.ios_marleen_marleen01
      data:
         title: "Voordeur open"
         message: "En er is niemand thuis!"
+        data:
+          url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_open_nobody_home_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
+          attachment:
+            - url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_open_nobody_home_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
+              content-type: jpg
 
 - id: 'VoordeurNotificatieTeLangOpen'
   alias: Voordeur te lang open
@@ -32,11 +44,23 @@
     for:
       minutes: 2
   action: 
-   - service: notify.html5
+   - service: camera.snapshot
      data:
+        entity_id: camera.front_door
+        filename: "/config/www/camera_snapshots/front_door_open_too_long{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
+   - service: notify.pushbullet
+     data_template:
         title: "Voordeur meer dan 2 minuten open"
         message: "Misschien vergeten dicht te doen?"
+        data:
+          file: "/config/www/camera_snapshots/front_door_open_too_long{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
+          file_type: "image/jpeg"
    - service: notify.ios_marleen_marleen01
      data:
         title: "Voordeur meer dan 2 minuten open"
         message: "Misschien vergeten dicht te doen?"
+        data:
+          url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_open_too_long{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
+          attachment:
+            - url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_open_too_long{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
+              content-type: jpg
