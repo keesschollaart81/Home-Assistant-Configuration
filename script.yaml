@@ -28,17 +28,27 @@ flash_light_kitchen:
       data:
         entity_id: light.kitchen
     - delay:
-        seconds: 0.5
+        seconds: 0.2
     - service: light.toggle
       data:
         entity_id: light.kitchen  
     - delay:
-        seconds: 0.5
+        seconds: 0.2
     - service: light.toggle
       data:
         entity_id: light.kitchen
     - delay:
-        seconds: 0.5
+        seconds: 0.2
+    - service: light.toggle
+      data:
+        entity_id: light.kitchen  
+    - delay:
+        seconds: 0.2
+    - service: light.toggle
+      data:
+        entity_id: light.kitchen  
+    - delay:
+        seconds: 0.2
     - service: light.toggle
       data:
         entity_id: light.kitchen  
