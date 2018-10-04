@@ -16,9 +16,14 @@
         data:
           # url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
           file_url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
-          image_url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
           file_type: "image/jpeg"
-          type: "file"
+   - service: notify.pushbullet
+     data_template:
+        title: "Er wordt aan de deur gebeld"
+        message: "Beter ga je ff lopen te kijken!"
+        data:
+          file: "/config/www/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
+          file_type: "image/jpeg"
   #  - service: notify.pushbullet
   #    data_template:
   #       title: "Er wordt aan de deur gebeld"
