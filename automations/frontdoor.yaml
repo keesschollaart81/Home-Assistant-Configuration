@@ -78,12 +78,13 @@
   trigger:
   - platform: state
     entity_id: binary_sensor.0x00158d000208e0e0
+    to: 'on'
   action: 
    - service: camera.snapshot
      data:
         entity_id: camera.front_door
-        filename: "/config/www/camera_snapshots/front_door_open_too_long{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
+        filename: "/config/www/camera_snapshots/front_door_open{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
    - service: camera.local_file_update_file_path
      data_template:
         entity_id: camera.front_door_latest
-        file_path: "/config/www/camera_snapshots/front_door_open_too_long{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
+        file_path: "/config/www/camera_snapshots/front_door_open{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
