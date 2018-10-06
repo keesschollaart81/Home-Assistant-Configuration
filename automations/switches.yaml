@@ -75,7 +75,7 @@
     condition: template
     value_template: "{{ 'left' == trigger.payload_json.click }}"
   action:
-   - service: notify.html5
+   - service: notify.pushbullet
      data:
         title: "Button push"
         message: "Button push"

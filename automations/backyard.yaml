@@ -37,7 +37,7 @@
     for:
       minutes: 2
   action: 
-   - service: notify.html5
+   - service: notify.pushbullet
      data:
         title: "Schuur/poort open"
         message: "En er is niemand thuis!"

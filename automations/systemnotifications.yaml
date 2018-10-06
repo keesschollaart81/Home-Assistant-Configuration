@@ -15,7 +15,7 @@
     platform: homeassistant
     event: start
   action:
-   - service: notify.html5
+   - service: notify.pushbullet
      data:
         title: "Hassio boots"
         message: "Hassio boots"
