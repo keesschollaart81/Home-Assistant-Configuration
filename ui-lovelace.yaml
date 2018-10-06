@@ -101,17 +101,10 @@ views:
         #   state_filter:
         #     - "on"
         - type: picture-entity
-          title: Front door
-          entity: camera.front_door
-          camera_image: camera.front_door
-          show_info: true
-          tap_action: dialog   
-        - type: picture-entity
-          title: Front door
+          name: Front door
           entity: camera.front_door_latest
           camera_image: camera.front_door_latest
-          show_info: true
-          tap_action: dialog
+          show_info: false
         - type: weather-forecast
           entity: weather.rotterdam
   - title: Living room
@@ -159,7 +152,13 @@ views:
         entity: camera.dafang_motion_snapshot
         camera_image: camera.dafang_motion_snapshot
         show_info: true
-        tap_action: dialog
+        tap_action: dialog        
+      - type: picture-entity
+        title: Front door Live 
+        entity: camera.front_door
+        camera_image: camera.front_door
+        show_info: true
+        tap_action: dialog   
       - type: entities
         title: Zigbee
         show_header_toggle: true
