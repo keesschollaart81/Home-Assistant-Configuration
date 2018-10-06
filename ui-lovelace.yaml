@@ -100,6 +100,18 @@ views:
         #     - light.attic
         #   state_filter:
         #     - "on"
+        - type: picture-entity
+          title: Front door
+          entity: camera.front_door
+          camera_image: camera.front_door
+          show_info: true
+          tap_action: dialog   
+        - type: picture-entity
+          title: Front door
+          entity: camera.front_door_latest
+          camera_image: camera.front_door_latest
+          show_info: true
+          tap_action: dialog
         - type: weather-forecast
           entity: weather.rotterdam
   - title: Living room
@@ -136,12 +148,6 @@ views:
           - switch.dafang_motion_detection
           - switch.dafang_motion_tracking
           - binary_sensor.dafang_motion_sensor
-      - type: picture-entity
-        title: Front door
-        entity: camera.front_door
-        camera_image: camera.front_door
-        show_info: true
-        tap_action: dialog
       - type: picture-entity
         title: Backyard live
         entity: camera.dafang
