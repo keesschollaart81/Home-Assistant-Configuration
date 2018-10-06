@@ -143,12 +143,6 @@ views:
         show_info: true
         tap_action: dialog
       - type: picture-entity
-        title: Front door
-        entity: camera.front_door_latest
-        camera_image: camera.front_door_latest
-        show_info: true
-        tap_action: dialog
-      - type: picture-entity
         title: Backyard live
         entity: camera.dafang
         camera_image: camera.dafang
