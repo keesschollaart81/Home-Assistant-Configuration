@@ -9,6 +9,10 @@
      data:
         entity_id: camera.front_door
         filename: "/config/www/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
+   - service: camera.local_file_update_file_path
+     data_template:
+        entity_id: camera.front_door_latest
+        file_path: "/config/www/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
    - service: script.sonos_say
      data:
         sonos_entity: media_player.woonkamer
@@ -32,11 +36,7 @@
           attachment:
             - url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
               content-type: jpg
-   - service: script.flash_light_kitchen
-   - service: camera.local_file_update_file_path
-     data_template:
-        entity_id: camera.front_door_latest
-        file_path: "/config/www/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
+  #  - service: script.flash_light_kitchen
 
 
 - id: 'DoorbellSoundSilendAtNight'
