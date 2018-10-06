@@ -35,7 +35,7 @@
             - url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_open_nobody_home_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
               content-type: jpg
    - service: camera.local_file_update_file_path
-     data:
+     data_template:
         entity_id: camera.front_door_latest
         file_path: "/config/www/camera_snapshots/front_door_open_nobody_home_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
 
@@ -69,7 +69,7 @@
             - url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_open_too_long{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
               content-type: jpg
    - service: camera.local_file_update_file_path
-     data:
+     data_template:
         entity_id: camera.front_door_latest
         file_path: "/config/www/camera_snapshots/front_door_open_too_long{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
 
@@ -84,6 +84,6 @@
         entity_id: camera.front_door
         filename: "/config/www/camera_snapshots/front_door_open_too_long{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
    - service: camera.local_file_update_file_path
-     data:
+     data_template:
         entity_id: camera.front_door_latest
         file_path: "/config/www/camera_snapshots/front_door_open_too_long{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
