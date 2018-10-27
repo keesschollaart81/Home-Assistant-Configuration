@@ -95,7 +95,8 @@ views:
       - id: kees_naar_huis
         type: sensor
         entity: sensor.kees_naar_huis
-        accuracy: 200
+        accuracy: 720
+        icon: mdi:car
       - id: weather
         type: weather-forecast
         entity: weather.rotterdam
