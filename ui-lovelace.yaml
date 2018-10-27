@@ -1,8 +1,11 @@
 title: Home
 views:
   - title: Home
-    # badges:
-    #   - device_tracker.kees_kees01
+    badges:
+      - device_tracker.kees_kees01
+      - sensor.postnl
+      - sensor.ups
+      - switch.doorbell_buzzer_enabled
     cards:
       - type: glance
         column_width: calc(100% / 3)
@@ -18,30 +21,13 @@ views:
         entities:
         - device_tracker.marleen_marleen01
         - device_tracker.kees_kees01
-      - type: conditional
-        conditions:
-          - entity: device_tracker.kees_kees01
-            state_not: "home"
-        card:
-          type: picture-entity
-          title: Kees & Marleen
-          entity: camera.Locations
-          camera_image: camera.Locations
-          show_state: false
-          show_name: false
-          tap_action: dialog
-      - type: conditional
-        conditions:
-          - entity: device_tracker.marleen_marleen01
-            state_not: "home"
-        card:
-          type: picture-entity
-          title: Kees & Marleen
-          entity: camera.Locations
-          camera_image: camera.Locations
-          show_state: false
-          show_name: false
-          tap_action: dialog
+      - type: picture-entity
+        title: Kees & Marleen
+        entity: camera.Locations
+        camera_image: camera.Locations
+        show_state: false
+        show_name: false
+        tap_action: dialog
       - type: glance
         title: Living room
         column_width: calc(100% / 3)
@@ -58,7 +44,7 @@ views:
       - type: glance
         column_width: calc(100% / 3)
         show_header_toggle: false
-        show_state: false
+        title: Scenes
         entities:
           - entity: scene.eating
             name: Eating
