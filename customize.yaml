@@ -101,6 +101,9 @@ light.0x90fd9ffffe10c5d1:
 light.0x90fd9ffffe135ab2:
     friendly_name: Hall Light 2
 
+light.hall_light:
+    friendly_name: Hall Light
+    icon: mdi:ceiling-light
 switch.0x00158d0001fa64a8_switch:
     friendly_name: Washing Machine - Switch
 
@@ -128,3 +131,6 @@ binary_sensor.0x00158d000208e0e0:
 
 timer.hallway_lights_off_in :
     friendly_name: Hallway lights off in
+
+camera.locations:
+    friendly_name: Location Kees & Marleen

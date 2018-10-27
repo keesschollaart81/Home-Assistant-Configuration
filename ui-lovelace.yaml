@@ -7,7 +7,6 @@ views:
       - device_tracker.kees_kees01
       - sensor.postnl
       - sensor.ups
-      - switch.doorbell_buzzer_enabled
     cards:
       - id: tracker_history
         type: history-graph
