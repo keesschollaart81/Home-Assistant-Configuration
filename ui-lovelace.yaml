@@ -2,13 +2,13 @@ title: Home
 views:
   - title: Home
     badges:
+      - device_tracker.marleen_marleen01
       - device_tracker.kees_kees01
       - sensor.postnl
       - sensor.ups
       - switch.doorbell_buzzer_enabled
     cards:
-      - type: glance
-        column_width: calc(100% / 3)
+      - type: glance 
         entities:
           - sensor.kees_naar_huis
           - entity: sensor.ups
@@ -29,8 +29,7 @@ views:
         show_name: false
         tap_action: dialog
       - type: glance
-        title: Living room
-        column_width: calc(100% / 3)
+        title: Living room 
         show_header_toggle: false
         show_name: false
         entities:
@@ -42,7 +41,6 @@ views:
             name: Kitchen
             tap_action: toggle
       - type: glance
-        column_width: calc(100% / 3)
         show_header_toggle: false
         title: Scenes
         entities:
@@ -91,6 +89,16 @@ views:
         show_info: false
       - type: weather-forecast
         entity: weather.rotterdam
+      - type: entities
+        title: Hallway
+        entities: 
+          - timer.hallway_lights_off_in 
+          - light.hall_light
+      - type: glance 
+        title: Hallway
+        entities:
+          - timer.hallway_lights_off_in 
+          - light.hall_light
   - title: Living room
     cards:
       - type: entities
