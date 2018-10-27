@@ -96,10 +96,11 @@ views:
           - light.hall_light
           - switch.doorbell_buzzer_enabled
           - binary_sensor.0x00158d0001f9faa1_occupancy
-  - id: living_room_all
+  - id: living_room_tab
     title: Living room
     cards:
-      - type: entities
+      - id: living_room_all
+        type: entities
         title: Living Room
         show_header_toggle: false
         entities:
