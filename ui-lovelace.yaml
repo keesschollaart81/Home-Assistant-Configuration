@@ -84,9 +84,6 @@ views:
         entity: camera.front_door_latest
         camera_image: camera.front_door_latest
         show_info: false
-      - id: weather
-        type: weather-forecast
-        entity: weather.rotterdam
       - id: hallway
         type: entities
         title: Hallway
@@ -95,6 +92,12 @@ views:
           - light.hall_light
           - switch.doorbell_buzzer_enabled
           - binary_sensor.0x00158d0001f9faa1_occupancy
+      - id: kees_naar_huis
+        type: sensor
+        entity: sensor.kees_naar_huis
+      - id: weather
+        type: weather-forecast
+        entity: weather.rotterdam
   - id: living_room_tab
     title: Living room
     cards:
