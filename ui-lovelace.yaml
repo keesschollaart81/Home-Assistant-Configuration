@@ -95,6 +95,7 @@ views:
       - id: kees_naar_huis
         type: sensor
         entity: sensor.kees_naar_huis
+        accuracy: 200
       - id: weather
         type: weather-forecast
         entity: weather.rotterdam
