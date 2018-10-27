@@ -106,6 +106,7 @@ views:
           - sensor.0x00158d0001f5358e_temperature
           - scene.eating
           - scene.evening
+          - light.hall_light
   - title: Systeem
     icon: mdi:settings
     cards:
