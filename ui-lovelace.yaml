@@ -4,109 +4,107 @@ views:
     # badges:
     #   - device_tracker.kees_kees01
     cards:
-      - type: vertical-stack
-        cards:
-        - type: glance
-          column_width: calc(100% / 3)
-          entities:
-            - sensor.kees_naar_huis
-            - entity: sensor.ups
-              name: UPS
-            - sensor.postnl
-            - entity: switch.doorbell_buzzer_enabled
-              name: Doorbell
-              tap_action: toggle
-        - type: history-graph
-          entities:
-          - device_tracker.marleen_marleen01
-          - device_tracker.kees_kees01
-        - type: conditional
-          conditions:
-            - entity: device_tracker.kees_kees01
-              state_not: "home"
-          card:
-            type: picture-entity
-            title: Kees & Marleen
-            entity: camera.Locations
-            camera_image: camera.Locations
-            show_state: false
-            show_name: false
-            tap_action: dialog
-        - type: conditional
-          conditions:
-            - entity: device_tracker.marleen_marleen01
-              state_not: "home"
-          card:
-            type: picture-entity
-            title: Kees & Marleen
-            entity: camera.Locations
-            camera_image: camera.Locations
-            show_state: false
-            show_name: false
-            tap_action: dialog
-        - type: glance
-          title: Living room
-          column_width: calc(100% / 3)
-          show_header_toggle: false
-          show_name: false
-          entities:
-            - entity: binary_sensor.0x00158d000222df56_occupancy
-              name: Occupancy
-            - entity: sensor.0x00158d0001f5358e_temperature
-              name: Temperature
-            - entity: light.kitchen
-              name: Kitchen
-              tap_action: toggle
-        - type: glance
-          column_width: calc(100% / 3)
-          show_header_toggle: false
+      - type: glance
+        column_width: calc(100% / 3)
+        entities:
+          - sensor.kees_naar_huis
+          - entity: sensor.ups
+            name: UPS
+          - sensor.postnl
+          - entity: switch.doorbell_buzzer_enabled
+            name: Doorbell
+            tap_action: toggle
+      - type: history-graph
+        entities:
+        - device_tracker.marleen_marleen01
+        - device_tracker.kees_kees01
+      - type: conditional
+        conditions:
+          - entity: device_tracker.kees_kees01
+            state_not: "home"
+        card:
+          type: picture-entity
+          title: Kees & Marleen
+          entity: camera.Locations
+          camera_image: camera.Locations
           show_state: false
-          entities:
-            - entity: scene.eating
-              name: Eating
-              icon: mdi:food
-              tap_action: call-service
-              service: scene.turn_on
-            - entity: scene.evening
-              name: Evening
-              icon: mdi:weather-sunset
-              tap_action: call-service
-              service: scene.turn_on
-            - entity: scene.false
-              name: All off
-              icon: mdi:weather-night
-              tap_action: call-service
-              service: scene.turn_on
-        - type: picture-glance
-          title: Backyard
-          entities:
-            - switch.licht_in_tuin
-            - binary_sensor.schuurdeur
-            - binary_sensor.poortdeur
-            - binary_sensor.fietsjasmijn
-            - binary_sensor.fietsmarleen
-            - entity: camera.dafang
-              name: Live
-          camera_image: camera.dafang_motion_snapshot
+          show_name: false
           tap_action: dialog
-        # - type: entity-filter
-        #   entities:
-        #     - entity: light.bed_light
-        #       name: Lights on
-        #     - light.staandelamp
-        #     - light.bank
-        #     - light.lampentafel
-        #     - light.kitchen
-        #     - light.attic
-        #   state_filter:
-        #     - "on"
-        - type: picture-entity
-          name: Front door
-          entity: camera.front_door_latest
-          camera_image: camera.front_door_latest
-          show_info: false
-        - type: weather-forecast
-          entity: weather.rotterdam
+      - type: conditional
+        conditions:
+          - entity: device_tracker.marleen_marleen01
+            state_not: "home"
+        card:
+          type: picture-entity
+          title: Kees & Marleen
+          entity: camera.Locations
+          camera_image: camera.Locations
+          show_state: false
+          show_name: false
+          tap_action: dialog
+      - type: glance
+        title: Living room
+        column_width: calc(100% / 3)
+        show_header_toggle: false
+        show_name: false
+        entities:
+          - entity: binary_sensor.0x00158d000222df56_occupancy
+            name: Occupancy
+          - entity: sensor.0x00158d0001f5358e_temperature
+            name: Temperature
+          - entity: light.kitchen
+            name: Kitchen
+            tap_action: toggle
+      - type: glance
+        column_width: calc(100% / 3)
+        show_header_toggle: false
+        show_state: false
+        entities:
+          - entity: scene.eating
+            name: Eating
+            icon: mdi:food
+            tap_action: call-service
+            service: scene.turn_on
+          - entity: scene.evening
+            name: Evening
+            icon: mdi:weather-sunset
+            tap_action: call-service
+            service: scene.turn_on
+          - entity: scene.false
+            name: All off
+            icon: mdi:weather-night
+            tap_action: call-service
+            service: scene.turn_on
+      - type: picture-glance
+        title: Backyard
+        entities:
+          - switch.licht_in_tuin
+          - binary_sensor.schuurdeur
+          - binary_sensor.poortdeur
+          - binary_sensor.fietsjasmijn
+          - binary_sensor.fietsmarleen
+          - entity: camera.dafang
+            name: Live
+        camera_image: camera.dafang_motion_snapshot
+        tap_action: dialog
+      # - type: entity-filter
+      #   entities:
+      #     - entity: light.bed_light
+      #       name: Lights on
+      #     - light.staandelamp
+      #     - light.bank
+      #     - light.lampentafel
+      #     - light.kitchen
+      #     - light.attic
+      #   state_filter:
+      #     - "on"
+      - type: picture-entity
+        name: Front door
+        entity: camera.front_door_latest
+        camera_image: camera.front_door_latest
+        show_info: false
+      - type: weather-forecast
+        entity: weather.rotterdam
   - title: Living room
     cards:
       - type: entities
