@@ -20,7 +20,7 @@ views:
         entity: camera.Locations
         camera_image: camera.Locations
         show_state: false
-        show_name: false
+        show_name: true
         tap_action: dialog
       - id: living_room
         type: glance
@@ -88,22 +88,14 @@ views:
       - id: weather
         type: weather-forecast
         entity: weather.rotterdam
-      - id: hallway1
+      - id: hallway
         type: entities
         title: Hallway
         entities: 
           - timer.hallway_lights_off_in 
           - light.hall_light
           - switch.doorbell_buzzer_enabled
-      - id: hallway2
-        type: glance 
-        title: Hallway
-        entities:
-          - timer.hallway_lights_off_in 
-          - light.hall_light
-          - entity: switch.doorbell_buzzer_enabled
-            name: Doorbell
-            tap_action: toggle
+          - binary_sensor.0x00158d0001f9faa1_occupancy
   - id: living_room_all
     title: Living room
     cards:

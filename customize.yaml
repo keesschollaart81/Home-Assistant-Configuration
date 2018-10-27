@@ -125,3 +125,6 @@ sensor.rotterdam_temperature_1d:
 
 binary_sensor.0x00158d000208e0e0:
     friendly_name: Front door
+
+timer.hallway_lights_off_in :
+    friendly_name: Hallway lights off in
