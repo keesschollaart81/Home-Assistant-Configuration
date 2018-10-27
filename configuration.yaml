@@ -61,7 +61,8 @@ timer:
   zigbee_permit_join:
     name: Time remaining
     duration: 600 # Updated this to the number of seconds you wish
-
+  hallway_lights_off_in:
+    duration: '00:05:00'
 logger:
   default: warn
   logs:

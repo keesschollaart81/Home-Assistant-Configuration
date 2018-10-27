@@ -1,0 +1,35 @@
+- id: 'LightOnInHallwayWhenActivity'
+  alias: Enable lights in hallway when there is activity
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.0x00158d000208e0e0 #front door opens
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.doorbell_button
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.0x00158d0001f9faa1_occupancy
+    to: 'on'
+  # condition: 
+  #   - condition: state
+  #     entity_id: sun.sun
+  #     state: 'below_horizon'
+  action: 
+  - service: light.turn_on
+    data:
+      entity_id: light.hall_light
+  - service: timer.start
+    data:
+      entity_id: timer.hallway_lights_off_in
+
+- alias: Turn off hallway lights 3 minutes after trigger
+  trigger:
+    platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.hallway_lights_off_in
+  action:
+    service: light.turn_off
+    data:
+      entity_id:
+        - light.hall_light

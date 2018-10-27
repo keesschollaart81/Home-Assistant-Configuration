@@ -87,13 +87,13 @@ sensor.0x00158d0001710729:
     friendly_name: Living Room - Switch Right
 
 binary_sensor.0x00158d0001f9faa1_occupancy:
-    friendly_name: 1st floor - Motion
+    friendly_name: Hallway - Motion
 
 sensor.0x00158d0001f9faa1_illuminance:
-    friendly_name: 1st floor - Illuminance
+    friendly_name: Hallway - Illuminance
 
 sensor.0x00158d0001f9faa1_battery:
-    friendly_name: 1st floor - Motion Sensor Battery
+    friendly_name: Hallway - Motion Sensor Battery
 
 light.0x90fd9ffffe10c5d1:
     friendly_name: Hall Light 1
