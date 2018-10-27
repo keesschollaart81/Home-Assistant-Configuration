@@ -82,9 +82,15 @@ sensor.0x00158d000222df56_battery:
 
 sensor.0x00158d0001639d5a:
     friendly_name: Living Room - Switch Left
+
+sensor.0x00158d0001639d5a_battery:
+    friendly_name: Living Room - Switch Left Battery
     
 sensor.0x00158d0001710729:
     friendly_name: Living Room - Switch Right
+
+sensor.0x00158d0001710729_battery:
+    friendly_name: Living Room - Switch Right Battery
 
 binary_sensor.0x00158d0001f9faa1_occupancy:
     friendly_name: Hallway - Motion
@@ -128,6 +134,9 @@ sensor.rotterdam_temperature_1d:
 
 binary_sensor.0x00158d000208e0e0:
     friendly_name: Front door
+
+binary_sensor.0x00158d000208e0e0_battery:
+    friendly_name: Front door Battery
 
 timer.hallway_lights_off_in :
     friendly_name: Hallway lights off in

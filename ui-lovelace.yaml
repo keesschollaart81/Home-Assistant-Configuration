@@ -175,3 +175,7 @@ views:
         entities:
           - sensor.0x00158d0001f5358e_battery
           - sensor.0x00158d000222df56_battery
+          - sensor.0x00158d0001639d5a_battery
+          - sensor.0x00158d0001f9faa1_battery
+          - sensor.0x00158d000208e0e0_battery
+          - sensor.0x00158d0001710729_battery

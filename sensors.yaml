@@ -32,6 +32,13 @@
   icon: mdi:router-wireless
 
 - platform: mqtt
+  state_topic: "zigbee2mqtt/0x00158d000222df56"
+  name: 0x00158d000222df56_battery
+  unit_of_measurement: "%"
+  value_template: '{{ value_json.battery }}'
+  device_class: battery
+
+- platform: mqtt
   state_topic: "zigbee2mqtt/0x00158d0001f5358e"
   name: 0x00158d0001f5358e_battery
   unit_of_measurement: "%"
@@ -48,6 +55,20 @@
 - platform: mqtt
   state_topic: "zigbee2mqtt/0x00158d0001710729"
   name: 0x00158d0001710729_battery
+  unit_of_measurement: "%"
+  value_template: '{{ value_json.battery }}'
+  device_class: battery
+
+- platform: mqtt
+  state_topic: "zigbee2mqtt/0x00158d0001f9faa1"
+  name: 0x00158d0001f9faa1_battery
+  unit_of_measurement: "%"
+  value_template: '{{ value_json.battery }}'
+  device_class: battery
+
+- platform: mqtt
+  state_topic: "zigbee2mqtt/0x00158d000208e0e0"
+  name: 0x00158d000208e0e0_battery
   unit_of_measurement: "%"
   value_template: '{{ value_json.battery }}'
   device_class: battery
