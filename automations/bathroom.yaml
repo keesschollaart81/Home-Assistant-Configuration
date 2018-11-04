@@ -1,0 +1,17 @@
+- id: started_showering
+  alias: started_showering
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.showering_1
+    to: 'on' 
+  - platform: state
+    entity_id: binary_sensor.showering_2
+    to: 'on' 
+  - platform: state
+    entity_id: binary_sensor.showering_3
+    to: 'on' 
+  action:
+   - service: notify.pushbullet
+     data_template:
+        title: "Shower_Detected"
+        message: "Testing"
