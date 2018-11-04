@@ -57,16 +57,16 @@ camera.dafang_motion_snapshot:
     friendly_name: Backyard latest motion snapshot
 
 sensor.0x00158d0001f5358e_pressure:
-    friendly_name: Living Room - Pressure
+    friendly_name: Bathroom - Pressure
 
 sensor.0x00158d0001f5358e_humidity:
-    friendly_name: Living Room - Humidity
+    friendly_name: Bathroom - Humidity
 
 sensor.0x00158d0001f5358e_temperature:
-    friendly_name: Living Room - Temperature
+    friendly_name: Bathroom - Temperature
 
 sensor.0x00158d0001f5358e_battery:
-    friendly_name: Living Room - Environment Sensor Battery
+    friendly_name: Bathroom - Environment Sensor Battery
 
 sensor.0x00158d0002138221:
     friendly_name: Single switch

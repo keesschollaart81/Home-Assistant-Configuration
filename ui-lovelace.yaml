@@ -29,8 +29,6 @@ views:
         entities:
           - entity: binary_sensor.0x00158d000222df56_occupancy
             name: Occupancy
-          - entity: sensor.0x00158d0001f5358e_temperature
-            name: Temperature
           - entity: light.kitchen
             name: Kitchen
             tap_action: toggle
@@ -100,6 +98,14 @@ views:
       - id: weather
         type: weather-forecast
         entity: weather.rotterdam
+      - id: bath_room
+        type: glance
+        title: Bathroom 
+        show_header_toggle: false
+        show_name: false
+        entities:
+          - entity: sensor.0x00158d0001f5358e_temperature
+            name: Temperature
   - id: living_room_tab
     title: Living room
     cards:

@@ -18,6 +18,7 @@ default_view:
     - group.attic
     - group.weather_outside
     - group.locations
+    - group.bathroom
 
 Living Room:
   - light.staandelamp 
@@ -25,12 +26,16 @@ Living Room:
   - light.LampenTafel
   - light.kitchen
   - binary_sensor.0x00158d000222df56_occupancy
-  - sensor.0x00158d0001f5358e_temperature
   - scene.eating
   - scene.evening
   - scene.off 
   - media_player.woonkamer
-  
+
+Bathoom:
+  - sensor.0x00158d0001f5358e_pressure
+  - sensor.0x00158d0001f5358e_humidity
+  - sensor.0x00158d0001f5358e_temperature
+ 
 Backyard:
   - switch.licht_in_tuin
   - binary_sensor.schuurdeur

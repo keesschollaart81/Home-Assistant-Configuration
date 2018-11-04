@@ -62,7 +62,7 @@ timer:
     name: Time remaining
     duration: 600 # Updated this to the number of seconds you wish
   hallway_lights_off_in:
-    duration: '00:01:00'
+    duration: '00:02:00'
     
 logger:
   default: warn
