@@ -85,6 +85,17 @@ views:
         hours_to_show: 12
         icon: mdi:car
         title: "Kees naar huis"
+      - id: temperatures
+        type: history-graph
+        entities: 
+          - entity: sensor.0x00158d0001f5358e_temperature
+            name: "Bathroom"
+          - entity: sensor.rotterdam_temperature
+            name: "Outside"
+          - entity: sensor.0x00158d0001f5358e_temperature
+            name: "Living room"
+        hours_to_show: 12
+        title: "Temperatures"
       - id: weather
         type: weather-forecast
         entity: weather.rotterdam
