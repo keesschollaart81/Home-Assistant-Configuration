@@ -92,8 +92,10 @@ views:
             name: "Bathroom"
           - entity: sensor.rotterdam_temperature
             name: "Outside"
-          - entity: states.climate.toon_van_eneco.attributes.current_temperature
-            name: "Living room"
+          - entity: sensor.toon_current_temperature
+            name: "Toon Current"
+          - entity: sensor.toon_target_temperature
+            name: "Toon Target"
         hours_to_show: 12
         title: "Temperatures"
       - id: weather

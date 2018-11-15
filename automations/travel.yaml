@@ -33,3 +33,7 @@
      data:
         title: "Kees komt terug"
         message: "ETA {{ (as_timestamp (now()) + (( states.sensor.kees_naar_huis.state | int) * 60)) | timestamp_custom('%H:%M') }}"
+
+
+
+  
