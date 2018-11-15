@@ -65,17 +65,6 @@ views:
             name: Live
         camera_image: camera.dafang_motion_snapshot
         tap_action: dialog
-      # - type: entity-filter
-      #   entities:
-      #     - entity: light.bed_light
-      #       name: Lights on
-      #     - light.staandelamp
-      #     - light.bank
-      #     - light.lampentafel
-      #     - light.kitchen
-      #     - light.attic
-      #   state_filter:
-      #     - "on"
       - id: front_door
         type: picture-entity
         name: Front door
@@ -91,15 +80,11 @@ views:
           - switch.doorbell_buzzer_enabled
           - binary_sensor.0x00158d0001f9faa1_occupancy
       - id: kees_naar_huis
-        type: sensor
-        entity: sensor.kees_naar_huis
-        accuracy: 720
-        icon: mdi:car
-      - id: kees_naar_huis2
         type: history-graph
         entities: [sensor.kees_naar_huis]
         hours_to_show: 12
         icon: mdi:car
+        title: "Kees naar huis"
       - id: weather
         type: weather-forecast
         entity: weather.rotterdam
@@ -111,6 +96,8 @@ views:
         entities:
           - entity: sensor.0x00158d0001f5358e_temperature
             name: Temperature
+          - entity: binary_sensor.showering
+            name: "Showering"
   - id: living_room_tab
     title: Living room
     cards:

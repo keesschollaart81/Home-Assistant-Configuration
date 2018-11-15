@@ -132,7 +132,6 @@ panel_iframe:
     url: http://schollaartthuis.duckdns.org:6052/
 
 
-
 toon:
     username: !secret toon_username
     password: !secret toon_password
