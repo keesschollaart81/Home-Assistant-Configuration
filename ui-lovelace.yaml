@@ -97,7 +97,7 @@ views:
         icon: mdi:car
       - id: kees_naar_huis2
         type: history-graph
-        entity: sensor.kees_naar_huis
+        entities: [sensor.kees_naar_huis]
         hours_to_show: 12
         icon: mdi:car
       - id: weather
