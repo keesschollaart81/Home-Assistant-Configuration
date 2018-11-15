@@ -92,7 +92,7 @@ views:
             name: "Bathroom"
           - entity: sensor.rotterdam_temperature
             name: "Outside"
-          - entity: sensor.0x00158d0001f5358e_temperature
+          - entity: climate.toon_van_eneco.attributes.current_temperature
             name: "Living room"
         hours_to_show: 12
         title: "Temperatures"
