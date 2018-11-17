@@ -26,6 +26,7 @@ views:
         title: Living room 
         show_header_toggle: false
         show_name: true
+        columns: 3
         entities:
           - entity: binary_sensor.0x00158d000222df56_occupancy
             name: Occupancy
