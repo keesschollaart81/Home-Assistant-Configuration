@@ -33,6 +33,8 @@ views:
           - entity: light.kitchen
             name: Kitchen
             tap_action: toggle
+          - entity: sensor.toon_current_temperature
+            name: "Temperature"
           - entity: scene.eating
             name: Eating
             icon: mdi:food
@@ -48,8 +50,6 @@ views:
             icon: mdi:weather-night
             tap_action: call-service
             service: scene.turn_on
-          - entity: sensor.toon_current_temperature
-            name: "Temperature"
       - id: backyard
         type: picture-glance
         title: Backyard
