@@ -25,18 +25,13 @@ views:
         type: glance
         title: Living room 
         show_header_toggle: false
-        show_name: false
+        show_name: true
         entities:
           - entity: binary_sensor.0x00158d000222df56_occupancy
             name: Occupancy
           - entity: light.kitchen
             name: Kitchen
             tap_action: toggle
-      - id: scenes
-        type: glance
-        show_header_toggle: false
-        title: Scenes
-        entities:
           - entity: scene.eating
             name: Eating
             icon: mdi:food
@@ -52,6 +47,8 @@ views:
             icon: mdi:weather-night
             tap_action: call-service
             service: scene.turn_on
+          - entity: sensor.toon_current_temperature
+            name: "Temperature"
       - id: backyard
         type: picture-glance
         title: Backyard
