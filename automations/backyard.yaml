@@ -9,9 +9,29 @@
 
 - id: 'TuinlichtUitNaEenTijdje'
   trigger:
+  - platform: time
+    at: '23:30:00'
+    # platform: sun
+    # event: sunset
+    # offset: "+02:00:00"
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.licht_in_tuin
+
+- id: 'TuinlichtAanVoorZonsopkomst'
+  trigger:
     platform: sun
-    event: sunset
-    offset: "+02:00:00"
+    event: sunrise
+    offset: "-00:45:00"
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.licht_in_tuin
+
+- id: 'TuinlichtUitNaZonsopkomst'
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: "00:45:00"
   action:
     service: homeassistant.turn_off
     entity_id: switch.licht_in_tuin
