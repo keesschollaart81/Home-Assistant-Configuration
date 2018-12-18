@@ -17,7 +17,7 @@
      data:
         sonos_entity: media_player.woonkamer
         volume: 0.5
-        message: 'Bram, er staat visite voor de deur!'
+        message: 'Er wordt aan de deur gebeld!'
         # delay: '00:00:05'
    - service: notify.pushbullet
      data_template:

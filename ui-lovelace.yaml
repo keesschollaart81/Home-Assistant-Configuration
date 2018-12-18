@@ -45,7 +45,7 @@ views:
             icon: mdi:weather-sunset
             tap_action: call-service
             service: scene.turn_on
-          - entity: scene.false
+          - entity: scene.Darknesss
             name: All off
             icon: mdi:weather-night
             tap_action: call-service

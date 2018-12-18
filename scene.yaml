@@ -45,7 +45,7 @@
       light.kitchen:
         state: on
         
--   name: Off
+-   name: Darknesss
     entities: 
       light.lampentafel:
         state: off
