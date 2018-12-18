@@ -101,10 +101,10 @@ sensor.0x00158d0001f9faa1_illuminance:
 sensor.0x00158d0001f9faa1_battery:
     friendly_name: Hallway - Motion Sensor Battery
 
-light.0x90fd9ffffe10c5d1:
+light.0x90fd9ffffe10c5d1_2:
     friendly_name: Hall Light 1
 
-light.0x90fd9ffffe135ab2:
+light.0x90fd9ffffe135ab2_2:
     friendly_name: Hall Light 2
 
 light.hall_light:
