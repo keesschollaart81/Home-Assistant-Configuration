@@ -44,10 +44,9 @@
     condition: template
     value_template: "{{ 'right' == trigger.payload_json.click }}"
   action:
-  - service: light.turn_off
-    data:
-      entity_id: group.all_lights
-      
+    - service: homeassistant.turn_on
+      entity_id: scene.living_room_lights_off  
+
 - id: LightsOnAutoWhenMotion
   alias: Lights on when motion
   trigger:

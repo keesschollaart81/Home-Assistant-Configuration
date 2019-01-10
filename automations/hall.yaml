@@ -8,8 +8,7 @@
     entity_id: binary_sensor.doorbell_button
     to: 'on'
   - platform: state
-    entity_id: binary_sensor.0x00158d0001f9faa1_occupancy
-    to: 'on'
+    entity_id: binary_sensor.0x00158d0001f9faa1_occupancy 
   condition: 
     - condition: state
       entity_id: sun.sun

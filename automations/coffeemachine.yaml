@@ -1,0 +1,15 @@
+- id: coffee_machine_water_reservoir_empty
+  alias: "Water reservoir empty"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.0x00158d00027743b7_water_leak
+      to: 'off'
+  action:
+   - service: notify.pushbullet
+     data:
+        title: "Water reservoir coffee machine almost empty"
+        message: "Refill soon!"
+   - service: notify.ios_marleen_marleen01
+     data:
+        title: "Water koffiemachine bijna op"
+        message: "Snel hervullen!"

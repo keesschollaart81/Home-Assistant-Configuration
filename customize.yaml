@@ -101,6 +101,9 @@ sensor.0x00158d0001f9faa1_illuminance:
 sensor.0x00158d0001f9faa1_battery:
     friendly_name: Hallway - Motion Sensor Battery
 
+binary_sensor.0x00158d00027743b7_water_leak:
+    friendly_name: Coffee Machine water resevoir
+
 light.0x90fd9ffffe10c5d1_2:
     friendly_name: Hall Light 1
 

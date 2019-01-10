@@ -23,9 +23,7 @@ views:
         tap_action: dialog
       - id: living_room
         type: glance
-        title: Living room 
-        show_header_toggle: false
-        show_name: true
+        title: Living room  
         columns: 3
         entities:
           - entity: binary_sensor.0x00158d000222df56_occupancy
@@ -38,18 +36,27 @@ views:
           - entity: scene.eating
             name: Eating
             icon: mdi:food
-            tap_action: call-service
-            service: scene.turn_on
+            tap_action:
+             action: call-service
+             service: scene.turn_on
+             service_data: 
+               entity_id: scene.eating
           - entity: scene.evening
             name: Evening
             icon: mdi:weather-sunset
-            tap_action: call-service
-            service: scene.turn_on
-          - entity: scene.Darknesss
+            tap_action:
+             action: call-service
+             service: scene.turn_on
+             service_data: 
+               entity_id: scene.evening
+          - entity: scene.living_room_lights_off
             name: All off
             icon: mdi:weather-night
-            tap_action: call-service
-            service: scene.turn_on
+            tap_action:
+             action: call-service
+             service: scene.turn_on
+             service_data: 
+               entity_id: scene.living_room_lights_off
       - id: backyard
         type: picture-glance
         title: Backyard
@@ -96,9 +103,6 @@ views:
             name: "Toon Target"
         hours_to_show: 12
         title: "Temperatures"
-      - id: weather
-        type: weather-forecast
-        entity: weather.rotterdam
       - id: bath_room
         type: glance
         title: Bathroom 
