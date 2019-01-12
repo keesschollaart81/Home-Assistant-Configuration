@@ -31,8 +31,9 @@ views:
           - entity: light.kitchen
             name: Kitchen
             tap_action: toggle
-          - entity: sensor.toon_current_temperature
-            name: "Temperature"
+          - entity: binary_sensor.0x00158d00027743b7_water_leak
+            name: "☕ Water Refill"
+            icon: mdi:cup-water
           - entity: scene.eating
             name: Eating
             icon: mdi:food
@@ -112,7 +113,6 @@ views:
           - light.bank
           - light.lampentafel
           - light.kitchen
-          - light.hall_light
   - id: 1st_floor_tab
     title: 1st floor & attic
     cards:
