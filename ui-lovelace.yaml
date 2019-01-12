@@ -125,15 +125,23 @@ views:
           - binary_sensor.0x00158d0002e2ab4d_occupancy 
       - id: tracker_history
         type: history-graph
+        hours_to_show: 12
+        title: "Showering"
         entities:
         - binary_sensor.showering
       - id: temperatures
         type: history-graph
+        hours_to_show: 12
+        title: "Bathroom temperature"
         entities: 
           - entity: sensor.0x00158d0001f5358e_temperature
             name: "Bathroom"
+      - id: humidity
+        type: history-graph
         hours_to_show: 12
-        title: "Bathroom temperature"
+        title: "Bathroom humidity"
+        entities: 
+          - entity: sensor.0x00158d0001f5358e_humidity"
       - id: attic_card
         type: entities
         title: Attic

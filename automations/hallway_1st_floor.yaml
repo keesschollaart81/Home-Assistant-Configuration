@@ -3,9 +3,7 @@
   trigger:
   - platform: state
     entity_id: binary_sensor.0x00158d0002e2ab4d_occupancy 
-    to: on
-  - platform: state
-    entity_id: binary_sensor.hallway_1st_floor_switch 
+    to: on 
   condition: 
     - condition: state
       entity_id: sun.sun
@@ -14,6 +12,16 @@
   - service: light.turn_on
     data:
       entity_id: light.lights_hallway_1st_floor
+  - service: timer.start
+    data:
+      entity_id: timer.hallway_1st_floor_lights_off_in
+
+- id: 'LightOffInHallwayAfter3minutes'
+  alias: Turn off the lights in the hallway 1st floor after x
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.hallway_1st_floor_switch 
+  action: 
   - service: timer.start
     data:
       entity_id: timer.hallway_1st_floor_lights_off_in
