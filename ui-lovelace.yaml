@@ -123,22 +123,28 @@ views:
           - light.lights_hallway_1st_floor
           - timer.hallway_1st_floor_lights_off_in 
           - binary_sensor.0x00158d0002e2ab4d_occupancy 
-      - id: tracker_history
+      - id: motion_first_floor_card
         type: history-graph
-        hours_to_show: 12
+        hours_to_show: 24
+        title: "Motion"
+        entities:
+        - binary_sensor.0x00158d0002e2ab4d_occupancy
+      - id: showering_card
+        type: history-graph
+        hours_to_show: 24
         title: "Showering"
         entities:
         - binary_sensor.showering
-      - id: temperatures
+      - id: temperature_bathroom_card
         type: history-graph
-        hours_to_show: 12
+        hours_to_show: 24
         title: "Bathroom temperature"
         entities: 
           - entity: sensor.0x00158d0001f5358e_temperature
             name: "Bathroom"
-      - id: humidity
+      - id: humidity_card
         type: history-graph
-        hours_to_show: 12
+        hours_to_show: 24
         title: "Bathroom humidity"
         entities: 
           - entity: sensor.0x00158d0001f5358e_humidity
