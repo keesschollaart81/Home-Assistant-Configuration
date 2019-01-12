@@ -126,15 +126,14 @@ views:
       - id: motion_first_floor_card
         type: history-graph
         hours_to_show: 24
-        title: "Motion"
+        title: "States"
         entities:
-        - binary_sensor.0x00158d0002e2ab4d_occupancy
-      - id: showering_card
-        type: history-graph
-        hours_to_show: 24
-        title: "Showering"
-        entities:
-        - binary_sensor.showering
+          - entity: binary_sensor.0x00158d0002e2ab4d_occupancy
+            name: "Hallway"
+          - entity: binary_sensor.0x00158d0002e2eecc_occupancy
+            name: "Bathroom" 
+          - entity: binary_sensor.showering
+            name: "Showering"  
       - id: temperature_bathroom_card
         type: history-graph
         hours_to_show: 24
