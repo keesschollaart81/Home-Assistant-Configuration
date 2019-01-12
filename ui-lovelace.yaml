@@ -32,7 +32,7 @@ views:
             name: Kitchen
             tap_action: toggle
           - entity: binary_sensor.0x00158d00027743b7_water_leak
-            name: "☕ Water Refill"
+            name: "☕ 💦Reservoir?"
             icon: mdi:cup-water
           - entity: scene.eating
             name: Eating
