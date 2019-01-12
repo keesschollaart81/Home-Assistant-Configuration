@@ -16,8 +16,8 @@ views:
       - id: map
         type: picture-entity
         title: Kees & Marleen
-        entity: camera.Locations
-        camera_image: camera.Locations
+        entity: camera.locations
+        camera_image: camera.locations
         show_state: false
         show_name: true
         tap_action: dialog
@@ -103,34 +103,42 @@ views:
             name: "Toon Target"
         hours_to_show: 12
         title: "Temperatures"
-      - id: bath_room
-        type: glance
-        title: Bathroom 
-        show_header_toggle: false
-        show_name: false
-        entities:
-          - entity: sensor.0x00158d0001f5358e_temperature
-            name: Temperature
-          - entity: binary_sensor.showering
-            name: "Showering"
-  - id: living_room_tab
-    title: Living room
-    cards:
       - id: living_room_all
         type: entities
-        title: Living Room
+        title: Individual lights
         show_header_toggle: false
         entities:
           - light.staandelamp
           - light.bank
           - light.lampentafel
           - light.kitchen
-          - light.attic
-          - binary_sensor.0x00158d000222df56_occupancy
-          - sensor.0x00158d0001f5358e_temperature
-          - scene.eating
-          - scene.evening
           - light.hall_light
+  - id: 1st_floor_tab
+    title: 1st floor & attic
+    cards:
+      - id: hallway_1st_floor
+        type: entities
+        title: Hallway
+        entities: 
+          - light.lights_hallway_1st_floor
+          - timer.hallway_1st_floor_lights_off_in 
+          - binary_sensor.0x00158d0002e2ab4d_occupancy 
+      - id: tracker_history
+        type: history-graph
+        entities:
+        - binary_sensor.showering
+      - id: temperatures
+        type: history-graph
+        entities: 
+          - entity: sensor.0x00158d0001f5358e_temperature
+            name: "Bathroom"
+        hours_to_show: 12
+        title: "Bathroom temperature"
+      - id: attic_card
+        type: entities
+        title: Attic
+        entities: 
+          - light.attic  
   - id: system
     title: Systeem
     icon: mdi:settings

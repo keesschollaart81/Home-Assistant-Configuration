@@ -1,0 +1,42 @@
+esphomeyaml:
+  name: hallway_1st_floor
+  platform: ESP8266
+  board: esp01_1m
+  board_flash_mode: dout
+
+wifi:
+  ssid: !secret doorbell_wifi_ssid
+  password: !secret doorbell_wifi_password
+
+mqtt:
+  broker: !secret doorbell_mqtt_broker
+  username: !secret doorbell_mqtt_user
+  password: !secret doorbell_mqtt_password
+
+logger:
+
+ota:
+  password: !secret doorbell_ota_password
+
+binary_sensor:
+  - platform: gpio
+    pin: GPIO5
+    name: "hallway_1st_floor_switch" 
+    on_press:
+      then:
+        - light.toggle: hallway_1st_floor_light
+    on_release:
+      then:
+        - light.toggle: hallway_1st_floor_light
+
+light:
+  - platform: binary
+    id: hallway_1st_floor_light
+    name: "Lights hallway 1st floor"
+    output: hallway_1st_floor_relay
+
+output:
+  - platform: gpio
+    id: hallway_1st_floor_relay
+    pin: GPIO4
+ 

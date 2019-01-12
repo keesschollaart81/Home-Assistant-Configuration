@@ -102,7 +102,7 @@ sensor.0x00158d0001f9faa1_battery:
     friendly_name: Hallway - Motion Sensor Battery
 
 binary_sensor.0x00158d00027743b7_water_leak:
-    friendly_name: Coffee Machine water resevoir
+    friendly_name: Coffee Machine water reservoir
 
 light.0x90fd9ffffe10c5d1_2:
     friendly_name: Hall Light 1
@@ -113,6 +113,17 @@ light.0x90fd9ffffe135ab2_2:
 light.hall_light:
     friendly_name: Hall Light
     icon: mdi:ceiling-light
+
+binary_sensor.0x00158d0002e2ab4d_occupancy:
+    friendly_name: Hallway 1st floor - Motion
+
+binary_sensor.hallway_1st_floor_switch:
+    friendly_name: Hallway 1st floor - Switch
+
+light.lights_hallway_1st_floor:
+    friendly_name: Hallway 1st floor - Light
+    icon: mdi:ceiling-light
+
 switch.0x00158d0001fa64a8_switch:
     friendly_name: Washing Machine - Switch
 
@@ -143,6 +154,9 @@ binary_sensor.0x00158d000208e0e0_battery:
 
 timer.hallway_lights_off_in :
     friendly_name: Hallway lights off in
+
+timer.hallway_1st_floor_lights_off_in:
+    friendly_name: Hallway 1st floor lights off in
 
 camera.locations:
     friendly_name: Location Kees & Marleen

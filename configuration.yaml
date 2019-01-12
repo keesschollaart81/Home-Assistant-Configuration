@@ -65,6 +65,8 @@ timer:
     duration: 600 # Updated this to the number of seconds you wish
   hallway_lights_off_in:
     duration: '00:02:00'
+  hallway_1st_floor_lights_off_in:
+    duration: '00:02:00'
     
 logger:
   default: warn
