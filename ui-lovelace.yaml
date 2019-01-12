@@ -141,7 +141,7 @@ views:
         hours_to_show: 12
         title: "Bathroom humidity"
         entities: 
-          - entity: sensor.0x00158d0001f5358e_humidity"
+          - entity: sensor.0x00158d0001f5358e_humidity
       - id: attic_card
         type: entities
         title: Attic
