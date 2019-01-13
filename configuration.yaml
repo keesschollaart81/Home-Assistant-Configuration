@@ -68,7 +68,7 @@ timer:
   hallway_1st_floor_lights_off_in:
     duration: '00:02:00'
   toilet_lights_off_in:
-    duration: '00:05:00'
+    duration: '00:03:00'
     
 logger:
   default: warn
