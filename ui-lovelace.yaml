@@ -91,6 +91,7 @@ views:
         entities:  
           - light.0x90fd9ffffe2b5781_light
           - binary_sensor.0x00158d0002e2eecc_occupancy
+          - timer.toilet_lights_off_in
       - id: kees_naar_huis
         type: history-graph
         entities: [sensor.kees_naar_huis]
