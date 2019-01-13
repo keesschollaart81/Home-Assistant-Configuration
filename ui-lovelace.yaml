@@ -85,6 +85,12 @@ views:
           - light.hall_light
           - switch.doorbell_buzzer_enabled
           - binary_sensor.0x00158d0001f9faa1_occupancy
+      - id: toilet_card
+        type: entities
+        title: Toilet
+        entities:  
+          - light.0x90fd9ffffe2b5781_light
+          - binary_sensor.0x00158d0002e2eecc_occupancy
       - id: kees_naar_huis
         type: history-graph
         entities: [sensor.kees_naar_huis]
@@ -130,8 +136,6 @@ views:
         entities:
           - entity: binary_sensor.0x00158d0002e2ab4d_occupancy
             name: "Hallway"
-          - entity: binary_sensor.0x00158d0002e2eecc_occupancy
-            name: "Bathroom" 
           - entity: binary_sensor.showering
             name: "Showering"  
       - id: temperature_bathroom_card

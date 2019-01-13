@@ -69,7 +69,7 @@ sensor.0x00158d0001f5358e_battery:
     friendly_name: Bathroom - Environment Sensor Battery
 
 binary_sensor.0x00158d0002e2eecc_occupancy:
-    friendly_name: Bathroom - Motion
+    friendly_name: Toilet - Motion
 
 sensor.0x00158d0002138221:
     friendly_name: Toilet - Switch
