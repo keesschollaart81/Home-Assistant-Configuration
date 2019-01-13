@@ -1,0 +1,13 @@
+
+- id: toilet_button
+  alias: Toilet Switch
+  trigger:
+    platform: mqtt
+    topic: 'zigbee2mqtt/0x00158d0002138221'
+  condition:
+    condition: template
+    value_template: "{{ 'single' == trigger.payload_json.click }}"
+  action:
+  - service: light.toggle
+    data:
+      entity_id: light.0x90fd9ffffe2b5781_light

@@ -72,7 +72,10 @@ binary_sensor.0x00158d0002e2eecc_occupancy:
     friendly_name: Bathroom - Motion
 
 sensor.0x00158d0002138221:
-    friendly_name: Single switch
+    friendly_name: Toilet - Switch
+
+light.0x90fd9ffffe2b5781_light:
+    friendly_name: Toilet - Light
 
 binary_sensor.0x00158d000222df56_occupancy:
     friendly_name: Living Room - Motion
