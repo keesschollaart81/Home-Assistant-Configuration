@@ -19,7 +19,17 @@
      data:
         title: "Hassio boots"
         message: "Hassio boots"
-
+      
+- id: update_networkmap
+  alias: 'Zigbee Map bijwerken'  
+  hide_entity: true  
+  trigger:
+    platform: time
+    minutes: '/10'
+    seconds: 00
+  action:
+    service: zigbee2mqtt_networkmap.update
+    
 # - id: 'EventGridTest'
 #   alias: EventGridTest
 #   trigger:
