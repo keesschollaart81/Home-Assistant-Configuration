@@ -202,14 +202,16 @@ views:
           - entity: input_boolean.zigbee_permit_join
           - entity: timer.zigbee_permit_join
           - entity: sensor.bridge_state 
-          - entity: script.1546680345586
+          - entity: zigbee2mqtt_networkmap.update
             name: Zigbee2Mqtt NetworkMap Update
             icon: 'mdi:graphql'
           - type: weblink
             name: Zigbee2Mqtt NetworkMap
             icon: 'mdi:graphql'
             url: /local/zigbee2mqtt_networkmap/map.html
-            
+      - type: iframe
+        url: /local/zigbee2mqtt_networkmap/map.html
+        aspect_ratio: 75%            
       - id: batteries
         type: entities
         title: batteries
@@ -221,3 +223,9 @@ views:
           - sensor.0x00158d0001f9faa1_battery
           - sensor.0x00158d000208e0e0_battery
           - sensor.0x00158d0001710729_battery
+          - sensor.0x00158d0001f9faa1_battery_2
+          - sensor.0x00158d000208e0e0_battery_2
+          - sensor.0x00158d000222df56_battery_2
+          - sensor.0x00158d00027743b7_battery
+          - sensor.0x00158d0002e2ab4d_battery
+          - sensor.0x00158d0002e2eecc_battery
