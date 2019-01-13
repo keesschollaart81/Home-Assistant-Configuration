@@ -206,13 +206,10 @@ views:
           - entity: input_boolean.zigbee_permit_join
           - entity: timer.zigbee_permit_join
           - entity: sensor.bridge_state 
-          - entity: zigbee2mqtt_networkmap.update
-            name: Zigbee2Mqtt NetworkMap Update
-            icon: 'mdi:graphql'
           - type: weblink
             name: Zigbee2Mqtt NetworkMap
             icon: 'mdi:graphql'
-            url: /local/zigbee2mqtt_networkmap/map.html
+            url: https://schollaartthuis.duckdns.org:8123/local/zigbee2mqtt_networkmap/map.html
       - id: batteries
         type: entities
         title: batteries
@@ -236,5 +233,5 @@ views:
     icon: mdi:graphql
     cards:
       - type: iframe
-        url: https://schollaartthuis.duckdns.org:8123/local/zigbee2mqtt_networkmap/map.html
+        url: /local/zigbee2mqtt_networkmap/map.html
         aspect_ratio: 75%            
