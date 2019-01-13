@@ -207,6 +207,8 @@ alexa:
         - light.tafel2
         - light.tafel3
         - scene.false
+        - light.0x90fd9ffffe10c5d1_2
+        - light.0x90fd9ffffe135ab2_2
     entity_config:
       climate.toon_van_eneco:
         name: Toon
@@ -220,6 +222,14 @@ alexa:
         name: Kitchen
       switch.licht_in_tuin:
         name: Backyard
+      light.hall_light:
+        name: Hallway
+      light.lights_hallway_1st_floor:
+        name: Hallway first floor
+      light.0x90fd9ffffe2b5781_light:
+        name: Toilet
+      light.attic:
+        name: Attic
        
 rest_command:
   reboot_dafang:
