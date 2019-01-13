@@ -8,6 +8,8 @@
     - condition: state
       entity_id: sun.sun
       state: 'below_horizon'
+    - condition: time
+      after: '08:30:00'
   action: 
   - service: light.turn_on
     data:
