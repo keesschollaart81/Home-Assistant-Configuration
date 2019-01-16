@@ -4,10 +4,9 @@ exclude:
     - weblink
     - updater
     - group
+    - timer
+    - camera
   entities:
-    - camera.locations
-    - camera.dafang
-    - camera.dafang_motion_snapshot
     - script.sonos_say
     - binary_sensor.dafang_motion_sensor
     - cover.dafang_move_leftright
@@ -33,8 +32,26 @@ exclude:
     - sensor.iphone_van_marleen_battery_state_2
     - light.tafel1
     - light.tafel2
-    - light.tafel3
-    - timer.zigbee_permit_join
+    - light.tafel3 
     - sensor.bridge_state
     - sensor.rotterdam_condition_1d
     - sensor.temperature_1d
+    - zigbee2mqtt_networkmap.last_update 
+    - sensor.0x00158d0001f5358e_battery
+    - sensor.0x00158d000222df56_battery
+    - sensor.0x00158d0001639d5a_battery
+    - sensor.0x00158d0001f9faa1_battery
+    - sensor.0x00158d000208e0e0_battery
+    - sensor.0x00158d0001710729_battery
+    - sensor.0x00158d0001f9faa1_battery_2
+    - sensor.0x00158d000208e0e0_battery_2
+    - sensor.0x00158d000222df56_battery_2
+    - sensor.0x00158d00027743b7_battery
+    - sensor.0x00158d0002e2ab4d_battery
+    - sensor.0x00158d0002e2eecc_battery
+    - sensor.dsl_router_bytes_received
+    - sensor.dsl_router_bytes_sent
+    - sensor.dsl_router_packets_received
+    - sensor.dsl_router_packets_sec_received
+    - sensor.dsl_router_packets_sec_sent
+    - sensor.dsl_router_packets_sent

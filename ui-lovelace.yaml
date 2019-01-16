@@ -16,8 +16,8 @@ views:
       - id: map
         type: picture-entity
         title: Kees & Marleen
-        entity: camera.Locations
-        camera_image: camera.Locations
+        entity: camera.locations
+        camera_image: camera.locations
         show_state: false
         show_name: true
         tap_action: dialog
@@ -31,8 +31,9 @@ views:
           - entity: light.kitchen
             name: Kitchen
             tap_action: toggle
-          - entity: sensor.toon_current_temperature
-            name: "Temperature"
+          - entity: binary_sensor.0x00158d00027743b7_water_leak
+            name: "☕ Reservoir?"
+            icon: mdi:cup-water
           - entity: scene.eating
             name: Eating
             icon: mdi:food
@@ -84,6 +85,13 @@ views:
           - light.hall_light
           - switch.doorbell_buzzer_enabled
           - binary_sensor.0x00158d0001f9faa1_occupancy
+      - id: toilet_card
+        type: entities
+        title: Toilet
+        entities:  
+          - light.0x90fd9ffffe2b5781_light
+          - binary_sensor.0x00158d0002e2eecc_occupancy
+          - timer.toilet_lights_off_in
       - id: kees_naar_huis
         type: history-graph
         entities: [sensor.kees_naar_huis]
@@ -103,55 +111,73 @@ views:
             name: "Toon Target"
         hours_to_show: 12
         title: "Temperatures"
-      - id: bath_room
-        type: glance
-        title: Bathroom 
-        show_header_toggle: false
-        show_name: false
-        entities:
-          - entity: sensor.0x00158d0001f5358e_temperature
-            name: Temperature
-          - entity: binary_sensor.showering
-            name: "Showering"
-  - id: living_room_tab
-    title: Living room
-    cards:
       - id: living_room_all
         type: entities
-        title: Living Room
+        title: Individual lights
         show_header_toggle: false
         entities:
           - light.staandelamp
           - light.bank
           - light.lampentafel
           - light.kitchen
-          - light.attic
-          - binary_sensor.0x00158d000222df56_occupancy
-          - sensor.0x00158d0001f5358e_temperature
-          - scene.eating
-          - scene.evening
-          - light.hall_light
+  - id: 1st_floor_tab
+    title: 1st floor & attic
+    cards:
+      - id: hallway_1st_floor
+        type: entities
+        title: Hallway
+        entities: 
+          - light.lights_hallway_1st_floor
+          - timer.hallway_1st_floor_lights_off_in 
+          - binary_sensor.0x00158d0002e2ab4d_occupancy 
+      - id: motion_first_floor_card
+        type: history-graph
+        hours_to_show: 24
+        title: "States"
+        entities:
+          - entity: binary_sensor.0x00158d0002e2ab4d_occupancy
+            name: "Hallway"
+          - entity: binary_sensor.showering
+            name: "Showering"  
+      - id: temperature_bathroom_card
+        type: history-graph
+        hours_to_show: 24
+        title: "Bathroom temperature"
+        entities: 
+          - entity: sensor.0x00158d0001f5358e_temperature
+            name: "Bathroom"
+      - id: humidity_card
+        type: history-graph
+        hours_to_show: 24
+        title: "Bathroom humidity"
+        entities: 
+          - entity: sensor.0x00158d0001f5358e_humidity
+      - id: attic_card
+        type: entities
+        title: Attic
+        entities: 
+          - light.attic  
   - id: system
     title: Systeem
     icon: mdi:settings
     cards:
-      - id: dafang
-        type: entities
-        title: Dafang
-        show_header_toggle: true
-        entities:
-          - switch.dafang_h264_rtsp_server
-          - switch.dafang_mjpeg_rtsp_server
-          - sensor.dafang_light_sensor
-          - switch.dafang_ir_filter
-          - switch.dafang_ir_led
-          - switch.dafang_night_mode
-          - switch.dafang_night_mode_auto
-          - switch.dafang_blue_led
-          - switch.dafang_yellow_led
-          - switch.dafang_motion_detection
-          - switch.dafang_motion_tracking
-          - binary_sensor.dafang_motion_sensor
+      # - id: dafang
+      #   type: entities
+      #   title: Dafang
+      #   show_header_toggle: true
+      #   entities:
+      #     - switch.dafang_h264_rtsp_server
+      #     - switch.dafang_mjpeg_rtsp_server
+      #     - sensor.dafang_light_sensor
+      #     - switch.dafang_ir_filter
+      #     - switch.dafang_ir_led
+      #     - switch.dafang_night_mode
+      #     - switch.dafang_night_mode_auto
+      #     - switch.dafang_blue_led
+      #     - switch.dafang_yellow_led
+      #     - switch.dafang_motion_detection
+      #     - switch.dafang_motion_tracking
+      #     - binary_sensor.dafang_motion_sensor
       - id: backyard_live
         type: picture-entity
         title: Backyard live
@@ -178,9 +204,13 @@ views:
         title: Zigbee
         show_header_toggle: true
         entities:
-          - input_boolean.zigbee_permit_join
-          - timer.zigbee_permit_join
-          - sensor.bridge_state
+          - entity: input_boolean.zigbee_permit_join
+          - entity: timer.zigbee_permit_join
+          - entity: sensor.bridge_state 
+          - type: weblink
+            name: Zigbee2Mqtt NetworkMap
+            icon: 'mdi:graphql'
+            url: https://schollaartthuis.duckdns.org:8123/local/zigbee2mqtt_networkmap/map.html
       - id: batteries
         type: entities
         title: batteries
@@ -192,3 +222,17 @@ views:
           - sensor.0x00158d0001f9faa1_battery
           - sensor.0x00158d000208e0e0_battery
           - sensor.0x00158d0001710729_battery
+          - sensor.0x00158d0001f9faa1_battery_2
+          - sensor.0x00158d000208e0e0_battery_2
+          - sensor.0x00158d000222df56_battery_2
+          - sensor.0x00158d00027743b7_battery
+          - sensor.0x00158d0002e2ab4d_battery
+          - sensor.0x00158d0002e2eecc_battery
+  - id: zigbeemap
+    title: Zigbee
+    panel: true
+    icon: mdi:graphql
+    cards:
+      - type: iframe
+        url: /local/zigbee2mqtt_networkmap/map.html
+        aspect_ratio: 75%            

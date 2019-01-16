@@ -65,6 +65,10 @@ timer:
     duration: 600 # Updated this to the number of seconds you wish
   hallway_lights_off_in:
     duration: '00:02:00'
+  hallway_1st_floor_lights_off_in:
+    duration: '00:02:00'
+  toilet_lights_off_in:
+    duration: '00:03:00'
     
 logger:
   default: warn
@@ -124,15 +128,18 @@ panel_iframe:
   #   title: Custom Vision
   #   icon: mdi:animation
   #   url: https://customvision.ai/projects/55e5c331-4a89-48fa-9525-7a77754bd019#/manage
-  pihole:
-    title: Pi-hole
-    icon: mdi:block-helper
-    url: https://schollaartthuis.duckdns.org:8125/
+  # pihole:
+  #   title: Pi-hole
+  #   icon: mdi:block-helper
+  #   url: https://schollaartthuis.duckdns.org:8125/
   esphomeyaml:
     title: Esphomeyaml
     icon: mdi:code-not-equal-variant
     url: http://schollaartthuis.duckdns.org:6052/
-
+  # networkmap:
+  #   title: 'Zigbee Map'
+  #   url: '/local/zigbee2mqtt_networkmap/map.html'
+  #   icon: 'mdi:graphql'
 
 toon:
     username: !secret toon_username
@@ -200,6 +207,8 @@ alexa:
         - light.tafel2
         - light.tafel3
         - scene.false
+        - light.0x90fd9ffffe10c5d1_2
+        - light.0x90fd9ffffe135ab2_2
     entity_config:
       climate.toon_van_eneco:
         name: Toon
@@ -213,6 +222,14 @@ alexa:
         name: Kitchen
       switch.licht_in_tuin:
         name: Backyard
+      light.hall_light:
+        name: Hallway
+      light.lights_hallway_1st_floor:
+        name: Hallway first floor
+      light.0x90fd9ffffe2b5781_light:
+        name: Toilet
+      light.attic:
+        name: Attic
        
 rest_command:
   reboot_dafang:
@@ -226,3 +243,5 @@ proximity:
       - device_tracker.kees_kees01
     tolerance: 50
     unit_of_measurement: km
+
+zigbee2mqtt_networkmap: 

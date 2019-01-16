@@ -9,6 +9,7 @@
     to: 'on'
   - platform: state
     entity_id: binary_sensor.0x00158d0001f9faa1_occupancy 
+    to: 'on'
   condition: 
     - condition: state
       entity_id: sun.sun
@@ -18,6 +19,20 @@
     data:
       entity_id: light.hall_light
   - service: timer.start
+    data:
+      entity_id: timer.hallway_lights_off_in
+
+- id: 'LightOffInHallwayWhenNoActivity'
+  alias: Disable lights in hallway when there is no activity
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.0x00158d0001f9faa1_occupancy 
+    to: 'off'
+  action:  
+  - service: light.turn_off
+    data:
+      entity_id: light.hall_light
+  - service: timer.finish
     data:
       entity_id: timer.hallway_lights_off_in
 

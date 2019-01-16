@@ -1,0 +1,40 @@
+
+- id: toilet_button
+  alias: Toilet Switch
+  trigger:
+    platform: mqtt
+    topic: 'zigbee2mqtt/0x00158d0002138221'
+  condition:
+    condition: template
+    value_template: "{{ 'single' == trigger.payload_json.click }}"
+  action:
+  - service: light.toggle
+    data:
+      entity_id: light.0x90fd9ffffe2b5781_light
+
+
+- id: 'ToiletLightsOnWhenMotion'
+  alias: Turn on the toilet lights when motion is detected
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.0x00158d0002e2eecc_occupancy 
+    to: "on" 
+  action: 
+  - service: light.turn_on
+    data:
+      entity_id: light.0x90fd9ffffe2b5781_light
+  - service: timer.start
+    data:
+      entity_id: timer.toilet_lights_off_in
+
+- alias: Turn off lights in the toilet after x minutes
+  trigger:
+    platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.toilet_lights_off_in
+  action:
+    service: light.turn_off
+    data:
+      entity_id:
+        - light.0x90fd9ffffe2b5781_light
