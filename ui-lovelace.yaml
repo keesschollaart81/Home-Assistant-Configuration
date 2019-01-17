@@ -70,7 +70,7 @@ views:
           - entity: camera.dafang
             name: Live
         camera_image: camera.dafang_motion_snapshot
-        tap_action: dialog
+        tap_action: more-info
       - id: front_door
         type: picture-entity
         name: Front door
