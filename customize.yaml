@@ -123,6 +123,9 @@ light.hall_light:
 binary_sensor.0x00158d0002e2ab4d_occupancy:
     friendly_name: Hallway 1st floor - Motion
 
+sensor.0x00158d0002e2ab4d_illuminance:
+    friendly_name: Hallway 1st floor - Illuminance
+
 binary_sensor.hallway_1st_floor_switch:
     friendly_name: Hallway 1st floor - Switch
 
