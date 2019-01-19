@@ -103,3 +103,7 @@
     - temperature
     - condition_1d
     - temperature_1d
+
+- platform: seventeentrack
+  username: !secret 17track_username
+  password: !secret 17track_password
