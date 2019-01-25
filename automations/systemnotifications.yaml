@@ -24,7 +24,7 @@
   alias: 'Zigbee Map bijwerken'  
   hide_entity: true  
   trigger:
-    platform: time
+    platform: time_pattern
     minutes: '/10'
     seconds: 00
   action:
