@@ -2,8 +2,8 @@
   alias: Enable lights in hallway on the first floor when there is activity
   trigger:
   - platform: state
-    entity_id: sensor.0x00158d0002e2ab4d_illuminance
-    below: 5
+    entity_id: binary_sensor.0x00158d0002e2ab4d_occupancy 
+    to: "on"
   condition: 
     - condition: state
       entity_id: sun.sun
