@@ -9,7 +9,7 @@
       value_template: "{{ states('device_tracker.Kees_kees01') != 'home' }}"
   trigger:
   - platform: state
-    entity_id: binary_sensor.0x00158d000208e0e0
+    entity_id: binary_sensor.0x00158d000208e0e0_contact
     to: 'on'
     for:
       seconds: 2
@@ -43,7 +43,7 @@
   alias: Voordeur te lang open
   trigger:
   - platform: state
-    entity_id: binary_sensor.0x00158d000208e0e0
+    entity_id: binary_sensor.0x00158d000208e0e0_contact
     to: 'on'
     for:
       minutes: 2
@@ -77,7 +77,7 @@
   alias: Voordeur open of dicht
   trigger:
   - platform: state
-    entity_id: binary_sensor.0x00158d000208e0e0
+    entity_id: binary_sensor.0x00158d000208e0e0_contact
     to: 'on'
   action: 
    - service: camera.snapshot
