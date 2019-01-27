@@ -9,3 +9,26 @@
 #      data_template:
 #         title: "Shower_Detected"
 #         message: "Testing"
+
+- alias: Tradfri Dimmer off
+  trigger:
+    platform: state
+    entity_id: sensor.0x000b57fffe8a54fe_brightness
+  condition:
+    condition: template
+    value_template: "{{ trigger.to_state.state|int == 0 }}"
+  action:
+    service: light.turn_off
+    entity_id: light.0x000b57fffed598bc_light
+- alias: Tradfri Dimmer on
+  trigger:
+    platform: state
+    entity_id: sensor.0x000b57fffe8a54fe_brightness
+  condition:
+    condition: template
+    value_template: "{{ trigger.to_state.state|int != 0 }}"
+  action:
+    service: light.turn_on
+    entity_id: light.0x000b57fffed598bc_light
+    data_template:
+      brightness: "{{ trigger.to_state.state|int }}"
