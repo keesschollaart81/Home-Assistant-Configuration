@@ -27,8 +27,8 @@
 - platform: group
   name: Hall Light
   entities:
-    - light.0x90fd9ffffe10c5d1_2
-    - light.0x90fd9ffffe135ab2_2
+    - light.0x90fd9ffffe10c5d1
+    - light.0x90fd9ffffe135ab2
 - platform: mqtt
   name: kitchen
   state_topic: "stat/kitchen/POWER"

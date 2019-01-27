@@ -110,10 +110,10 @@ sensor.0x00158d0001f9faa1_battery:
 binary_sensor.0x00158d00027743b7_water_leak:
     friendly_name: Coffee Machine water reservoir
 
-light.0x90fd9ffffe10c5d1_2:
+light.0x90fd9ffffe10c5d1:
     friendly_name: Hall Light 1
 
-light.0x90fd9ffffe135ab2_2:
+light.0x90fd9ffffe135ab2:
     friendly_name: Hall Light 2
 
 light.hall_light:

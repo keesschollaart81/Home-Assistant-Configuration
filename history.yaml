@@ -26,10 +26,8 @@ exclude:
     - sensor.0x00158d0001639d5a
     - sensor.0x00158d0001710729
     - sensor.0x00158d0002138221
-    - sensor.iphone_van_marleen_battery_level
-    - sensor.iphone_van_marleen_battery_level_2
-    - sensor.iphone_van_marleen_battery_state
-    - sensor.iphone_van_marleen_battery_state_2
+    - sensor.iphone_van_marleen_battery_level 
+    - sensor.iphone_van_marleen_battery_state 
     - light.tafel1
     - light.tafel2
     - light.tafel3 
@@ -42,10 +40,7 @@ exclude:
     - sensor.0x00158d0001639d5a_battery
     - sensor.0x00158d0001f9faa1_battery
     - sensor.0x00158d000208e0e0_battery
-    - sensor.0x00158d0001710729_battery
-    - sensor.0x00158d0001f9faa1_battery_2
-    - sensor.0x00158d000208e0e0_battery_2
-    - sensor.0x00158d000222df56_battery_2
+    - sensor.0x00158d0001710729_battery 
     - sensor.0x00158d00027743b7_battery
     - sensor.0x00158d0002e2ab4d_battery
     - sensor.0x00158d0002e2eecc_battery

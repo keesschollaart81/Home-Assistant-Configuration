@@ -221,10 +221,7 @@ views:
           - sensor.0x00158d0001639d5a_battery
           - sensor.0x00158d0001f9faa1_battery
           - sensor.0x00158d000208e0e0_battery
-          - sensor.0x00158d0001710729_battery
-          - sensor.0x00158d0001f9faa1_battery_2
-          - sensor.0x00158d000208e0e0_battery_2
-          - sensor.0x00158d000222df56_battery_2
+          - sensor.0x00158d0001710729_battery 
           - sensor.0x00158d00027743b7_battery
           - sensor.0x00158d0002e2ab4d_battery
           - sensor.0x00158d0002e2eecc_battery
