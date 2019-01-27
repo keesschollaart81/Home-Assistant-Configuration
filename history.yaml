@@ -23,9 +23,9 @@ exclude:
     - switch.dafang_yellow_led
     - sensor.dafang_light_sensor
     - switch.dafang_motion_send_mail
-    - sensor.0x00158d0001639d5a
-    - sensor.0x00158d0001710729
-    - sensor.0x00158d0002138221
+    - sensor.0x00158d0001639d5a_click
+    - sensor.0x00158d0001710729_click
+    - sensor.0x00158d0002138221_click
     - sensor.iphone_van_marleen_battery_level 
     - sensor.iphone_van_marleen_battery_state 
     - light.tafel1

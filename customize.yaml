@@ -86,13 +86,13 @@ sensor.0x00158d000222df56_illuminance:
 sensor.0x00158d000222df56_battery:
     friendly_name: Living Room - Motion Sensor Battery
 
-sensor.0x00158d0001639d5a:
+sensor.0x00158d0001639d5a_click:
     friendly_name: Living Room - Switch Left
 
 sensor.0x00158d0001639d5a_battery:
     friendly_name: Living Room - Switch Left Battery
     
-sensor.0x00158d0001710729:
+sensor.0x00158d0001710729_click:
     friendly_name: Living Room - Switch Right
 
 sensor.0x00158d0001710729_battery:

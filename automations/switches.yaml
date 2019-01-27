@@ -1,11 +1,9 @@
 - id: knop1
   alias: Living Room - Switch 1 (Eating)
-  trigger:
-    platform: mqtt
-    topic: 'zigbee2mqtt/0x00158d0001639d5a'
-  condition:
-    condition: template
-    value_template: "{{ 'left' == trigger.payload_json.click }}"
+  trigger: 
+  - platform: state
+    entity_id:  sensor.0x00158d0001639d5a_click
+    to: "left" 
   action:
     - service: homeassistant.turn_on
       entity_id: scene.Eating
@@ -13,11 +11,9 @@
 - id: knop2
   alias: Living Room - Switch 2 (Evening)
   trigger:
-    platform: mqtt
-    topic: 'zigbee2mqtt/0x00158d0001639d5a'
-  condition:
-    condition: template
-    value_template: "{{ 'right' == trigger.payload_json.click }}"
+  - platform: state
+    entity_id:  sensor.0x00158d0001639d5a_click
+    to: "right" 
   action:
     - service: homeassistant.turn_on
       entity_id: scene.evening
@@ -25,11 +21,9 @@
 - id: knop3
   alias: Living Room - Switch 3 (Kitchen)
   trigger:
-    platform: mqtt
-    topic: 'zigbee2mqtt/0x00158d0001710729'
-  condition:
-    condition: template
-    value_template: "{{ 'left' == trigger.payload_json.click }}"
+  - platform: state
+    entity_id:  sensor.0x00158d0001710729_click
+    to: "left"  
   action:
   - service: light.toggle
     data:
@@ -38,11 +32,9 @@
 - id: knop4
   alias:  Living Room - Switch 4 (All off)
   trigger:
-    platform: mqtt
-    topic: 'zigbee2mqtt/0x00158d0001710729'
-  condition:
-    condition: template
-    value_template: "{{ 'right' == trigger.payload_json.click }}"
+  - platform: state
+    entity_id:  sensor.0x00158d0001710729_click
+    to: "right"  
   action:
     - service: homeassistant.turn_on
       entity_id: scene.living_room_lights_off  
@@ -68,11 +60,9 @@
 
 - alias: Respond to button clicks
   trigger:
-    platform: mqtt
-    topic: 'zigbee2mqtt/0x00158d0001639d5a'
-  condition:
-    condition: template
-    value_template: "{{ 'left' == trigger.payload_json.click }}"
+  - platform: state
+    entity_id:  sensor.0x00158d0001639d5a_click
+    to: "left"   
   action:
    - service: notify.pushbullet
      data:
