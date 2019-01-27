@@ -207,8 +207,8 @@ alexa:
         - light.tafel2
         - light.tafel3
         - scene.false
-        - light.0x90fd9ffffe10c5d1
-        - light.0x90fd9ffffe135ab2
+        - light.0x90fd9ffffe10c5d1_light
+        - light.0x90fd9ffffe135ab2_light
     entity_config:
       climate.toon_van_eneco:
         name: Toon

@@ -68,6 +68,9 @@ sensor.0x00158d0001f5358e_temperature:
 sensor.0x00158d0001f5358e_battery:
     friendly_name: Bathroom - Environment Sensor Battery
 
+binary_sensor.0x00158d0002e2eecc_illuminance:
+    friendly_name: Toilet - Illuminance
+
 binary_sensor.0x00158d0002e2eecc_occupancy:
     friendly_name: Toilet - Motion
 
@@ -110,10 +113,10 @@ sensor.0x00158d0001f9faa1_battery:
 binary_sensor.0x00158d00027743b7_water_leak:
     friendly_name: Coffee Machine water reservoir
 
-light.0x90fd9ffffe10c5d1:
+light.0x90fd9ffffe10c5d1)light:
     friendly_name: Hall Light 1
 
-light.0x90fd9ffffe135ab2:
+light.0x90fd9ffffe135ab2_light:
     friendly_name: Hall Light 2
 
 light.hall_light:
