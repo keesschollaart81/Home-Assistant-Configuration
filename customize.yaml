@@ -68,6 +68,9 @@ sensor.0x00158d0001f5358e_temperature:
 sensor.0x00158d0001f5358e_battery:
     friendly_name: Bathroom - Environment Sensor Battery
 
+light.0x000b57fffed598bc_light:
+    friendly_name: Bathroom - Mirror Light
+
 binary_sensor.0x00158d0002e2eecc_illuminance:
     friendly_name: Toilet - Illuminance
 
