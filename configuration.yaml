@@ -21,6 +21,8 @@ input_boolean: !include input_booleans.yaml
 script: !include script.yaml
 history: !include history.yaml
 
+health:
+
 frontend:
 
 config:
