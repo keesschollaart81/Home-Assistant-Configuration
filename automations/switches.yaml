@@ -3,10 +3,7 @@
   trigger: 
   - platform: state
     entity_id:  sensor.0x00158d0001639d5a_click
-  condition: 
-    - condition: state
-      entity_id: sensor.0x00158d0001639d5a_click
-      state: 'left'
+    to: 'left'
   action:
     - service: homeassistant.turn_on
       entity_id: scene.Eating
@@ -16,10 +13,7 @@
   trigger:
   - platform: state
     entity_id:  sensor.0x00158d0001639d5a_click
-  condition: 
-    - condition: state
-      entity_id: sensor.0x00158d0001639d5a_click
-      state: 'right'
+    to: 'right'
   action:
     - service: homeassistant.turn_on
       entity_id: scene.evening
@@ -29,10 +23,7 @@
   trigger:
   - platform: state
     entity_id:  sensor.0x00158d0001710729_click
-  condition: 
-    - condition: state
-      entity_id: sensor.0x00158d0001710729_click
-      state: 'left'
+    to: 'left'
   action:
   - service: light.toggle
     data:
@@ -43,10 +34,7 @@
   trigger:
   - platform: state
     entity_id:  sensor.0x00158d0001710729_click
-  condition: 
-    - condition: state
-      entity_id: sensor.0x00158d0001710729_click
-      state: 'right'
+    to: 'right'
   action:
     - service: homeassistant.turn_on
       entity_id: scene.living_room_lights_off  
