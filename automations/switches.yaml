@@ -22,7 +22,8 @@
   alias: Living Room - Switch 3 (Kitchen)
   trigger:
   - platform: state
-    entity_id:  sensor.0x00158d0001710729_click 
+    entity_id:  sensor.0x00158d0001710729_click
+    to: 'left'
   action:
   - service: light.toggle
     data:
@@ -32,7 +33,8 @@
   alias:  Living Room - Switch 4 (All off)
   trigger:
   - platform: state
-    entity_id:  sensor.0x00158d0001710729_click 
+    entity_id:  sensor.0x00158d0001710729_click
+    to: 'right'
   action:
     - service: homeassistant.turn_on
       entity_id: scene.living_room_lights_off  
