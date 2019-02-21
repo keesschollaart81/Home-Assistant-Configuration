@@ -163,7 +163,8 @@ device_tracker:
     host: 192.168.2.254
     username: Admin
     password: !secret experiabox
-    track_new_devices: no
+    new_device_defaults:
+      track_new_devices: false
 
 person:
   - name: Kees
