@@ -159,11 +159,23 @@ mqtt:
 device_tracker:
   - platform: owntracks
     max_gps_accuracy: 200 
-  # - platform: experiaboxv8
-  #   host: 192.168.2.254
-  #   username: Admin
-  #   password: !secret experiabox
-  #   track_new_devices: no
+  - platform: experiaboxv8
+    host: 192.168.2.254
+    username: Admin
+    password: !secret experiabox
+    track_new_devices: no
+
+person:
+  - name: Kees
+    id: kees
+    user_id: a2ad052935f64c5baa9acdba3fab0271 
+    device_trackers:
+      - device_tracker.kees_kees01
+  - name: Marleen
+    id: marleen
+    user_id: 57d490d252ab4d8f846f64a41b53f979 
+    device_trackers:
+      - device_tracker.marleen_marleen01
 
 zone:
   - name: Thuis
