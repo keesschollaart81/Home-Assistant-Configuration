@@ -74,11 +74,15 @@ views:
         tap_action: 
           action: more-info
       - id: front_door
-        type: picture-entity
-        name: Front door
-        entity: camera.front_door_latest
+        type: picture-glance
+        title: Front door
+        entities:
+          - binary_sensor.0x00158d000208e0e0_contact
+          - entity: camera.front_door
+            name: Live 
         camera_image: camera.front_door_latest
-        show_info: false
+        tap_action: 
+          action: more-info
       - id: hallway
         type: entities
         title: Hallway
