@@ -91,8 +91,9 @@ camera:
     platform: generic
     still_image_url: !secret google_maps_url
     limit_refetch_to_url_change: true
-  - platform: generic
+  - platform: mjpeg
     name: front_door
+    mjpeg_url: http://192.168.2.10/jpg_stream
     still_image_url: http://192.168.2.10/jpg
   - platform: local_file
     name: front_door_latest
