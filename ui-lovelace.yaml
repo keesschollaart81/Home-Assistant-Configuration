@@ -20,7 +20,8 @@ views:
         camera_image: camera.locations
         show_state: false
         show_name: true
-        tap_action: dialog
+        tap_action: 
+          action: more-info
       - id: living_room
         type: glance
         title: Living room  
@@ -70,7 +71,8 @@ views:
           - entity: camera.dafang
             name: Live
         camera_image: camera.dafang_motion_snapshot
-        tap_action: more-info
+        tap_action: 
+          action: more-info
       - id: front_door
         type: picture-entity
         name: Front door
