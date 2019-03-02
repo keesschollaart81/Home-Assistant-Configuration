@@ -145,10 +145,8 @@ panel_iframe:
   #   icon: 'mdi:graphql'
 
 toon:
-    username: !secret toon_username
-    password: !secret toon_password
-    consumer_key: !secret toon_key
-    consumer_secret: !secret toon_secret
+  client_id: !secret toon_key
+  client_secret: !secret toon_secret
 
 mqtt:
     broker: core-mosquitto
