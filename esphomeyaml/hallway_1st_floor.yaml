@@ -3,8 +3,6 @@ esphomeyaml:
   platform: ESP8266
   board: esp01_1m
   board_flash_mode: dout
-  esphomelib_version:
-    local: /Users/Kees/Projects/esphome-core/
 
 wifi:
   ssid: !secret doorbell_wifi_ssid
