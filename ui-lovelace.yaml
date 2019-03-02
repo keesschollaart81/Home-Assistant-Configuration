@@ -62,6 +62,7 @@ views:
       - id: backyard
         type: picture-glance
         title: Backyard
+        aspect_ratio: '16x9'
         entities:
           - switch.licht_in_tuin
           - binary_sensor.schuurdeur
@@ -76,6 +77,7 @@ views:
       - id: front_door
         type: picture-glance
         title: Front door
+        aspect_ratio: '16x9'
         entities:
           - binary_sensor.0x00158d000208e0e0_contact
           - entity: camera.front_door
