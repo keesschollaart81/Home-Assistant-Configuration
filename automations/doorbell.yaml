@@ -24,9 +24,9 @@
         title: "Er wordt aan de deur gebeld"
         message: "Wie zou dat zijn!?"
         data:
-          #file_url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
-          file: "/config/www/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
-          file_type: "image/jpeg"
+          file_url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
+          #file: "/config/www/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
+          #file_type: "image/jpeg"
    - service: notify.ios_marleen_marleen01
      data_template:
         title: "Er wordt aan de deur gebeld"
