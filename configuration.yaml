@@ -238,7 +238,7 @@ alexa:
         name: Backyard
       light.hall_light:
         name: Hallway
-      light.lights_hallway_1st_floor:
+      light.hallway_1st_floor_light:
         name: Hallway first floor
       light.0x90fd9ffffe2b5781_light:
         name: Toilet

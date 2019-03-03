@@ -135,7 +135,7 @@ views:
         type: entities
         title: Hallway
         entities: 
-          - light.lights_hallway_1st_floor
+          - light.hallway_1st_floor_light
           - timer.hallway_1st_floor_lights_off_in 
           - binary_sensor.0x00158d0002e2ab4d_occupancy 
       - id: motion_first_floor_card
