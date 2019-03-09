@@ -76,8 +76,6 @@ logger:
   default: warn
   logs:
     homeassistant.components.mqtt: info
-    homeassistant.components.azure_event_grid: debug
-    azure_event_grid: debug
 
 map:
 
@@ -198,14 +196,6 @@ notify:
     platform: html5
     gcm_api_key: !secret gcm_server_key
     gcm_sender_id: !secret gcm_sender_id
-
-azure_event_grid:
-  test:
-    host: !secret eventgrid_host
-    topic key: !secret eventgrid_key
-  second:
-    host: !secret eventgrid_host2
-    topic key: !secret eventgrid_key2
 
 alexa:
   smart_home:

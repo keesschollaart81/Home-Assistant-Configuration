@@ -29,16 +29,3 @@
     seconds: 00
   action:
     service: zigbee2mqtt_networkmap.update
-    
-# - id: 'EventGridTest'
-#   alias: EventGridTest
-#   trigger:
-#   - platform: time
-#     minutes: '/3'
-#     seconds: 00
-#   action: 
-#     service: notify.eventgrid
-#     data:
-#       message: "message"
-#       data: 
-#         subject: "Custom subject"
