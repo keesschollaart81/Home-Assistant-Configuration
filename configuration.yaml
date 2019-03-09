@@ -75,8 +75,7 @@ timer:
 logger:
   default: warn
   logs:
-    homeassistant.components.mqtt: info
-    homeassistant.components.mqtt: info
+    homeassistant.components.mqtt: info 
 
 map:
 
