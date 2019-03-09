@@ -12,7 +12,7 @@
   sensors:
     kees_travel_km_back_home: 
       unit_of_measurement: 'km'
-      value_template: "{{ states.sensor.kees_naar_huis.distance.elevation | float }}"
+      value_template: "{{ states.sensor.kees_naar_huis.distance | float }}"
     kees_distance_km_back_home: 
       unit_of_measurement: 'km'
       value_template: "{{ states.proximity.home | float }}"
