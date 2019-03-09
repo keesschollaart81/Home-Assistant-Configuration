@@ -36,10 +36,8 @@ auth:
 http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
-  api_password: !secret http_password
+  # api_password: !secret http_password
   base_url: schollaartthuis.duckdns.org:8123
-  trusted_networks:
-    - 192.168.2.0/24
     
 lovelace:
   mode: yaml
