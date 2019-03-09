@@ -76,6 +76,7 @@ logger:
   default: warn
   logs:
     homeassistant.components.mqtt: info
+    homeassistant.components.mqtt: info
 
 map:
 
@@ -214,7 +215,7 @@ alexa:
         - light.0x90fd9ffffe10c5d1_light
         - light.0x90fd9ffffe135ab2_light
     entity_config:
-      climate.toon_van_eneco:
+      climate.toon_thermostat:
         name: Toon
       scene.Evening:
         name: Evening

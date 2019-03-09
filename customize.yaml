@@ -7,7 +7,7 @@ sensor.gas_today:
 sensor.power_today:
     friendly_name: Electra
       
-climate.toon_van_eneco:
+climate.toon_thermostat:
     friendly_name: Toon
     
 light.bank:

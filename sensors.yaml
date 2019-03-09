@@ -17,11 +17,11 @@
       unit_of_measurement: 'km'
       value_template: "{{ states.proximity.home | float }}"
     toon_target_temperature:
-      value_template: '{{ states.climate.toon_van_eneco.attributes.temperature }}'
+      value_template: '{{ states.climate.toon_thermostat.attributes.temperature }}'
       friendly_name: 'Target Temperatuur'
       unit_of_measurement: '°C'
     toon_current_temperature:
-      value_template: '{{ states.climate.toon_van_eneco.attributes.current_temperature }}'
+      value_template: '{{ states.climate.toon_thermostat.attributes.current_temperature }}'
       friendly_name: 'Current Temperatuur'
       unit_of_measurement: '°C'
 
