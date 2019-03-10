@@ -257,4 +257,4 @@ zigbee2mqtt_networkmap:
 shell_command:
   install_imagemagick: 'apk add --update imagemagick'
   front_door_gif: 'shell_commands/front-door.sh' 
-  backyard_gif: 'shell_commands/backyard.sh {{password}}' 
+  backyard_gif: shell_commands/backyard.sh {{password}}
