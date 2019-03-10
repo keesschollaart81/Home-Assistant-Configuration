@@ -6,10 +6,6 @@
     to: 'on'
   action: 
    - service: shell_command.front_door_gif
-   - service: camera.snapshot
-     data:
-        entity_id: camera.front_door
-        filename: "/config/www/front-door/front-door-latest.gif"
    - service: camera.local_file_update_file_path
      data_template:
         entity_id: camera.front_door_latest
