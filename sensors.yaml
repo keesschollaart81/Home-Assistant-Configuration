@@ -24,6 +24,8 @@
       value_template: '{{ states.climate.toon_thermostat.attributes.current_temperature }}'
       friendly_name: 'Current Temperatuur'
       unit_of_measurement: '°C'
+    dafang_password:
+      value_template: !secret dafang_password
 
 - platform: systemmonitor
   resources:
