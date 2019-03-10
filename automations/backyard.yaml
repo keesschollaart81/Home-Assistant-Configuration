@@ -73,3 +73,20 @@
     at: '12:10:00'
   action: 
     service: rest_command.reboot_dafang
+
+
+- id: backyard_motion_gif 
+  trigger: 
+  - platform: state
+    entity_id: binary_sensor.dafang_motion_sensor 
+    to: 'on'
+  action:
+   - service: shell_command.backyard_gif
+     data: 
+        username: !secret dafang_username
+        password: !secret dafang_password
+   - service: camera.local_file_update_file_path
+     data_template:
+        entity_id: camera.backyard_latest
+        file_path: "/config/www/front-door/backyard-latest.gif" 
+    
