@@ -247,3 +247,6 @@ proximity:
     unit_of_measurement: km
 
 zigbee2mqtt_networkmap: 
+
+shell_command:
+  restart_pow: '/config/shell_commands/doorbell.sh'
