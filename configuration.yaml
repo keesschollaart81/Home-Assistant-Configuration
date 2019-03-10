@@ -74,6 +74,7 @@ logger:
   default: warn
   logs:
     homeassistant.components.mqtt: info 
+    homeassistant.components.shell_command: debug 
 
 map:
 
