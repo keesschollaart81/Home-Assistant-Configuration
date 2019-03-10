@@ -250,7 +250,4 @@ proximity:
 zigbee2mqtt_networkmap: 
 
 shell_command:
-  restart_pow: 'shell_commands/doorbell.sh'
-  ls: 'ls'
-  pwd: 'pwd'
-  whoami: 'whoami'
+  front_door_gif: 'shell_commands/doorbell.sh' 
