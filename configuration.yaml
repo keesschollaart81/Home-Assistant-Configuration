@@ -93,7 +93,8 @@ camera:
     still_image_url: http://192.168.2.10/jpg
   - platform: local_file
     name: front_door_latest
-    file_path: "/config/www/camera_snapshots/front_door_xxx.jpg"
+    file_path: "/config/www/camera_snapshots/front_door_latest.jpg"
+
 tts:
   - platform: google
     language: 'nl'
@@ -247,3 +248,7 @@ proximity:
     unit_of_measurement: km
 
 zigbee2mqtt_networkmap: 
+
+variable:
+  doorbell_camera_latest_filename:
+    value: ''
