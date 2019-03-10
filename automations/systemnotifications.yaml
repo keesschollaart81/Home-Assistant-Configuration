@@ -15,6 +15,7 @@
     platform: homeassistant
     event: start
   action:
+   - service: shell_command.install_imagemagick
    - service: notify.pushbullet
      data:
         title: "Hassio boots"

@@ -250,4 +250,5 @@ proximity:
 zigbee2mqtt_networkmap: 
 
 shell_command:
+  install_imagemagick: 'apk add --update imagemagick'
   front_door_gif: 'shell_commands/doorbell.sh' 
