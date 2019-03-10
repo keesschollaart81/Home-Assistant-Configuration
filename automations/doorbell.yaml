@@ -35,8 +35,7 @@
           url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
           attachment:
             - url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
-              content-type: jpg
-  #  - service: script.flash_light_kitchen
+              content-type: jpg 
 
 
 - id: 'DoorbellSoundSilendAtNight'
