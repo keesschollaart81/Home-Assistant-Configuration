@@ -85,5 +85,5 @@
    - service: camera.local_file_update_file_path
      data_template:
         entity_id: camera.backyard_latest
-        file_path: "/config/www/front-door/backyard-latest.gif" 
+        file_path: "/config/www/backyard/backyard-latest.gif" 
     
