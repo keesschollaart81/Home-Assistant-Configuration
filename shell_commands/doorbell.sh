@@ -1,16 +1,11 @@
-ls
+find /share/motion/front-door/*.jpg -mtime +7 -exec rm {} \;
 
-pwd
+wget -q -O /share/motion/front-door/front1.jpg http://192.168.2.21/jpg
+sleep 3
+wget -q -O /share/motion/front-door/front2.jpg http://192.168.2.21/jpg
+sleep 3
+wget -q -O /share/motion/front-door/front3.jpg http://192.168.2.21/jpg
 
-whoami
+convert -loop 0 -delay 100 /share/motion/front-door/front1.jpg /share/motion/front-door/front2.jpg /share/motion/front-door/front3.jpg /share/motion/front-door/front-door-latest.gif
 
-echo $PATH 
-
-# rm -f /home/homeassistant/axis/*.jpg
-
-# wget -q -O /home/homeassistant/axis/front1.jpg http://***:***@192.168.1.21/jpg/image.jpg
-# sleep 3
-# wget -q -O /home/homeassistant/axis/front2.jpg http://***:***@192.168.1.21/jpg/image.jpg
-# sleep 3
-# wget -q -O /home/homeassistant/axis/front3.jpg http://***:***@192.168.1.21/jpg/image.jpg
-# convert -loop 0 -delay 100 /home/homeassistant/axis/front1.jpg /home/homeassistant/axis/front2.jpg /home/homeassistant/axis/front3.jpg /home/homeassistant/axis/a.gif
+cp -a /share/motion/front-door/front-door-latest.gif "/share/motion/front-door/front-door-$(date +"%m-%d-%y-%r").gif"
