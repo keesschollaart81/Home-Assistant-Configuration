@@ -71,7 +71,8 @@ views:
           - binary_sensor.fietsmarleen
           - entity: camera.dafang
             name: Live
-        camera_image: camera.dafang_motion_snapshot
+        # camera_image: camera.dafang_motion_snapshot
+        camera_image: camera.backyard_latest
         tap_action: 
           action: more-info
       - id: front_door

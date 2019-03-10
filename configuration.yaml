@@ -95,6 +95,11 @@ camera:
   - platform: local_file
     name: front_door_latest
     file_path: "/config/www/front-door/front-door-latest.gif"
+  - platform: local_file
+    name: backyard_latest
+    file_path: "/config/www/backyard/backyard-latest.gif"
+
+    
 tts:
   - platform: google
     language: 'nl'
