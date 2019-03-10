@@ -82,7 +82,7 @@
     to: 'on'
   action:
    - service: shell_command.backyard_gif
-     data_template:  
+     data:  
         password: "{{ states.sensor.dafang_password.state }}"
    - service: camera.local_file_update_file_path
      data_template:

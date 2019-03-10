@@ -19,3 +19,11 @@ sonos_say:
     - service: media_player.sonos_restore
       data_template:
         entity_id: "{{ sonos_entity }}"
+
+
+  backyard_gif2:
+    alias: backyard_gif2
+    sequence:
+    - service: shell_command.backyard_gif
+      data_template:
+        text: '{{ states.sensor.dafang_password.state }}'
