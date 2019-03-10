@@ -82,9 +82,9 @@
     to: 'on'
   action:
    - service: shell_command.backyard_gif
-     data: 
-        username: !secret dafang_username
-        password: !secret dafang_password
+     data_template: 
+        username: {{!secret dafang_username | urlencode}}
+        password: {{!secret dafang_password | urlencode}}
    - service: camera.local_file_update_file_path
      data_template:
         entity_id: camera.backyard_latest
