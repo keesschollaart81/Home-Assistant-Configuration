@@ -94,7 +94,7 @@ camera:
     still_image_url: http://192.168.2.21/jpg
   - platform: local_file
     name: front_door_latest
-    file_path: "/config/www/camera_snapshots/front_door_xxx.jpg"
+    file_path: "/config/www/front-door/front-door-latest.gif"
 tts:
   - platform: google
     language: 'nl'
