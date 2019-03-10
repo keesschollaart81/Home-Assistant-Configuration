@@ -25,4 +25,4 @@ backyard_gif2:
   sequence:
   - service: shell_command.backyard_gif
     data_template:
-      text: '{{ states.sensor.dafang_password.state }}'
+      password: '{{ states.sensor.dafang_password.state }}'
