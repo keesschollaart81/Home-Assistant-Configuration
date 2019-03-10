@@ -9,7 +9,7 @@
    - service: camera.local_file_update_file_path
      data_template:
         entity_id: camera.front_door_latest
-        filename: "/config/www/front-door/front-door-latest.gif"
+        file_path: "/config/www/front-door/front-door-latest.gif"
    - service: script.sonos_say
      data:
         sonos_entity: media_player.woonkamer

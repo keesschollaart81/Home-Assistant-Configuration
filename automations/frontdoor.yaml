@@ -18,7 +18,7 @@
    - service: camera.local_file_update_file_path
      data_template:
         entity_id: camera.front_door_latest
-        filename: "/config/www/front-door/front-door-latest.gif"
+        file_path: "/config/www/front-door/front-door-latest.gif"
    - service: notify.pushbullet
      data_template:
         title: "Voordeur open"
@@ -49,7 +49,7 @@
    - service: camera.local_file_update_file_path
      data_template:
         entity_id: camera.front_door_latest
-        filename: "/config/www/front-door/front-door-latest.gif"
+        file_path: "/config/www/front-door/front-door-latest.gif"
    - service: notify.pushbullet
      data_template:
         title: "Voordeur meer dan 2 minuten open"
@@ -78,4 +78,4 @@
    - service: camera.local_file_update_file_path
      data_template:
         entity_id: camera.front_door_latest
-        filename: "/config/www/front-door/front-door-latest.gif"
+        file_path: "/config/www/front-door/front-door-latest.gif"
