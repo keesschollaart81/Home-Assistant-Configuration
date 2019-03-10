@@ -20,10 +20,9 @@ sonos_say:
       data_template:
         entity_id: "{{ sonos_entity }}"
 
-
-  backyard_gif2:
-    alias: backyard_gif2
-    sequence:
-    - service: shell_command.backyard_gif
-      data_template:
-        text: '{{ states.sensor.dafang_password.state }}'
+backyard_gif2:
+  alias: backyard_gif2
+  sequence:
+  - service: shell_command.backyard_gif
+    data_template:
+      text: '{{ states.sensor.dafang_password.state }}'
