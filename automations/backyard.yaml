@@ -81,9 +81,7 @@
     entity_id: binary_sensor.dafang_motion_sensor 
     to: 'on'
   action:
-   - service: shell_command.backyard_gif
-     data:  
-        password: "{{ states.sensor.dafang_password.state }}"
+   - service: shell_command.backyard_gif 
    - service: camera.local_file_update_file_path
      data_template:
         entity_id: camera.backyard_latest

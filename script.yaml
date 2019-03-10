@@ -23,6 +23,4 @@ sonos_say:
 backyard_gif2:
   alias: backyard_gif2
   sequence:
-  - service: shell_command.backyard_gif
-    data_template:
-      password: '{{ states.sensor.dafang_password.state }}'
+  - service: shell_command.backyard_gif 
