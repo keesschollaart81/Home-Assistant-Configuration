@@ -20,35 +20,7 @@ sonos_say:
       data_template:
         entity_id: "{{ sonos_entity }}"
 
-
-flash_light_kitchen:
-  alias: Flash Light Kitchen
+backyard_gif2:
+  alias: backyard_gif2
   sequence:
-    - service: light.toggle
-      data:
-        entity_id: light.kitchen
-    - delay:
-        seconds: 0.2
-    - service: light.toggle
-      data:
-        entity_id: light.kitchen  
-    - delay:
-        seconds: 0.2
-    - service: light.toggle
-      data:
-        entity_id: light.kitchen
-    - delay:
-        seconds: 0.2
-    - service: light.toggle
-      data:
-        entity_id: light.kitchen  
-    - delay:
-        seconds: 0.2
-    - service: light.toggle
-      data:
-        entity_id: light.kitchen  
-    - delay:
-        seconds: 0.2
-    - service: light.toggle
-      data:
-        entity_id: light.kitchen  
+  - service: shell_command.backyard_gif 

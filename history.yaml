@@ -57,3 +57,7 @@ exclude:
     - sensor.seventeentrack_packages_ready_to_be_picked_up
     - sensor.seventeentrack_packages_returned
     - sensor.seventeentrack_packages_undelivered
+    - input_boolean.zigbee_permit_join
+    - light.0x90fd9ffffe10c5d1_light
+    - light.0x90fd9ffffe135ab2_light
+    - persistent_notification.config_entry_discovery

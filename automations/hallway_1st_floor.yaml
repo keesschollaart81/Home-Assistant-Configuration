@@ -13,7 +13,7 @@
   action: 
   - service: light.turn_on
     data:
-      entity_id: light.lights_hallway_1st_floor
+      entity_id: light.hallway_1st_floor_light
   - service: timer.start
     data:
       entity_id: timer.hallway_1st_floor_lights_off_in
@@ -38,4 +38,4 @@
     service: light.turn_off
     data:
       entity_id:
-        - light.lights_hallway_1st_floor
+        - light.hallway_1st_floor_light

@@ -20,7 +20,8 @@ views:
         camera_image: camera.locations
         show_state: false
         show_name: true
-        tap_action: dialog
+        tap_action: 
+          action: more-info
       - id: living_room
         type: glance
         title: Living room  
@@ -61,6 +62,7 @@ views:
       - id: backyard
         type: picture-glance
         title: Backyard
+        aspect_ratio: '16x9'
         entities:
           - switch.licht_in_tuin
           - binary_sensor.schuurdeur
@@ -69,14 +71,21 @@ views:
           - binary_sensor.fietsmarleen
           - entity: camera.dafang
             name: Live
-        camera_image: camera.dafang_motion_snapshot
-        tap_action: more-info
+        # camera_image: camera.dafang_motion_snapshot
+        camera_image: camera.backyard_latest
+        tap_action: 
+          action: more-info
       - id: front_door
-        type: picture-entity
-        name: Front door
-        entity: camera.front_door_latest
+        type: picture-glance
+        title: Front door
+        aspect_ratio: '16x9'
+        entities:
+          - binary_sensor.0x00158d000208e0e0_contact
+          - entity: camera.front_door
+            name: Live 
         camera_image: camera.front_door_latest
-        show_info: false
+        tap_action: 
+          action: more-info
       - id: hallway
         type: entities
         title: Hallway
@@ -127,7 +136,7 @@ views:
         type: entities
         title: Hallway
         entities: 
-          - light.lights_hallway_1st_floor
+          - light.hallway_1st_floor_light
           - timer.hallway_1st_floor_lights_off_in 
           - binary_sensor.0x00158d0002e2ab4d_occupancy 
       - id: motion_first_floor_card

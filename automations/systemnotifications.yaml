@@ -15,6 +15,7 @@
     platform: homeassistant
     event: start
   action:
+   - service: shell_command.install_imagemagick
    - service: notify.pushbullet
      data:
         title: "Hassio boots"
@@ -25,20 +26,7 @@
   hide_entity: true  
   trigger:
     platform: time_pattern
-    minutes: '/10'
+    minutes: '1'
     seconds: 00
   action:
     service: zigbee2mqtt_networkmap.update
-    
-# - id: 'EventGridTest'
-#   alias: EventGridTest
-#   trigger:
-#   - platform: time
-#     minutes: '/3'
-#     seconds: 00
-#   action: 
-#     service: notify.eventgrid
-#     data:
-#       message: "message"
-#       data: 
-#         subject: "Custom subject"

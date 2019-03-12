@@ -7,7 +7,7 @@ sensor.gas_today:
 sensor.power_today:
     friendly_name: Electra
       
-climate.toon_van_eneco:
+climate.toon_thermostat:
     friendly_name: Toon
     
 light.bank:
@@ -135,7 +135,7 @@ sensor.0x00158d0002e2ab4d_illuminance:
 binary_sensor.hallway_1st_floor_switch:
     friendly_name: Hallway 1st floor - Switch
 
-light.lights_hallway_1st_floor:
+light.hallway_1st_floor_light:
     friendly_name: Hallway 1st floor - Light
     icon: mdi:ceiling-light
 
