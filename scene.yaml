@@ -42,7 +42,7 @@
         state: on
         color_temp: 333
         brightness: 255  
-      light.kitchen:
+      light.kitchen_light:
         state: on
         
 -   name: living_room_lights_off
@@ -53,5 +53,5 @@
         state: off
       light.bank:
         state: off 
-      light.kitchen:
+      light.kitchen_light:
         state: off 

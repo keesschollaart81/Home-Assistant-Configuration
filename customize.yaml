@@ -18,7 +18,7 @@ light.staandelamp:
     friendly_name: Standing lamp
     icon: mdi:floor-lamp
 
-light.kitchen:
+light.kitchen_light:
     friendly_name: Kitchen Light
     icon: mdi:ceiling-light
 

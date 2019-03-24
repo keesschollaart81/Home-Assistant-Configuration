@@ -29,7 +29,7 @@ views:
         entities:
           - entity: binary_sensor.0x00158d000222df56_occupancy
             name: Occupancy
-          - entity: light.kitchen
+          - entity: light.kitchen_light
             name: Kitchen
             tap_action: toggle
           - entity: binary_sensor.0x00158d00027743b7_water_leak
@@ -128,7 +128,7 @@ views:
           - light.staandelamp
           - light.bank
           - light.lampentafel
-          - light.kitchen
+          - light.kitchen_light
   - id: 1st_floor_tab
     title: 1st floor & attic
     cards:

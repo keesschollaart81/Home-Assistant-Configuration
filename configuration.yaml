@@ -226,7 +226,7 @@ alexa:
         name: Eating
       light.LampenTafel:
         name: Table
-      light.kitchen:
+      light.kitchen_light:
         name: Kitchen
       switch.licht_in_tuin:
         name: Backyard

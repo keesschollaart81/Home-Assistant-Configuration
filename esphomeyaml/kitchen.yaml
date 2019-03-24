@@ -1,0 +1,43 @@
+esphomeyaml:
+  name: kitchen
+  platform: ESP8266
+  board: esp01_1m
+  board_flash_mode: dout
+
+wifi:
+  ssid: !secret doorbell_wifi_ssid
+  password: !secret doorbell_wifi_password
+ 
+logger:
+
+api:
+  password: !secret doorbell_ota_password
+
+ota:
+  password: !secret doorbell_ota_password
+
+binary_sensor:
+  - platform: gpio
+    pin: GPIO5
+    name: "kitchen_switch" 
+    on_press:
+      then:
+        - light.toggle: kitchen_light
+    on_release:
+      then:
+        - light.toggle: kitchen_light
+
+light:
+  - platform: binary
+    id: kitchen_light
+    name: "kitchen_light"
+    output: kitchen_relay
+
+output:
+  - platform: gpio
+    id: kitchen_relay
+    pin: GPIO4
+ 
+switch:
+  - platform: restart
+    name: "Kitchen Restart"
