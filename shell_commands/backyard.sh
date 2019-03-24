@@ -1,4 +1,4 @@
-find /share/motion/backyard/*.jpg -mtime +7 -exec rm {} \;
+find /share/motion/backyard/*.jpg -mtime +2 -exec rm {} \;
 
 wget -q -O /share/motion/backyard/backyard1.jpg http://root:$1@192.168.2.11/cgi-bin/currentpic.cgi
 sleep 1

@@ -1,4 +1,4 @@
-find /share/motion/front-door/*.jpg -mtime +7 -exec rm {} \;
+find /share/motion/front-door/*.jpg -mtime +2 -exec rm {} \;
 
 wget -q -O /share/motion/front-door/front1.jpg http://192.168.2.21/jpg
 sleep 1
