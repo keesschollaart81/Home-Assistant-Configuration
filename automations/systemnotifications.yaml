@@ -30,3 +30,18 @@
     seconds: 00
   action:
     service: zigbee2mqtt_networkmap.update
+
+- id: backup
+  alias: 'Backup' 
+  trigger:
+    - platform: time
+      at: '10:00:00' 
+  condition:
+    - condition: template
+      value_template: "{{ now().day == 1 }}"
+  action:
+    service: hassio.addon_stdin
+    data:
+      addon: "7be23ff5_dropbox_sync"
+      input:
+        command: "upload" 
