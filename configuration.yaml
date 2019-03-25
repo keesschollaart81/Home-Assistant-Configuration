@@ -265,3 +265,4 @@ shell_command:
   install_imagemagick: 'apk add --update imagemagick'
   front_door_gif: 'shell_commands/front-door.sh' 
   backyard_gif: bash '/config/shell_commands/backyard.sh' {{ states.sensor.dafang_password.state }}
+  delete_old_snapshots: find /backup/* -mtime +90 -exec rm {} \;
