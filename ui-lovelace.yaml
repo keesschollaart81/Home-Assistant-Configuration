@@ -1,15 +1,13 @@
 title: Home
-views:
-
- 
+views: 
+  - !include /config/lovelace/home.yaml
+  - !include /config/lovelace/1st_floor.yaml
+  - !include /config/lovelace/system.yaml
   - id: zigbeemap
     title: Zigbee
     panel: true
     icon: mdi:graphql
     cards:
-      - !include /config/lovelace/home.yaml
-      - !include /config/lovelace/1st_floor.yaml
-      - !include /config/lovelace/system.yaml
       - type: iframe
         url: /local/zigbee2mqtt_networkmap/map.html
         aspect_ratio: 75%            
