@@ -1,0 +1,42 @@
+id: 1st_floor_tab
+title: 1st floor & attic
+cards:
+  - id: hallway_1st_floor
+    type: entities
+    title: Hallway
+    entities: 
+      - light.hallway_1st_floor_light
+      - timer.hallway_1st_floor_lights_off_in 
+      - binary_sensor.0x00158d0002e2ab4d_occupancy 
+  - id: motion_first_floor_card
+    type: history-graph
+    hours_to_show: 24
+    title: "States"
+    entities:
+      - entity: binary_sensor.0x00158d0002e2ab4d_occupancy
+        name: "Hallway"
+      - entity: binary_sensor.showering
+        name: "Showering"  
+  - id: temperature_bathroom_card
+    type: history-graph
+    hours_to_show: 24
+    title: "Bathroom temperature"
+    entities: 
+      - entity: sensor.0x00158d0001f5358e_temperature
+        name: "Bathroom"
+  - id: humidity_card
+    type: history-graph
+    hours_to_show: 24
+    title: "Bathroom humidity"
+    entities: 
+      - entity: sensor.0x00158d0001f5358e_humidity
+  - id: bathoom_card
+    type: entities
+    title: Bathoom
+    entities: 
+      - light.0x000b57fffed598bc_light  
+  - id: attic_card
+    type: entities
+    title: Attic
+    entities: 
+      - light.attic  

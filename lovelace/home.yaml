@@ -1,0 +1,129 @@
+id: home
+title: Home
+badges:
+  - device_tracker.marleen_marleen01
+  - device_tracker.kees_kees01
+  - sensor.postnl
+  - sensor.ups
+cards:
+  - id: tracker_history
+    type: history-graph
+    entities:
+    - device_tracker.marleen_marleen01
+    - device_tracker.kees_kees01
+  - id: map
+    type: picture-entity
+    title: Kees & Marleen
+    entity: camera.locations
+    camera_image: camera.locations
+    show_state: false
+    show_name: true
+    tap_action: 
+      action: more-info
+  - id: living_room
+    type: glance
+    title: Living room  
+    columns: 3
+    entities:
+      - entity: binary_sensor.0x00158d000222df56_occupancy
+        name: Occupancy
+      - entity: light.kitchen_light
+        name: Kitchen
+        tap_action: toggle
+      - entity: binary_sensor.0x00158d00027743b7_water_leak
+        name: "☕ Reservoir?"
+        icon: mdi:cup-water
+      - entity: scene.eating
+        name: Eating
+        icon: mdi:food
+        tap_action:
+          action: call-service
+          service: scene.turn_on
+          service_data: 
+            entity_id: scene.eating
+      - entity: scene.evening
+        name: Evening
+        icon: mdi:weather-sunset
+        tap_action:
+          action: call-service
+          service: scene.turn_on
+          service_data: 
+            entity_id: scene.evening
+      - entity: scene.living_room_lights_off
+        name: All off
+        icon: mdi:weather-night
+        tap_action:
+          action: call-service
+          service: scene.turn_on
+          service_data: 
+            entity_id: scene.living_room_lights_off
+  - id: backyard
+    type: picture-glance
+    title: Backyard
+    aspect_ratio: '16x9'
+    entities:
+      - switch.licht_in_tuin
+      - binary_sensor.schuurdeur
+      - binary_sensor.poortdeur
+      - binary_sensor.fietsjasmijn
+      - binary_sensor.fietsmarleen
+      - entity: camera.dafang
+        name: Live
+    # camera_image: camera.dafang_motion_snapshot
+    camera_image: camera.backyard_latest
+    tap_action: 
+      action: more-info
+  - id: front_door
+    type: picture-glance
+    title: Front door
+    aspect_ratio: '16x9'
+    entities:
+      - binary_sensor.0x00158d000208e0e0_contact
+      - entity: camera.front_door
+        name: Live 
+    camera_image: camera.front_door_latest
+    tap_action: 
+      action: more-info
+  - id: hallway
+    type: entities
+    title: Hallway
+    entities: 
+      - timer.hallway_lights_off_in 
+      - light.hall_light
+      - switch.doorbell_buzzer_enabled
+      - binary_sensor.0x00158d0001f9faa1_occupancy
+  - id: toilet_card
+    type: entities
+    title: Toilet
+    entities:  
+      - light.0x90fd9ffffe2b5781_light
+      - binary_sensor.0x00158d0002e2eecc_occupancy
+      - timer.toilet_lights_off_in
+  - id: kees_naar_huis
+    type: history-graph
+    entities: [sensor.kees_naar_huis]
+    hours_to_show: 12
+    icon: mdi:car
+    title: "Kees naar huis"
+  - id: temperatures
+    type: history-graph
+    entities: 
+      - entity: sensor.0x00158d0001f5358e_temperature
+        name: "Bathroom"
+      - entity: sensor.rotterdam_temperature
+        name: "Outside"
+      - entity: sensor.toon_current_temperature
+        name: "Toon Current"
+      - entity: sensor.toon_target_temperature
+        name: "Toon Target"
+    hours_to_show: 12
+    title: "Temperatures"
+  - id: living_room_all
+    type: entities
+    title: Individual lights
+    show_header_toggle: false
+    entities:
+      - light.staandelamp
+      - light.bank
+      - light.lampentafel
+      - light.kitchen_light
