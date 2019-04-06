@@ -51,7 +51,6 @@ conversation:
 
 history_graph:
 
-
 recorder:
   db_url: !secret recorder_db_url
   purge_interval: 2
@@ -99,6 +98,7 @@ camera:
     name: backyard_latest
     file_path: "/config/www/backyard/backyard-latest.gif"
 
+stream:
     
 tts:
   - platform: google
