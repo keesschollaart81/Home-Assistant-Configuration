@@ -20,19 +20,16 @@ scene: !include scene.yaml
 input_boolean: !include input_booleans.yaml
 script: !include script.yaml
 history: !include history.yaml
-
 system_health:
-
 frontend:
-
 config:
-
 ios:
-
 sonos:
-
 auth:
 
+whitelist_external_dirs:
+  - /share/motion/
+  
 http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
