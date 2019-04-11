@@ -9,6 +9,8 @@ homeassistant:
   auth_providers:
     - type: homeassistant
     #- type: legacy_api_password
+  whitelist_external_dirs:
+    - /share/motion/
 
 switch: !include switches.yaml
 light: !include lights.yaml
@@ -27,9 +29,7 @@ ios:
 sonos:
 auth:
 
-whitelist_external_dirs:
-  - /share/motion/
-  
+
 http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
