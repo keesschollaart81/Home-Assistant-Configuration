@@ -3,6 +3,7 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.0x00158d00027743b7_water_leak
+      from: 'on'
       to: 'off'
   action:
    - service: notify.pushbullet
