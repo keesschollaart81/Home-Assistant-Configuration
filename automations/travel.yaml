@@ -43,3 +43,5 @@
   action:
     - service: homeassistant.update
       data:
+        entity_id: sensor.kees_naar_huis
+
