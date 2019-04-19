@@ -37,6 +37,7 @@
 
 
 - id: 'DoorbellSoundSilendAtNight'
+  alias: DoorbellSoundSilendAtNight
   trigger:
   - platform: time
     at: '18:30:00'
@@ -45,6 +46,7 @@
     entity_id: switch.doorbell_buzzer_enabled
 
 - id: 'DoorbellSoundBackToNormall'
+  alias: DoorbellSoundBackToNormall
   trigger:
   - platform: time
     at: '07:00:00'
