@@ -613,6 +613,10 @@
             },
             "type": "object"
         },
+        "IncludeDirective": {
+            "pattern": "[.]yaml|[.]yml$",
+            "type": "string"
+        },
         "LightCardConfig": {
             "additionalProperties": false,
             "properties": {
@@ -1478,11 +1482,17 @@
         },
         "views": {
             "items": {
-                "$ref": "#/definitions/LovelaceViewConfig"
+                "anyOf": [
+                    {
+                        "$ref": "#/definitions/IncludeDirective"
+                    },
+                    {
+                        "$ref": "#/definitions/LovelaceViewConfig"
+                    }
+                ]
             },
             "type": "array"
         }
     },
     "type": "object"
 }
-

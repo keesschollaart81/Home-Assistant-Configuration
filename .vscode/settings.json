@@ -1,5 +1,6 @@
-{
-  "yaml.schemas": {
-    "./ui-lovelace-schema.json": "ui-lovelace.yaml"
-  }
-}
+// {
+//   "yaml.schemas": {
+//     "./ui-lovelace-schema.json": "ui-lovelace.yaml"   
+//   }
+// }
+ 

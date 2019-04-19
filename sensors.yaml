@@ -10,12 +10,12 @@
 
 - platform: template
   sensors:
-    kees_travel_km_back_home: 
-      unit_of_measurement: 'km'
-      value_template: "{{ states.sensor.kees_naar_huis.distance | float }}"
-    kees_distance_km_back_home: 
-      unit_of_measurement: 'km'
-      value_template: "{{ states.proximity.home | float }}"
+    # kees_travel_km_back_home: 
+    #   unit_of_measurement: 'km'
+    #   value_template: "{{ states.sensor.kees_naar_huis.distance | float }}"
+    # kees_distance_km_back_home: 
+    #   unit_of_measurement: 'km'
+    #   value_template: "{{ states.proximity.home | float }}"
     toon_target_temperature:
       value_template: '{{ states.climate.toon_thermostat.attributes.temperature }}'
       friendly_name: 'Target Temperatuur'
@@ -28,6 +28,7 @@
       value_template: !secret dafang_password
 
 - platform: systemmonitor
+  scan_interval: 300
   resources:
     - type: disk_use
       arg: /
@@ -40,24 +41,3 @@
   name: Bridge state
   state_topic: "zigbee2mqtt/bridge/state"
   icon: mdi:router-wireless
-
-- platform: ups
-  username: !secret ups_username
-  password: !secret ups_password
-
-- platform: postnl
-  name: PostNl
-  username: !secret postnl_username
-  password: !secret postnl_password
-
-- platform: buienradar
-  name: 'Rotterdam' 
-  monitored_conditions:
-    - condition
-    - temperature
-    - condition_1d
-    - temperature_1d
-
-- platform: seventeentrack
-  username: !secret 17track_username
-  password: !secret 17track_password

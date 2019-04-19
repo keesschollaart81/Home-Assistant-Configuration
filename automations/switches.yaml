@@ -17,7 +17,7 @@
   - platform: state
     entity_id:  sensor.0x00158d0001639d5a_click
   condition: 
-    - condition: state
+    - condition: state 
       entity_id: sensor.0x00158d0001639d5a_click
       state: 'right'
   action:

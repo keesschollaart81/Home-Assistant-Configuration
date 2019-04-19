@@ -1,5 +1,5 @@
 title: Home
-views: 
+views:   
   - !include /config/lovelace/home.yaml
   - !include /config/lovelace/1st_floor.yaml
   - !include /config/lovelace/system.yaml
@@ -8,6 +8,6 @@ views:
     panel: true
     icon: mdi:graphql
     cards:
-      - type: iframe
+      - type: iframe 
         url: /local/zigbee2mqtt_networkmap/map.html
         aspect_ratio: 75%            

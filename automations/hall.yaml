@@ -33,7 +33,7 @@
     data:
       entity_id: light.hall_light
   - service: timer.finish
-    data:
+    data: 
       entity_id: timer.hallway_lights_off_in
 
 - alias: Turn off hallway lights 3 minutes after trigger
@@ -44,6 +44,6 @@
       entity_id: timer.hallway_lights_off_in
   action:
     service: light.turn_off
-    data:
+    data: 
       entity_id:
-        - light.hall_light
+        - light.hall_light 

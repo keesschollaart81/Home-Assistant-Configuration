@@ -44,7 +44,7 @@ updater:
 
 discovery:
 
-conversation:
+# conversation:
 
 history_graph:
 
