@@ -1,0 +1,82 @@
+automation:
+  - id: "VoordeurNotificatieNiemandThuis"
+    alias: Voordeur of schuur open / niemand thuis
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ states('device_tracker.marleen_marleen01') != 'home' }}"
+        - condition: template
+          value_template: "{{ states('device_tracker.Kees_kees01') != 'home' }}"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.0x00158d000208e0e0_contact
+        to: "on"
+        for:
+          seconds: 2
+    action:
+      - service: shell_command.front_door_gif
+      - service: camera.local_file_update_file_path
+        data_template:
+          entity_id: camera.front_door_latest
+          file_path: "/config/www/front-door/front-door-latest.gif"
+      - service: notify.pushbullet
+        data_template:
+          title: "Voordeur open"
+          message: "En er is niemand thuis!"
+          data:
+            file: "/config/www/front-door/front-door-latest.gif"
+            file_type: "image/gif"
+      - service: notify.ios_marleen_marleen01
+        data:
+          title: "Voordeur open"
+          message: "En er is niemand thuis!"
+          data:
+            url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front-door-latest.gif"
+            attachment:
+              - url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front-door-latest.gif"
+                content-type: jpg
+
+  - id: "VoordeurNotificatieTeLangOpen"
+    alias: Voordeur te lang open
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.0x00158d000208e0e0_contact
+        to: "on"
+        for:
+          minutes: 2
+    action:
+      - service: shell_command.front_door_gif
+      - service: camera.local_file_update_file_path
+        data_template:
+          entity_id: camera.front_door_latest
+          file_path: "/config/www/front-door/front-door-latest.gif"
+      - service: notify.pushbullet
+        data_template:
+          title: "Voordeur meer dan 2 minuten open"
+          message: "Misschien vergeten dicht te doen?"
+          data:
+            file: "/config/www/front-door/front-door-latest.gif"
+            file_type: "image/gif"
+      - service: notify.ios_marleen_marleen01
+        data:
+          title: "Voordeur meer dan 2 minuten open"
+          message: "Misschien vergeten dicht te doen?"
+          data:
+            url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front-door-latest.gif"
+            attachment:
+              - url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front-door-latest.gif"
+                content-type: jpg
+
+  - id: "VoordeurOpenDicht"
+    alias: Voordeur open of dicht
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.0x00158d000208e0e0_contact
+        to: "on"
+    action:
+      - service: shell_command.front_door_gif
+      - service: camera.local_file_update_file_path
+        data_template:
+          entity_id: camera.front_door_latest
+          file_path: "/config/www/front-door/front-door-latest.gif"

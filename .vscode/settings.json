@@ -1,6 +1,5 @@
-// {
-//   "yaml.schemas": {
-//     "./ui-lovelace-schema.json": "ui-lovelace.yaml"   
-//   }
-// }
- 
+{
+    "files.associations": {
+        "*.yaml": "home-assistant"
+    }
+}
