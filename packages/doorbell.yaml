@@ -7,8 +7,8 @@ automation:
         to: "on"
     action:
       - service: stream.record
+        entity_id: camera.front_door
         data:
-          entity_id: camera.front_door
           filename: '/config/www/front-door/front-door-latest.mp4'
           duration: 6 
       # - service: shell_command.front_door_gif
