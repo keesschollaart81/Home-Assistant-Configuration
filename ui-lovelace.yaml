@@ -1,8 +1,8 @@
 title: Home
 views:   
-  - !include /lovelace/home.yaml
-  - !include /lovelace/1st_floor.yaml
-  - !include /lovelace/system.yaml
+  - !include lovelace/home.yaml
+  - !include lovelace/1st_floor.yaml
+  - !include lovelace/system.yaml
   - id: zigbeemap
     title: Zigbee
     panel: true
