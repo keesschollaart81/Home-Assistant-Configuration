@@ -12,7 +12,7 @@ automation:
           title: "Er wordt aan de deur gebeld"
           message: "Wie zou dat zijn!?"
           data:
-            #file_url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front_door_{{ now ().year }}_{{ now ().month }}_{{ now ().day }}_{{ now ().hour }}_{{ now ().minute }}.jpg"
+            file_url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest.gif"
             file: "/config/www/front-door/front-door-latest.gif"
             file_type: "image/gif"
       - service: notify.ios_marleen_marleen01
