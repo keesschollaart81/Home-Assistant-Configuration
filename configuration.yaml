@@ -29,6 +29,7 @@ config:
 ios:
 sonos:
 auth:
+custom_updater:
 
 tts:
   - platform: google_translate

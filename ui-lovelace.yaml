@@ -1,4 +1,7 @@
 title: Home
+resources:
+  - url: /customcards/github/custom-cards/tracker-card.js?track=true
+    type: module
 views:   
   - !include lovelace/home.yaml
   - !include lovelace/1st_floor.yaml
