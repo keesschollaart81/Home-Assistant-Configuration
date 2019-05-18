@@ -7,7 +7,7 @@ sonos_say:
     - service: sonos.unjoin
       data_template:
         entity_id: "{{ sonos_entity }}"
-    - service: sonos.volume_set
+    - service: media_player.volume_set
       data_template:
         entity_id: "{{ sonos_entity }}"
         volume_level: "{{ volume }}"
