@@ -192,60 +192,64 @@ notify:
 
 google_assistant:
   project_id: home-assistant-197018 
-  api_key: !secret google_assistant_key
-  expose_by_default: false 
-  entity_config:
-    light.0x90fd9ffffe2b5781_light:
-      name: Toilet
-      aliases:
-        - wc  
-        - w.c.  
-    light.hall_light:
-      name: Hal
-      aliases:
-        - Hal beneden  
-    light.attic:
-      name: Zolder 
-    light.bank:
-      name: Bank
-      aliases:
-        - Raam  
-    light.hallway_1st_floor_light:
-      name: Hal boven
-      aliases:
-        - Hal eerste verdieping
-        - Hal eerste etage  
-    light.kitchen_light:
-      name: Keuken 
-    light.lampentafel:
-      name: Tafel
-      aliases:
-        - Eettafel
-    light.staandelamp:
-      name: Staande lamp
-      aliases:
-        - Staand
-        - Hoek van de kamer  
-    scene.eating:
-      name: eten
-      aliases:
-        - etenstijd  
-    scene.evening:
-      name: savonds
-      aliases:
-        - avonds  
-        - avond 
-    climate.toon_thermostat:
-      name: Toon
-    switch.doorbell_buzzer_enabled:
-      name: Deurbel
-      aliases:
-        - Deurbel geluid
-    switch.licht_in_tuin:
-      name: Tuin
-      aliases:
-        - Achtertuin
-        - Buiten
+  # api_key: !secret google_assistant_key
+  # expose_by_default: false 
+  # exposed_domains:
+  #   - switch
+  #   - light
+  #   - climate
+  # entity_config:
+  #   light.0x90fd9ffffe2b5781_light:
+  #     name: Toilet
+  #     aliases:
+  #       - wc  
+  #       - w.c.  
+  #   light.hall_light:
+  #     name: Hal
+  #     aliases:
+  #       - Hal beneden  
+  #   light.attic:
+  #     name: Zolder 
+  #   light.bank:
+  #     name: Bank
+  #     aliases:
+  #       - Raam  
+  #   light.hallway_1st_floor_light:
+  #     name: Hal boven
+  #     aliases:
+  #       - Hal eerste verdieping
+  #       - Hal eerste etage  
+  #   light.kitchen_light:
+  #     name: Keuken 
+  #   light.lampentafel:
+  #     name: Tafel
+  #     aliases:
+  #       - Eettafel
+  #   light.staandelamp:
+  #     name: Staande lamp
+  #     aliases:
+  #       - Staand
+  #       - Hoek van de kamer  
+  #   scene.eating:
+  #     name: eten
+  #     aliases:
+  #       - etenstijd  
+  #   scene.evening:
+  #     name: savonds
+  #     aliases:
+  #       - avonds  
+  #       - avond 
+  #   climate.toon_thermostat:
+  #     name: Toon
+  #   switch.doorbell_buzzer_enabled:
+  #     name: Deurbel
+  #     aliases:
+  #       - Deurbel geluid
+  #   switch.licht_in_tuin:
+  #     name: Tuin
+  #     aliases:
+  #       - Achtertuin
+  #       - Buiten
  
 rest_command:
   reboot_dafang:
