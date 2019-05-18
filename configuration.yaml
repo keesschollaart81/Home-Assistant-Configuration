@@ -192,6 +192,7 @@ notify:
 
 google_assistant:
   project_id: home-assistant-197018 
+  api_key: !secret google_assistant_key
   expose_by_default: false 
   entity_config:
     light.0x90fd9ffffe2b5781_light:
