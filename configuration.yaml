@@ -30,6 +30,9 @@ ios:
 sonos:
 auth:
 
+tts:
+  - platform: google
+    language: 'nl'
 
 http:
   ssl_certificate: /ssl/fullchain.pem
