@@ -191,6 +191,10 @@ notify:
     gcm_sender_id: !secret gcm_sender_id
 
 google_assistant:
+  project_id: home-assistant-197018 
+  exposed_domains:
+    - switch
+    - light 
 
 alexa:
   smart_home:
