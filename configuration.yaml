@@ -85,10 +85,6 @@ camera:
     platform: generic
     still_image_url: !secret google_maps_url
     limit_refetch_to_url_change: true
-  - platform: mjpeg
-    name: front_door
-    mjpeg_url: http://192.168.2.21/jpg_stream
-    still_image_url: http://192.168.2.21/jpg
   - platform: local_file
     name: front_door_latest
     file_path: "/config/www/front-door/front-door-latest.gif"
@@ -122,27 +118,11 @@ panel_iframe:
   configurator:
     title: Configurator
     icon: mdi:wrench
-    url: https://schollaartthuis.duckdns.org:3218/
-  # dafang:
-  #   title: Dafang camera
-  #   icon: mdi:cctv
-  #   url: http://schollaartthuis.duckdns.org:1234/
-  # custom_vision:
-  #   title: Custom Vision
-  #   icon: mdi:animation
-  #   url: https://customvision.ai/projects/55e5c331-4a89-48fa-9525-7a77754bd019#/manage
-  # pihole:
-  #   title: Pi-hole
-  #   icon: mdi:block-helper
-  #   url: https://schollaartthuis.duckdns.org:8125/
+    url: https://schollaartthuis.duckdns.org:8123/hassio/ingress/core_configurator
   esphomeyaml:
     title: Esphomeyaml
     icon: mdi:code-not-equal-variant
     url: http://schollaartthuis.duckdns.org:6052/
-  # networkmap:
-  #   title: 'Zigbee Map'
-  #   url: '/local/zigbee2mqtt_networkmap/map.html'
-  #   icon: 'mdi:graphql'
 
 toon:
     client_id: !secret toon_key

@@ -16,4 +16,4 @@ convert -loop 0 -delay 100 /share/motion/backyard/backyard1.jpg /share/motion/ba
 
 cp -a /config/www/backyard/backyard-latest.gif "/share/motion/backyard/backyard-$(date +"%m-%d-%y-%r").gif"
 
-find /share/motion/backyard/*.jpg -mtime +2 -exec rm {} \;
+find /share/motion/backyard/*.* -mtime +4 -exec rm {} \;

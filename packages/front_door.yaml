@@ -32,9 +32,9 @@ automation:
           title: "Voordeur open"
           message: "En er is niemand thuis!"
           data:
-            url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front-door-latest.gif"
+            url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest.gif"
             attachment:
-              - url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front-door-latest.gif"
+              - url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest.gif"
                 content-type: jpg
 
   - id: "VoordeurNotificatieTeLangOpen"
@@ -63,9 +63,9 @@ automation:
           title: "Voordeur meer dan 2 minuten open"
           message: "Misschien vergeten dicht te doen?"
           data:
-            url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front-door-latest.gif"
+            url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest.gif"
             attachment:
-              - url: "https://schollaartthuis.duckdns.org:8123/local/camera_snapshots/front-door-latest.gif"
+              - url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest.gif"
                 content-type: jpg
 
   - id: "VoordeurOpenDicht"
