@@ -36,8 +36,8 @@ cards:
   - id: front_door_live
     type: picture-entity
     title: Front door Live 
-    entity: camera.front_door
-    camera_image: camera.front_door
+    entity: camera.front_door_camera
+    camera_image: camera.front_door_camera
     show_info: true
     tap_action: dialog   
   - id: zigbee

@@ -3,8 +3,6 @@ title: Home
 badges:
   - device_tracker.marleen_marleen01
   - device_tracker.kees_kees01
-  - sensor.postnl
-  - sensor.ups
 cards:
   - id: tracker_history
     type: history-graph
@@ -79,7 +77,7 @@ cards:
     aspect_ratio: '16x9'
     entities:
       - binary_sensor.0x00158d000208e0e0_contact
-      - entity: camera.front_door
+      - entity: camera.front_door_camera
         name: Live 
     camera_image: camera.front_door_latest
     tap_action: 
