@@ -9,7 +9,7 @@ automation:
       - service: shell_command.front_door_gif
       - service: script.sonos_say
         data:
-          sonos_entity: sonos.woonkamer
+          sonos_entity: media_player.woonkamer
           volume: 0.5
           message: "Er wordt aan de deur gebeld!"
       - service: notify.pushbullet
