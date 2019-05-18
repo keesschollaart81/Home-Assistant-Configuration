@@ -192,7 +192,7 @@ notify:
 
 google_assistant:
   project_id: home-assistant-197018 
-  # api_key: !secret google_assistant_key
+  api_key: !secret google_assistant_key
   # expose_by_default: false 
   # exposed_domains:
   #   - switch
