@@ -12,7 +12,7 @@ automation:
           title: "Er wordt aan de deur gebeld"
           message: "Wie zou dat zijn!?"
           data:
-            file_url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest.gif"
+            # file_url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest.gif"
             file: "/config/www/front-door/front-door-latest.gif"
             file_type: "image/gif"
       - service: notify.ios_marleen_marleen01
@@ -20,9 +20,9 @@ automation:
           title: "Er wordt aan de deur gebeld"
           message: "Wie zou dat zijn?"
           data:
-            url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest.gif"
+            url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest-small.gif"
             attachment:
-              url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest.gif"
+              url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest-small.gif"
               content-type: gif
               hide-thumbnail: false
 

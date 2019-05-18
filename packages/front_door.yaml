@@ -32,9 +32,9 @@ automation:
           title: "Voordeur open"
           message: "En er is niemand thuis!"
           data:
-            url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest.gif"
+            url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest-small.gif"
             attachment:
-              - url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest.gif"
+              - url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest-small.gif"
                 content-type: jpg
 
   - id: "VoordeurNotificatieTeLangOpen"
