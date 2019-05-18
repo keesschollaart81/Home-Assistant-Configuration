@@ -1,6 +1,17 @@
 id: 1st_floor_tab
 title: 1st floor & attic
 cards:
+  - type: custom:banner-card
+    heading: "\U0001F6C1 Bathroom"
+    background: "#B0C2ED"
+    link: /lovelace/bathroom
+    entities:
+      - entity: light.hallway_1st_floor_light
+        name: Light
+      - entity: sensor.0x00158d0001f5358e_temperature
+        name: Temperature
+      - entity: sensor.0x00158d0001f5358e_humidity
+        name: Humidity
   - id: hallway_1st_floor
     type: entities
     title: Hallway
