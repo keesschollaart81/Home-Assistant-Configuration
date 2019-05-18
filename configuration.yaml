@@ -31,7 +31,7 @@ sonos:
 auth:
 
 tts:
-  - platform: google
+  - platform: google_translate
     language: 'nl'
 
 http:
