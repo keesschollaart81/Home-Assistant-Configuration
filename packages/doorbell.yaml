@@ -1,3 +1,9 @@
+camera:
+  - platform: generic
+    name: front_door_camera_generic
+    stream_source: http://192.168.2.22/jpg_stream
+    still_image_url: http://192.168.2.22/jpg
+
 automation:
   - id: "DoorbellNotification"
     alias: Doorbell Notification
@@ -7,7 +13,7 @@ automation:
         to: "on"
     action:
       - service: stream.record
-        entity_id: camera.front_door
+        entity_id: camera.front_door_camera_generic
         data:
           filename: '/config/www/front-door/front-door-latest.mp4'
           duration: 6 
