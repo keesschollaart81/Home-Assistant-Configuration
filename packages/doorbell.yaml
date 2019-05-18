@@ -1,17 +1,12 @@
 automation:
-  - id: "DoorbellNotification"
-    alias: Doorbell Notification
+  - id: "DoorbellNotificationWithImage"
+    alias: Doorbell Notification With Image
     trigger:
       - platform: state
         entity_id: binary_sensor.doorbell_button
         to: "on"
     action:
       - service: shell_command.front_door_gif
-      - service: script.sonos_say
-        data:
-          sonos_entity: media_player.woonkamer
-          volume: 0.5
-          message: "Er wordt aan de deur gebeld!"
       - service: notify.pushbullet
         data_template:
           title: "Er wordt aan de deur gebeld"
@@ -30,6 +25,19 @@ automation:
               url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest.gif"
               content-type: gif
               hide-thumbnail: false
+
+  - id: "DoorbellNotificationViaSonos"
+    alias: Doorbell Notification via Sonos
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.doorbell_button
+        to: "on"
+    action: 
+      - service: script.sonos_say
+        data:
+          sonos_entity: media_player.woonkamer
+          volume: 0.5
+          message: "Er wordt aan de deur gebeld!"
 
   - id: "DoorbellSoundSilendAtNight"
     alias: DoorbellSoundSilendAtNight
