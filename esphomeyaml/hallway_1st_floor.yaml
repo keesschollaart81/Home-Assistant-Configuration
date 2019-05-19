@@ -1,4 +1,4 @@
-esphomeyaml:
+esphome:
   name: hallway_1st_floor
   platform: ESP8266
   board: esp01_1m
@@ -8,10 +8,8 @@ wifi:
   ssid: !secret doorbell_wifi_ssid
   password: !secret doorbell_wifi_password
 
-mqtt:
-  broker: !secret doorbell_mqtt_broker
-  username: !secret doorbell_mqtt_user
-  password: !secret doorbell_mqtt_password
+api:
+  password: !secret doorbell_ota_password
 
 logger:
 
