@@ -202,52 +202,64 @@ google_assistant:
   entity_config:
     light.0x90fd9ffffe2b5781_light:
       name: Toilet
+      expose: true
       aliases:
         - wc  
         - w.c.  
     light.hall_light:
       name: Hal
+      expose: true
       aliases:
         - Hal beneden  
     light.attic:
       name: Zolder 
     light.bank:
       name: Bank
+      expose: true
       aliases:
         - Raam  
     light.hallway_1st_floor_light:
       name: Hal boven
+      expose: true
       aliases:
         - Hal eerste verdieping
         - Hal eerste etage  
     light.kitchen_light:
       name: Keuken 
+      expose: true
     light.lampentafel:
       name: Tafel
+      expose: true
       aliases:
         - Eettafel
     light.staandelamp:
       name: Staande lamp
+      expose: true
       aliases:
         - Staand
         - Hoek van de kamer  
     scene.eating:
       name: eten
+      expose: true
       aliases:
         - etenstijd  
     scene.evening:
       name: savonds
+      expose: true
       aliases:
         - avonds  
         - avond 
     climate.toon_thermostat:
       name: Toon
+      expose: true
     switch.doorbell_buzzer_enabled:
       name: Deurbel
+      expose: true
       aliases:
         - Deurbel geluid
     switch.licht_in_tuin:
       name: Tuin
+      expose: true
       aliases:
         - Achtertuin
         - Buiten
