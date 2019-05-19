@@ -76,6 +76,7 @@ logger:
   logs:
     homeassistant.components.mqtt: info 
     homeassistant.components.shell_command: debug 
+    homeassistant.components.google_assistant: debug 
 
 map:
 
