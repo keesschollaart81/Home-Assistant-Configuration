@@ -32,7 +32,6 @@ exclude:
     - light.tafel2
     - light.tafel3 
     - sensor.bridge_state
-    - sensor.rotterdam_condition_1d
     - sensor.temperature_1d
     - zigbee2mqtt_networkmap.last_update 
     - sensor.0x00158d0001f5358e_battery

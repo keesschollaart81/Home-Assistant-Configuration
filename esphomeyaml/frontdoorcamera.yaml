@@ -28,3 +28,7 @@ esp32_camera:
   href_pin: GPIO26
   pixel_clock_pin: GPIO21
   reset_pin: GPIO15 
+  vertical_flip: false
+  horizontal_mirror: false
+web_server:
+  port: 80

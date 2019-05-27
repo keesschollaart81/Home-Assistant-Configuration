@@ -6,32 +6,34 @@ homeassistant:
   unit_system: metric
   time_zone: Europe/Amsterdam
   customize: !include customize.yaml
+  packages: !include_dir_named packages
   auth_providers:
     - type: homeassistant
     #- type: legacy_api_password
+  whitelist_external_dirs:
+    - /share/motion/
 
 switch: !include switches.yaml
 light: !include lights.yaml
 sensor: !include sensors.yaml
 binary_sensor: !include binary_sensors.yaml
-group: !include groups.yaml
+# group: !include groups.yaml
 automation: !include_dir_merge_list automations
 scene: !include scene.yaml
 input_boolean: !include input_booleans.yaml
 script: !include script.yaml
 history: !include history.yaml
-
 system_health:
-
 frontend:
-
 config:
-
 ios:
-
 sonos:
-
 auth:
+custom_updater:
+
+tts:
+  - platform: google_translate
+    language: 'nl'
 
 http:
   ssl_certificate: /ssl/fullchain.pem
@@ -47,10 +49,9 @@ updater:
 
 discovery:
 
-conversation:
+# conversation:
 
 history_graph:
-
 
 recorder:
   db_url: !secret recorder_db_url
@@ -75,6 +76,7 @@ logger:
   logs:
     homeassistant.components.mqtt: info 
     homeassistant.components.shell_command: debug 
+    homeassistant.components.google_assistant: debug 
 
 map:
 
@@ -88,19 +90,16 @@ camera:
     platform: generic
     still_image_url: !secret google_maps_url
     limit_refetch_to_url_change: true
-  - platform: mjpeg
-    name: front_door
-    mjpeg_url: http://192.168.2.21/jpg_stream
-    still_image_url: http://192.168.2.21/jpg
   - platform: local_file
     name: front_door_latest
-    file_path: "/config/www/front-door/front-door-latest.gif"
+    file_path: "/config/www/front-door/front-door-latest-small.gif"
   - platform: local_file
     name: backyard_latest
-    file_path: "/config/www/backyard/backyard-latest.gif"
+    file_path: "/config/www/backyard/backyard-latest-small.gif"
 
+# stream:
     
-tts:
+google_translate:
   - platform: google
     language: 'nl'
   - platform: microsoft
@@ -124,27 +123,11 @@ panel_iframe:
   configurator:
     title: Configurator
     icon: mdi:wrench
-    url: https://schollaartthuis.duckdns.org:3218/
-  # dafang:
-  #   title: Dafang camera
-  #   icon: mdi:cctv
-  #   url: http://schollaartthuis.duckdns.org:1234/
-  # custom_vision:
-  #   title: Custom Vision
-  #   icon: mdi:animation
-  #   url: https://customvision.ai/projects/55e5c331-4a89-48fa-9525-7a77754bd019#/manage
-  # pihole:
-  #   title: Pi-hole
-  #   icon: mdi:block-helper
-  #   url: https://schollaartthuis.duckdns.org:8125/
+    url: https://schollaartthuis.duckdns.org:8123/hassio/ingress/core_configurator
   esphomeyaml:
     title: Esphomeyaml
     icon: mdi:code-not-equal-variant
     url: http://schollaartthuis.duckdns.org:6052/
-  # networkmap:
-  #   title: 'Zigbee Map'
-  #   url: '/local/zigbee2mqtt_networkmap/map.html'
-  #   icon: 'mdi:graphql'
 
 toon:
     client_id: !secret toon_key
@@ -208,44 +191,79 @@ notify:
     gcm_api_key: !secret gcm_server_key
     gcm_sender_id: !secret gcm_sender_id
 
-alexa:
-  smart_home:
-    filter:
-      include_domains:
-        - light
-        - climate
-        - scene
-        - switch
-      exclude_entities:
-        - light.gateway_light_7811dcb27b0d
-        - light.tafel1
-        - light.tafel2
-        - light.tafel3
-        - scene.false
-        - light.0x90fd9ffffe10c5d1_light
-        - light.0x90fd9ffffe135ab2_light
-    entity_config:
-      climate.toon_thermostat:
-        name: Toon
-      scene.Evening:
-        name: Evening
-      scene.Eating:
-        name: Eating
-      light.LampenTafel:
-        name: Table
-      light.kitchen_light:
-        name: Kitchen
-      switch.licht_in_tuin:
-        name: Backyard
-      light.hall_light:
-        name: Hallway
-      light.hallway_1st_floor_light:
-        name: Hallway first floor
-      light.0x90fd9ffffe2b5781_light:
-        name: Toilet
-      light.attic:
-        name: Attic
-       
+google_assistant:
+  project_id: home-assistant-72f48
+  api_key: !secret google_assistant_key
+  expose_by_default: false
+  exposed_domains:
+    - switch
+    - light
+    - climate
+  entity_config:
+    light.0x90fd9ffffe2b5781_light:
+      name: Toilet
+      expose: true
+      aliases:
+        - wc  
+        - w.c.  
+    light.hall_light:
+      name: Hal
+      expose: true
+      aliases:
+        - Hal beneden  
+    light.attic:
+      name: Zolder 
+    light.bank:
+      name: Bank
+      expose: true
+      aliases:
+        - Raam  
+    light.hallway_1st_floor_light:
+      name: Hal boven
+      expose: true
+      aliases:
+        - Hal eerste verdieping
+        - Hal eerste etage  
+    light.kitchen_light:
+      name: Keuken 
+      expose: true
+    light.lampentafel:
+      name: Tafel
+      expose: true
+      aliases:
+        - Eettafel
+    light.staandelamp:
+      name: Staande lamp
+      expose: true
+      aliases:
+        - Staand
+        - Hoek van de kamer  
+    scene.eating:
+      name: eten
+      expose: true
+      aliases:
+        - etenstijd  
+    scene.evening:
+      name: savonds
+      expose: true
+      aliases:
+        - avonds  
+        - avond 
+    climate.toon_thermostat:
+      name: Toon
+      expose: true
+    switch.doorbell_buzzer_enabled:
+      name: Deurbel
+      expose: true
+      aliases:
+        - Deurbel geluid
+    switch.licht_in_tuin:
+      name: Tuin
+      expose: true
+      aliases:
+        - Achtertuin
+        - Buiten
+ 
 rest_command:
   reboot_dafang:
     url: !secret dafang_rebooturl 
@@ -268,6 +286,6 @@ tuya:
 
 shell_command:
   install_imagemagick: 'apk add --update imagemagick'
-  front_door_gif: 'shell_commands/front-door.sh' 
+  front_door_gif:  bash '/config/shell_commands/front-door.sh' {{ states.camera.front_door_camera.attributes.entity_picture }}
   backyard_gif: bash '/config/shell_commands/backyard.sh' {{ states.sensor.dafang_password.state }}
   delete_old_snapshots: find /backup/* -mtime +90 -exec rm {} \;

@@ -1,13 +1,18 @@
 title: Home
-views: 
-  - !include /config/lovelace/home.yaml
-  - !include /config/lovelace/1st_floor.yaml
-  - !include /config/lovelace/system.yaml
+resources:
+  - url: /customcards/github/custom-cards/tracker-card.js?track=true
+    type: module
+  - url: /customcards/github/nervetattoo/banner-card.js?track=true
+    type: module
+views:   
+  - !include lovelace/home.yaml
+  - !include lovelace/1st_floor.yaml
+  - !include lovelace/system.yaml
   - id: zigbeemap
     title: Zigbee
     panel: true
     icon: mdi:graphql
     cards:
-      - type: iframe
+      - type: iframe 
         url: /local/zigbee2mqtt_networkmap/map.html
         aspect_ratio: 75%            

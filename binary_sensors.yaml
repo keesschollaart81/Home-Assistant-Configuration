@@ -22,20 +22,20 @@
   payload_on: "visible"
   payload_off: "not visible"
 
-- platform: mqtt
-  name: TelefoonKeesConnectedWithCar
-  state_topic: "telefoonkees/connectedwithcar"
+# - platform: mqtt
+#   name: TelefoonKeesConnectedWithCar
+#   state_topic: "telefoonkees/connectedwithcar"
   
-- platform: trend
-  sensors:
-    trend_kees_travel_time_decreasing:
-      entity_id: sensor.kees_naar_huis
-      device_class: moving
-      min_gradient: -0.009  #if remaining travel time drops at least 30 min per hour (-30)/(60*60)
-    trend_kees_distance_decreasing:
-      entity_id: sensor.kees_distance_km_back_home
-      min_gradient: -0.009  #if remaining distance drops at least 30 km per hour (-30)/(60*60)
-    showering:
-      entity_id: sensor.0x00158d0001f5358e_humidity
-      min_gradient:  0.05
+# - platform: trend
+#   sensors:
+#     trend_kees_travel_time_decreasing:
+#       entity_id: sensor.kees_naar_huis
+#       device_class: moving
+#       min_gradient: -0.009  #if remaining travel time drops at least 30 min per hour (-30)/(60*60)
+#     trend_kees_distance_decreasing:
+#       entity_id: sensor.kees_distance_km_back_home
+#       min_gradient: -0.009  #if remaining distance drops at least 30 km per hour (-30)/(60*60)
+#     showering:
+#       entity_id: sensor.0x00158d0001f5358e_humidity
+#       min_gradient:  0.05
       

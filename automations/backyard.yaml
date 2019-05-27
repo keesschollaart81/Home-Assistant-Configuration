@@ -1,4 +1,5 @@
 - id: 'TuinlichtAanBijZonsondergang'
+  alias: 'TuinlichtAanBijZonsondergang'
   trigger:
     platform: sun
     event: sunset
@@ -8,6 +9,7 @@
     entity_id: switch.licht_in_tuin
 
 - id: 'TuinlichtUitNaEenTijdje'
+  alias: 'TuinlichtUitNaEenTijdje'
   trigger:
   - platform: time
     at: '23:30:00'
@@ -19,6 +21,7 @@
     entity_id: switch.licht_in_tuin
 
 - id: 'TuinlichtAanVoorZonsopkomst'
+  alias: 'TuinlichtAanVoorZonsopkomst' 
   trigger:
     platform: sun
     event: sunrise
@@ -28,6 +31,7 @@
     entity_id: switch.licht_in_tuin
 
 - id: 'TuinlichtUitNaZonsopkomst'
+  alias: 'TuinlichtUitNaZonsopkomst'
   trigger:
     platform: sun
     event: sunrise
@@ -76,14 +80,11 @@
 
 
 - id: backyard_motion_gif 
+  alias: backyard_motion_gif
   trigger: 
   - platform: state
     entity_id: binary_sensor.dafang_motion_sensor 
     to: 'on'
   action:
    - service: shell_command.backyard_gif 
-   - service: camera.local_file_update_file_path
-     data_template:
-        entity_id: camera.backyard_latest
-        file_path: "/config/www/backyard/backyard-latest.gif" 
     
