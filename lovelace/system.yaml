@@ -21,34 +21,31 @@ cards:
   #     - binary_sensor.dafang_motion_sensor
   - id: backyard_live
     type: picture-entity
-    title: Backyard live
     entity: camera.dafang
     camera_image: camera.dafang
-    show_info: true
-    tap_action: dialog
+    tap_action: 
+      action: more-info
   - id: backyard_latest_snapshop
     type: picture-entity
-    title: Backyard latest motion snapshot
     entity: camera.dafang_motion_snapshot
     camera_image: camera.dafang_motion_snapshot
-    show_info: true
-    tap_action: dialog        
+    tap_action: 
+      action: more-info       
   - id: front_door_live
-    type: picture-entity
-    title: Front door Live 
+    type: picture-entity 
     entity: camera.front_door
-    camera_image: camera.front_door
-    show_info: true
-    tap_action: dialog   
+    camera_image: camera.front_door 
+    tap_action: 
+      action: more-info  
   - id: zigbee
     type: entities
     title: Zigbee
     show_header_toggle: true
-    entities:
+    entities: 
       - entity: input_boolean.zigbee_permit_join
       - entity: timer.zigbee_permit_join
       - entity: sensor.bridge_state 
-      - type: weblink
+      - type: weblink 
         name: Zigbee2Mqtt NetworkMap
         icon: 'mdi:graphql'
         url: https://schollaartthuis.duckdns.org:8123/local/zigbee2mqtt_networkmap/map.html

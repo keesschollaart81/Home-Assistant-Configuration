@@ -261,6 +261,11 @@ proximity:
 
 zigbee2mqtt_networkmap: 
 
+tuya:
+  username: !secret TuyaUsername
+  password: !secret TuyaPassword
+  country_code: !secret TuyaCountryCode
+
 shell_command:
   install_imagemagick: 'apk add --update imagemagick'
   front_door_gif: 'shell_commands/front-door.sh' 

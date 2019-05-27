@@ -1,5 +1,5 @@
 id: home
-title: Home
+title: Home 
 badges:
   - device_tracker.marleen_marleen01
   - device_tracker.kees_kees01
@@ -7,13 +7,12 @@ badges:
   - sensor.ups
 cards:
   - id: tracker_history
-    type: history-graph
+    type: history-graph 
     entities:
     - device_tracker.marleen_marleen01
     - device_tracker.kees_kees01
   - id: map
-    type: picture-entity
-    title: Kees & Marleen
+    type: picture-entity 
     entity: camera.locations
     camera_image: camera.locations
     show_state: false
@@ -29,7 +28,8 @@ cards:
         name: Occupancy
       - entity: light.kitchen_light
         name: Kitchen
-        tap_action: toggle
+        tap_action: 
+          action: toggle
       - entity: binary_sensor.0x00158d00027743b7_water_leak
         name: "☕ Reservoir?"
         icon: mdi:cup-water
@@ -103,7 +103,6 @@ cards:
     type: history-graph
     entities: [sensor.kees_naar_huis]
     hours_to_show: 12
-    icon: mdi:car
     title: "Kees naar huis"
   - id: temperatures
     type: history-graph
