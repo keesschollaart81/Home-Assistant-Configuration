@@ -70,6 +70,7 @@ logger:
     homeassistant.components.mqtt: info 
     homeassistant.components.shell_command: debug 
     homeassistant.components.google_assistant: debug 
+    homeassistant.components.localtuya: debug 
 
 map:
 
@@ -269,11 +270,11 @@ proximity:
 
 zigbee2mqtt_networkmap: 
 
-tuya:
-  username: !secret TuyaUsername
-  password: !secret TuyaPassword
-  country_code: 31
-  platform: smart_life
+# tuya:
+#   username: !secret TuyaUsername
+#   password: !secret TuyaPassword
+#   country_code: 31
+#   platform: smart_life
 
 shell_command:
   install_imagemagick: 'apk add --update imagemagick'

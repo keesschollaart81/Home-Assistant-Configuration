@@ -3,3 +3,15 @@
   host: 192.168.2.9
   token:  !secret xiaomi_plug_tuin
   model: chuangmi.plug.v2
+
+- platform: localtuya
+  host: 192.168.2.25
+  local_key: bc871771902047b5
+  device_id: 86105058dc4f22729c27
+  switches:
+    switch1:
+    friendly_name: TUYA_LED
+    id: 1
+  switch2:
+    friendly_name: TUYA_SW01
+    id: 101
