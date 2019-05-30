@@ -282,7 +282,8 @@ zigbee2mqtt_networkmap:
 tuya:
   username: !secret TuyaUsername
   password: !secret TuyaPassword
-  country_code: !secret TuyaCountryCode
+  country_code: 31
+  platform: smart_life
 
 shell_command:
   install_imagemagick: 'apk add --update imagemagick'
