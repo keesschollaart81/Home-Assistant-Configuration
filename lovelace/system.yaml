@@ -7,9 +7,12 @@ cards:
     title: Zigbee
     show_header_toggle: true
     entities: 
+      - entity: automation.enable_zigbee_joining
       - entity: input_boolean.zigbee_permit_join
       - entity: timer.zigbee_permit_join
-      - entity: sensor.bridge_state 
+      - entity: sensor.zigbee2mqtt_bridge_state 
+      - entity: switch.zigbee2mqtt_main_join
+      - entity: input_select.zigbee2mqtt_log_level
       - type: weblink 
         name: Zigbee2Mqtt NetworkMap
         icon: 'mdi:graphql'
