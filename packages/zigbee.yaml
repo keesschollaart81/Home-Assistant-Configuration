@@ -48,7 +48,7 @@ sensor:
     icon: mdi:router-wireless
 
 # Switch for enabling joining
-switch:
+switch: 
   - platform: mqtt
     name: "Zigbee2mqtt Main join"
     state_topic: "zigbee2mqtt/bridge/config/permit_join"
