@@ -37,7 +37,3 @@
     - type: memory_free
     - type: processor_use
 
-- platform: mqtt
-  name: Bridge state
-  state_topic: "zigbee2mqtt/bridge/state"
-  icon: mdi:router-wireless

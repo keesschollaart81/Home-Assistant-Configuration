@@ -2,8 +2,3 @@ washingmachine_busy:
   name: Washing Machine Busy
   initial: off
   icon: "mdi:arrow-right-drop-circle-outline"
-
-zigbee_permit_join:
-  name: Allow devices to join
-  initial: off
-  icon: mdi:cellphone-wireless
