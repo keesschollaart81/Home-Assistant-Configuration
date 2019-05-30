@@ -1,0 +1,46 @@
+automation:
+  - id: 'LightOnInHallway1stFloorWhenActivity'
+    alias: Enable lights in hallway on the first floor when there is activity
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.0x00158d0002e2ab4d_occupancy 
+      to: "on"
+    condition: 
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: time
+        after: '08:30:00'
+    action: 
+    - service: light.turn_on
+      data:
+        entity_id: light.hallway_1st_floor_light
+    - service: timer.start
+      data:
+        entity_id: timer.hallway_1st_floor_lights_off_in
+
+  - id: 'LightOffInHallwayAfter3minutes'
+    alias: Turn off the lights in the hallway 1st floor after x
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.hallway_1st_floor_switch 
+    action: 
+    - service: timer.start
+      data:
+        entity_id: timer.hallway_1st_floor_lights_off_in
+
+  - alias: Turn off hallway 1st floor lights 3 minutes after trigger
+    trigger:
+      platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.hallway_1st_floor_lights_off_in
+    action:
+      service: light.turn_off
+      data:
+        entity_id:
+          - light.hallway_1st_floor_light
+
+timer:
+  hallway_1st_floor_lights_off_in:
+    duration: '00:02:00'

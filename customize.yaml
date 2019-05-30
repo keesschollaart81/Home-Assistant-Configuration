@@ -104,27 +104,8 @@ sensor.0x00158d0001710729_click:
 sensor.0x00158d0001710729_battery:
     friendly_name: Living Room - Switch Right Battery
 
-binary_sensor.0x00158d0001f9faa1_occupancy:
-    friendly_name: Hallway - Motion
-
-sensor.0x00158d0001f9faa1_illuminance:
-    friendly_name: Hallway - Illuminance
-
-sensor.0x00158d0001f9faa1_battery:
-    friendly_name: Hallway - Motion Sensor Battery
-
 binary_sensor.0x00158d00027743b7_water_leak:
     friendly_name: Coffee Machine water reservoir
-
-light.0x90fd9ffffe10c5d1_light:
-    friendly_name: Hall Light 1
-
-light.0x90fd9ffffe135ab2_light:
-    friendly_name: Hall Light 2
-
-light.hall_light:
-    friendly_name: Hall Light
-    icon: mdi:ceiling-light
 
 binary_sensor.0x00158d0002e2ab4d_occupancy:
     friendly_name: Hallway 1st floor - Motion
@@ -154,12 +135,6 @@ sensor.rotterdam_condition:
 
 sensor.rotterdam_temperature:
     friendly_name: Outside Today
-
-binary_sensor.0x00158d000208e0e0_contact:
-    friendly_name: Front door
-
-binary_sensor.0x00158d000208e0e0_battery:
-    friendly_name: Front door Battery
 
 timer.hallway_lights_off_in :
     friendly_name: Hallway lights off in

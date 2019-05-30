@@ -1,0 +1,75 @@
+automation:
+  - id: 'LightOnInHallwayWhenActivity'
+    alias: Enable lights in hallway when there is activity
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.0x00158d000208e0e0_contact #front door opens
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.doorbell_button
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.0x00158d0001f9faa1_occupancy 
+      to: 'on'
+    condition: 
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+    action: 
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_light
+    - service: timer.start
+      data:
+        entity_id: timer.hallway_lights_off_in
+
+  - id: 'LightOffInHallwayWhenNoActivity'
+    alias: Disable lights in hallway when there is no activity
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.0x00158d0001f9faa1_occupancy 
+      to: 'off'
+    action:  
+    - service: light.turn_off
+      data:
+        entity_id: light.hall_light
+    - service: timer.finish
+      data: 
+        entity_id: timer.hallway_lights_off_in
+
+  - alias: Turn off hallway lights 3 minutes after trigger
+    trigger:
+      platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.hallway_lights_off_in
+    action:
+      service: light.turn_off
+      data: 
+        entity_id:
+          - light.hall_light 
+
+homeassistant:
+  customize: 
+    binary_sensor.0x00158d0001f9faa1_occupancy:
+        friendly_name: Hallway - Motion
+
+    sensor.0x00158d0001f9faa1_illuminance:
+        friendly_name: Hallway - Illuminance
+
+    sensor.0x00158d0001f9faa1_battery:
+        friendly_name: Hallway - Motion Sensor Battery 
+
+    light.0x90fd9ffffe10c5d1_light:
+        friendly_name: Hall Light 1
+
+    light.0x90fd9ffffe135ab2_light:
+        friendly_name: Hall Light 2
+
+    light.hall_light:
+        friendly_name: Hall Light
+        icon: mdi:ceiling-light
+
+timer:
+  hallway_lights_off_in:
+    duration: '00:02:00'
