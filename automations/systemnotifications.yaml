@@ -49,3 +49,11 @@
         addon: "7be23ff5_dropbox_sync"
         input:
           command: "upload" 
+
+- alias: Daily cleanup photos
+  id: daily_cleanup_photos
+  trigger:
+    platform: time
+    at: '22:00:00' 
+  action:
+    - service: shell_command.clean_up

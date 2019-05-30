@@ -17,5 +17,3 @@ convert -loop 0 -delay 100 /share/motion/front-door/front1.jpg /share/motion/fro
 convert /config/www/front-door/front-door-latest.gif -fuzz 15% -layers Optimize  /config/www/front-door/front-door-latest-small.gif
 
 cp -a /config/www/front-door/front-door-latest-small.gif "/share/motion/front-door/front-door-$(date +"%m-%d-%y-%r").gif"
-
-find /share/motion/front-door/*.* -mtime +4 -exec rm {} \;

@@ -17,5 +17,3 @@ convert -loop 0 -delay 100 /share/motion/backyard/backyard1.jpg /share/motion/ba
 convert /config/www/backyard/backyard-latest.gif -fuzz 15% -layers Optimize /config/www/backyard/backyard-latest-small.gif
 
 cp -a /config/www/backyard/backyard-latest-small.gif "/share/motion/backyard/backyard-$(date +"%m-%d-%y-%r").gif"
-
-find /share/motion/backyard/*.* -mtime +4 -exec rm {} \;
