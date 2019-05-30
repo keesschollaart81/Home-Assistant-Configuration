@@ -1,3 +1,4 @@
+wget -q -O /share/motion/front-door/front0.jpg https://schollaartthuis.duckdns.org:8123$1
 wget -q -O /share/motion/front-door/front1.jpg https://schollaartthuis.duckdns.org:8123$1
 sleep 1
 wget -q -O /share/motion/front-door/front2.jpg https://schollaartthuis.duckdns.org:8123$1
