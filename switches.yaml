@@ -10,8 +10,8 @@
   device_id: 86105058dc4f22729c27
   switches:
     switch1:
-    friendly_name: TUYA_LED
-    id: 1
-  switch2:
-    friendly_name: TUYA_SW01
-    id: 101
+      friendly_name: TUYA_LED
+      id: 1
+    switch2:
+      friendly_name: TUYA_SW01
+      id: 101
