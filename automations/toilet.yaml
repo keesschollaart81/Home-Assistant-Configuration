@@ -2,16 +2,14 @@
 - id: toilet_button
   alias: Toilet Switch
   trigger:
-    platform: mqtt
-    topic: 'zigbee2mqtt/0x00158d0002138221'
-  condition:
-    condition: template
-    value_template: "{{ 'single' == trigger.payload_json.click }}"
+  - platform: state
+    entity_id:  sensor.0x00158d0002138221_click
+    to: 'single'
   action:
   - service: light.toggle
     data:
       entity_id: light.0x90fd9ffffe2b5781_light
-
+       
 
 - id: 'ToiletLightsOnWhenMotion'
   alias: Turn on the toilet lights when motion is detected
