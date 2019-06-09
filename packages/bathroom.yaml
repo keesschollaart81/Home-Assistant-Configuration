@@ -18,6 +18,7 @@ homeassistant:
       friendly_name: Bathroom - Environment Sensor Temperature 
     sensor.0x00158d0001f5358e_battery:
       friendly_name: Bathroom - Environment Sensor Battery 
+      
 
     binary_sensor.0x00158d0002e2e35e_occupancy:
       friendly_name: Bathroom - Occupancy
@@ -86,7 +87,7 @@ automation:
       state: 'above_horizon'
     action:
     - service: light.turn_on
-      entity_id: light.0x000b57fffed598bc_light 
+      entity_id: light.bathroom_main_light
 
   - alias: Tradfri Dimmer off
     trigger:

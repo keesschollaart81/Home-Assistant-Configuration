@@ -30,6 +30,8 @@ cards:
         name: "Showering"  
       - entity: binary_sensor.0x00158d0002e2e35e_occupancy
         name: "Bathroom Occupancy"
+      - entity: binary_sensor.0x00158d0003120fb3_contact
+        name: "Bathroom Door"
   - id: temperature_bathroom_card
     type: history-graph
     hours_to_show: 24
@@ -51,6 +53,8 @@ cards:
       - light.bathroom_main_light
       - entity: sensor.0x00158d0001f5358e_humidity
         name: Humidity 
+      - entity: binary_sensor.0x00158d0003120fb3_contact
+        name: "Occupancy"
   - id: attic_card
     type: entities
     title: Attic
