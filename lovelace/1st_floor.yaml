@@ -6,12 +6,12 @@ cards:
     background: "#B0C2ED"
     link: /lovelace/bathroom
     entities:
-      - entity: light.hallway_1st_floor_light
+      - entity: light.bathroom_lights
         name: Light
       - entity: sensor.0x00158d0001f5358e_temperature
         name: Temperature
-      - entity: sensor.0x00158d0001f5358e_humidity
-        name: Humidity
+      - entity: binary_sensor.0x00158d0002e2e35e_occupancy
+        name: Occupancy
   - id: hallway_1st_floor
     type: entities
     title: Hallway
@@ -28,6 +28,8 @@ cards:
         name: "Hallway"
       - entity: binary_sensor.showering
         name: "Showering"  
+      - entity: binary_sensor.0x00158d0002e2e35e_occupancy
+        name: "Bathroom Occupancy"
   - id: temperature_bathroom_card
     type: history-graph
     hours_to_show: 24
@@ -46,6 +48,9 @@ cards:
     title: Bathoom
     entities: 
       - light.0x000b57fffed598bc_light  
+      - light.bathroom_main_light
+      - entity: sensor.0x00158d0001f5358e_humidity
+        name: Humidity 
   - id: attic_card
     type: entities
     title: Attic

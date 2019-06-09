@@ -54,22 +54,7 @@ camera.dafang:
     friendly_name: Backyard live
 
 camera.dafang_motion_snapshot:
-    friendly_name: Backyard latest motion snapshot
-
-sensor.0x00158d0001f5358e_pressure:
-    friendly_name: Bathroom - Pressure
-
-sensor.0x00158d0001f5358e_humidity:
-    friendly_name: Bathroom - Humidity
-
-sensor.0x00158d0001f5358e_temperature:
-    friendly_name: Bathroom - Temperature
-
-sensor.0x00158d0001f5358e_battery:
-    friendly_name: Bathroom - Environment Sensor Battery
-
-light.0x000b57fffed598bc_light:
-    friendly_name: Bathroom - Mirror Light
+    friendly_name: Backyard latest motion snapshot 
 
 binary_sensor.0x00158d0002e2eecc_illuminance:
     friendly_name: Toilet - Illuminance

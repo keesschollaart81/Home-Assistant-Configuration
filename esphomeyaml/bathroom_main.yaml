@@ -1,19 +1,21 @@
-esphomeyaml:
+esphome:
   name: bathroom_main
   platform: ESP8266
   board: esp01_1m
   board_flash_mode: dout
 
 wifi:
-  ssid: !secret doorbell_wifi_ssid
-  password: !secret doorbell_wifi_password
+  networks:
+  - ssid: !secret hallway_1st_floor_wifi_ssid
+    password:  !secret doorbell_wifi_password
+  - ssid: !secret doorbell_wifi_ssid
+    password:  !secret doorbell_wifi_password 
 
-mqtt:
-  broker: !secret doorbell_mqtt_broker
-  username: !secret doorbell_mqtt_user
-  password: !secret doorbell_mqtt_password
+api:
+  password: !secret doorbell_ota_password
 
 logger:
+  level: VERBOSE
 
 ota:
   password: !secret doorbell_ota_password
@@ -22,17 +24,17 @@ binary_sensor:
   - platform: gpio
     pin: GPIO5
     name: "bathroom_main_switch" 
-    on_press:
-      then:
-        - light.toggle: bathroom_main_light
-    on_release:
-      then:
-        - light.toggle: bathroom_main_light
+    # on_press:
+    #   then:
+    #     - light.toggle: hallway_1st_floor_light
+    # on_release:
+    #   then:
+    #     - light.toggle: hallway_1st_floor_light
 
 light:
   - platform: binary
     id: bathroom_main_light
-    name: "Lights hallway 1st floor"
+    name: "bathroom_main_light"
     output: bathroom_main_relay
 
 output:
@@ -40,3 +42,6 @@ output:
     id: bathroom_main_relay
     pin: GPIO4
  
+switch:
+  - platform: restart
+    name: "Bathroom Main Restart"

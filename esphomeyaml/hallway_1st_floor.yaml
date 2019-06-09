@@ -5,8 +5,11 @@ esphome:
   board_flash_mode: dout
 
 wifi:
-  ssid: !secret doorbell_wifi_ssid
-  password: !secret doorbell_wifi_password
+  networks:
+  - ssid: !secret hallway_1st_floor_wifi_ssid
+    password:  !secret doorbell_wifi_password
+  - ssid: !secret doorbell_wifi_ssid
+    password:  !secret doorbell_wifi_password 
 
 api:
   password: !secret doorbell_ota_password
