@@ -54,11 +54,8 @@ automation:
         data_template:
           brightness: "200" 
 
-  - alias: "Turn on bathroom mirror light when door is opened or motion is detected"
-    trigger:
-    - platform: state
-      entity_id: binary_sensor.0x00158d0002e2e35e_occupancy
-      to: "on" 
+  - alias: "Turn on bathroom mirror light when door is opened"
+    trigger: 
     - platform: state
       entity_id: binary_sensor.0x00158d0003120fb3_contact
       to: "on"
@@ -71,53 +68,4 @@ automation:
             {% elif now().hour < 5 %}50
             {% elif now().hour < 8 %}100
             {% else %}200
-            {% endif %}
-
-  - alias: "Turn on bathroom main light when door is opened or motion is detected"
-    trigger:
-    - platform: state
-      entity_id: binary_sensor.0x00158d0002e2e35e_occupancy
-      to: "on" 
-    - platform: state
-      entity_id: binary_sensor.0x00158d0003120fb3_contact
-      to: "on"
-    condition:
-    - condition: state
-      entity_id: sun.sun
-      state: 'above_horizon'
-    action:
-    - service: light.turn_on
-      entity_id: light.bathroom_main_light
-
-  - alias: Tradfri Dimmer off
-    trigger:
-      platform: state
-      entity_id: sensor.0x000b57fffe8a54fe_brightness
-      to: "0"
-    action:
-      service: light.turn_off
-      entity_id: light.0x000b57fffed598bc_light
-  - alias: Tradfri Dimmer on
-    trigger:
-      platform: state
-      entity_id: sensor.0x000b57fffe8a54fe_brightness
-    condition:
-      condition: template
-      value_template: "{{ trigger.to_state.state|int != 0 }}"
-    action:
-      service: light.turn_on
-      entity_id: light.0x000b57fffed598bc_light
-      data_template:
-        brightness: "{{ trigger.to_state.state|int }}"
-
-# - id: started_showering
-#   alias: started_showering
-#   trigger:
-#   - platform: state
-#     entity_id: binary_sensor.showering
-#     to: 'on' 
-#   action:
-#    - service: notify.pushbullet
-#      data_template:
-#         title: "Shower_Detected"
-#         message: "Testing"
+            {% endif %} 
