@@ -137,16 +137,8 @@ mqtt:
       topic: 'hass/status'
       payload: 'offline'
 
-
-device_tracker:
-  - platform: owntracks
-    max_gps_accuracy: 200 
-  # - platform: experiaboxv8
-  #   host: 192.168.2.254
-  #   username: Admin
-  #   password: !secret experiabox
-  #   new_device_defaults:
-  #     track_new_devices: false
+owntracks:
+    max_gps_accuracy: 200  
 
 person:
   - name: Kees
