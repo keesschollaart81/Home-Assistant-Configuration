@@ -54,19 +54,7 @@ camera.dafang:
     friendly_name: Backyard live
 
 camera.dafang_motion_snapshot:
-    friendly_name: Backyard latest motion snapshot 
-
-binary_sensor.0x00158d0002e2eecc_illuminance:
-    friendly_name: Toilet - Illuminance
-
-binary_sensor.0x00158d0002e2eecc_occupancy:
-    friendly_name: Toilet - Motion
-
-sensor.0x00158d0002138221:
-    friendly_name: Toilet - Switch
-
-light.0x90fd9ffffe2b5781_light:
-    friendly_name: Toilet - Light
+    friendly_name: Backyard latest motion snapshot  
 
 binary_sensor.0x00158d000222df56_occupancy:
     friendly_name: Living Room - Motion

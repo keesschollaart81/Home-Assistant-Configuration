@@ -1,0 +1,55 @@
+homeassistant:
+  customize:
+    binary_sensor.0x00158d0002e2eecc_illuminance:
+      friendly_name: Toilet - Illuminance
+
+    binary_sensor.0x00158d0002e2eecc_occupancy:
+      friendly_name: Toilet - Motion
+
+    sensor.0x00158d0002138221:
+      friendly_name: Toilet - Switch
+
+    light.0x90fd9ffffe2b5781_light:
+      friendly_name: Toilet - Light
+
+timer:
+  toilet_lights_off_in:
+    duration: "00:03:00"
+
+automation:
+  - id: toilet_button
+    alias: Toilet Switch
+    trigger:
+      - platform: state
+        entity_id: sensor.0x00158d0002138221_click
+        to: "single"
+    action:
+      - service: light.toggle
+        data:
+          entity_id: light.0x90fd9ffffe2b5781_light
+
+  - id: "ToiletLightsOnWhenMotion"
+    alias: Turn on the toilet lights when motion is detected
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.0x00158d0002e2eecc_occupancy
+        to: "on"
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.0x90fd9ffffe2b5781_light
+      - service: timer.start
+        data:
+          entity_id: timer.toilet_lights_off_in
+
+  - alias: Turn off lights in the toilet after x minutes
+    trigger:
+      platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.toilet_lights_off_in
+    action:
+      service: light.turn_off
+      data:
+        entity_id:
+          - light.0x90fd9ffffe2b5781_light

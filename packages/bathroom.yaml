@@ -1,38 +1,37 @@
 homeassistant:
-  customize: 
+  customize:
     light.bathroom_main_light:
-      friendly_name: Bathroom - Main Light 
+      friendly_name: Bathroom - Main Light
     binary_sensor.bathroom_main_light:
       friendly_name: Bathroom - Main Light Switch
 
     light.0x000b57fffed598bc_light:
       friendly_name: Bathroom - Mirror Light
-    sensor.0x000b57fffed598bc_linkquality: 
-      friendly_name: Bathroom - Mirror Light Linkquality 
+    sensor.0x000b57fffed598bc_linkquality:
+      friendly_name: Bathroom - Mirror Light Linkquality
 
     sensor.0x00158d0001f5358e_pressure:
-      friendly_name: Bathroom - Environment Sensor Pressure 
+      friendly_name: Bathroom - Environment Sensor Pressure
     sensor.0x00158d0001f5358e_humidity:
-      friendly_name: Bathroom - Environment Sensor Humidity 
+      friendly_name: Bathroom - Environment Sensor Humidity
     sensor.0x00158d0001f5358e_temperature:
-      friendly_name: Bathroom - Environment Sensor Temperature 
+      friendly_name: Bathroom - Environment Sensor Temperature
     sensor.0x00158d0001f5358e_battery:
-      friendly_name: Bathroom - Environment Sensor Battery 
-      
+      friendly_name: Bathroom - Environment Sensor Battery
 
     binary_sensor.0x00158d0002e2e35e_occupancy:
       friendly_name: Bathroom - Occupancy
     sensor.0x00158d0002e2e35e_battery:
-      friendly_name: Bathroom - Occupancy Battery 
+      friendly_name: Bathroom - Occupancy Battery
     sensor.0x00158d0002e2e35e_illuminance:
-      friendly_name: Bathroom - Occupancy Illuminance 
+      friendly_name: Bathroom - Occupancy Illuminance
     sensor.0x00158d0002e2e35e_linkquality:
       friendly_name: Bathroom - Occupancy Linkquality
 
     binary_sensor.0x00158d0003120fb3_contact:
-      friendly_name: Bathroom - Door Contact 
+      friendly_name: Bathroom - Door Contact
     sensor.0x00158d0003120fb3_battery:
-      friendly_name: Bathroom - Door Battery 
+      friendly_name: Bathroom - Door Battery
     sensor.0x00158d0003120fb3_linkquality:
       friendly_name: Bathroom - Door Link Quality
 
@@ -42,7 +41,13 @@ light:
     entities:
       - light.0x000b57fffed598bc_light
       - light.bathroom_main_light
-      
+
+timer:
+  bathroom_lights_off_in:
+    duration: "00:05:00"
+  bathroom_just_turned_off_the_lights:
+    duration: "00:0:10"
+
 automation:
   - alias: "Switch bathroom lights when switch is used"
     trigger:
@@ -52,13 +57,32 @@ automation:
       - service: light.toggle
         entity_id: light.bathroom_lights
         data_template:
-          brightness: "200" 
+          brightness: "200"
+      - service: timer.start
+        data:
+          entity_id: timer.bathroom_just_turned_off_the_lights
+ 
+  - alias: "Reset light timer when motion"
+    trigger:
+      platform: state
+      entity_id: binary_sensor.0x00158d0002e2e35e_occupancy
+      to: "on"
+    action:
+      - service: timer.start
+        data:
+          entity_id: timer.bathroom_lights_off_in
 
   - alias: "Turn on bathroom mirror light when door is opened"
-    trigger: 
-    - platform: state
-      entity_id: binary_sensor.0x00158d0003120fb3_contact
-      to: "on"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.0x00158d0003120fb3_contact
+        to: "on"
+    condition: 
+      condition: and
+      conditions: #when exiting the bathroom, usually the switch is used to turn off te lights, dont turn them back on again
+      - condition: state 
+        entity_id: timer.bathroom_just_turned_off_the_lights
+        state: "idle" 
     action:
       - service: light.turn_on
         entity_id: light.0x000b57fffed598bc_light
@@ -68,4 +92,23 @@ automation:
             {% elif now().hour < 5 %}50
             {% elif now().hour < 8 %}100
             {% else %}200
-            {% endif %} 
+            {% endif %}  
+      - service: timer.start
+        data:
+          entity_id: timer.bathroom_lights_off_in
+
+  - alias: Turn off bathroom lights after x minutes
+    trigger:
+      platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.bathroom_lights_off_in
+    condition:
+      - condition: numeric_state
+        below: 70 #showering 
+        entity_id: sensor.0x00158d0001f5358e_humidity
+    action:
+      service: light.turn_off
+      data:
+        entity_id:
+          - light.bathroom_lights

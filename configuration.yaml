@@ -60,9 +60,6 @@ recorder:
 
 logbook:
 
-timer: 
-  toilet_lights_off_in:
-    duration: '00:03:00'
     
 logger:
   default: warn
