@@ -1,0 +1,100 @@
+
+automation:
+  - alias: Daily reset goodnight routine
+    id: daily_reset_goodnight_routine
+    trigger:
+      platform: time
+      at: '03:00:00' 
+    action:
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.google_goodnight_routine
+  - id: google_goodnight_routine
+    trigger:
+      - platform: state
+        entity_id: input_boolean.google_goodnight_routine
+        to: true
+    action:
+      - service: light.turn_on
+        entity_id: light.lampentafel
+        data_template:
+          brightness: "30"
+
+input_boolean:
+  google_goodnight_routine:
+    initial: off
+
+google_assistant:
+  project_id: home-assistant-72f48
+  api_key: !secret google_assistant_key
+  expose_by_default: false
+  exposed_domains:
+    - switch
+    - light
+    - climate
+  entity_config:
+    input_boolean.google_goodnight_routine:
+      name: Goodnight
+      expose: true
+    light.0x90fd9ffffe2b5781_light:
+      name: Toilet
+      expose: true
+      aliases:
+        - wc  
+        - w.c.  
+    light.hall_light:
+      name: Hal
+      expose: true
+      aliases:
+        - Hal beneden  
+    light.attic:
+      name: Zolder 
+    light.bank:
+      name: Bank
+      expose: true
+      aliases:
+        - Raam  
+    light.hallway_1st_floor_light:
+      name: Hal boven
+      expose: true
+      aliases:
+        - Hal eerste verdieping
+        - Hal eerste etage  
+    light.kitchen_light:
+      name: Keuken 
+      expose: true
+    light.lampentafel:
+      name: Tafel
+      expose: true
+      aliases:
+        - Eettafel
+    light.staandelamp:
+      name: Staande lamp
+      expose: true
+      aliases:
+        - Staand
+        - Hoek van de kamer  
+    scene.eating:
+      name: eten
+      expose: true
+      aliases:
+        - etenstijd  
+    scene.evening:
+      name: savonds
+      expose: true
+      aliases:
+        - avonds  
+        - avond 
+    climate.toon_thermostat:
+      name: Toon
+      expose: true
+    switch.doorbell_buzzer_enabled:
+      name: Deurbel
+      expose: true
+      aliases:
+        - Deurbel geluid
+    switch.licht_in_tuin:
+      name: Tuin
+      expose: true
+      aliases:
+        - Achtertuin
+        - Buiten
