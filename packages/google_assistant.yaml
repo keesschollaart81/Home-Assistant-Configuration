@@ -1,5 +1,6 @@
 
 automation:
+
   - alias: Daily reset goodnight routine
     id: daily_reset_goodnight_routine
     trigger:
@@ -8,11 +9,12 @@ automation:
     action:
       - service: homeassistant.turn_off
         entity_id: input_boolean.google_goodnight_routine
+
   - id: google_goodnight_routine
     trigger:
       - platform: state
         entity_id: input_boolean.google_goodnight_routine
-        to: true
+        to: "on"
     action:
       - service: light.turn_on
         entity_id: light.lampentafel
