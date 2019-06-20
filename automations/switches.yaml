@@ -1,9 +1,9 @@
 - id: knop1
   alias: Living Room - Switch 1 (Eating)
-  trigger: 
-  - platform: state
-    entity_id:  sensor.0x00158d0001639d5a_click
-    to: 'left'
+  trigger:
+    - platform: state
+      entity_id: sensor.0x00158d0001639d5a_click
+      to: "left"
   action:
     - service: homeassistant.turn_on
       entity_id: scene.Eating
@@ -11,9 +11,9 @@
 - id: knop2
   alias: Living Room - Switch 2 (Evening)
   trigger:
-  - platform: state
-    entity_id:  sensor.0x00158d0001639d5a_click
-    to: 'right'
+    - platform: state
+      entity_id: sensor.0x00158d0001639d5a_click
+      to: "right"
   action:
     - service: homeassistant.turn_on
       entity_id: scene.evening
@@ -21,50 +21,60 @@
 - id: knop3
   alias: Living Room - Switch 3 (Kitchen)
   trigger:
-  - platform: state
-    entity_id:  sensor.0x00158d0001710729_click
-    to: 'left'
+    - platform: state
+      entity_id: sensor.0x00158d0001710729_click
+      to: "left"
   action:
-  - service: light.toggle
-    data:
-      entity_id: light.kitchen_light
+    - service: light.toggle
+      data:
+        entity_id: light.kitchen_light
 
 - id: knop4
-  alias:  Living Room - Switch 4 (All off)
+  alias: Living Room - Switch 4 (All off)
   trigger:
-  - platform: state
-    entity_id:  sensor.0x00158d0001710729_click
-    to: 'right'
+    - platform: state
+      entity_id: sensor.0x00158d0001710729_click
+      to: "right"
   action:
     - service: homeassistant.turn_on
-      entity_id: scene.living_room_lights_off  
+      entity_id: scene.living_room_lights_off
+
+- id: knop4
+  alias: Living Room - Switch 5
+  trigger:
+    - platform: state
+      entity_id: sensor.0x00158d0001710729_click
+      to: "both"
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.google_goodnight_routine
 
 - id: LightsOnAutoWhenMotion
   alias: Lights on when motion
   trigger:
     - platform: state
       entity_id: binary_sensor.0x00158d000222df56_occupancy
-      to: 'on'
-  condition: 
+      to: "on"
+  condition:
     condition: and
     conditions:
-    - condition: state
-      entity_id: sun.sun
-      state: 'below_horizon'
-    - condition: state
-      entity_id: light.lampentafel
-      state: 'off'
+      - condition: state
+        entity_id: sun.sun
+        state: "below_horizon"
+      - condition: state
+        entity_id: light.lampentafel
+        state: "off"
   action:
     - service: homeassistant.turn_on
       entity_id: scene.Eating
 
 - alias: Respond to button clicks
   trigger:
-  - platform: state
-    entity_id:  sensor.0x00158d0001639d5a_click
-    to: 'left'
+    - platform: state
+      entity_id: sensor.0x00158d0001639d5a_click
+      to: "left"
   action:
-   - service: notify.pushbullet
-     data:
+    - service: notify.pushbullet
+      data:
         title: "Button push"
         message: "Button push"
