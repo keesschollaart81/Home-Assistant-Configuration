@@ -1,11 +1,9 @@
-
 automation:
-
   - alias: Daily reset goodnight routine
     id: daily_reset_goodnight_routine
     trigger:
       platform: time
-      at: '03:00:00' 
+      at: "03:00:00"
     action:
       - service: homeassistant.turn_off
         entity_id: input_boolean.google_goodnight_routine
@@ -16,10 +14,19 @@ automation:
         entity_id: input_boolean.google_goodnight_routine
         to: "on"
     action:
+      - service: light.turn_off
+        entity_id:
+          - light.bank
+          - light.staandelamp 
       - service: light.turn_on
         entity_id: light.lampentafel
         data_template:
           brightness: "30"
+      - delay: "00:02"
+      - service: light.turn_off
+        entity_id: 
+        - light.lampentafel
+        - switch.licht_in_tuin
 
 input_boolean:
   google_goodnight_routine:
@@ -41,28 +48,28 @@ google_assistant:
       name: Toilet
       expose: true
       aliases:
-        - wc  
-        - w.c.  
+        - wc
+        - w.c.
     light.hall_light:
       name: Hal
       expose: true
       aliases:
-        - Hal beneden  
+        - Hal beneden
     light.attic:
-      name: Zolder 
+      name: Zolder
     light.bank:
       name: Bank
       expose: true
       aliases:
-        - Raam  
+        - Raam
     light.hallway_1st_floor_light:
       name: Hal boven
       expose: true
       aliases:
         - Hal eerste verdieping
-        - Hal eerste etage  
+        - Hal eerste etage
     light.kitchen_light:
-      name: Keuken 
+      name: Keuken
       expose: true
     light.lampentafel:
       name: Tafel
@@ -74,18 +81,18 @@ google_assistant:
       expose: true
       aliases:
         - Staand
-        - Hoek van de kamer  
+        - Hoek van de kamer
     scene.eating:
       name: eten
       expose: true
       aliases:
-        - etenstijd  
+        - etenstijd
     scene.evening:
       name: savonds
       expose: true
       aliases:
-        - avonds  
-        - avond 
+        - avonds
+        - avond
     climate.toon_thermostat:
       name: Toon
       expose: true

@@ -15,6 +15,9 @@ automation:
       - condition: state
         entity_id: sun.sun
         state: 'below_horizon'
+      - condition: state
+        entity_id: input_boolean.google_goodnight_routine
+        state: "off"
     action: 
     - service: light.turn_on
       data:
