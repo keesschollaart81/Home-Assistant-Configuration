@@ -108,10 +108,6 @@ weather:
 cloud:
 
 panel_iframe:
-  configurator:
-    title: Configurator
-    icon: mdi:wrench
-    url: https://schollaartthuis.duckdns.org:8123/hassio/ingress/core_configurator
   esphomeyaml:
     title: Esphomeyaml
     icon: mdi:code-not-equal-variant
