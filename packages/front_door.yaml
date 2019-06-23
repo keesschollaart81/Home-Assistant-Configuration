@@ -120,13 +120,13 @@ script:
       - service: camera.snapshot
         entity_id: camera.front_door_camera
         data:
-          filename: "/share/motion/front-door/front5.jpg"
+          filename: "/share/motion/front-door/front6.jpg"
       - delay:
           seconds: 1
       - service: camera.snapshot
         entity_id: camera.front_door_camera
         data:
-          filename: "/share/motion/front-door/front8.jpg"
+          filename: "/share/motion/front-door/front7.jpg" 
 
 camera:
   - platform: local_file
