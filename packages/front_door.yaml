@@ -15,6 +15,7 @@ automation:
         for:
           seconds: 2
     action:
+      - service: script.take_front_door_snaps
       - service: shell_command.front_door_gif
       - service: camera.local_file_update_file_path
         data_template:
@@ -46,6 +47,7 @@ automation:
         for:
           minutes: 2
     action:
+      - service: script.take_front_door_snaps
       - service: shell_command.front_door_gif
       - service: camera.local_file_update_file_path
         data_template:
@@ -75,11 +77,56 @@ automation:
         entity_id: binary_sensor.0x00158d000208e0e0_contact
         to: "on"
     action:
+      - service: script.take_front_door_snaps
       - service: shell_command.front_door_gif
       - service: camera.local_file_update_file_path
         data_template:
           entity_id: camera.front_door_latest
           file_path: "/config/www/front-door/front-door-latest.gif"
+
+script:
+  take_front_door_snaps:
+    sequence:
+      - service: camera.snapshot
+        entity_id: camera.front_door_camera
+        data:
+          filename: "/share/motion/front-door/front1.jpg"
+      - delay:
+          seconds: 1
+      - service: camera.snapshot
+        entity_id: camera.front_door_camera
+        data:
+          filename: "/share/motion/front-door/front2.jpg"
+      - delay:
+          seconds: 1
+      - service: camera.snapshot
+        entity_id: camera.front_door_camera
+        data:
+          filename: "/share/motion/front-door/front3.jpg"
+      - delay:
+          seconds: 1
+      - service: camera.snapshot
+        entity_id: camera.front_door_camera
+        data:
+          filename: "/share/motion/front-door/front4.jpg"
+      - delay:
+          seconds: 1
+      - service: camera.snapshot
+        entity_id: camera.front_door_camera
+        data:
+          filename: "/share/motion/front-door/front5.jpg"
+      - delay:
+          seconds: 1
+      - service: camera.snapshot
+        entity_id: camera.front_door_camera
+        data:
+          filename: "/share/motion/front-door/front5.jpg"
+      - delay:
+          seconds: 1
+      - service: camera.snapshot
+        entity_id: camera.front_door_camera
+        data:
+          filename: "/share/motion/front-door/front8.jpg"
 
 camera:
   - platform: local_file
@@ -87,9 +134,9 @@ camera:
     file_path: "/config/www/front-door/front-door-latest-small.gif"
 
 homeassistant:
-  customize: 
+  customize:
     binary_sensor.0x00158d000208e0e0_contact:
-        friendly_name: Front door
+      friendly_name: Front door
 
     binary_sensor.0x00158d000208e0e0_battery:
-        friendly_name: Front door Battery
+      friendly_name: Front door Battery

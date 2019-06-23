@@ -31,7 +31,7 @@ esp32_camera:
   vertical_flip: false
   horizontal_mirror: false
   max_framerate: 1 fps
-  idle_framerate: 0.3 fps
+  idle_framerate: 0.001 fps
 web_server:
   port: 80
 
