@@ -6,7 +6,7 @@ automation:
         entity_id: binary_sensor.doorbell_button
         to: "on"
     action:
-      - service: shell_command.front_door_gif
+      - service: script.take_front_door_snaps
       - service: notify.pushbullet
         data_template:
           title: "Er wordt aan de deur gebeld"
