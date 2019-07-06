@@ -15,12 +15,7 @@ automation:
         for:
           seconds: 2
     action:
-      - service: script.take_front_door_snaps
-      - service: shell_command.front_door_gif
-      - service: camera.local_file_update_file_path
-        data_template:
-          entity_id: camera.front_door_latest
-          file_path: "/config/www/front-door/front-door-latest.gif"
+      - service: script.take_front_door_snaps 
       - service: notify.pushbullet
         data_template:
           title: "Voordeur open"
@@ -48,11 +43,6 @@ automation:
           minutes: 2
     action:
       - service: script.take_front_door_snaps
-      - service: shell_command.front_door_gif
-      - service: camera.local_file_update_file_path
-        data_template:
-          entity_id: camera.front_door_latest
-          file_path: "/config/www/front-door/front-door-latest.gif"
       - service: notify.pushbullet
         data_template:
           title: "Voordeur meer dan 2 minuten open"
@@ -78,11 +68,6 @@ automation:
         to: "on"
     action:
       - service: script.take_front_door_snaps
-      - service: shell_command.front_door_gif
-      - service: camera.local_file_update_file_path
-        data_template:
-          entity_id: camera.front_door_latest
-          file_path: "/config/www/front-door/front-door-latest.gif"
 
 script:
   take_front_door_snaps:
@@ -92,25 +77,25 @@ script:
         data:
           filename: "/share/motion/front-door/front1.jpg"
       - delay:
-          seconds: 1
+          seconds: 0.5
       - service: camera.snapshot
         entity_id: camera.front_door_camera
         data:
           filename: "/share/motion/front-door/front2.jpg"
       - delay:
-          seconds: 1
+          seconds: 0.5
       - service: camera.snapshot
         entity_id: camera.front_door_camera
         data:
           filename: "/share/motion/front-door/front3.jpg"
       - delay:
-          seconds: 1
+          seconds: 0.5
       - service: camera.snapshot
         entity_id: camera.front_door_camera
         data:
           filename: "/share/motion/front-door/front4.jpg"
       - delay:
-          seconds: 1
+          seconds: 0.5
       - service: camera.snapshot
         entity_id: camera.front_door_camera
         data:
@@ -126,7 +111,24 @@ script:
       - service: camera.snapshot
         entity_id: camera.front_door_camera
         data:
-          filename: "/share/motion/front-door/front7.jpg" 
+          filename: "/share/motion/front-door/front7.jpg"
+      - delay:
+          seconds: 1
+      - service: camera.snapshot
+        entity_id: camera.front_door_camera
+        data:
+          filename: "/share/motion/front-door/front8.jpg"
+      - delay:
+          seconds: 1
+      - service: camera.snapshot
+        entity_id: camera.front_door_camera
+        data:
+          filename: "/share/motion/front-door/front9.jpg"  
+      - service: shell_command.front_door_gif
+      - service: camera.local_file_update_file_path
+        data_template:
+          entity_id: camera.front_door_latest
+          file_path: "/config/www/front-door/front-door-latest.gif"
 
 camera:
   - platform: local_file
