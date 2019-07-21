@@ -13,16 +13,16 @@ automation:
           message: "Wie zou dat zijn!?"
           data:
             # file_url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest.gif"
-            file: "/config/www/front-door/front-door-latest.gif"
+            file: "/share/motion/front-door/front-door-latest.gif"
             file_type: "image/gif"
       - service: notify.ios_marleen_marleen01
-        data:
+        data_template:
           title: "Er wordt aan de deur gebeld"
           message: "Wie zou dat zijn?"
           data:
-            url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest-small.gif"
+            url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}" 
             attachment:
-              url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest-small.gif"
+              url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}" 
               content-type: gif
               hide-thumbnail: false
 

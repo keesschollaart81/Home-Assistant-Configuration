@@ -21,16 +21,16 @@ automation:
           title: "Voordeur open"
           message: "En er is niemand thuis!"
           data:
-            file: "/config/www/front-door/front-door-latest.gif"
+            file: "/share/motion/front-door/front-door-latest.gif"
             file_type: "image/gif"
       - service: notify.ios_marleen_marleen01
-        data:
+        data_template:
           title: "Voordeur open"
           message: "En er is niemand thuis!"
           data:
-            url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest-small.gif"
+            url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}" 
             attachment:
-              - url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest-small.gif"
+              - url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}" 
                 content-type: jpg
 
   - id: "VoordeurNotificatieTeLangOpen"
@@ -48,16 +48,16 @@ automation:
           title: "Voordeur meer dan 2 minuten open"
           message: "Misschien vergeten dicht te doen?"
           data:
-            file: "/config/www/front-door/front-door-latest.gif"
+            file: "/share/motion/front-door/front-door-latest.gif"
             file_type: "image/gif"
       - service: notify.ios_marleen_marleen01
-        data:
+        data_template:
           title: "Voordeur meer dan 2 minuten open"
           message: "Misschien vergeten dicht te doen?"
           data:
-            url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest.gif"
+            url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}" 
             attachment:
-              - url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest.gif"
+              - url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}" 
                 content-type: jpg
 
   - id: "VoordeurOpenDicht"
@@ -128,12 +128,12 @@ script:
       - service: camera.local_file_update_file_path
         data_template:
           entity_id: camera.front_door_latest
-          file_path: "/config/www/front-door/front-door-latest.gif"
+          file_path: "/share/motion/front-door/front-door-latest.gif"
 
 camera:
   - platform: local_file
     name: front_door_latest
-    file_path: "/config/www/front-door/front-door-latest-small.gif"
+    file_path: "/share/motion/front-door/front-door-latest-small.gif"
 
 homeassistant:
   customize:
