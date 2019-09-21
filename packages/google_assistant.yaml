@@ -3,7 +3,7 @@ automation:
     id: daily_reset_goodnight_routine
     trigger:
       platform: time
-      at: "06:30:00"
+      at: "07:30:00"
     action:
       - service: homeassistant.turn_off
         entity_id: input_boolean.google_goodnight_routine

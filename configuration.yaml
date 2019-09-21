@@ -11,7 +11,7 @@ homeassistant:
     - type: homeassistant
     #- type: legacy_api_password
   whitelist_external_dirs:
-    - /share/motion/
+    - /share/motion/ 
   
 switch: !include switches.yaml
 light: !include lights.yaml
@@ -30,10 +30,6 @@ ios:
 sonos:
 auth: 
 custom_updater:
-
-tts:
-  - platform: google_translate 
-    language: 'nl'
 
 http: 
   ssl_certificate: /ssl/fullchain.pem
