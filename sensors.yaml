@@ -3,7 +3,7 @@
 - platform: google_travel_time
   name: Kees naar huis
   api_key: !secret google_api_key
-  origin: device_tracker.kees_kees01
+  origin: device_tracker.kees_kees01_2
   destination: zone.home
   options:
     mode: driving
