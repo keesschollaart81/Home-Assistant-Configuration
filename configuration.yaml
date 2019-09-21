@@ -3,16 +3,21 @@ homeassistant:
   latitude: !secret thuis_latitude
   longitude: !secret thuis_longitude
   elevation: 0
-  unit_system: metric
+  unit_system: metric 
   time_zone: Europe/Amsterdam
-  customize: !include customize.yaml
-  packages: !include_dir_named packages
+  customize: !include customize.yaml 
+  packages:
+    ours: !include_dir_named packages
   auth_providers:
     - type: homeassistant
     #- type: legacy_api_password
   whitelist_external_dirs:
     - /share/motion/
 
+
+test:
+  asd: ""
+  
 switch: !include switches.yaml
 light: !include lights.yaml
 sensor: !include sensors.yaml
@@ -28,14 +33,14 @@ frontend:
 config:
 ios:
 sonos:
-auth:
+auth: 
 custom_updater:
 
 tts:
-  - platform: google_translate
+  - platform: google_translate 
     language: 'nl'
 
-http:
+http: 
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
   # api_password: !secret http_password
