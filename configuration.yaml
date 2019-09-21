@@ -92,8 +92,8 @@ camera:
 
 # stream:
     
-google_translate:
-  - platform: google
+tts:
+  - platform: google_translate
     language: 'nl'
   - platform: microsoft
     api_key: !secret cogntive_services_api_key
