@@ -12,10 +12,6 @@ homeassistant:
     #- type: legacy_api_password
   whitelist_external_dirs:
     - /share/motion/
-
-
-test:
-  asd: ""
   
 switch: !include switches.yaml
 light: !include lights.yaml
