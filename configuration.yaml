@@ -97,11 +97,6 @@ tts:
     pitch: high
     contour: (0, 0) (100, 100)
 
-weather:
-  - platform: buienradar
-    name: 'rotterdam'
-    forecast: True
-
 cloud:
 
 panel_iframe:
