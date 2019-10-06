@@ -5,7 +5,7 @@ automation:
       condition: and
       conditions:
         - condition: template
-          value_template: "{{ states('device_tracker.marleen_marleen01_2') != 'home' }}"
+          value_template: "{{ states('device_tracker.iphone_van_marleen') != 'home' }}"
         - condition: template
           value_template: "{{ states('device_tracker.iphone_van_kees') != 'home' }}"
     trigger:
@@ -23,7 +23,7 @@ automation:
           data:
             file: "/share/motion/front-door/front-door-latest.gif"
             file_type: "image/gif"
-      - service: notify.ios_marleen_marleen01
+      - service: notify.ios_iphone_van_marleen
         data_template:
           title: "Voordeur open"
           message: "En er is niemand thuis!"
@@ -50,7 +50,7 @@ automation:
           data:
             file: "/share/motion/front-door/front-door-latest.gif"
             file_type: "image/gif"
-      - service: notify.ios_marleen_marleen01
+      - service: notify.ios_iphone_van_marleen
         data_template:
           title: "Voordeur meer dan 2 minuten open"
           message: "Misschien vergeten dicht te doen?"

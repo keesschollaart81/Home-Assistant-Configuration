@@ -10,7 +10,7 @@
      data:
         title: "Water reservoir coffee machine almost empty"
         message: "Refill soon!"
-   - service: notify.ios_marleen_marleen01
+   - service: notify.ios_iphone_van_marleen
      data:
         title: "Water koffiemachine bijna op"
         message: "Snel hervullen!"

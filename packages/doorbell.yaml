@@ -15,7 +15,7 @@ automation:
             # file_url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest.gif"
             file: "/share/motion/front-door/front-door-latest.gif"
             file_type: "image/gif"
-      - service: notify.ios_marleen_marleen01
+      - service: notify.ios_iphone_van_marleen
         data_template:
           title: "Er wordt aan de deur gebeld"
           message: "Wie zou dat zijn?"
