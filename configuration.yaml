@@ -34,7 +34,7 @@ custom_updater:
 http: 
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
-  # api_password: !secret http_password
+  api_password: !secret http_password
   base_url: schollaartthuis.duckdns.org:8123
     
 lovelace:
