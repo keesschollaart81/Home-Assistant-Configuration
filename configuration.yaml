@@ -122,9 +122,6 @@ mqtt:
       topic: 'hass/status'
       payload: 'offline'
 
-owntracks:
-    max_gps_accuracy: 200  
-
 person:
   - name: Kees
     id: kees
