@@ -7,7 +7,7 @@ automation:
         to: "on"
     action:
       - service: script.take_front_door_snaps
-      - service: notify.pushbullet
+      - service: notify.ios_iphone_van_kees
         data_template:
           title: "Er wordt aan de deur gebeld"
           message: "Wie zou dat zijn!?"

@@ -74,7 +74,7 @@
       entity_id: sensor.0x00158d0001639d5a_click
       to: "left"
   action:
-    - service: notify.pushbullet
+    - service: notify.ios_iphone_van_kees
       data:
         title: "Button push"
         message: "Button push"

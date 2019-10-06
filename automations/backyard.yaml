@@ -61,7 +61,7 @@
     for:
       minutes: 2
   action: 
-   - service: notify.pushbullet
+   - service: notify.ios_iphone_van_kees
      data:
         title: "Schuur/poort open"
         message: "En er is niemand thuis!"

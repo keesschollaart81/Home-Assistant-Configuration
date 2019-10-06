@@ -16,7 +16,7 @@ automation:
           seconds: 2
     action:
       - service: script.take_front_door_snaps 
-      - service: notify.pushbullet
+      - service: notify.ios_iphone_van_kees
         data_template:
           title: "Voordeur open"
           message: "En er is niemand thuis!"
@@ -43,7 +43,7 @@ automation:
           minutes: 2
     action:
       - service: script.take_front_door_snaps
-      - service: notify.pushbullet
+      - service: notify.ios_iphone_van_kees
         data_template:
           title: "Voordeur meer dan 2 minuten open"
           message: "Misschien vergeten dicht te doen?"

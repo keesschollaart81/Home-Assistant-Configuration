@@ -6,7 +6,7 @@
       from: 'on'
       to: 'off'
   action:
-   - service: notify.pushbullet
+   - service: notify.ios_iphone_van_kees
      data:
         title: "Water reservoir coffee machine almost empty"
         message: "Refill soon!"

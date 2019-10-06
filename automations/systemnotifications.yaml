@@ -16,7 +16,7 @@
     event: start
   action:
    - service: shell_command.install_imagemagick
-   - service: notify.pushbullet
+   - service: notify.ios_iphone_van_kees
      data:
         title: "Hassio boots"
         message: "Hassio boots"
