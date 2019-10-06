@@ -2,13 +2,13 @@ id: home
 title: Home 
 badges:
   - device_tracker.marleen_marleen01_2
-  - device_tracker.kees_kees01_2
+  - device_tracker.iphone_van_kees
 cards:
   - id: tracker_history
     type: history-graph 
     entities:
     - device_tracker.marleen_marleen01_2
-    - device_tracker.kees_kees01_2
+    - device_tracker.iphone_van_kees
   - id: map
     type: picture-entity 
     entity: camera.locations

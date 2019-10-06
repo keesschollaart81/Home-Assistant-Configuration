@@ -20,7 +20,7 @@
       after: '05:00:00'
       before: '23:59:00'
     - condition: state
-      entity_id: device_tracker.kees_kees01_2
+      entity_id: device_tracker.iphone_van_kees
       state: 'Away'
   action:
     - service: homeassistant.update
@@ -38,7 +38,7 @@
       after: '16:00:00'
       before: '19:30:00'
     - condition: state
-      entity_id: device_tracker.kees_kees01_2
+      entity_id: device_tracker.iphone_van_kees
       state: 'Away'
   action:
     - service: homeassistant.update

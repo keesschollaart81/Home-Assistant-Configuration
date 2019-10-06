@@ -48,7 +48,7 @@
     - condition: template
       value_template: "{{ states('device_tracker.marleen_marleen01_2') != 'home' }}"
     - condition: template
-      value_template: "{{ states('device_tracker.kees_kees01_2') != 'home' }}"
+      value_template: "{{ states('device_tracker.iphone_van_kees') != 'home' }}"
   trigger:
   - platform: state
     entity_id: binary_sensor.poortdeur

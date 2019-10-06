@@ -34,7 +34,7 @@ custom_updater:
 http: 
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
-  api_password: !secret http_password
+  # api_password: !secret http_password
   base_url: schollaartthuis.duckdns.org:8123
     
 lovelace:
@@ -75,7 +75,7 @@ camera:
     input: -rtsp_transport tcp -i rtsp://192.168.2.11:8554/unicast
   - name: Locations
     platform: generic
-    still_image_url: https://maps.googleapis.com/maps/api/staticmap?size=500x300&maptype=roadmap&markers=color:blue%7Clabel:K%7C{{ states.device_tracker.kees_kees01_2.attributes.latitude }},{{ states.device_tracker.kees_kees01_2.attributes.longitude }}&markers=color:red%7Clabel:M%7C{{ states.device_tracker.marleen_marleen01_2.attributes.latitude }},{{ states.device_tracker.marleen_marleen01_2.attributes.longitude }}&key=!secret google_maps_key
+    still_image_url: https://maps.googleapis.com/maps/api/staticmap?size=500x300&maptype=roadmap&markers=color:blue%7Clabel:K%7C{{ states.device_tracker.iphone_van_kees.attributes.latitude }},{{ states.device_tracker.iphone_van_kees.attributes.longitude }}&markers=color:red%7Clabel:M%7C{{ states.device_tracker.marleen_marleen01_2.attributes.latitude }},{{ states.device_tracker.marleen_marleen01_2.attributes.longitude }}&key=!secret google_maps_key
     limit_refetch_to_url_change: true
     framerate: 1
   - platform: local_file
@@ -127,7 +127,7 @@ person:
     id: kees
     user_id: a2ad052935f64c5baa9acdba3fab0271 
     device_trackers:
-      - device_tracker.kees_kees01_2
+      - device_tracker.iphone_van_kees
   - name: Marleen
     id: marleen
     user_id: 57d490d252ab4d8f846f64a41b53f979 
@@ -158,7 +158,7 @@ rest_command:
 proximity:
   thuis:
     devices:
-      - device_tracker.kees_kees01_2
+      - device_tracker.iphone_van_kees
     tolerance: 50
     unit_of_measurement: km
 
