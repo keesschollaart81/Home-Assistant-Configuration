@@ -1,9 +1,17 @@
 homeassistant:
   customize:
     light.bathroom_main_light:
-      friendly_name: Bathroom - Main Light
-    binary_sensor.bathroom_main_light:
-      friendly_name: Bathroom - Main Light Switch
+      friendly_name: Bathroom - Main Light 
+    light.0x086bd7fffe19c7a1_light:
+      friendly_name: Bathroom - Main Light 1 
+    light.0x086bd7fffe363173_light:
+      friendly_name: Bathroom - Main Light 2
+    
+    binary_sensor.bathroom_main_switch:
+      friendly_name: Bathroom - Switch 
+
+    switch.bathroom_main_relay:
+      friendly_name: Bathroom - Main Light Relay 
 
     light.0x000b57fffed598bc_light:
       friendly_name: Bathroom - Mirror Light
@@ -37,6 +45,11 @@ homeassistant:
 
 light:
   - platform: group
+    name: Bathroom main light
+    entities:
+      - light.0x086bd7fffe19c7a1_light
+      - light.0x086bd7fffe363173_light
+  - platform: group
     name: Bathroom Lights
     entities:
       - light.0x000b57fffed598bc_light
@@ -44,7 +57,7 @@ light:
 
 timer:
   bathroom_lights_off_in:
-    duration: "00:05:00"
+    duration: "00:10:00"
   bathroom_just_turned_off_the_lights:
     duration: "00:0:10"
 
@@ -88,7 +101,7 @@ automation:
         state: "off"
     action:
       - service: light.turn_on
-        entity_id: light.0x000b57fffed598bc_light
+        entity_id: light.bathroom_lights
         data_template:
           brightness: >
             {% if now().hour > 20 %}100
@@ -106,10 +119,10 @@ automation:
       event_type: timer.finished
       event_data:
         entity_id: timer.bathroom_lights_off_in
-    condition:
-      - condition: numeric_state
-        below: 70 #showering 
-        entity_id: sensor.0x00158d0001f5358e_humidity
+    # condition:
+    #   - condition: numeric_state
+    #     below: 70 #showering 
+    #     entity_id: sensor.0x00158d0001f5358e_humidity
     action:
       service: light.turn_off
       data:

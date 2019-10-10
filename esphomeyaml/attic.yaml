@@ -1,12 +1,12 @@
 esphome:
-  name: bathroom_main
+  name: attic
   platform: ESP8266
   board: esp01_1m
   board_flash_mode: dout
 
 wifi:
   networks:
-  - ssid: !secret hallway_1st_floor_wifi_ssid
+  - ssid: !secret attic_wifi_ssid
     password:  !secret doorbell_wifi_password
   - ssid: !secret doorbell_wifi_ssid
     password:  !secret doorbell_wifi_password 
@@ -14,22 +14,33 @@ wifi:
 api:
   password: !secret doorbell_ota_password
 
-logger: 
+logger:
 
 ota:
   password: !secret doorbell_ota_password
- 
+
 binary_sensor:
   - platform: gpio
     pin: GPIO5
-    name: "bathroom_main_switch" 
+    name: "attic_switch" 
+    on_press:
+      then:
+        - light.toggle: attic_light
+    on_release:
+      then:
+        - light.toggle: attic_light
 
-switch:
+light:
+  - platform: binary
+    id: attic_light
+    name: "attic_light"
+    output: attic_relay
+
+output:
   - platform: gpio
+    id: attic_relay
     pin: GPIO4
-    id: bathroom_main_relay
-    name: "bathroom_main_relay"
-    restore_mode: ALWAYS_ON 
-  - platform: restart
-    name: "Bathroom Main Restart"
  
+switch:
+  - platform: restart
+    name: "Attic floor Restart"
