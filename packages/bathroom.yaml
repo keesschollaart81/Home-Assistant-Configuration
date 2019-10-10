@@ -1,6 +1,6 @@
 homeassistant:
   customize:
-    light.bathroom_main_light:
+    light.bathroom_main_lights:
       friendly_name: Bathroom - Main Light 
     light.0x086bd7fffe19c7a1_light:
       friendly_name: Bathroom - Main Light 1 
@@ -46,6 +46,7 @@ homeassistant:
 light:
   - platform: group
     name: Bathroom main lights
+    id: bathroom_main_lights
     entities:
       - light.0x086bd7fffe19c7a1_light
       - light.0x086bd7fffe363173_light
@@ -53,7 +54,7 @@ light:
     name: Bathroom Lights
     entities:
       - light.0x000b57fffed598bc_light
-      - light.bathroom_main_light
+      - light.bathroom_main_lights
 
 timer:
   bathroom_lights_off_in:
