@@ -50,7 +50,7 @@ cards:
     title: Bathoom
     entities: 
       - light.0x000b57fffed598bc_light  
-      - light.bathroom_main_light
+      - light.bathroom_main_lights
       - entity: sensor.0x00158d0001f5358e_humidity
         name: Humidity 
       - entity: binary_sensor.0x00158d0003120fb3_contact
@@ -59,4 +59,4 @@ cards:
     type: entities
     title: Attic
     entities: 
-      - light.attic  
+      - light.attic_light
