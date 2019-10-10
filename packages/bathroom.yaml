@@ -45,8 +45,7 @@ homeassistant:
 
 light:
   - platform: group
-    name: Bathroom main lights
-    id: bathroom_main_lights
+    name: bathroom_main_lights
     entities:
       - light.0x086bd7fffe19c7a1_light
       - light.0x086bd7fffe363173_light
