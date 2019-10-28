@@ -55,6 +55,7 @@ cards:
         name: Humidity 
       - entity: binary_sensor.0x00158d0003120fb3_contact
         name: "Occupancy"
+      - timer.bathroom_lights_off_in 
   - id: attic_card
     type: entities
     title: Attic
