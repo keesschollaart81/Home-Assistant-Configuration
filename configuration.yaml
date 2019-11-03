@@ -124,12 +124,12 @@ mqtt:
 person:
   - name: Kees
     id: kees
-    user_id: a2ad052935f64c5baa9acdba3fab0271 
+    user_id: be842a06ec6844f1be650ba273e34a51 
     device_trackers:
       - device_tracker.iphone_van_kees
   - name: Marleen
     id: marleen
-    user_id: 57d490d252ab4d8f846f64a41b53f979 
+    user_id: faf0f3e6fb334c01bdb00cd6926003e5 
     device_trackers:
       - device_tracker.iphone_van_marleen
 
