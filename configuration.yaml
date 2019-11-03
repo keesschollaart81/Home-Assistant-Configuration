@@ -61,6 +61,7 @@ logger:
   default: warn
   logs:
     homeassistant.components.mqtt: info 
+    homeassistant.components.toon: debug 
     homeassistant.components.shell_command: debug 
     homeassistant.components.google_assistant: debug  
 
