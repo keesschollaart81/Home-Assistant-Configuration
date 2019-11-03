@@ -59,7 +59,7 @@ timer:
   bathroom_lights_off_in:
     duration: "00:10:00"
   bathroom_just_turned_off_the_lights:
-    duration: "00:0:10"
+    duration: "00:00:10"
 
 automation:
   - alias: "Switch bathroom lights when switch is used"
