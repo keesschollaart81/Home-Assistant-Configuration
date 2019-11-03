@@ -93,6 +93,13 @@ light.hallway_1st_floor_light:
     friendly_name: Hallway 1st floor - Light
     icon: mdi:ceiling-light
 
+binary_sensor.hallway_1st_floor_switch_2:
+    friendly_name: Hallway 1st floor - Switch
+
+light.hallway_1st_floor_light_2:
+    friendly_name: Hallway 1st floor - Light
+    icon: mdi:ceiling-light
+
 switch.0x00158d0001fa64a8_switch:
     friendly_name: Washing Machine - Switch
 

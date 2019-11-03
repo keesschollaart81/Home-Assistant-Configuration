@@ -62,7 +62,7 @@ google_assistant:
       expose: true
       aliases:
         - Raam
-    light.hallway_1st_floor_light:
+    light.hallway_1st_floor_light_2:
       name: Hal boven
       expose: true
       aliases:
