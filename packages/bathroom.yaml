@@ -64,8 +64,12 @@ timer:
 automation:
   - alias: "Switch bathroom lights when switch is used"
     trigger:
-      platform: state
-      entity_id: binary_sensor.bathroom_main_switch
+      - platform: state
+        entity_id: binary_sensor.bathroom_main_switch
+        to: "On"
+      - platform: state
+        entity_id: binary_sensor.bathroom_main_switch
+        to: "Off"
     action:
       - service: light.toggle
         entity_id: light.bathroom_lights
