@@ -66,10 +66,10 @@ automation:
     trigger:
       - platform: state
         entity_id: binary_sensor.bathroom_main_switch
-        to: on
+        to: "on"
       - platform: state
         entity_id: binary_sensor.bathroom_main_switch
-        to: off
+        to: "off"
     action:
       - service: light.toggle
         entity_id: light.bathroom_lights
