@@ -98,7 +98,7 @@
     - service: camera.local_file_update_file_path
       data_template:
         entity_id: camera.backyard_latest
-        file_path: "{{ trigger.event.data.folder }}/{{ trigger.event.data.file }}"
+        file_path: "{{ trigger.event.data.path }}"
     - service: notify.ios_iphone_van_kees
       data_template:
         title: New image captured!
