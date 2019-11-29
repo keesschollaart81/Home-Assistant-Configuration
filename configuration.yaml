@@ -174,6 +174,11 @@ zigbee2mqtt_networkmap:
 shell_command:
   install_imagemagick: 'apk add --update imagemagick'
   front_door_gif:  bash '/config/shell_commands/front-door.sh' {{ states.camera.front_door_camera.attributes.entity_picture }}
-  backyard_gif: bash '/config/shell_commands/backyard.sh' {{ states.sensor.dafang_password.state }}
   clean_up: /config/shell_commands/clean-up.sh
   delete_old_snapshots: find /backup/* -mtime +90 -exec rm {} \;
+
+
+folder_watcher:
+  - folder: /share/motion/backyard
+    patterns:
+      - '*.mp4'

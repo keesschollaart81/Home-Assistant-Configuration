@@ -79,12 +79,25 @@
     service: rest_command.reboot_dafang
 
 
-- id: backyard_motion_gif 
-  alias: backyard_motion_gif
-  trigger: 
-  - platform: state
-    entity_id: binary_sensor.dafang_motion_sensor 
-    to: 'on'
+# - id: backyard_motion_gif 
+#   alias: backyard_motion_gif
+#   trigger: 
+#   - platform: state
+#     entity_id: binary_sensor.dafang_motion_sensor 
+#     to: 'on'
+#   action:
+#    - service: shell_command.backyard_gif 
+     
+- alias: New file alert
+  trigger:
+    platform: event
+    event_type: folder_watcher
+    event_data:
+      event_type: created
   action:
-   - service: shell_command.backyard_gif 
-    
+    service: notify.ios_iphone_van_kees
+    data_template:
+      title: New image captured!
+      message: "Created {{ trigger.event.data.file }} in {{ trigger.event.data.folder }}"
+      data:
+        file: "{{ trigger.event.data.path }}"
