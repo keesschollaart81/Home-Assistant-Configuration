@@ -12,6 +12,7 @@ homeassistant:
     #- type: legacy_api_password
   whitelist_external_dirs:
     - /share/motion/ 
+    - /share/motion/backyard
   
 switch: !include switches.yaml
 light: !include lights.yaml
