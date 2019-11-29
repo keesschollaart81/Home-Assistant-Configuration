@@ -83,7 +83,7 @@ camera:
     framerate: 1
   - platform: local_file
     name: backyard_latest
-    # file_path: "/config/www/backyard/backyard-latest-small.gif"
+    file_path: "/config/www/backyard/backyard-latest-small.mp4"
 
 # stream:
     
