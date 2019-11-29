@@ -13,6 +13,7 @@ homeassistant:
   whitelist_external_dirs:
     - /share/motion/ 
     - /share/motion/backyard
+    - /share/motion/backyard/29-11-2019
   
 switch: !include switches.yaml
 light: !include lights.yaml
