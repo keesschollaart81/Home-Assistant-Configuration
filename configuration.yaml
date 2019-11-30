@@ -182,5 +182,3 @@ shell_command:
 
 folder_watcher:
   - folder: /share/motion/backyard
-    patterns:
-      - '*.mp4'
