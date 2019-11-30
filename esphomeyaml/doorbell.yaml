@@ -9,12 +9,12 @@ wifi:
     password: !secret esphome_wifi_1_password
   - ssid: !secret esphome_wifi_2_ssid
     password: !secret esphome_wifi_2_password 
-  manual_ip:
-    static_ip: 192.168.2.105
-    gateway: !secret esphome_network_gateway 
-    subnet: !secret esphome_network_subnet 
-    dns1: !secret esphome_network_dns1 
-  use_address: 192.168.2.17
+  # manual_ip:
+  #   static_ip: 192.168.2.105
+  #   gateway: !secret esphome_network_gateway 
+  #   subnet: !secret esphome_network_subnet 
+  #   dns1: !secret esphome_network_dns1 
+  # use_address: 192.168.2.17
   ap:
     ssid: "Esphome Doorbell"
     password: !secret esphome_ap_password 

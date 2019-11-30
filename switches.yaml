@@ -1,5 +1,5 @@
 - platform: xiaomi_miio
   name: Licht in tuin
-  host: 192.168.2.9
+  host: chuangmi-plug-v3_miio71262865
   token:  !secret xiaomi_plug_tuin
   model: chuangmi.plug.v2
