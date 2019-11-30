@@ -14,6 +14,7 @@ wifi:
   #   gateway: !secret esphome_network_gateway 
   #   subnet: !secret esphome_network_subnet 
   #   dns1: !secret esphome_network_dns1 
+  # use_address: 192.168.2.106
   ap:
     ssid: "Esphome FrontdoorCamera"
     password: !secret esphome_ap_password 
