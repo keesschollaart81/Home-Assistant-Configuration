@@ -1,22 +1,22 @@
 - platform: xiaomi_miio
   name: staandelamp
-  host: philips-light-bulb_miio60379202
+  host: philips-light-bulb_miio60379202.localdomain
   token: !secret staandelamp_token
 - platform: xiaomi_miio
   name: bank
-  host: philips-light-bulb_miio61510856
+  host: philips-light-bulb_miio61510856.localdomain
   token: !secret bank_token
 - platform: xiaomi_miio
   name: tafel1
-  host: philips-light-bulb_miio61511979
+  host: philips-light-bulb_miio61511979.localdomain
   token: !secret tafel1_token
 - platform: xiaomi_miio
   name: tafel2
-  host: philips-light-bulb_miio61511979
+  host: philips-light-bulb_miio61511979.localdomain
   token: !secret tafel2_token
 - platform: xiaomi_miio
   name: tafel3
-  host: philips-light-bulb_miio61511979
+  host: philips-light-bulb_miio61511979.localdomain
   token: !secret tafel3_token
 - platform: group
   name: LampenTafel
