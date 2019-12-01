@@ -3,18 +3,18 @@ homeassistant:
   latitude: !secret thuis_latitude
   longitude: !secret thuis_longitude
   elevation: 0
-  unit_system: metric 
+  unit_system: metric
   time_zone: Europe/Amsterdam
-  customize: !include customize.yaml 
+  customize: !include customize.yaml
   packages: !include_dir_named packages
   auth_providers:
     - type: homeassistant
     #- type: legacy_api_password
   whitelist_external_dirs:
-    - /share/motion/ 
+    - /share/motion/
     - /share/motion/backyard
     - /share/motion/backyard/29-11-2019
-  
+
 switch: !include switches.yaml
 light: !include lights.yaml
 sensor: !include sensors.yaml
@@ -30,16 +30,16 @@ frontend:
 config:
 ios:
 sonos:
-auth: 
+auth:
 custom_updater:
 mobile_app:
 
-http: 
+http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
   # api_password: !secret http_password
   base_url: schollaartthuis.duckdns.org:8123
-    
+
 lovelace:
   mode: yaml
 
@@ -59,14 +59,13 @@ recorder:
 
 logbook:
 
-    
 logger:
   default: warn
   logs:
-    homeassistant.components.mqtt: info 
-    homeassistant.components.toon: debug 
-    homeassistant.components.shell_command: debug 
-    homeassistant.components.google_assistant: debug  
+    homeassistant.components.mqtt: info
+    homeassistant.components.toon: debug
+    homeassistant.components.shell_command: debug
+    homeassistant.components.google_assistant: debug
 
 map:
 
@@ -86,10 +85,10 @@ camera:
     file_path: "/share/motion/backyard/big_buck_bunny.mp4"
 
 # stream:
-    
+
 tts:
   - platform: google_translate
-    language: 'nl'
+    language: "nl"
   - platform: microsoft
     api_key: !secret cogntive_services_api_key
     language: en-us
@@ -109,53 +108,58 @@ panel_iframe:
     url: http://schollaartthuis.duckdns.org:6052/
 
 toon:
-    client_id: !secret toon_key
-    client_secret: !secret toon_secret
+  client_id: !secret toon_key
+  client_secret: !secret toon_secret
 
 mqtt:
-    broker: core-mosquitto
-    username: hassio
-    password: !secret mqtt
-    discovery: true
-    discovery_prefix: homeassistant
-    birth_message:
-      topic: 'hass/status'
-      payload: 'online'
-    will_message:
-      topic: 'hass/status'
-      payload: 'offline'
+  broker: core-mosquitto
+  username: hassio
+  password: !secret mqtt
+  discovery: true
+  discovery_prefix: homeassistant
+  birth_message:
+    topic: "hass/status"
+    payload: "online"
+  will_message:
+    topic: "hass/status"
+    payload: "offline"
 
 person:
   - name: Kees
     id: kees
-    user_id: be842a06ec6844f1be650ba273e34a51 
+    user_id: be842a06ec6844f1be650ba273e34a51
     device_trackers:
       - device_tracker.iphone_van_kees
   - name: Marleen
     id: marleen
-    user_id: faf0f3e6fb334c01bdb00cd6926003e5 
+    user_id: faf0f3e6fb334c01bdb00cd6926003e5
     device_trackers:
       - device_tracker.iphone_van_marleen
 
 zone:
   - name: Thuis
     latitude: !secret thuis_latitude
-    longitude:  !secret thuis_longitude
+    longitude: !secret thuis_longitude
     radius: 100
     icon: mdi:account-multiple
-    
+
   - name: School
     latitude: !secret school_latitude
     longitude: !secret school_longitude
     radius: 100
     icon: mdi:school
-    
-notify: 
- 
+
+notify:
+  - name: phones_kees_marleen
+    platform: group
+    services:
+      - service: notify.mobile_app_iphone_van_kees
+      - service: notify.mobile_app_iphone_van_marleen
+
 rest_command:
   reboot_dafang:
-    url: !secret dafang_rebooturl 
-    username:  !secret dafang_username
+    url: !secret dafang_rebooturl
+    username: !secret dafang_username
     password: !secret dafang_password
 
 proximity:
@@ -165,7 +169,7 @@ proximity:
     tolerance: 50
     unit_of_measurement: km
 
-zigbee2mqtt_networkmap: 
+zigbee2mqtt_networkmap:
 
 # tuya:
 #   username: !secret TuyaUsername
@@ -174,11 +178,10 @@ zigbee2mqtt_networkmap:
 #   platform: smart_life
 
 shell_command:
-  install_imagemagick: 'apk add --update imagemagick'
-  front_door_gif:  bash '/config/shell_commands/front-door.sh' {{ states.camera.front_door_camera.attributes.entity_picture }}
+  install_imagemagick: "apk add --update imagemagick"
+  front_door_gif: bash '/config/shell_commands/front-door.sh' {{ states.camera.front_door_camera.attributes.entity_picture }}
   clean_up: /config/shell_commands/clean-up.sh
   delete_old_snapshots: find /backup/* -mtime +90 -exec rm {} \;
-
 
 folder_watcher:
   - folder: /share/motion/backyard

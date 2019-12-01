@@ -15,23 +15,21 @@ automation:
         for:
           seconds: 2
     action:
-      - service: script.take_front_door_snaps 
-      - service: notify.ios_iphone_van_kees
+      - service: script.take_front_door_snaps
+      - service: notify.phones_kees_marleen
         data_template:
           title: "Voordeur open"
           message: "En er is niemand thuis!"
           data:
-            file: "/share/motion/front-door/front-door-latest.gif"
-            file_type: "image/gif"
-      - service: notify.ios_iphone_van_marleen
-        data_template:
-          title: "Voordeur open"
-          message: "En er is niemand thuis!"
-          data:
-            url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}" 
+            url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}"
             attachment:
-              - url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}" 
+                url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}"
                 content-type: jpg
+                hide-thumbnail: false
+            push: 
+              thread-id: "front_door_no_one_home"
+              category: camera
+            entity_id: camera.front_door_latest
 
   - id: "VoordeurNotificatieTeLangOpen"
     alias: Voordeur te lang open
@@ -43,22 +41,20 @@ automation:
           minutes: 2
     action:
       - service: script.take_front_door_snaps
-      - service: notify.ios_iphone_van_kees
+      - service: notify.phones_kees_marleen
         data_template:
           title: "Voordeur meer dan 2 minuten open"
           message: "Misschien vergeten dicht te doen?"
           data:
-            file: "/share/motion/front-door/front-door-latest.gif"
-            file_type: "image/gif"
-      - service: notify.ios_iphone_van_marleen
-        data_template:
-          title: "Voordeur meer dan 2 minuten open"
-          message: "Misschien vergeten dicht te doen?"
-          data:
-            url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}" 
+            url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}"
             attachment:
-              - url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}" 
+                url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}"
                 content-type: jpg
+                hide-thumbnail: false
+            push: 
+              thread-id: "front_door"
+              category: camera
+            entity_id: camera.front_door_latest
 
   - id: "VoordeurOpenDicht"
     alias: Voordeur open of dicht
@@ -123,7 +119,7 @@ script:
       - service: camera.snapshot
         entity_id: camera.front_door_camera
         data:
-          filename: "/share/motion/front-door/front9.jpg"  
+          filename: "/share/motion/front-door/front9.jpg"
       - service: shell_command.front_door_gif
       - service: camera.local_file_update_file_path
         data_template:

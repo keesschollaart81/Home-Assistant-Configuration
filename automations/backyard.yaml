@@ -61,11 +61,7 @@
     for:
       minutes: 2
   action: 
-   - service: notify.ios_iphone_van_kees
-     data:
-        title: "Schuur/poort open"
-        message: "En er is niemand thuis!"
-   - service: notify.ios_iphone_van_marleen
+   - service: notify.phones_kees_marleen
      data:
         title: "Schuur/poort open"
         message: "En er is niemand thuis!"
@@ -99,11 +95,11 @@
       data_template:
         entity_id: camera.backyard_latest
         file_path: "{{ trigger.event.data.path }}"
-    - service: notify.ios_iphone_van_kees
-      data_template:
-        title: New image captured!
-        message: "Created {{ trigger.event.data.file }} in {{ trigger.event.data.folder }}"
-        data:
-          file: "{{ trigger.event.data.path }}"
+    # - service: notify.mobile_app_iphone_van_kees
+    #   data_template:
+    #     title: New image captured!
+    #     message: "Created {{ trigger.event.data.file }} in {{ trigger.event.data.folder }}"
+    #     data:
+    #       file: "{{ trigger.event.data.path }}"
 
         

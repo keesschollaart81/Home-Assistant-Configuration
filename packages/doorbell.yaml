@@ -7,24 +7,20 @@ automation:
         to: "on"
     action:
       - service: script.take_front_door_snaps
-      - service: notify.ios_iphone_van_kees
-        data_template:
-          title: "Er wordt aan de deur gebeld"
-          message: "Wie zou dat zijn!?"
-          data:
-            # file_url: "https://schollaartthuis.duckdns.org:8123/local/front-door/front-door-latest.gif"
-            file: "/share/motion/front-door/front-door-latest.gif"
-            file_type: "image/gif"
-      - service: notify.ios_iphone_van_marleen
+      - service: notify.phones_kees_marleen
         data_template:
           title: "Er wordt aan de deur gebeld"
           message: "Wie zou dat zijn?"
           data:
-            url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}" 
+            url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}"
             attachment:
-              url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}" 
-              content-type: gif
-              hide-thumbnail: false
+                url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}"
+                content-type: jpg
+                hide-thumbnail: false
+            push: 
+              thread-id: "doorbell"
+              category: camera
+            entity_id: camera.front_door_latest
 
   - id: "DoorbellNotificationViaSonos"
     alias: Doorbell Notification via Sonos
