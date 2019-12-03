@@ -1,0 +1,120 @@
+esphome:
+  name: hallway_1st_floor_dimmer
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  networks:
+  - ssid: !secret esphome_wifi_1_ssid
+    password: !secret esphome_wifi_1_password
+  - ssid: !secret esphome_wifi_2_ssid
+    password: !secret esphome_wifi_2_password 
+  ap:
+    ssid: "Esphome Hallway1StFloor"
+    password: !secret esphome_ap_password 
+
+captive_portal: 
+
+web_server:
+  port: 80
+  auth:
+    username: admin
+    password: !secret esphome_webserver_password
+
+api:
+  password: !secret esphome_api_password
+
+logger:
+  baud_rate: 0
+
+ota:
+  password: !secret esphome_ota_password
+
+time:
+  - platform: homeassistant
+
+# Inspired by https://github.com/esphome/feature-requests/issues/456
+
+substitutions:
+  switch_id: "hallway_1st_floor_dimmer"
+
+globals:
+  - id: g_direction_1
+    type: int
+    restore_value: no
+    initial_value: "1"
+  - id: g_counter_1
+    type: int
+    restore_value: no
+    initial_value: "0"
+
+uart:
+  tx_pin: GPIO1
+  rx_pin: GPIO3
+  stop_bits: 1
+  baud_rate: 9600
+
+sensor:
+  - platform: wifi_signal
+    name: "${switch_id} WiFi Signal Sensor"
+    update_interval: 60s
+  - platform: template
+    name: "${switch_id} Brightness Sensor"
+    id: sensor_g_bright
+    internal: true
+    update_interval: 20ms
+    filters:
+      delta: 0.8
+    lambda: |-
+      if (id(light_main).remote_values.is_on()) {
+        return (int(id(light_main).remote_values.get_brightness() * 255));
+      }
+      else {
+        return 0;
+      }
+    on_value:
+      then:
+        - uart.write: !lambda |-
+            return {0xFF, 0x55, (char) id(sensor_g_bright).state, 0x05, 0xDC, 0x0A};
+        - logger.log:
+            level: INFO
+            format: "Sensor Value Change sent to UART %3.1f"
+            args: ["id(sensor_g_bright).state"]
+
+  - platform: duty_cycle
+    pin: GPIO13
+    internal: true
+    id: sensor_push_switch
+    name: "${switch_id} Sensor Push Switch"
+    update_interval: 20ms
+
+binary_sensor:
+  - platform: template
+    id: switch1
+    name: "${switch_id} Switch Binary Sensor"
+    lambda: |-
+      if (id(sensor_push_switch).state < 95.0) {
+        return true;
+      } else {
+        return false;
+      }
+    on_state:
+      then:
+        light.toggle: light_main
+        
+output:
+  - platform: esp8266_pwm
+    pin: GPIO14
+    frequency: 800 Hz
+    id: dummy_pwm
+
+light:
+  - platform: monochromatic
+    default_transition_length: 20ms
+    name: "${switch_id} Light"
+    output: dummy_pwm
+    id: light_main
+
+switch:
+  - platform: restart
+    name: "${switch_id} Restart"
