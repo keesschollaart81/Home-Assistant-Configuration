@@ -11,7 +11,7 @@ automation:
         data_template:
           brightness: >
             {% if now().hour > 21 %}30
-            {% if now().hour > 19 %}100
+            {% elif now().hour > 19 %}100
             {% elif now().hour < 7 %}30
             {% elif now().hour < 8 %}100
             {% else %}250
