@@ -100,16 +100,6 @@ light.hallway_1st_floor_light_2:
     friendly_name: Hallway 1st floor - Light
     icon: mdi:ceiling-light
 
-switch.0x00158d0001fa64a8_switch:
-    friendly_name: Washing Machine - Switch
-
-sensor.0x00158d0001fa64a8_power:
-    friendly_name: Washing Machine - Power
-
-input_boolean.washingmachine_busy:
-    friendly_name: Washing Machine - Busy
-    icon: mdi:washing-machine
-
 sensor.rotterdam_condition:
     friendly_name: Outside Today
 

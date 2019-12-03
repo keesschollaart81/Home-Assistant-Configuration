@@ -60,3 +60,6 @@ exclude:
     - light.0x90fd9ffffe10c5d1_light
     - light.0x90fd9ffffe135ab2_light
     - persistent_notification.config_entry_discovery
+    - binary_sensor.boiler_module_connection
+    - cover.dafang_move_left_right
+    - cover.dafang_move_up_down

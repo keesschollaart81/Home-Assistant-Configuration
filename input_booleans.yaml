@@ -1,4 +1,0 @@
-washingmachine_busy:
-  name: Washing Machine Busy
-  initial: off
-  icon: "mdi:arrow-right-drop-circle-outline"
