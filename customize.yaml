@@ -86,17 +86,10 @@ binary_sensor.0x00158d0002e2ab4d_occupancy:
 sensor.0x00158d0002e2ab4d_illuminance:
     friendly_name: Hallway 1st floor - Illuminance
 
-binary_sensor.hallway_1st_floor_switch:
+binary_sensor.hallway_1st_floor_dimmer_switch_binary_sensor_binary_sensor:
     friendly_name: Hallway 1st floor - Switch
 
-light.hallway_1st_floor_light:
-    friendly_name: Hallway 1st floor - Light
-    icon: mdi:ceiling-light
-
-binary_sensor.hallway_1st_floor_switch_2:
-    friendly_name: Hallway 1st floor - Switch
-
-light.hallway_1st_floor_light_2:
+light.hallway_1st_floor_dimmer_light:
     friendly_name: Hallway 1st floor - Light
     icon: mdi:ceiling-light
 
@@ -109,7 +102,7 @@ sensor.rotterdam_temperature:
 timer.hallway_lights_off_in :
     friendly_name: Hallway lights off in
 
-timer.hallway_1st_floor_lights_off_in:
+timer.hallway_1st_floor_dimmer_lights_off_in:
     friendly_name: Hallway 1st floor lights off in
 
 camera.locations:

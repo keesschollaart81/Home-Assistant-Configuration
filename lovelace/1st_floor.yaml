@@ -12,12 +12,12 @@ cards:
         name: Temperature
       - entity: binary_sensor.0x00158d0002e2e35e_occupancy
         name: Occupancy
-  - id: hallway_1st_floor
+  - id: hallway_1st_floor_dimmer
     type: entities
     title: Hallway
     entities: 
-      - light.hallway_1st_floor_light_2
-      - timer.hallway_1st_floor_lights_off_in 
+      - light.hallway_1st_floor_dimmer_light
+      - timer.hallway_1st_floor_dimmer_lights_off_in 
       - binary_sensor.0x00158d0002e2ab4d_occupancy 
   - id: motion_first_floor_card
     type: history-graph

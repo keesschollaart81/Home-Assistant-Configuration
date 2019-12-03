@@ -1,47 +1,63 @@
 automation:
-  - id: 'LightOnInHallway1stFloorWhenActivity'
+  - id: "LightOnInHallway1stFloorWhenActivity"
     alias: Enable lights in hallway on the first floor when there is activity
     trigger:
-    - platform: state
-      entity_id: binary_sensor.0x00158d0002e2ab4d_occupancy 
-      to: "on"
-    condition: 
-      - condition: state
-        entity_id: sun.sun
-        state: 'below_horizon'
-      - condition: state
-        entity_id: input_boolean.google_goodnight_routine
-        state: "off"
-    action: 
-    - service: light.turn_on
-      data:
-        entity_id: light.hallway_1st_floor_light_2
-    - service: timer.start
-      data:
-        entity_id: timer.hallway_1st_floor_lights_off_in
+      - platform: state
+        entity_id: binary_sensor.0x00158d0002e2ab4d_occupancy
+        to: "on"
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.hallway_1st_floor_dimmer_light
+          brightness: >
+            {% if now().hour > 21 %}30
+            {% if now().hour > 19 %}100
+            {% elif now().hour < 7 %}30
+            {% elif now().hour < 8 %}100
+            {% else %}250
+            {% endif %}
+      - service: timer.start
+        data:
+          entity_id: timer.hallway_1st_floor_dimmer_lights_off_in
 
-  - id: 'LightOffInHallwayAfter3minutes'
+  - id: "LightOffInHallwayAfter3minutes"
     alias: Turn off the lights in the hallway 1st floor after x
     trigger:
-    - platform: state
-      entity_id: binary_sensor.hallway_1st_floor_switch 
-    action: 
-    - service: timer.start
-      data:
-        entity_id: timer.hallway_1st_floor_lights_off_in
+      - platform: state
+        entity_id: binary_sensor.hallway_1st_floor_dimmer_switch_binary_sensor
+    action:
+      - service: timer.start
+        data:
+          entity_id: timer.hallway_1st_floor_dimmer_lights_off_in
 
   - alias: Turn off hallway 1st floor lights 3 minutes after trigger
     trigger:
       platform: event
       event_type: timer.finished
       event_data:
-        entity_id: timer.hallway_1st_floor_lights_off_in
+        entity_id: timer.hallway_1st_floor_dimmer_lights_off_in
     action:
       service: light.turn_off
       data:
         entity_id:
-          - light.hallway_1st_floor_light_2
+          - light.hallway_1st_floor_dimmer_light
+
+  - id: "TurnOnLightsInHallwayAtSeven"
+    alias: Turn on lights in hallway at seven
+    trigger:
+      - platform: time
+        at: "07:00:00"
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.hallway_1st_floor_dimmer_light
+          brightness: 125
+      - delay:
+          minutes: 58
+      - service: timer.start
+        data:
+          entity_id: timer.hallway_1st_floor_dimmer_lights_off_in
 
 timer:
-  hallway_1st_floor_lights_off_in:
-    duration: '00:02:00'
+  hallway_1st_floor_dimmer_lights_off_in:
+    duration: "00:02:00"
