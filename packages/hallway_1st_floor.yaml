@@ -46,17 +46,19 @@ automation:
     alias: Turn on lights in hallway at seven
     trigger:
       - platform: time
-        at: "07:00:00"
+        at: "06:57:00"
     action:
       - service: light.turn_on
         data:
           entity_id: light.hallway_1st_floor_dimmer_light
           brightness: 125
-      - delay:
-          minutes: 58
-      - service: timer.start
+      # - delay:
+      #     minutes: 3
+      - service: light.turn_off
         data:
-          entity_id: timer.hallway_1st_floor_dimmer_lights_off_in
+          transition: 180
+          entity_id:
+            - light.hallway_1st_floor_dimmer_light
 
 timer:
   hallway_1st_floor_dimmer_lights_off_in:
