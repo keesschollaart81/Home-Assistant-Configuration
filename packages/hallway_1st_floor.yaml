@@ -42,11 +42,37 @@ automation:
         entity_id:
           - light.hallway_1st_floor_dimmer_light
 
-  - id: "TurnOnLightsInHallwayAtSeven"
+  - id: "TurnOnLightsInHallwayAtSevenWorkingDays"
     alias: Turn on lights in hallway at seven
+    condition:
+      - condition: state
+        entity_id: "binary_sensor.workday_sensor"
+        state: "on"
     trigger:
       - platform: time
         at: "06:57:00"
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.hallway_1st_floor_dimmer_light
+          brightness: 125
+      - delay:
+          minutes: 3
+      - service: light.turn_off
+        data:
+          transition: 180
+          entity_id:
+            - light.hallway_1st_floor_dimmer_light
+
+  - id: "TurnOnLightsInHallwayAtSevenNonWorkingDays"
+    alias: Turn on lights in hallway at seven
+    condition:
+      - condition: state
+        entity_id: "binary_sensor.workday_sensor"
+        state: "off"
+    trigger:
+      - platform: time
+        at: "07:30:00"
     action:
       - service: light.turn_on
         data:
