@@ -62,7 +62,7 @@
         entity_id: sun.sun
         state: "below_horizon"
       - condition: state
-        entity_id: light.lampentafel
+        entity_id: light.staandelamp
         state: "off"
   action:
     - service: homeassistant.turn_on
