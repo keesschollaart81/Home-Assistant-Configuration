@@ -56,12 +56,13 @@ automation:
         data:
           entity_id: light.hallway_1st_floor_dimmer_light
           brightness: 125
+          transition: 0
       - delay:
           minutes: 3
       - service: light.turn_off
         data:
-          entity_id:
-            - light.hallway_1st_floor_dimmer_light
+          entity_id: light.hallway_1st_floor_dimmer_light
+          transition: 0
 
   - id: "TurnOnLightsInHallwayAtSevenNonWorkingDays"
     alias: Turn on lights in hallway at seven
@@ -77,12 +78,13 @@ automation:
         data:
           entity_id: light.hallway_1st_floor_dimmer_light
           brightness: 125
+          transition: 0
       - delay:
           minutes: 3
       - service: light.turn_off
         data:
-          entity_id:
-            - light.hallway_1st_floor_dimmer_light
+          entity_id: light.hallway_1st_floor_dimmer_light
+          transition: 0
 
 timer:
   hallway_1st_floor_dimmer_lights_off_in:
