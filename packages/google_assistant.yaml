@@ -34,7 +34,7 @@ input_boolean:
 
 google_assistant:
   project_id: home-assistant-72f48
-  service_account: !include google-service-account.json
+  service_account: !include ../google-service-account.json
   expose_by_default: false
   exposed_domains:
     - switch
