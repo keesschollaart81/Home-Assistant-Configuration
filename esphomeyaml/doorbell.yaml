@@ -39,6 +39,7 @@ switch:
   - id: "doorbell_buzzer"
     name: "doorbell_buzzer"
     platform: gpio
+    inverted: yes
     pin:
       number: D4
 

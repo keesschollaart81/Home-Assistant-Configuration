@@ -82,7 +82,6 @@ camera:
     framerate: 1
   - platform: local_file
     name: backyard_latest
-    file_path: "/share/motion/backyard/big_buck_bunny.mp4"
 
 # stream:
 

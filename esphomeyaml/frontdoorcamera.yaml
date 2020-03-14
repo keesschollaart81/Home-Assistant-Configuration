@@ -56,3 +56,8 @@ esp32_camera:
 switch:
   - platform: restart
     name: "Front Door Camera Restart"
+
+light:
+  - platform: binary
+    output: gpio_4
+    name: Front Door Camera Light
