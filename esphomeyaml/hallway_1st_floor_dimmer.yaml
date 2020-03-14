@@ -1,5 +1,5 @@
 esphome:
-  name: hallway_1st_floor_dimmer_dimmer
+  name: hallway_1st_floor_dimmer
   platform: ESP8266
   board: esp01_1m
 
@@ -38,20 +38,10 @@ time:
 substitutions:
   switch_id: "hallway_1st_floor_dimmer_dimmer"
 
-globals:
-  - id: g_direction_1
-    type: int
-    restore_value: no
-    initial_value: "1"
-  - id: g_counter_1
-    type: int
-    restore_value: no
-    initial_value: "0"
-
 uart:
+  id: uart_bus
   tx_pin: GPIO1
   rx_pin: GPIO3
-  stop_bits: 1
   baud_rate: 9600
 
 sensor:
@@ -76,10 +66,10 @@ sensor:
       then:
         - uart.write: !lambda |-
             return {0xFF, 0x55, (char) id(sensor_g_bright).state, 0x05, 0xDC, 0x0A};
-        - logger.log:
-            level: INFO
-            format: "Sensor Value Change sent to UART %3.1f"
-            args: ["id(sensor_g_bright).state"]
+        # - logger.log:
+        #     level: INFO
+        #     format: "Sensor Value Change sent to UART %3.1f"
+        #     args: ["id(sensor_g_bright).state"]
 
   - platform: duty_cycle
     pin: GPIO13

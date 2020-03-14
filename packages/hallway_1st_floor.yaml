@@ -9,6 +9,7 @@ automation:
       - service: light.turn_on
         entity_id: light.hallway_1st_floor_dimmer_light
         data_template:
+          transition: 0
           brightness: >
             {% if now().hour > 21 %}30
             {% elif now().hour > 19 %}100
@@ -39,6 +40,7 @@ automation:
     action:
       service: light.turn_off
       data:
+        transition: 0
         entity_id:
           - light.hallway_1st_floor_dimmer_light
 
