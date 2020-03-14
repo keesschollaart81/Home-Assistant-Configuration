@@ -96,7 +96,7 @@ google_assistant:
     climate.toon_thermostat:
       name: Toon
       expose: true
-    switch.doorbell_buzzer_2_enabled_2:
+    switch.doorbell_buzzer_enabled_2:
       name: Deurbel
       expose: true
       aliases:

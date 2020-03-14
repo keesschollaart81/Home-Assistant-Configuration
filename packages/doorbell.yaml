@@ -42,7 +42,7 @@ automation:
         at: "18:30:00"
     action:
       service: homeassistant.turn_off
-      entity_id: switch.doorbell_buzzer_2_enabled_2
+      entity_id: switch.doorbell_buzzer_enabled_2
 
   - id: "DoorbellSoundBackToNormall"
     alias: DoorbellSoundBackToNormall
@@ -51,4 +51,4 @@ automation:
         at: "07:00:00"
     action:
       service: homeassistant.turn_on
-      entity_id: switch.doorbell_buzzer_2_enabled_2
+      entity_id: switch.doorbell_buzzer_enabled_2

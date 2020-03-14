@@ -96,7 +96,7 @@ cards:
     entities: 
       - timer.hallway_lights_off_in 
       - light.hall_light
-      - switch.doorbell_buzzer_2_enabled_2
+      - switch.doorbell_buzzer_enabled_2
       - binary_sensor.0x00158d0001f9faa1_occupancy
   - id: toilet_card
     type: entities
