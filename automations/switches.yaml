@@ -39,7 +39,7 @@
     - service: homeassistant.turn_on
       entity_id: scene.living_room_lights_off
 
-- id: knop4
+- id: knop5
   alias: Living Room - Switch 5
   trigger:
     - platform: state
