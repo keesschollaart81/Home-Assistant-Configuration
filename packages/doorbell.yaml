@@ -3,7 +3,7 @@ automation:
     alias: Doorbell Notification With Image
     trigger:
       - platform: state
-        entity_id: binary_sensor.doorbell_button
+        entity_id: binary_sensor.doorbell_button_2
         to: "on"
     action:
       - service: script.take_front_door_snaps
@@ -26,7 +26,7 @@ automation:
     alias: Doorbell Notification via Sonos
     trigger:
       - platform: state
-        entity_id: binary_sensor.doorbell_button
+        entity_id: binary_sensor.doorbell_button_2
         to: "on"
     action: 
       - service: script.sonos_say
@@ -42,7 +42,7 @@ automation:
         at: "18:30:00"
     action:
       service: homeassistant.turn_off
-      entity_id: switch.doorbell_buzzer_enabled
+      entity_id: switch.doorbell_buzzer_2_enabled_2
 
   - id: "DoorbellSoundBackToNormall"
     alias: DoorbellSoundBackToNormall
@@ -51,4 +51,4 @@ automation:
         at: "07:00:00"
     action:
       service: homeassistant.turn_on
-      entity_id: switch.doorbell_buzzer_enabled
+      entity_id: switch.doorbell_buzzer_2_enabled_2

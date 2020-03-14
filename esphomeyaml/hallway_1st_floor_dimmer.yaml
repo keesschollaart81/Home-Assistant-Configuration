@@ -36,7 +36,7 @@ time:
 # Inspired by https://github.com/esphome/feature-requests/issues/456
 
 substitutions:
-  switch_id: "hallway_1st_floor_dimmer_dimmer"
+  switch_id: "hallway_1st_floor_dimmer"
 
 uart:
   id: uart_bus
@@ -83,7 +83,7 @@ binary_sensor:
     id: switch1
     name: "${switch_id} Switch Binary Sensor"
     lambda: |-
-      if (id(sensor_push_switch).state < 95.0) {
+      if (id(sensor_push_switch).state < 99.0) {
         return true;
       } else {
         return false;

@@ -6,7 +6,7 @@ automation:
       entity_id: binary_sensor.0x00158d000208e0e0_contact #front door opens
       to: 'on'
     - platform: state
-      entity_id: binary_sensor.doorbell_button
+      entity_id: binary_sensor.doorbell_button_2
       to: 'on'
     - platform: state
       entity_id: binary_sensor.0x00158d0001f9faa1_occupancy 
