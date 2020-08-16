@@ -10,19 +10,23 @@ homeassistant:
   auth_providers:
     - type: homeassistant
     #- type: legacy_api_password
-  whitelist_external_dirs:
-    - /share/motion/
 
 switch: !include switches.yaml
 light: !include lights.yaml
 sensor: !include sensors.yaml
 binary_sensor: !include binary_sensors.yaml
-# group: !include groups.yaml
 automation: !include_dir_merge_list automations
 scene: !include scene.yaml
 input_boolean: !include input_booleans.yaml
 script: !include script.yaml
 history: !include history.yaml
+group:
+  iedereen:
+    name: Everyone
+    entities:
+      - sensor.iphone_van_marleen_battery_level 
+      - sensor.iphone_van_marleen_battery_state 
+
 system_health:
 frontend:
 config:
