@@ -46,12 +46,6 @@ binary_sensor.poortdeur:
     friendly_name: Gate
     icon: mdi:gate
 
-camera.dafang:
-    friendly_name: Backyard live
-
-camera.dafang_motion_snapshot:
-    friendly_name: Backyard latest motion snapshot  
-
 binary_sensor.0x00158d000222df56_occupancy:
     friendly_name: Living Room - Motion
 

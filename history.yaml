@@ -7,22 +7,7 @@ exclude:
     - timer
     - camera
   entities:
-    - script.sonos_say
-    - binary_sensor.dafang_motion_sensor
-    - cover.dafang_move_leftright
-    - cover.dafang_move_updown
-    - switch.dafang_blue_led
-    - switch.dafang_h264_rtsp_server
-    - switch.dafang_ir_filter
-    - switch.dafang_ir_led
-    - switch.dafang_mjpeg_rtsp_server
-    - switch.dafang_motion_detection
-    - switch.dafang_motion_tracking
-    - switch.dafang_night_mode
-    - switch.dafang_night_mode_auto
-    - switch.dafang_yellow_led
-    - sensor.dafang_light_sensor
-    - switch.dafang_motion_send_mail
+    - script.sonos_say 
     - sensor.0x00158d0001639d5a_click
     - sensor.0x00158d0001710729_click
     - sensor.0x00158d0002138221_click
@@ -60,6 +45,4 @@ exclude:
     - light.0x90fd9ffffe10c5d1_light
     - light.0x90fd9ffffe135ab2_light
     - persistent_notification.config_entry_discovery
-    - binary_sensor.boiler_module_connection
-    - cover.dafang_move_left_right
-    - cover.dafang_move_up_down
+    - binary_sensor.boiler_module_connection 

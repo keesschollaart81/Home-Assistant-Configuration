@@ -62,23 +62,7 @@ cards:
           action: call-service
           service: scene.turn_on
           service_data: 
-            entity_id: scene.living_room_lights_off
-  - id: backyard
-    type: picture-glance
-    title: Backyard
-    aspect_ratio: '16x9'
-    entities:
-      - switch.licht_in_tuin
-      - binary_sensor.schuurdeur
-      - binary_sensor.poortdeur
-      - binary_sensor.fietsjasmijn
-      - binary_sensor.fietsmarleen
-      - entity: camera.dafang
-        name: Live
-    # camera_image: camera.dafang_motion_snapshot
-    camera_image: camera.backyard_latest
-    tap_action: 
-      action: more-info
+            entity_id: scene.living_room_lights_off 
   - id: front_door
     type: picture-glance
     title: Front door
@@ -87,6 +71,7 @@ cards:
       - binary_sensor.0x00158d000208e0e0_contact
       - entity: camera.front_door_camera
         name: Live 
+      - switch.licht_in_tuin
     camera_image: camera.front_door_latest
     tap_action: 
       action: more-info

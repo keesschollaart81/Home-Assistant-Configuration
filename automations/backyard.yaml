@@ -39,52 +39,7 @@
   action:
     service: homeassistant.turn_off
     entity_id: switch.licht_in_tuin
-
-- id: 'TuinNotificatie'
-  alias: Poort of schuur open / niemand thuis
-  condition: 
-    condition: and
-    conditions:
-    - condition: template
-      value_template: "{{ states('device_tracker.iphone_van_marleen') != 'home' }}"
-    - condition: template
-      value_template: "{{ states('device_tracker.iphone_van_kees') != 'home' }}"
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.poortdeur
-    to: 'open'
-    for:
-      minutes: 2
-  - platform: state
-    entity_id: binary_sensor.schuurdeur
-    to: 'open'
-    for:
-      minutes: 2
-  action: 
-   - service: notify.phones_kees_marleen
-     data:
-        title: "Schuur/poort open"
-        message: "En er is niemand thuis!"
-
-- id: 'RebootDafangEveryNight'
-  alias: Reboot Dafang every night 
-  trigger:
-  - platform: time
-    at: '12:10:00'
-  action: 
-    service: rest_command.reboot_dafang
-     
-- alias: New file alert
-  trigger:
-    platform: event
-    event_type: folder_watcher
-    event_data:
-      event_type: created
-  action:
-    - service: camera.local_file_update_file_path
-      data_template:
-        entity_id: camera.backyard_latest
-        file_path: "{{ trigger.event.data.path }}"
+ 
         
 
         
