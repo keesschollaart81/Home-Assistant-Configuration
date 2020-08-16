@@ -170,6 +170,4 @@ shell_command:
   front_door_gif: bash '/config/shell_commands/front-door.sh' {{ states.camera.front_door_camera.attributes.entity_picture }}
   clean_up: /config/shell_commands/clean-up.sh
   delete_old_snapshots: find /backup/* -mtime +90 -exec rm {} \;
-
-folder_watcher:
-  - folder: /share/motion/backyard
+ 
