@@ -93,7 +93,7 @@ google_assistant:
       aliases:
         - avonds
         - avond
-    climate.toon_thermostat:
+    climate.thermostat:
       name: Toon
       expose: true
     switch.doorbell_buzzer_enabled_2:

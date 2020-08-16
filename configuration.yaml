@@ -41,6 +41,7 @@ http:
   ssl_key: /ssl/privkey.pem
   # api_password: !secret http_password
   
+  
 lovelace:
   mode: yaml
 
@@ -98,7 +99,7 @@ panel_iframe:
   esphomeyaml:
     title: Esphomeyaml
     icon: mdi:code-not-equal-variant
-    url: http://schollaartthuis.duckdns.org:6052/
+    url: http://schollaartthuis.duckdns.org:6052/,
 
 toon:
   client_id: !secret toon_key
