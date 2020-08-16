@@ -22,8 +22,7 @@
         message: "Hassio boots"
       
 - id: update_networkmap
-  alias: 'Zigbee Map bijwerken'  
-  hide_entity: true  
+  alias: 'Zigbee Map bijwerken'   
   trigger:
     platform: time_pattern
     minutes: '1'

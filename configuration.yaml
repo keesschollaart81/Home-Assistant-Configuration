@@ -176,8 +176,3 @@ shell_command:
 
 folder_watcher:
   - folder: /share/motion/backyard
-
-unifi:
-  controllers:
-    - host: "hassio"
-      site: "Schollaart @ HA"
