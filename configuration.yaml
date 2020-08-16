@@ -49,10 +49,6 @@ updater:
 
 discovery:
 
-# conversation:
-
-history_graph:
-
 recorder:
   db_url: !secret recorder_db_url
   purge_interval: 2
