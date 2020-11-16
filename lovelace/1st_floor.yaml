@@ -62,3 +62,4 @@ cards:
     title: Attic
     entities: 
       - light.attic_light
+      - light.attic_roof
