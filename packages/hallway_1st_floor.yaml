@@ -7,7 +7,7 @@ homeassistant:
     timer.hallway_1st_floor_dimmer_lights_off_in:
       friendly_name: Hallway 1st floor lights off in
 
-automation:
+automation:  
   - id: "LightOnInHallway1stFloorWhenActivity"
     alias: Enable lights in hallway on the first floor when there is activity
     trigger:
@@ -34,7 +34,7 @@ automation:
     alias: Turn off the lights in the hallway 1st floor after x
     trigger:
       - platform: state
-        entity_id: binary_sensor.hallway_1st_floor_dimmer_switch_binary_sensor
+        entity_id: light.shellydimmer2_40f5200033ef
     action:
       - service: timer.start
         data:
