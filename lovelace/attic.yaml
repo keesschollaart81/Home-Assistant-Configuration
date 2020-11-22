@@ -6,7 +6,7 @@ cards:
     title: Attic
     entities: 
       - light.attic_ceiling_led_strip 
-      - light.0x00124b002116c339 
+      - light.0x00124b002116c339_light
       - scene.colorfull_attic
       - scene.white_attic
       - light.attic_killswitch_lights
