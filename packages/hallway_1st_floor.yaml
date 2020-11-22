@@ -98,5 +98,5 @@ automation:
           transition: 0
 
 timer:
-  shellydimmer2_40f5200033ef:
+  hallway_1st_floor_dimmer_lights_off_in:
     duration: "00:02:00"
