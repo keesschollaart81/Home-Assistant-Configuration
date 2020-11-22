@@ -1,15 +1,16 @@
-customize:
-  light.0x0017880108ca5f8e_light:
-    friendly_name: Attic Ceiling 1
+homeassistant:
+  customize:
+    light.0x0017880108ca5f8e_light:
+      friendly_name: Attic Ceiling 1
 
-  light.0x001788010929be34_light:
-    friendly_name: Attic Ceiling 2
+    light.0x001788010929be34_light:
+      friendly_name: Attic Ceiling 2
 
-  light.0x0017880108c51275_light:
-    friendly_name: Attic Ceiling 3
+    light.0x0017880108c51275_light:
+      friendly_name: Attic Ceiling 3
 
-  light.0x00124b002116c339:
-    friendly_name: Attic LED Strip
+    light.0x00124b002116c339:
+      friendly_name: Attic LED Strip
 
 light:
   - platform: group
