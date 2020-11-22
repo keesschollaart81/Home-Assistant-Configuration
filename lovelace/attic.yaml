@@ -1,0 +1,8 @@
+id: attic_tab
+title: Attic
+cards:
+  - id: attic_card
+    type: entities
+    title: Attic
+    entities: 
+      - light.attic_lights 

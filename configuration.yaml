@@ -52,8 +52,8 @@ discovery:
 
 recorder:
   db_url: !secret recorder_db_url
-  purge_interval: 2
-  purge_keep_days: 5
+  auto_purge: 2
+  purge_keep_days: 2
 
 logbook:
 

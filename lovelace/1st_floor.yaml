@@ -1,5 +1,5 @@
 id: 1st_floor_tab
-title: 1st floor & attic
+title: 1st floor
 cards:
   - type: custom:banner-card
     heading: "\U0001F6C1 Bathroom"
@@ -56,10 +56,4 @@ cards:
       - entity: binary_sensor.0x00158d0003120fb3_contact
         name: "Door"
       - timer.bathroom_lights_off_in 
-      - binary_sensor.0x00158d0002e2e35e_occupancy
-  - id: attic_card
-    type: entities
-    title: Attic
-    entities: 
-      - light.attic_light
-      - light.attic_roof
+      - binary_sensor.0x00158d0002e2e35e_occupancy 

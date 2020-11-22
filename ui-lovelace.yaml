@@ -7,6 +7,7 @@ resources:
 views:   
   - !include lovelace/home.yaml
   - !include lovelace/1st_floor.yaml
+  - !include lovelace/attic_tab.yaml
   - !include lovelace/system.yaml
   - id: zigbeemap
     title: Zigbee
