@@ -1,0 +1,55 @@
+camera: 
+  - name: Locations
+    platform: generic
+    still_image_url: https://maps.googleapis.com/maps/api/staticmap?size=500x300&maptype=roadmap&markers=color:blue%7Clabel:K%7C{{ states.device_tracker.iphone_van_kees.attributes.latitude }},{{ states.device_tracker.iphone_van_kees.attributes.longitude }}&markers=color:red%7Clabel:M%7C{{ states.device_tracker.iphone_van_marleen.attributes.latitude }},{{ states.device_tracker.iphone_van_marleen.attributes.longitude }}&key=!secret google_maps_key
+    limit_refetch_to_url_change: true
+    framerate: 1
+
+automation:
+  - id: update_travel_sensor_normal
+    alias: update_travel_sensor_normal
+    initial_state: true
+    trigger:
+      - platform: time_pattern
+        minutes: '1' 
+    action:
+      - service: homeassistant.update
+        data:
+          entity_id: sensor.kees_naar_huis
+
+  - id: update_travel_sensor_normal_kees_away
+    alias: update_travel_sensor_normal_kees_away
+    initial_state: true
+    trigger:
+      - platform: time_pattern
+        minutes: '/5'
+    condition:
+      - condition: time
+        after: '05:00:00'
+        before: '23:59:00'
+      - condition: state
+        entity_id: device_tracker.iphone_van_kees
+        state: 'Away'
+    action:
+      - service: homeassistant.update
+        data:
+          entity_id: sensor.kees_naar_huis
+
+  - id: update_travel_sensor_aggresive
+    alias: update_travel_sensor_aggresive
+    initial_state: true
+    trigger:
+      - platform: time_pattern
+        minutes: '/1'
+    condition:
+      - condition: time
+        after: '16:00:00'
+        before: '19:30:00'
+      - condition: state
+        entity_id: device_tracker.iphone_van_kees
+        state: 'Away'
+    action:
+      - service: homeassistant.update
+        data:
+          entity_id: sensor.kees_naar_huis
+

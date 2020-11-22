@@ -1,0 +1,59 @@
+homeassistant:
+  customize:
+    switch.licht_in_tuin:
+      friendly_name: Garden - Light Switch
+      icon: mdi:flower
+
+switch:
+  - platform: xiaomi_miio
+    name: Licht in tuin
+    host: 192.168.1.32 #chuangmi-plug-v3_miio71262865
+    token:  !secret xiaomi_plug_tuin
+    model: chuangmi.plug.v2
+
+automation:
+  - id: 'TuinlichtAanBijZonsondergang'
+    alias: 'TuinlichtAanBijZonsondergang'
+    trigger:
+      platform: sun
+      event: sunset
+      offset: "-00:45:00"
+    action:
+      service: homeassistant.turn_on
+      entity_id: switch.licht_in_tuin
+
+  - id: 'TuinlichtUitNaEenTijdje'
+    alias: 'TuinlichtUitNaEenTijdje'
+    trigger:
+    - platform: time
+      at: '23:30:00'
+      # platform: sun
+      # event: sunset
+      # offset: "+02:00:00"
+    action:
+      service: homeassistant.turn_off
+      entity_id: switch.licht_in_tuin
+
+  - id: 'TuinlichtAanVoorZonsopkomst'
+    alias: 'TuinlichtAanVoorZonsopkomst' 
+    trigger:
+      platform: sun
+      event: sunrise
+      offset: "-00:45:00"
+    action:
+      service: homeassistant.turn_on
+      entity_id: switch.licht_in_tuin
+
+  - id: 'TuinlichtUitNaZonsopkomst'
+    alias: 'TuinlichtUitNaZonsopkomst'
+    trigger:
+      platform: sun
+      event: sunrise
+      offset: "00:45:00"
+    action:
+      service: homeassistant.turn_off
+      entity_id: switch.licht_in_tuin
+  
+          
+
+          

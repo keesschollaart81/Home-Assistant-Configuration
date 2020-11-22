@@ -30,6 +30,14 @@ automation:
       - service: light.toggle
         entity_id: light.attic_ceiling_led_strip  
 
+  - alias: "Turn off the lights after working hours" 
+    trigger:
+      platform: time
+      at: '18:00:00'
+    action:
+      service: light.turn_off
+      entity_id: light.attic_ceiling_led_strip  
+
 scene:
   - name: Colorfull Attic
     entities:

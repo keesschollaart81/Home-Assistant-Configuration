@@ -1,3 +1,12 @@
+homeassistant:
+  customize:
+    shellydimmer2_40f5200033ef:
+      friendly_name: Lights Hallway 1st floor
+      icon: mdi:ceiling-light
+        
+    timer.hallway_1st_floor_dimmer_lights_off_in:
+      friendly_name: Hallway 1st floor lights off in
+
 automation:
   - id: "LightOnInHallway1stFloorWhenActivity"
     alias: Enable lights in hallway on the first floor when there is activity
@@ -7,7 +16,7 @@ automation:
         to: "on"
     action:
       - service: light.turn_on
-        entity_id: light.hallway_1st_floor_dimmer_light
+        entity_id: light.shellydimmer2_40f5200033ef
         data_template:
           transition: 0
           brightness: >
@@ -42,7 +51,7 @@ automation:
       data:
         transition: 0
         entity_id:
-          - light.hallway_1st_floor_dimmer_light
+          - light.shellydimmer2_40f5200033ef
 
   - id: "TurnOnLightsInHallwayAtSevenWorkingDays"
     alias: Turn on lights in hallway at seven
@@ -56,14 +65,14 @@ automation:
     action:
       - service: light.turn_on
         data:
-          entity_id: light.hallway_1st_floor_dimmer_light
+          entity_id: light.shellydimmer2_40f5200033ef
           brightness: 125
           transition: 0
       - delay:
           minutes: 3
       - service: light.turn_off
         data:
-          entity_id: light.hallway_1st_floor_dimmer_light
+          entity_id: light.shellydimmer2_40f5200033ef
           transition: 0
 
   - id: "TurnOnLightsInHallwayAtSevenNonWorkingDays"
@@ -78,16 +87,16 @@ automation:
     action:
       - service: light.turn_on
         data:
-          entity_id: light.hallway_1st_floor_dimmer_light
+          entity_id: light.shellydimmer2_40f5200033ef
           brightness: 125
           transition: 0
       - delay:
           minutes: 3
       - service: light.turn_off
         data:
-          entity_id: light.hallway_1st_floor_dimmer_light
+          entity_id: light.shellydimmer2_40f5200033ef
           transition: 0
 
 timer:
-  hallway_1st_floor_dimmer_lights_off_in:
+  shellydimmer2_40f5200033ef:
     duration: "00:02:00"

@@ -1,0 +1,254 @@
+homeassistant:
+  customize:
+
+    light.bank:
+      friendly_name: Couch lamp
+      icon: mdi:lamp
+    
+    light.staandelamp:
+        friendly_name: Standing lamp
+        icon: mdi:floor-lamp
+    
+    light.kitchen_light:
+        friendly_name: Kitchen Light
+        icon: mdi:ceiling-light
+    
+    light.lampentafel:
+        friendly_name: Table Lights
+        icon: mdi:ceiling-light
+    
+    binary_sensor.0x00158d000222df56_occupancy:
+        friendly_name: Living Room - Motion
+    
+    sensor.0x00158d000222df56_illuminance:
+        friendly_name: Living Room - Illuminance
+    
+    sensor.0x00158d000222df56_battery:
+        friendly_name: Living Room - Motion Sensor Battery
+    
+    sensor.0x00158d0001639d5a_click:
+        friendly_name: Living Room - Switch Left
+    
+    sensor.0x00158d0001639d5a_battery:
+        friendly_name: Living Room - Switch Left Battery
+        
+    sensor.0x00158d0001710729_click:
+        friendly_name: Living Room - Switch Right
+    
+    sensor.0x00158d0001710729_battery:
+        friendly_name: Living Room - Switch Right Battery
+    
+    binary_sensor.0x00158d00027743b7_water_leak:
+        friendly_name: Coffee Machine water reservoir
+  
+
+light:
+  - platform: xiaomi_miio #ok
+    name: staandelamp
+    host: philips-light-bulb_miio61632965.localdomain
+    token: !secret staandelamp_token
+  - platform: xiaomi_miio #ok
+    name: bank
+    host: philips-light-bulb_miio61510856.localdomain
+    token: !secret bank_token
+  - platform: xiaomi_miio
+    name: tafel1
+    host: philips-light-bulb_miio61623717.localdomain
+    token: !secret tafel1_token
+  - platform: xiaomi_miio #ok
+    name: tafel2
+    host: philips-light-bulb_miio61511979.localdomain
+    token: !secret tafel2_token
+  - platform: xiaomi_miio
+    name: tafel3
+    host: philips-light-bulb_miio60379202.localdomain
+    token: !secret tafel3_token
+  - platform: group
+    name: LampenTafel
+    entities:
+      - light.tafel1
+      - light.tafel2
+      - light.tafel3
+  - platform: group
+    name: Hall Light
+    entities:
+      - light.0x90fd9ffffe10c5d1_light
+      - light.0x90fd9ffffe135ab2_light
+  - platform: mqtt
+    name: kitchen
+    state_topic: "stat/kitchen/POWER"
+    command_topic: "cmnd/kitchen/POWER"
+    availability_topic: "tele/kitchen/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: true
+  - platform: group
+    name: Livingroom
+    entities:
+      - light.staandelamp
+      - light.bank
+      - light.LampenTafel
+      - light.kitchen_light
+
+scene:
+  - name: Evening
+    entities:
+      light.lampentafel:
+        state: "on"
+        color_temp: 333
+        brightness: 30
+      light.staandelamp:
+        state: "on"
+        color_temp: 333
+        brightness: 150
+      light.bank:
+        state: "on"
+        color_temp: 333
+        brightness: 150
+
+  - name: Eating
+    entities:
+      light.lampentafel:
+        state: "on"
+        color_temp: 333
+        brightness: 125
+      light.staandelamp:
+        state: "on"
+        color_temp: 333
+        brightness: 100
+      light.bank:
+        state: "on"
+        color_temp: 333
+        brightness: 100
+
+  - name: Maximum
+    entities:
+      light.lampentafel:
+        state: "on"
+        color_temp: 333
+        brightness: 255
+      light.staandelamp:
+        state: "on"
+        color_temp: 333
+        brightness: 255
+      light.bank:
+        state: "on"
+        color_temp: 333
+        brightness: 255
+      light.kitchen_light:
+        state: "on"
+
+  - name: living_room_lights_off
+    entities:
+      light.lampentafel:
+        state: "off"
+      light.staandelamp:
+        state: "off"
+      light.bank:
+        state: "off"
+      light.kitchen_light:
+        state: "off"
+
+
+
+automation:
+  - id: knop1
+    alias: Living Room - Switch 1 (Eating)
+    trigger:
+      - platform: state
+        entity_id: sensor.0x00158d0001639d5a_click
+        to: "left"
+    action:
+      - service: homeassistant.turn_on
+        entity_id: scene.Eating
+
+  - id: knop2
+    alias: Living Room - Switch 2 (Evening)
+    trigger:
+      - platform: state
+        entity_id: sensor.0x00158d0001639d5a_click
+        to: "right"
+    action:
+      - service: homeassistant.turn_on
+        entity_id: scene.evening
+
+  - id: knop3
+    alias: Living Room - Switch 3 (Kitchen)
+    trigger:
+      - platform: state
+        entity_id: sensor.0x00158d0001710729_click
+        to: "left"
+    action:
+      - service: light.toggle
+        data:
+          entity_id: light.kitchen_light
+
+  - id: knop4
+    alias: Living Room - Switch 4 (All off)
+    trigger:
+      - platform: state
+        entity_id: sensor.0x00158d0001710729_click
+        to: "right"
+    action:
+      - service: homeassistant.turn_on
+        entity_id: scene.living_room_lights_off
+
+  - id: knop5
+    alias: Living Room - Switch 5
+    trigger:
+      - platform: state
+        entity_id: sensor.0x00158d0001710729_click
+        to: "both"
+    action:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.google_goodnight_routine
+      - service: notify.phones_kees_marleen
+        data:
+          title: "Nachtmodus geactiveerd" 
+
+  - id: LightsOnAutoWhenMotion
+    alias: Lights on when motion
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.0x00158d000222df56_occupancy
+        to: "on"
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: sun.sun
+          state: "below_horizon"
+        - condition: state
+          entity_id: light.staandelamp
+          state: "off"
+    action:
+      - service: homeassistant.turn_on
+        entity_id: scene.eating
+        
+script:
+  sonos_say:
+    alias: "Sonos TTS script"
+    sequence:
+      - service: sonos.snapshot
+        data_template:
+          entity_id: "{{ sonos_entity }}"
+      - service: sonos.unjoin
+        data_template:
+          entity_id: "{{ sonos_entity }}"
+      - service: media_player.volume_set
+        data_template:
+          entity_id: "{{ sonos_entity }}"
+          volume_level: "{{ volume }}"
+      - service: tts.google_translate_say
+        data_template:
+          entity_id: "{{ sonos_entity }}"
+          message: "{{ message }}"
+      - delay: "{{ delay }}"
+      - service: sonos.restore
+        data_template:
+          entity_id: "{{ sonos_entity }}"
+  
+  

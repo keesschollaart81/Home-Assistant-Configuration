@@ -73,6 +73,8 @@ homeassistant:
         friendly_name: Hall Light
         icon: mdi:ceiling-light
 
+    timer.hallway_lights_off_in :
+      friendly_name: Hallway lights off in
 timer:
   hallway_lights_off_in:
     duration: '00:02:00'
