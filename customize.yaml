@@ -73,13 +73,7 @@ binary_sensor.0x00158d00027743b7_water_leak:
 binary_sensor.0x00158d0002e2ab4d_occupancy:
     friendly_name: Hallway 1st floor - Motion
 
-sensor.0x00158d0002e2ab4d_illuminance:
-    friendly_name: Hallway 1st floor - Illuminance
-
-binary_sensor.hallway_1st_floor_dimmer_switch_binary_sensor_binary_sensor:
-    friendly_name: Hallway 1st floor - Switch
-
-light.hallway_1st_floor_dimmer_light:
+light.shellydimmer2_40f5200033ef:
     friendly_name: Hallway 1st floor - Light
     icon: mdi:ceiling-light
 
@@ -97,3 +91,4 @@ timer.hallway_1st_floor_dimmer_lights_off_in:
 
 camera.locations:
     friendly_name: Location Kees & Marleen
+

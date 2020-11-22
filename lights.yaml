@@ -58,10 +58,4 @@
     - light.bank
     - light.LampenTafel
     - light.kitchen_light
-- platform: group
-  name: Attic Roof
-  entities:
-    - light.0x0017880108ca5f8e_light
-    - light.0x001788010929be34_light
-    - light.0x0017880108c51275_light
 

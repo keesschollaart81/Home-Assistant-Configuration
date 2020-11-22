@@ -1,5 +1,5 @@
 esphome:
-  name: attic
+  name: attic_switch
   platform: ESP8266
   board: esp01_1m
   board_flash_mode: dout
@@ -11,7 +11,7 @@ wifi:
   - ssid: !secret esphome_wifi_2_ssid
     password: !secret esphome_wifi_2_password 
   # manual_ip:
-  #   static_ip: 192.168.2.101
+  #   static_ip: 192.168.1.8
   #   gateway: !secret esphome_network_gateway 
   #   subnet: !secret esphome_network_subnet 
   #   dns1: !secret esphome_network_dns1 
@@ -39,17 +39,11 @@ binary_sensor:
   - platform: gpio
     pin: GPIO5
     name: "attic_switch" 
-    on_press:
-      then:
-        - light.toggle: attic_light
-    on_release:
-      then:
-        - light.toggle: attic_light
 
 light:
   - platform: binary
-    id: attic_light
-    name: "attic_light"
+    id: attic_killswitch_lights
+    name: "attic_killswitch_lights"
     output: attic_relay
 
 output:
