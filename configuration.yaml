@@ -11,7 +11,6 @@ homeassistant:
     - type: homeassistant
 
 sensor: !include sensors.yaml
-script: !include script.yaml
 history: !include history.yaml
 
 binary_sensor: 
