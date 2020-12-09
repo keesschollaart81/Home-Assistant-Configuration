@@ -18,11 +18,11 @@ binary_sensor:
     country: NL 
   
 group:
-  iedereen:
+  everyone:
     name: Everyone
     entities:
-      - sensor.iphone_van_marleen_battery_level 
-      - sensor.iphone_van_marleen_battery_state 
+      - device_tracker.iphone_van_marleen
+      - device_tracker.iphone_van_kees
 
 system_health:
 frontend:
@@ -36,7 +36,6 @@ mobile_app:
 http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
-  # api_password: !secret http_password
   
 lovelace:
   mode: yaml

@@ -1,4 +1,3 @@
-
 - platform: google_travel_time
   name: Kees naar huis
   api_key: !secret google_api_key
@@ -6,23 +5,6 @@
   destination: zone.home
   options:
     mode: driving
-
-- platform: template
-  sensors:
-    # kees_travel_km_back_home: 
-    #   unit_of_measurement: 'km'
-    #   value_template: "{{ states.sensor.kees_naar_huis.distance | float }}"
-    # kees_distance_km_back_home: 
-    #   unit_of_measurement: 'km'
-    #   value_template: "{{ states.proximity.home | float }}"
-    toon_target_temperature:
-      value_template: '{{ states.climate.thermostat.attributes.temperature }}'
-      friendly_name: 'Target Temperatuur'
-      unit_of_measurement: '°C'
-    toon_current_temperature:
-      value_template: '{{ states.climate.thermostat.attributes.current_temperature }}'
-      friendly_name: 'Current Temperatuur'
-      unit_of_measurement: '°C' 
 
 - platform: systemmonitor
   scan_interval: 300
