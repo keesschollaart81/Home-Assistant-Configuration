@@ -22,15 +22,6 @@ light:
       - light.0x00124b002116c339_light
 
 automation: 
-  - id: "123"
-    alias: HA COnf
-    trigger:
-      - platform: state
-        entity_id: sensor.0x680ae2fffe96f00b_action
-    action: 
-      - service: light.toggle
-        data:
-          entity_id: light.attic_ceiling_led_strip
           
   - alias: "Turn on attic lights via switch"
     trigger:
