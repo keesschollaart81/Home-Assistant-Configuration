@@ -119,7 +119,7 @@ cards:
       - light.kitchen_light
   - id: thermostat_card
     type: 'custom:simple-thermostat'
-    entity: climate.toon
+    entity: climate.toon_thermostat
     control:
       - preset     
   - id: thermostat_entities
@@ -128,8 +128,8 @@ cards:
     show_header_toggle: false
     entities:
       - sensor.toon_gas_used_last_hour
-      - sensor.toon_gas_used_cnt
-      - sensor.toon_power_use_cnt
+      # - sensor.toon_gas_used_cnt
+      # - sensor.toon_power_use_cnt
       - sensor.toon_power_use
       - sensor.toon_p1_power_use_cnt_low
       - sensor.toon_p1_power_use_cnt_high
