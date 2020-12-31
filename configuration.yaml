@@ -30,7 +30,6 @@ config:
 ios:
 sonos:
 auth:
-custom_updater:
 mobile_app:
 
 http:
