@@ -1,8 +1,8 @@
 title: Home
 resources:
-  - url: /local/banner-card.js?v=1
+  - url: /local/community/banner-card/banner-card.js?v=1
     type: module
-  - url: /local/community/simple-thermostat.js?v=1
+  - url: /local/community/simple-thermostat/simple-thermostat.js?v=1
     type: module
 views:   
   - !include lovelace/home.yaml
