@@ -1,8 +1,8 @@
 title: Home
 resources:
-  - url: /customcards/github/custom-cards/tracker-card.js?track=true
+  - url: /local/banner-card.js?v=1
     type: module
-  - url: /customcards/github/nervetattoo/banner-card.js?track=true
+  - url: /local/community/simple-thermostat.js?v=1
     type: module
 views:   
   - !include lovelace/home.yaml

@@ -131,7 +131,6 @@ cards:
       - sensor.toon_gas_used_cnt
       - sensor.toon_power_use_cnt
       - sensor.toon_power_use
-      - sensor.toon_p1_power_use_cnt_pulse
       - sensor.toon_p1_power_use_cnt_low
       - sensor.toon_p1_power_use_cnt_high
       - sensor.toon_p1_power_use_low
