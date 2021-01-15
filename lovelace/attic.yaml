@@ -17,3 +17,12 @@ cards:
       - light.0x0017880108ca5f8e_light 
       - light.0x001788010929be34_light  
       - light.0x0017880108c51275_light  
+  - id: attic_temperatures
+    type: history-graph
+    entities: 
+      - entity: sensor.0x00158d0004a015c5_humidity
+        name: "Humidity" 
+      - entity: sensor.0x00158d0004a015c5_pressure
+        name: "Pressure" 
+      - entity: sensor.0x00158d0004a015c5_temperature
+        name: "Temperature"  
