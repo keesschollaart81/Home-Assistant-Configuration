@@ -119,3 +119,23 @@ cards:
       - light.bank
       - light.lampentafel
       - light.kitchen_light
+  - id: thermostat_card
+    type: 'custom:simple-thermostat'
+    entity: climate.toon_thermostat
+    control:
+      - preset     
+  - id: thermostat_entities
+    type: entities
+    title: Toon
+    show_header_toggle: false
+    entities:
+      - sensor.toon_gas_used_last_hour
+      # - sensor.toon_gas_used_cnt
+      # - sensor.toon_power_use_cnt
+      - sensor.toon_power_use
+      - sensor.toon_p1_power_use_cnt_low
+      - sensor.toon_p1_power_use_cnt_high
+      - sensor.toon_p1_power_use_low
+      - sensor.toon_p1_power_use_high
+      - sensor.toon_p1_heat
+    

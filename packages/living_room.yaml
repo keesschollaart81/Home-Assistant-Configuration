@@ -260,4 +260,20 @@ script:
         data_template:
           entity_id: "{{ sonos_entity }}"
   
-  
+climate:
+  - platform: toon_climate 
+    host: 192.168.1.10 
+
+sensor:
+  - platform: toon_smartmeter
+    host: 192.168.1.10
+    resources:
+      - gasused
+      - gasusedcnt
+      - elecusageflowpulse
+      - elecusagecntpulse
+      - elecusageflowlow
+      - elecusagecntlow
+      - elecusageflowhigh
+      - elecusagecnthigh
+      - heat

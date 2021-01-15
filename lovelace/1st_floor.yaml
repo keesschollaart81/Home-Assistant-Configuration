@@ -2,7 +2,7 @@ id: 1st_floor_tab
 title: 1st floor
 cards:
   - type: custom:banner-card
-    heading: "\U0001F6C1 Bathroom"
+    heading: [mdi:shower, Bathroom]
     background: "#B0C2ED"
     link: /lovelace/bathroom
     entities:

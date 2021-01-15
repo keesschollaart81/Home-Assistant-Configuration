@@ -30,33 +30,43 @@ light:
       - light.0x0017880108c51275_light
       - light.0x00124b002116c339_light
 
-automation: 
-
-  - id: "123"
-    alias: HA Conference
+automation:
+  - alias: Motion Detection - Attic Light off
     trigger:
-      - platform: state
-        entity_id: sensor.0x680ae2fffe96f00b_action
+      platform: state
+      entity_id: binary_sensor.0x842e14fffe4b54f2_occupancy
+      to: "Clear"
+      for: "00:30:00"
     action:
-      - service: light.toggle
-        data:
-          entity_id: light.attic_ceiling_led_strip
-  
+      - service: light.turn_off
+        entity_id: light.attic_ceiling_led_strip
+      - service: light.turn_off
+        entity_id: light.elgato_key_light_air
+
+  - alias: Motion Detection - Attic Light on
+    trigger:
+      platform: state
+      entity_id: binary_sensor.0x842e14fffe4b54f2_occupancy
+      to: "Detected"
+    action:
+      - service: light.turn_on
+        entity_id: light.attic_ceiling_led_strip
+
   - alias: "Turn on attic lights via switch"
     trigger:
       - platform: state
-        entity_id: binary_sensor.attic_switch 
+        entity_id: binary_sensor.attic_switch
     action:
       - service: light.toggle
-        entity_id: light.attic_ceiling_led_strip  
+        entity_id: light.attic_ceiling_led_strip
 
-  - alias: "Turn off the lights after working hours" 
+  - alias: "Turn off the lights after working hours"
     trigger:
       platform: time
-      at: '18:00:00'
+      at: "18:00:00"
     action:
       service: light.turn_off
-      entity_id: light.attic_ceiling_led_strip  
+      entity_id: light.attic_ceiling_led_strip
 
 scene:
   - name: Colorfull Attic

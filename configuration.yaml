@@ -30,7 +30,6 @@ config:
 ios:
 sonos:
 auth:
-custom_updater:
 mobile_app:
 
 http:
@@ -56,7 +55,6 @@ logger:
   default: warn
   logs:
     homeassistant.components.mqtt: info
-    homeassistant.components.toon: debug
     homeassistant.components.shell_command: debug
     homeassistant.components.google_assistant: debug
 
@@ -89,10 +87,6 @@ panel_iframe:
     title: Esphomeyaml
     icon: mdi:code-not-equal-variant
     url: http://schollaartthuis.duckdns.org:6052/,
-
-toon:
-  client_id: !secret toon_key
-  client_secret: !secret toon_secret
 
 mqtt:
   broker: core-mosquitto
