@@ -12,6 +12,15 @@ homeassistant:
     light.0x00124b002116c339_light:
       friendly_name: Attic LED Strip
 
+    sensor.0x00158d0004a015c5_humidity:
+      friendly_name: "Attic Humidity"
+  
+    sensor.0x00158d0004a015c5_pressure:
+      friendly_name: "Attic Pressure"
+      
+    sensor.0x00158d0004a015c5_temperature:
+      friendly_name: "Attic Temperature"
+
 light:
   - platform: group
     name: Attic Ceiling & LED Strip

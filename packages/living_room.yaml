@@ -40,7 +40,16 @@ homeassistant:
     
     binary_sensor.0x00158d00027743b7_water_leak:
         friendly_name: Coffee Machine water reservoir
+
+    sensor.0x00158d0004a0166e_humidity:
+      friendly_name: "Living Room - Humidity"
   
+    sensor.0x00158d0004a0166e_pressure:
+      friendly_name: "Living Room - Pressure"
+      
+    sensor.0x00158d0004a0166e_temperature:
+      friendly_name: "Living Room - Temperature"
+        
 
 light:
   - platform: xiaomi_miio #ok

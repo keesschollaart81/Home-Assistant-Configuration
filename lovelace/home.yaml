@@ -106,6 +106,8 @@ cards:
         name: "Toon Current"
       - entity: sensor.toon_target_temperature
         name: "Toon Target"
+      - entity: sensor.0x00158d0004a0166e_temperature
+        name: "Living Room Sensor"
     hours_to_show: 12
     title: "Temperatures"
   - id: living_room_all
