@@ -38,7 +38,7 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.0x842e14fffe4b54f2_occupancy
-      to: false
+      to: "off"
       for: "00:30:00"
     action:
       - service: light.turn_off
@@ -50,7 +50,7 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.0x842e14fffe4b54f2_occupancy
-      to: true
+      to: "on"
     action:
       - service: light.turn_on
         entity_id: light.attic_ceiling_led_strip
