@@ -13,9 +13,6 @@ exclude:
     - sensor.0x00158d0002138221_click
     - sensor.iphone_van_marleen_battery_level 
     - sensor.iphone_van_marleen_battery_state 
-    - light.tafel1
-    - light.tafel2
-    - light.tafel3 
     - sensor.bridge_state
     - sensor.temperature_1d
     - zigbee2mqtt_networkmap.last_update 

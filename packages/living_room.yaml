@@ -60,40 +60,29 @@ light:
     name: bank
     host: philips-light-bulb_miio61510856.localdomain
     token: !secret bank_token
-  - platform: xiaomi_miio
-    name: tafel1
-    host: philips-light-bulb_miio61623717.localdomain
-    token: !secret tafel1_token
-  - platform: xiaomi_miio #ok
-    name: tafel2
-    host: philips-light-bulb_miio61511979.localdomain
-    token: !secret tafel2_token
-  - platform: xiaomi_miio
-    name: tafel3
-    host: philips-light-bulb_miio60379202.localdomain
-    token: !secret tafel3_token
-  - platform: group
-    name: LampenTafel
-    entities:
-      - light.tafel1
-      - light.tafel2
-      - light.tafel3
+  # - platform: xiaomi_miio
+  #   name: tafel1
+  #   host: philips-light-bulb_miio61623717.localdomain
+  #   token: !secret tafel1_token
+  # - platform: xiaomi_miio #ok
+  #   name: tafel2
+  #   host: philips-light-bulb_miio61511979.localdomain
+  #   token: !secret tafel2_token
+  # - platform: xiaomi_miio
+  #   name: tafel3
+  #   host: philips-light-bulb_miio60379202.localdomain
+  #   token: !secret tafel3_token
+  # - platform: group
+  #   name: LampenTafel
+  #   entities:
+  #     - light.tafel1
+  #     - light.tafel2
+  #     - light.tafel3
   - platform: group
     name: Hall Light
     entities:
       - light.0x90fd9ffffe10c5d1_light
       - light.0x90fd9ffffe135ab2_light
-  - platform: mqtt
-    name: kitchen
-    state_topic: "stat/kitchen/POWER"
-    command_topic: "cmnd/kitchen/POWER"
-    availability_topic: "tele/kitchen/LWT"
-    qos: 1
-    payload_on: "ON"
-    payload_off: "OFF"
-    payload_available: "Online"
-    payload_not_available: "Offline"
-    retain: true
   - platform: group
     name: Livingroom
     entities:
@@ -106,49 +95,47 @@ scene:
   - name: Evening
     entities:
       light.shellydimmer2_e8db84d2ed82:
-        state: "on"
-        color_temp: 333
+        state: "on" 
+        brightness: 30
+      light.shellydimmer2_e8db84d2e4d6:
+        state: "on" 
         brightness: 30
       light.staandelamp:
-        state: "on"
-        color_temp: 333
+        state: "on" 
         brightness: 150
       light.bank:
-        state: "on"
-        color_temp: 333
+        state: "on" 
         brightness: 150
 
   - name: Eating
     entities:
       light.shellydimmer2_e8db84d2ed82:
-        state: "on"
-        color_temp: 333
+        state: "on" 
         brightness: 125
+      light.shellydimmer2_e8db84d2e4d6:
+        state: "on" 
+        brightness: 30
       light.staandelamp:
-        state: "on"
-        color_temp: 333
+        state: "on" 
         brightness: 100
       light.bank:
-        state: "on"
-        color_temp: 333
+        state: "on" 
         brightness: 100
 
   - name: Maximum
     entities:
       light.shellydimmer2_e8db84d2ed82:
-        state: "on"
-        color_temp: 333
-        brightness: 255
-      light.staandelamp:
-        state: "on"
-        color_temp: 333
-        brightness: 255
-      light.bank:
-        state: "on"
-        color_temp: 333
+        state: "on" 
         brightness: 255
       light.shellydimmer2_e8db84d2e4d6:
-        state: "on"
+        state: "on" 
+        brightness: 255
+      light.staandelamp:
+        state: "on" 
+        brightness: 255
+      light.bank:
+        state: "on" 
+        brightness: 255 
 
   - name: living_room_lights_off
     entities:
