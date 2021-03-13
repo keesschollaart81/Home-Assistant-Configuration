@@ -8,14 +8,14 @@ homeassistant:
     light.staandelamp:
         friendly_name: Standing lamp
         icon: mdi:floor-lamp
-    
-    light.kitchen_light:
-        friendly_name: Kitchen Light
+     
+    light.shellydimmer2_e8db84d2e4d6:
+        friendly_name: Kitchen
         icon: mdi:ceiling-light
-    
-    light.lampentafel:
+
+    light.shellydimmer2_e8db84d2ed82:
         friendly_name: Table Lights
-        icon: mdi:ceiling-light
+        icon: mdi:ceiling-light 
     
     binary_sensor.0x00158d000222df56_occupancy:
         friendly_name: Living Room - Motion
@@ -99,13 +99,13 @@ light:
     entities:
       - light.staandelamp
       - light.bank
-      - light.LampenTafel
-      - light.kitchen_light
+      - light.shellydimmer2_e8db84d2ed82
+      - light.shellydimmer2_e8db84d2e4d6
 
 scene:
   - name: Evening
     entities:
-      light.lampentafel:
+      light.shellydimmer2_e8db84d2ed82:
         state: "on"
         color_temp: 333
         brightness: 30
@@ -120,7 +120,7 @@ scene:
 
   - name: Eating
     entities:
-      light.lampentafel:
+      light.shellydimmer2_e8db84d2ed82:
         state: "on"
         color_temp: 333
         brightness: 125
@@ -135,7 +135,7 @@ scene:
 
   - name: Maximum
     entities:
-      light.lampentafel:
+      light.shellydimmer2_e8db84d2ed82:
         state: "on"
         color_temp: 333
         brightness: 255
@@ -147,18 +147,18 @@ scene:
         state: "on"
         color_temp: 333
         brightness: 255
-      light.kitchen_light:
+      light.shellydimmer2_e8db84d2e4d6:
         state: "on"
 
   - name: living_room_lights_off
     entities:
-      light.lampentafel:
+      light.shellydimmer2_e8db84d2ed82:
         state: "off"
       light.staandelamp:
         state: "off"
       light.bank:
         state: "off"
-      light.kitchen_light:
+      light.shellydimmer2_e8db84d2e4d6:
         state: "off"
 
 
@@ -193,7 +193,7 @@ automation:
     action:
       - service: light.toggle
         data:
-          entity_id: light.kitchen_light
+          entity_id: light.shellydimmer2_e8db84d2e4d6
 
   - id: knop4
     alias: Living Room - Switch 4 (All off)

@@ -19,13 +19,13 @@ automation:
           - light.bank
           - light.staandelamp 
       - service: light.turn_on
-        entity_id: light.lampentafel
+        entity_id: light.shellydimmer2_e8db84d2ed82
         data_template:
           brightness: "10"
       - delay: "00:02"
       - service: light.turn_off
         entity_id: 
-        - light.lampentafel
+        - light.shellydimmer2_e8db84d2ed82
         - switch.licht_in_tuin
 
 input_boolean:
@@ -68,10 +68,10 @@ google_assistant:
       aliases:
         - Hal eerste verdieping
         - Hal eerste etage
-    light.kitchen_light:
+    light.shellydimmer2_e8db84d2e4d6:
       name: Keuken
       expose: true
-    light.lampentafel:
+    light.shellydimmer2_e8db84d2ed82:
       name: Tafel
       expose: true
       aliases:

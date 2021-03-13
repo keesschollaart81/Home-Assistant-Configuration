@@ -32,7 +32,7 @@ cards:
     entities:
       - entity: binary_sensor.0x00158d000222df56_occupancy
         name: Occupancy
-      - entity: light.kitchen_light
+      - entity: light.shellydimmer2_e8db84d2e4d6
         name: Kitchen
         tap_action: 
           action: toggle
@@ -121,8 +121,8 @@ cards:
     entities:
       - light.staandelamp
       - light.bank
-      - light.lampentafel
-      - light.kitchen_light
+      - light.shellydimmer2_e8db84d2ed82
+      - light.shellydimmer2_e8db84d2e4d6
   - id: thermostat_card
     type: 'custom:simple-thermostat'
     entity: climate.toon_thermostat
