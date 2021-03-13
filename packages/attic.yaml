@@ -21,6 +21,9 @@ homeassistant:
     sensor.0x00158d0004a015c5_temperature:
       friendly_name: "Attic Temperature"
 
+    binary_sensor.0x842e14fffe4b54f2_occupancy:
+      friendly_name: "Attic Occupancy"
+
 light:
   - platform: group
     name: Attic Ceiling & LED Strip
@@ -35,7 +38,7 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.0x842e14fffe4b54f2_occupancy
-      to: "Clear"
+      to: "off"
       for: "00:30:00"
     action:
       - service: light.turn_off
@@ -47,7 +50,7 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.0x842e14fffe4b54f2_occupancy
-      to: "Detected"
+      to: "on"
     action:
       - service: light.turn_on
         entity_id: light.attic_ceiling_led_strip
