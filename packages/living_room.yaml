@@ -1,55 +1,53 @@
 homeassistant:
   customize:
-
     light.bank:
       friendly_name: Couch lamp
       icon: mdi:lamp
-    
+
     light.staandelamp:
-        friendly_name: Standing lamp
-        icon: mdi:floor-lamp
-     
+      friendly_name: Standing lamp
+      icon: mdi:floor-lamp
+
     light.shellydimmer2_e8db84d2e4d6:
-        friendly_name: Kitchen
-        icon: mdi:ceiling-light
+      friendly_name: Kitchen
+      icon: mdi:ceiling-light
 
     light.shellydimmer2_e8db84d2ed82:
-        friendly_name: Table Lights
-        icon: mdi:ceiling-light 
-    
+      friendly_name: Table Lights
+      icon: mdi:ceiling-light
+
     binary_sensor.0x00158d000222df56_occupancy:
-        friendly_name: Living Room - Motion
-    
+      friendly_name: Living Room - Motion
+
     sensor.0x00158d000222df56_illuminance:
-        friendly_name: Living Room - Illuminance
-    
+      friendly_name: Living Room - Illuminance
+
     sensor.0x00158d000222df56_battery:
-        friendly_name: Living Room - Motion Sensor Battery
-    
+      friendly_name: Living Room - Motion Sensor Battery
+
     sensor.0x00158d0001639d5a_click:
-        friendly_name: Living Room - Switch Left
-    
+      friendly_name: Living Room - Switch Left
+
     sensor.0x00158d0001639d5a_battery:
-        friendly_name: Living Room - Switch Left Battery
-        
+      friendly_name: Living Room - Switch Left Battery
+
     sensor.0x00158d0001710729_click:
-        friendly_name: Living Room - Switch Right
-    
+      friendly_name: Living Room - Switch Right
+
     sensor.0x00158d0001710729_battery:
-        friendly_name: Living Room - Switch Right Battery
-    
+      friendly_name: Living Room - Switch Right Battery
+
     binary_sensor.0x00158d00027743b7_water_leak:
-        friendly_name: Coffee Machine water reservoir
+      friendly_name: Coffee Machine water reservoir
 
     sensor.0x00158d0004a0166e_humidity:
       friendly_name: "Living Room - Humidity"
-  
+
     sensor.0x00158d0004a0166e_pressure:
       friendly_name: "Living Room - Pressure"
-      
+
     sensor.0x00158d0004a0166e_temperature:
       friendly_name: "Living Room - Temperature"
-        
 
 light:
   - platform: xiaomi_miio #ok
@@ -93,49 +91,64 @@ light:
 
 scene:
   - name: Evening
-    entities:
+    entities: 
       light.shellydimmer2_e8db84d2ed82:
-        state: "on" 
-        brightness: 30
+        state: "on"
+        brightness: 15
       light.shellydimmer2_e8db84d2e4d6:
-        state: "on" 
+        state: "on"
         brightness: 30
       light.staandelamp:
-        state: "on" 
+        state: "on"
         brightness: 150
       light.bank:
-        state: "on" 
+        state: "on"
         brightness: 150
 
   - name: Eating
-    entities:
+    entities: 
       light.shellydimmer2_e8db84d2ed82:
-        state: "on" 
+        state: "on"
         brightness: 125
       light.shellydimmer2_e8db84d2e4d6:
-        state: "on" 
+        state: "on"
         brightness: 30
       light.staandelamp:
-        state: "on" 
+        state: "on"
         brightness: 100
       light.bank:
-        state: "on" 
+        state: "on"
         brightness: 100
+        
+  - name: Cooking
+    entities: 
+      light.shellydimmer2_e8db84d2ed82:
+        state: "on"
+        brightness: 30
+      light.shellydimmer2_e8db84d2e4d6:
+        state: "on"
+        brightness: 230
+      light.staandelamp:
+        state: "on"
+        brightness: 150
+      light.bank:
+        state: "on"
+        brightness: 150
 
   - name: Maximum
     entities:
       light.shellydimmer2_e8db84d2ed82:
-        state: "on" 
+        state: "on"
         brightness: 255
       light.shellydimmer2_e8db84d2e4d6:
-        state: "on" 
+        state: "on"
         brightness: 255
       light.staandelamp:
-        state: "on" 
+        state: "on"
         brightness: 255
       light.bank:
-        state: "on" 
-        brightness: 255 
+        state: "on"
+        brightness: 255
 
   - name: living_room_lights_off
     entities:
@@ -148,9 +161,43 @@ scene:
       light.shellydimmer2_e8db84d2e4d6:
         state: "off"
 
-
-
 automation:
+  - alias: Evening Scene
+    id: evening_scene
+    trigger:
+      platform: time
+      at: "18:30:00"
+    condition:
+      - condition: state
+        entity_id: light.shellydimmer2_e8db84d2ed82
+        state: "on"
+    action:
+      - service: homeassistant.turn_on
+        entity_id: scene.evening
+
+  - id: 'Cooking Scene Living room'
+    alias: 'Cooking Scene Living room'
+    trigger:
+      platform: sun
+      event: sunset
+      offset: "-00:45:00"
+    condition:
+      - condition: state
+        entity_id: light.shellydimmer2_e8db84d2e4d6
+        state: "off"
+    action:
+      service: homeassistant.turn_on
+      entity_id: scene.cooking
+
+  - id: 'Eating Scene Living room'
+    alias: 'Eating Scene Living room'
+    trigger:
+      platform: time
+      at: "17:30:00"
+    action:
+      service: homeassistant.turn_on
+      entity_id: scene.eating
+
   - id: knop1
     alias: Living Room - Switch 1 (Eating)
     trigger:
@@ -203,7 +250,7 @@ automation:
         entity_id: input_boolean.google_goodnight_routine
       - service: notify.phones_kees_marleen
         data:
-          title: "Nachtmodus geactiveerd" 
+          title: "Nachtmodus geactiveerd"
 
   - id: LightsOnAutoWhenMotion
     alias: Lights on when motion
@@ -223,7 +270,7 @@ automation:
     action:
       - service: homeassistant.turn_on
         entity_id: scene.eating
-        
+
 script:
   sonos_say:
     alias: "Sonos TTS script"
@@ -246,10 +293,10 @@ script:
       - service: sonos.restore
         data_template:
           entity_id: "{{ sonos_entity }}"
-  
+
 climate:
-  - platform: toon_climate 
-    host: 192.168.1.10 
+  - platform: toon_climate
+    host: 192.168.1.10
 
 sensor:
   - platform: toon_smartmeter
