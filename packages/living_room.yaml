@@ -94,7 +94,7 @@ scene:
     entities: 
       light.shellydimmer2_e8db84d2ed82:
         state: "on"
-        brightness: 15
+        brightness: 22
       light.shellydimmer2_e8db84d2e4d6:
         state: "on"
         brightness: 30
