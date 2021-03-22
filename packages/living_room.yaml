@@ -107,16 +107,10 @@ scene:
         brightness: 29
       light.shellydimmer2_e8db84d2e4d6:
         state: "on"
-        brightness: 30
-      light.staandelamp:
-        state: "on"
-        brightness: 150
-      light.bank:
-        state: "on"
-        brightness: 150
+        brightness: 25
       light.0x00158d00058d0cdf:
         state: "on"
-        brightness: 150
+        brightness: 60
       light.0x00158d0004f819c9:
         state: "on"
 
@@ -128,15 +122,9 @@ scene:
       light.shellydimmer2_e8db84d2e4d6:
         state: "on"
         brightness: 30
-      light.staandelamp:
-        state: "on"
-        brightness: 100
-      light.bank:
-        state: "on"
-        brightness: 100
       light.0x00158d00058d0cdf:
         state: "on"
-        brightness: 150
+        brightness: 50
       light.0x00158d0004f819c9:
         state: "on"
         
@@ -147,16 +135,10 @@ scene:
         brightness: 30
       light.shellydimmer2_e8db84d2e4d6:
         state: "on"
-        brightness: 230
-      light.staandelamp:
-        state: "on"
-        brightness: 150
-      light.bank:
-        state: "on"
-        brightness: 150
+        brightness: 230 
       light.0x00158d00058d0cdf:
         state: "on"
-        brightness: 150
+        brightness: 40
       light.0x00158d0004f819c9:
         state: "on"
 
@@ -167,13 +149,7 @@ scene:
         brightness: 255
       light.shellydimmer2_e8db84d2e4d6:
         state: "on"
-        brightness: 255
-      light.staandelamp:
-        state: "on"
-        brightness: 255
-      light.bank:
-        state: "on"
-        brightness: 255
+        brightness: 255 
       light.0x00158d00058d0cdf:
         state: "on"
         brightness: 255
@@ -183,11 +159,7 @@ scene:
   - name: living_room_lights_off
     entities:
       light.shellydimmer2_e8db84d2ed82:
-        state: "off"
-      light.staandelamp:
-        state: "off"
-      light.bank:
-        state: "off"
+        state: "off" 
       light.shellydimmer2_e8db84d2e4d6:
         state: "off"
       light.0x00158d00058d0cdf:
