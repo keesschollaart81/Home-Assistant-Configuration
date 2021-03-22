@@ -14,7 +14,7 @@ homeassistant:
 
     light.shellydimmer2_e8db84d2ed82:
       friendly_name: Table Lights
-      icon: mdi:ceiling-light
+      icon: mdi:string-lights
 
     binary_sensor.0x00158d000222df56_occupancy:
       friendly_name: Living Room - Motion
@@ -49,15 +49,23 @@ homeassistant:
     sensor.0x00158d0004a0166e_temperature:
       friendly_name: "Living Room - Temperature"
 
+    light.0x00158d00058d0cdf:
+      friendly_name: "Living Room - Couch Bulb"
+      icon: mdi:floor-lamp-torchiere
+
+    light.0x00158d0004f819c9:
+      friendly_name: "Living Room - Cabinet Lights"
+      icon: mdi:file-cabinet
+
 light:
-  - platform: xiaomi_miio #ok
-    name: staandelamp
-    host: philips-light-bulb_miio61632965.localdomain
-    token: !secret staandelamp_token
-  - platform: xiaomi_miio #ok
-    name: bank
-    host: philips-light-bulb_miio61510856.localdomain
-    token: !secret bank_token
+  # - platform: xiaomi_miio #ok
+  #   name: staandelamp
+  #   host: philips-light-bulb_miio61632965.localdomain
+  #   token: !secret staandelamp_token
+  # - platform: xiaomi_miio #ok
+  #   name: bank
+  #   host: philips-light-bulb_miio61510856.localdomain
+  #   token: !secret bank_token
   # - platform: xiaomi_miio
   #   name: tafel1
   #   host: philips-light-bulb_miio61623717.localdomain
@@ -88,6 +96,8 @@ light:
       - light.bank
       - light.shellydimmer2_e8db84d2ed82
       - light.shellydimmer2_e8db84d2e4d6
+      - light.0x00158d00058d0cdf
+      - light.0x00158d0004f819c9
 
 scene:
   - name: Evening
@@ -104,6 +114,11 @@ scene:
       light.bank:
         state: "on"
         brightness: 150
+      light.0x00158d00058d0cdf:
+        state: "on"
+        brightness: 150
+      light.0x00158d0004f819c9:
+        state: "on"
 
   - name: Eating
     entities: 
@@ -119,6 +134,11 @@ scene:
       light.bank:
         state: "on"
         brightness: 100
+      light.0x00158d00058d0cdf:
+        state: "on"
+        brightness: 150
+      light.0x00158d0004f819c9:
+        state: "on"
         
   - name: Cooking
     entities: 
@@ -134,6 +154,11 @@ scene:
       light.bank:
         state: "on"
         brightness: 150
+      light.0x00158d00058d0cdf:
+        state: "on"
+        brightness: 150
+      light.0x00158d0004f819c9:
+        state: "on"
 
   - name: Maximum
     entities:
@@ -149,6 +174,11 @@ scene:
       light.bank:
         state: "on"
         brightness: 255
+      light.0x00158d00058d0cdf:
+        state: "on"
+        brightness: 255
+      light.0x00158d0004f819c9:
+        state: "on"
 
   - name: living_room_lights_off
     entities:
@@ -159,6 +189,10 @@ scene:
       light.bank:
         state: "off"
       light.shellydimmer2_e8db84d2e4d6:
+        state: "off"
+      light.0x00158d00058d0cdf:
+        state: "off"
+      light.0x00158d0004f819c9:
         state: "off"
 
 automation:
