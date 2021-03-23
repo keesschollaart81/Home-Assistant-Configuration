@@ -126,7 +126,7 @@ scene:
         state: "on"
         brightness: 50
       light.0x00158d0004f819c9:
-        state: "on"
+        state: "off"
         
   - name: Cooking
     entities: 
@@ -178,8 +178,11 @@ automation:
         entity_id: light.shellydimmer2_e8db84d2ed82
         state: "on"
     action:
-      - service: homeassistant.turn_on
-        entity_id: scene.evening
+      - service: scene.turn_on
+        target:
+          entity_id: scene.evening
+        data:
+          transition: 20
 
   - id: 'Cooking Scene Living room'
     alias: 'Cooking Scene Living room'
@@ -192,17 +195,24 @@ automation:
         entity_id: light.shellydimmer2_e8db84d2e4d6
         state: "off"
     action:
-      service: homeassistant.turn_on
-      entity_id: scene.cooking
+      - service: scene.turn_on
+        target:
+          entity_id: scene.cooking
+        data:
+          transition: 20
+ 
 
   - id: 'Eating Scene Living room'
     alias: 'Eating Scene Living room'
     trigger:
       platform: time
-      at: "17:30:00"
+      at: "17:15:00"
     action:
-      service: homeassistant.turn_on
-      entity_id: scene.eating
+      - service: scene.turn_on
+        target:
+          entity_id: scene.eating
+        data:
+          transition: 20 
 
   - id: knop1
     alias: Living Room - Switch 1 (Eating)
