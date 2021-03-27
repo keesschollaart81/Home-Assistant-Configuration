@@ -45,15 +45,7 @@ automation:
       data:
           title: "Hassio boots"
           message: "Hassio boots"
-        
-  - id: update_networkmap
-    alias: 'Zigbee Map bijwerken'   
-    trigger:
-      platform: time_pattern
-      minutes: '1'
-      seconds: 00
-    action:
-      service: zigbee2mqtt_networkmap.update
+         
   
   - alias: Montly Backup
     id: montly_backup_and_cleaning

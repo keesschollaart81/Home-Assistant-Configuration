@@ -139,8 +139,7 @@ proximity:
       - device_tracker.iphone_van_kees
     tolerance: 50
     unit_of_measurement: km
-
-zigbee2mqtt_networkmap:
+ 
 
 samsungtv:
   - host: samsung.localdomain
