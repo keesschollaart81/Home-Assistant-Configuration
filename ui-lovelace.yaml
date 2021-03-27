@@ -1,9 +1,4 @@
 title: Home
-resources:
-  - url: /hacsfiles/banner-card/banner-card.js?v=1
-    type: module
-  - url: /hacsfiles/simple-thermostat/simple-thermostat.js?v=1
-    type: module
 views:   
   - !include lovelace/home.yaml
   - !include lovelace/1st_floor.yaml

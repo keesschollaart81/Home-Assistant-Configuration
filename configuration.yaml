@@ -16,6 +16,7 @@ history: !include history.yaml
 binary_sensor: 
   - platform: workday
     country: NL 
+ 
   
 group:
   everyone:
@@ -38,6 +39,11 @@ http:
   
 lovelace:
   mode: yaml
+  resources:
+    - url: /hacsfiles/banner-card/banner-card.js?v=1
+      type: module
+    - url: /hacsfiles/simple-thermostat/simple-thermostat.js?v=1
+      type: module
 
 updater:
   include_used_components: true
