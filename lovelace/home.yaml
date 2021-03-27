@@ -120,7 +120,7 @@ cards:
     show_header_toggle: false
     entities:
       - light.0x00158d00058d0cdf
-      - light.0x00158d0004f819c9
+      - switch.0x00158d0004f819c9
       - light.shellydimmer2_e8db84d2ed82
       - light.shellydimmer2_e8db84d2e4d6
   - id: thermostat_card
