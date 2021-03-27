@@ -4,7 +4,7 @@ homeassistant:
       friendly_name: Garden - Light Switch
       icon: mdi:flower
 
-light:
+switch:
   - platform: xiaomi_miio
     name: Licht in tuin
     host: 192.168.1.32 #chuangmi-plug-v3_miio71262865
