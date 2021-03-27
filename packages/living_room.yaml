@@ -101,7 +101,6 @@ light:
       - light.shellydimmer2_e8db84d2e4d6
       - light.0x00158d00058d0cdf
       - light.0x00158d0004f819c9_light
-
 scene:
   - name: Evening
     entities: 
@@ -266,10 +265,7 @@ automation:
         to: "both"
     action:
       - service: homeassistant.turn_on
-        entity_id: input_boolean.google_goodnight_routine
-      - service: notify.phones_kees_marleen
-        data:
-          title: "Nachtmodus geactiveerd"
+        entity_id: input_boolean.google_goodnight_routine 
 
   - id: LightsOnAutoWhenMotion
     alias: Lights on when motion
