@@ -312,11 +312,11 @@ script:
 
 climate:
   - platform: toon_climate
-    host: 192.168.1.10
+    host: eneco-001-039306.localdomain
 
 sensor:
   - platform: toon_smartmeter
-    host: 192.168.1.10
+    host: eneco-001-039306.localdomain
     resources:
       - gasused
       - gasusedcnt
