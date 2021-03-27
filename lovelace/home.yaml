@@ -112,6 +112,10 @@ cards:
         name: "Heating"
       - entity: sensor.0x00158d0004a0166e_humidity
         name: "Humidity"
+      - entity: sensor.plant_kitchen_moisture
+        name: "Plant Kitchen Humidity"
+      - entity: sensor.plant_cabinet_moisture
+        name: "Plant Cabinet Humidity"
     hours_to_show: 12
     title: "Temperatures"
   - id: living_room_all
