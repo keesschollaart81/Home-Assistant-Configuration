@@ -1,0 +1,62 @@
+esphome:
+  name: ble
+  platform: ESP32
+  board: esp32cam
+
+wifi:
+  networks:
+  - ssid: !secret esphome_wifi_1_ssid
+    password: !secret esphome_wifi_1_password
+  - ssid: !secret esphome_wifi_2_ssid
+    password: !secret esphome_wifi_2_password 
+  ap:
+    ssid: "Esphome BLE"
+    password: !secret esphome_ap_password 
+
+captive_portal: 
+
+web_server:
+  port: 80
+  auth:
+    username: admin
+    password: !secret esphome_webserver_password
+
+api:
+  password: !secret esphome_api_password
+
+logger:
+
+ota:
+  password: !secret esphome_ota_password
+
+esp32_ble_tracker:
+
+sensor:
+
+  - platform: xiaomi_hhccjcy01
+    mac_address: 'C4:7C:8D:6C:85:75'
+    temperature:
+      name: "Plant Kitchen Temperature"
+    moisture:
+      name: "Plant Kitchen Moisture"
+    illuminance:
+      name: "Plant Kitchen Illuminance"
+    conductivity:
+      name: "Plant Kitchen Soil Conductivity"
+    battery_level:
+      name: "Plant Kitchen Battery Level"
+
+  - platform: xiaomi_hhccjcy01
+    mac_address: 'C4:7C:8D:6C:7D:F5'
+    temperature:
+      name: "Plant Cabinet Temperature"
+    moisture:
+      name: "Plant Cabinet Moisture"
+    illuminance:
+      name: "Plant Cabinet Illuminance"
+    conductivity:
+      name: "Plant Cabinet Soil Conductivity"
+    battery_level:
+      name: "Plant Cabinet Battery Level"
+
+      
