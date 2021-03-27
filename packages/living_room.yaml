@@ -89,6 +89,9 @@ light:
     entities:
       - light.0x90fd9ffffe10c5d1_light
       - light.0x90fd9ffffe135ab2_light
+  - platform: switch    
+    name: "0x00158d0004f819c9_light" 
+    entity_id: switch.0x00158d0004f819c9
   - platform: group
     name: Livingroom
     entities:
@@ -97,7 +100,7 @@ light:
       - light.shellydimmer2_e8db84d2ed82
       - light.shellydimmer2_e8db84d2e4d6
       - light.0x00158d00058d0cdf
-      - switch.0x00158d0004f819c9
+      - light.0x00158d0004f819c9_light
 
 scene:
   - name: Evening
