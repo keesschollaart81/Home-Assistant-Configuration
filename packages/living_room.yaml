@@ -142,7 +142,7 @@ scene:
         state: "on"
         brightness: 40
       switch.0x00158d0004f819c9:
-        state: "on"
+        state: "off"
 
   - name: Maximum
     entities:
