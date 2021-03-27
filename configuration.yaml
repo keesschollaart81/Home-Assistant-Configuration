@@ -82,11 +82,11 @@ tts:
 
 cloud:
 
-panel_iframe:
-  esphomeyaml:
-    title: Esphomeyaml
-    icon: mdi:code-not-equal-variant
-    url: http://schollaartthuis.duckdns.org:6052/,
+# panel_iframe:
+#   esphomeyaml:
+#     title: Esphomeyaml
+#     icon: mdi:code-not-equal-variant
+#     url: http://schollaartthuis.duckdns.org:6052/,
 
 mqtt:
   broker: core-mosquitto
@@ -141,6 +141,9 @@ proximity:
     unit_of_measurement: km
 
 zigbee2mqtt_networkmap:
+
+samsungtv:
+  - host: samsung.localdomain
 
 # tuya:
 #   username: !secret TuyaUsername

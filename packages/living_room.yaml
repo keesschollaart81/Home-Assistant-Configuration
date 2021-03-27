@@ -110,7 +110,7 @@ scene:
         brightness: 25
       light.0x00158d00058d0cdf:
         state: "on"
-        brightness: 60
+        brightness: 30
       light.0x00158d0004f819c9:
         state: "on"
 
