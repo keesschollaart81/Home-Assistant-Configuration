@@ -9,6 +9,11 @@ cards:
     entities:
     - device_tracker.iphone_van_marleen
     - device_tracker.iphone_van_kees
+  - id: kees_naar_huis
+    type: history-graph
+    entities: [sensor.kees_naar_huis]
+    hours_to_show: 12
+    title: "Kees naar huis"
   # - type: map
   #   aspect_ratio: 16:9
   #   default_zoom: 8
@@ -63,6 +68,15 @@ cards:
           service: scene.turn_on
           service_data: 
             entity_id: scene.living_room_lights_off 
+  - id: living_room_all
+    type: entities
+    title: Individual lights
+    show_header_toggle: false
+    entities:
+      - light.0x00158d00058d0cdf
+      - switch.0x00158d0004f819c9
+      - light.shellydimmer2_e8db84d2ed82
+      - light.shellydimmer2_e8db84d2e4d6
   - id: front_door
     type: picture-glance
     title: Front door
@@ -90,11 +104,6 @@ cards:
       - light.0x90fd9ffffe2b5781_light
       - binary_sensor.0x00158d0002e2eecc_occupancy
       - timer.toilet_lights_off_in
-  - id: kees_naar_huis
-    type: history-graph
-    entities: [sensor.kees_naar_huis]
-    hours_to_show: 12
-    title: "Kees naar huis"
   - id: temperatures
     type: history-graph
     entities: 
@@ -113,7 +122,7 @@ cards:
       - entity: sensor.0x00158d0004a0166e_humidity
         name: "Humidity" 
     hours_to_show: 12
-    title: "Temperatures"
+    title: "Climate (12hr)"
   - id: plants
     type: history-graph
     entities: 
@@ -122,16 +131,7 @@ cards:
       - entity: sensor.plant_cabinet_moisture
         name: "Plant Cabinet Humidity"
     hours_to_show: 80
-    title: "Plant Moisture"
-  - id: living_room_all
-    type: entities
-    title: Individual lights
-    show_header_toggle: false
-    entities:
-      - light.0x00158d00058d0cdf
-      - switch.0x00158d0004f819c9
-      - light.shellydimmer2_e8db84d2ed82
-      - light.shellydimmer2_e8db84d2e4d6
+    title: "Plant Moisture (80hr)"
   - id: thermostat_card
     type: 'custom:simple-thermostat'
     entity: climate.toon_thermostat
