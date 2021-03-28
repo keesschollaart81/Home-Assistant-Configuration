@@ -51,7 +51,7 @@ homeassistant:
 
     light.0x00158d00058d0cdf:
       friendly_name: "Living Room - Couch Bulb"
-      icon: mdi:floor-lamp-torchiere
+      icon: mdi:desk-lamp
 
     switch.0x00158d0004f819c9:
       friendly_name: "Living Room - Cabinet Lights"

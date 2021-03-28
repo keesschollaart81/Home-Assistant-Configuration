@@ -9,14 +9,14 @@ cards:
     entities:
     - device_tracker.iphone_van_marleen
     - device_tracker.iphone_van_kees
-  - type: map
-    aspect_ratio: 16:9
-    default_zoom: 8
-    entities:
-    - zone.School
-    - zone.Thuis
-    - device_tracker.iphone_van_marleen
-    - device_tracker.iphone_van_kees
+  # - type: map
+  #   aspect_ratio: 16:9
+  #   default_zoom: 8
+  #   entities:
+  #   - zone.School
+  #   - zone.Thuis
+  #   - device_tracker.iphone_van_marleen
+  #   - device_tracker.iphone_van_kees
   # - id: map
   #   type: picture-entity 
   #   entity: camera.locations
@@ -111,13 +111,18 @@ cards:
       - entity: climate.toon_thermostat
         name: "Heating"
       - entity: sensor.0x00158d0004a0166e_humidity
-        name: "Humidity"
+        name: "Humidity" 
+    hours_to_show: 12
+    title: "Temperatures"
+  - id: plants
+    type: history-graph
+    entities: 
       - entity: sensor.plant_kitchen_moisture
         name: "Plant Kitchen Humidity"
       - entity: sensor.plant_cabinet_moisture
         name: "Plant Cabinet Humidity"
-    hours_to_show: 12
-    title: "Temperatures"
+    hours_to_show: 80
+    title: "Plant Moisture"
   - id: living_room_all
     type: entities
     title: Individual lights
