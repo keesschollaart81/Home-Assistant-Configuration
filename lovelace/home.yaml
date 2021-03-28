@@ -119,13 +119,13 @@ cards:
         name: "Living Room Sensor"
       - entity: climate.toon_thermostat
         name: "Heating"
-      - entity: sensor.0x00158d0004a0166e_humidity
-        name: "Humidity" 
     hours_to_show: 12
     title: "Climate (12hr)"
   - id: plants
     type: history-graph
     entities: 
+      - entity: sensor.0x00158d0004a0166e_humidity
+        name: "Humidity" 
       - entity: sensor.plant_kitchen_moisture
         name: "Plant Kitchen Humidity"
       - entity: sensor.plant_cabinet_moisture
