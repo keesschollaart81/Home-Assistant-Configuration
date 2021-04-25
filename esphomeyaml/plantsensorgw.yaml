@@ -1,7 +1,7 @@
 esphome:
-  name: ble
+  name: plantsensorgw
   platform: ESP32
-  board: esp32cam
+  board: esp32doit-devkit-v1
 
 wifi:
   networks:
