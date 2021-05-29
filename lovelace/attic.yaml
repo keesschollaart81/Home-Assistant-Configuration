@@ -26,3 +26,12 @@ cards:
         name: "Pressure" 
       - entity: sensor.0x00158d0004a015c5_temperature
         name: "Temperature"  
+  - id: airco_ent
+    type: entities
+    entities:
+      - sensor.airco_zolder_inside_temperature
+      - switch.airco_zolder_nanoe
+  - id: airco_therm
+    type: thermostat
+    entity: climate.airco_zolder
+
