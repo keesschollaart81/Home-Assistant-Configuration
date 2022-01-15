@@ -41,7 +41,7 @@ automation:
       event: start
     action:
     - service: shell_command.install_imagemagick
-    - service: notify.mobile_app_iphone
+    - service: notify.mobile_app_iphone_kees
       data:
           title: "Hassio boots"
           message: "Hassio boots"
@@ -76,7 +76,7 @@ automation:
             - share
             - ssl
             - media
-      - service: notify.mobile_app_iphone
+      - service: notify.mobile_app_iphone_kees
         data:
             title: "Snapshot created"
             message: "Created backup of HA"
