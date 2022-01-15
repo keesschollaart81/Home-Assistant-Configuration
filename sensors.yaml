@@ -1,10 +1,10 @@
-- platform: google_travel_time
-  name: Kees naar huis
-  api_key: !secret google_api_key
-  origin: device_tracker.iphone_kees
-  destination: zone.home
-  options:
-    mode: driving
+# - platform: google_travel_time
+#   name: Kees naar huis
+#   api_key: !secret google_api_key
+#   origin: device_tracker.iphone_kees
+#   destination: zone.home
+#   options:
+#     mode: driving
 
 - platform: systemmonitor
   scan_interval: 300
