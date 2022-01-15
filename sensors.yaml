@@ -16,7 +16,7 @@
     - type: memory_free
     - type: processor_use
 
-- platform: buienradar
-  name: rotterdam
-  monitored_conditions:
-    - temperature
+# - platform: buienradar
+#   name: rotterdam
+#   monitored_conditions:
+#     - temperature
