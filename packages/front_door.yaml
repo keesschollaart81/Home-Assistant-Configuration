@@ -15,18 +15,17 @@ automation:
         for:
           seconds: 2
     action:
-      - service:  camera.record
+      - service: camera.snapshot
         target:
           entity_id: camera.front_door_camera
         data:
           filename: '/media/front_door_latest.png'
-          duration: 3
       - service: notify.phones_kees_marleen
         data_template:
           title: "Er wordt aan de deur gebeld"
           message: "Wie zou dat zijn?"
           data:
-            video: "/media/front_door_latest.png"
+            image: "/media/front_door_latest.png"
             attachment: 
               lazy: true
             push: 
@@ -43,17 +42,19 @@ automation:
         for:
           minutes: 2
     action:
-      - service: script.take_front_door_snaps
+      - service: camera.snapshot
+        target:
+          entity_id: camera.front_door_camera
+        data:
+          filename: '/media/front_door_latest.png'
       - service: notify.phones_kees_marleen
         data_template:
           title: "Voordeur meer dan 2 minuten open"
           message: "Misschien vergeten dicht te doen?"
           data:
-            url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}"
-            attachment:
-                url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}"
-                content-type: jpg
-                hide-thumbnail: false
+            image: "/media/front_door_latest.png"
+            attachment: 
+              lazy: true
             push: 
               thread-id: "front_door"
               category: camera
@@ -66,11 +67,11 @@ automation:
         entity_id: binary_sensor.0x00158d000208e0e0_contact
         to: "on"
     action:
-      - service:  camera.record
+      - service: camera.snapshot
         target:
           entity_id: camera.front_door_camera
         data:
-          filename: '/tmp/{{ entity_id.name }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+          filename: '/media/front_door_latest.png'
  
 homeassistant:
   customize:
