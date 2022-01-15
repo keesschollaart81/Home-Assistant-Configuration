@@ -19,14 +19,14 @@ automation:
         target:
           entity_id: camera.front_door_camera
         data:
-          filename: '/media/local/latest_doorbell.mp4'
+          filename: '/media/front_door_latest.png'
           duration: 3
       - service: notify.phones_kees_marleen
         data_template:
           title: "Er wordt aan de deur gebeld"
           message: "Wie zou dat zijn?"
           data:
-            video: "/media/local/latest_doorbell.mp4"
+            video: "/media/front_door_latest.png"
             attachment: 
               lazy: true
             push: 

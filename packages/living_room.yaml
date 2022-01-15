@@ -321,7 +321,7 @@ script:
         data_template:
           entity_id: "{{ sonos_entity }}"
           message: "{{ message }}"
-      - delay: "{{ delay }}"
+      - delay: "00:00:08"
       - service: sonos.restore
         data_template:
           entity_id: "{{ sonos_entity }}"

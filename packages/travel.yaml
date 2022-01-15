@@ -13,7 +13,7 @@ automation:
       - platform: time_pattern
         minutes: '1' 
     action:
-      - service: homeassistant.update
+      - service: homeassistant.update_entity
         data:
           entity_id: sensor.kees_naar_huis
 
@@ -31,7 +31,7 @@ automation:
         entity_id: device_tracker.iphone_kees
         state: 'Away'
     action:
-      - service: homeassistant.update
+      - service: homeassistant.update_entity
         data:
           entity_id: sensor.kees_naar_huis
 
@@ -49,7 +49,7 @@ automation:
         entity_id: device_tracker.iphone_kees
         state: 'Away'
     action:
-      - service: homeassistant.update
+      - service: homeassistant.update_entity
         data:
           entity_id: sensor.kees_naar_huis
 
