@@ -7,7 +7,7 @@ automation:
         - condition: template
           value_template: "{{ states('device_tracker.iphone_van_marleen') != 'home' }}"
         - condition: template
-          value_template: "{{ states('device_tracker.iphone_van_kees') != 'home' }}"
+          value_template: "{{ states('device_tracker.iphone_kees') != 'home' }}"
     trigger:
       - platform: state
         entity_id: binary_sensor.0x00158d000208e0e0_contact
@@ -15,19 +15,22 @@ automation:
         for:
           seconds: 2
     action:
-      - service: script.take_front_door_snaps
+      - service:  camera.record
+        target:
+          entity_id: camera.front_door_camera
+        data:
+          filename: '/media/local/latest_doorbell.mp4'
+          duration: 3
       - service: notify.phones_kees_marleen
         data_template:
-          title: "Voordeur open"
-          message: "En er is niemand thuis!"
+          title: "Er wordt aan de deur gebeld"
+          message: "Wie zou dat zijn?"
           data:
-            url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}"
-            attachment:
-                url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}"
-                content-type: jpg
-                hide-thumbnail: false
+            video: "/media/local/latest_doorbell.mp4"
+            attachment: 
+              lazy: true
             push: 
-              thread-id: "front_door_no_one_home"
+              thread-id: "doorbell"
               category: camera
             entity_id: camera.front_door_latest
 
@@ -63,74 +66,12 @@ automation:
         entity_id: binary_sensor.0x00158d000208e0e0_contact
         to: "on"
     action:
-      - service: script.take_front_door_snaps
-
-script:
-  take_front_door_snaps:
-    sequence:
-      - service: camera.snapshot
-        entity_id: camera.front_door_camera
+      - service:  camera.record
+        target:
+          entity_id: camera.front_door_camera
         data:
-          filename: "/share/motion/front-door/front1.jpg"
-      - delay:
-          seconds: 0.5
-      - service: camera.snapshot
-        entity_id: camera.front_door_camera
-        data:
-          filename: "/share/motion/front-door/front2.jpg"
-      - delay:
-          seconds: 0.5
-      - service: camera.snapshot
-        entity_id: camera.front_door_camera
-        data:
-          filename: "/share/motion/front-door/front3.jpg"
-      - delay:
-          seconds: 0.5
-      - service: camera.snapshot
-        entity_id: camera.front_door_camera
-        data:
-          filename: "/share/motion/front-door/front4.jpg"
-      - delay:
-          seconds: 0.5
-      - service: camera.snapshot
-        entity_id: camera.front_door_camera
-        data:
-          filename: "/share/motion/front-door/front5.jpg"
-      - delay:
-          seconds: 1
-      - service: camera.snapshot
-        entity_id: camera.front_door_camera
-        data:
-          filename: "/share/motion/front-door/front6.jpg"
-      - delay:
-          seconds: 1
-      - service: camera.snapshot
-        entity_id: camera.front_door_camera
-        data:
-          filename: "/share/motion/front-door/front7.jpg"
-      - delay:
-          seconds: 1
-      - service: camera.snapshot
-        entity_id: camera.front_door_camera
-        data:
-          filename: "/share/motion/front-door/front8.jpg"
-      - delay:
-          seconds: 1
-      - service: camera.snapshot
-        entity_id: camera.front_door_camera
-        data:
-          filename: "/share/motion/front-door/front9.jpg"
-      - service: shell_command.front_door_gif
-      - service: camera.local_file_update_file_path
-        data_template:
-          entity_id: camera.front_door_latest
-          file_path: "/share/motion/front-door/front-door-latest.gif"
-
-camera:
-  - platform: local_file
-    name: front_door_latest
-    file_path: "/share/motion/front-door/front-door-latest-small.gif"
-
+          filename: '/tmp/{{ entity_id.name }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+ 
 homeassistant:
   customize:
     binary_sensor.0x00158d000208e0e0_contact:

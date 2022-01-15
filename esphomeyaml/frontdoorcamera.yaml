@@ -27,6 +27,12 @@ web_server:
     username: admin
     password: !secret esphome_webserver_password
 
+esp32_camera_web_server:
+  - port: 8080
+    mode: stream
+  - port: 8081
+    mode: snapshot
+
 api:
   password: !secret esphome_api_password
 
@@ -57,7 +63,7 @@ switch:
   - platform: restart
     name: "Front Door Camera Restart"
 
-light:
-  - platform: binary
-    output: gpio_4
-    name: Front Door Camera Light
+# light:
+#   - platform: binary
+#     output: gpio_4
+#     name: Front Door Camera Light 

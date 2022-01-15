@@ -6,17 +6,20 @@ automation:
         entity_id: binary_sensor.doorbell_button_2
         to: "on"
     action:
-      - service: script.take_front_door_snaps
+      - service:  camera.record
+        target:
+          entity_id: camera.front_door_camera
+        data:
+          filename: '/media/local/latest_doorbell.mp4'
+          duration: 3
       - service: notify.phones_kees_marleen
         data_template:
           title: "Er wordt aan de deur gebeld"
           message: "Wie zou dat zijn?"
           data:
-            url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}"
-            attachment:
-                url: "https://schollaartthuis.duckdns.org:8123/{{ states.camera.front_door_latest.attributes.entity_picture }}"
-                content-type: jpg
-                hide-thumbnail: false
+            video: "/media/local/latest_doorbell.mp4"
+            attachment: 
+              lazy: true
             push: 
               thread-id: "doorbell"
               category: camera

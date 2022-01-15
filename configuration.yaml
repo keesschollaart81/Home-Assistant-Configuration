@@ -23,7 +23,7 @@ group:
     name: Everyone
     entities:
       - device_tracker.iphone_van_marleen
-      - device_tracker.iphone_van_kees
+      - device_tracker.iphone_kees
 
 system_health:
 frontend:
@@ -32,6 +32,7 @@ ios:
 sonos:
 auth:
 mobile_app:
+media_source:
 
 http:
   ssl_certificate: /ssl/fullchain.pem
@@ -112,7 +113,7 @@ person:
     id: kees
     user_id: be842a06ec6844f1be650ba273e34a51
     device_trackers:
-      - device_tracker.iphone_van_kees
+      - device_tracker.iphone_kees
   - name: Marleen
     id: marleen
     user_id: faf0f3e6fb334c01bdb00cd6926003e5
@@ -136,13 +137,14 @@ notify:
   - name: phones_kees_marleen
     platform: group
     services:
+      - service: mobile_app_iphone
       - service: mobile_app_iphone_van_kees
       - service: mobile_app_iphone_van_marleen
 
 proximity:
   thuis:
     devices:
-      - device_tracker.iphone_van_kees
+      - device_tracker.iphone_kees
     tolerance: 50
     unit_of_measurement: km
  
@@ -158,7 +160,6 @@ samsungtv:
 
 shell_command:
   install_imagemagick: "apk add --update imagemagick"
-  front_door_gif: bash '/config/shell_commands/front-door.sh' {{ states.camera.front_door_camera.attributes.entity_picture }}
   clean_up: /config/shell_commands/clean-up.sh
   delete_old_snapshots: find /backup/* -mtime +90 -exec rm {} \;
  

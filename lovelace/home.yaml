@@ -2,13 +2,13 @@ id: home
 title: Home 
 badges:
   - device_tracker.iphone_van_marleen
-  - device_tracker.iphone_van_kees
+  - device_tracker.iphone_kees
 cards:
   - id: tracker_history
     type: history-graph 
     entities:
     - device_tracker.iphone_van_marleen
-    - device_tracker.iphone_van_kees
+    - device_tracker.iphone_kees
   - id: kees_naar_huis
     type: history-graph
     entities: [sensor.kees_naar_huis]
@@ -21,7 +21,7 @@ cards:
   #   - zone.School
   #   - zone.Thuis
   #   - device_tracker.iphone_van_marleen
-  #   - device_tracker.iphone_van_kees
+  #   - device_tracker.iphone_kees
   # - id: map
   #   type: picture-entity 
   #   entity: camera.locations
@@ -86,7 +86,7 @@ cards:
       - entity: camera.front_door_camera
         name: Live 
       - switch.licht_in_tuin
-    camera_image: camera.front_door_latest
+    camera_image: camera.front_door_camera
     tap_action: 
       action: more-info
   - id: hallway
