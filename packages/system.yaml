@@ -56,7 +56,7 @@ automation:
       - condition: template
         value_template: "{{ now().day == 1 }}"
     action:
-      - service: hassio.snapshot_partial
+      - service: hassio.backup_partial
         data_template:
           name: "Automated Backup {{ now().strftime('%Y-%m-%d') }}"
           addons:
