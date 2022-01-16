@@ -19,19 +19,19 @@ automation:
         target:
           entity_id: camera.front_door_camera
         data:
-          filename: '/media/front_door_latest.png'
+          filename: '/media/local/front_door_latest.png'
       - service: notify.phones_kees_marleen
         data_template:
           title: "Er wordt aan de deur gebeld"
           message: "Wie zou dat zijn?"
           data:
-            image: "/media/front_door_latest.png"
+            image: "/media/local/front_door_latest.png"
             attachment: 
               lazy: true
             push: 
               thread-id: "doorbell"
               category: camera
-            entity_id: camera.front_door_latest
+            entity_id: camera.front_door_camera
 
   - id: "VoordeurNotificatieTeLangOpen"
     alias: Voordeur te lang open
@@ -46,19 +46,19 @@ automation:
         target:
           entity_id: camera.front_door_camera
         data:
-          filename: '/media/front_door_latest.png'
+          filename: '/media/local/front_door_latest.png'
       - service: notify.phones_kees_marleen
         data_template:
           title: "Voordeur meer dan 2 minuten open"
           message: "Misschien vergeten dicht te doen?"
           data:
-            image: "/media/front_door_latest.png"
+            image: "/media/local/front_door_latest.png"
             attachment: 
               lazy: true
             push: 
               thread-id: "front_door"
               category: camera
-            entity_id: camera.front_door_latest
+            entity_id: camera.front_door_camera
 
   - id: "VoordeurOpenDicht"
     alias: Voordeur open of dicht
@@ -71,7 +71,7 @@ automation:
         target:
           entity_id: camera.front_door_camera
         data:
-          filename: '/media/front_door_latest.png'
+          filename: '/media/local/front_door_latest.png'
  
 homeassistant:
   customize:

@@ -10,19 +10,16 @@ automation:
         target:
           entity_id: camera.front_door_camera
         data:
-          filename: '/media/front_door_latest.png'
+          filename: '/media/local/front_door_latest.png'
       - service: notify.phones_kees_marleen
-        data_template:
+        data:
           title: "Er wordt aan de deur gebeld"
           message: "Wie zou dat zijn?"
           data:
-            video: "/media/front_door_latest.png"
-            attachment: 
-              lazy: true
+            image: "/media/local/front_door_latest.png"
             push: 
-              thread-id: "doorbell"
-              category: camera
-            entity_id: camera.front_door_latest
+              interruption-level: critical 
+            entity_id: camera.front_door_camera
 
   - id: "DoorbellNotificationViaSonos"
     alias: Doorbell Notification via Sonos
