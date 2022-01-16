@@ -20,6 +20,11 @@ automation:
             push: 
               interruption-level: critical 
             entity_id: camera.front_door_camera
+      - service:  camera.snapshot
+        target:
+          entity_id: camera.front_door_camera
+        data:
+          filename: '/media/local/{{ now().strftime("%Y%m%d-%H%M%S") }}.png'
 
   - id: "DoorbellNotificationViaSonos"
     alias: Doorbell Notification via Sonos
@@ -30,7 +35,7 @@ automation:
     action: 
       - service: script.sonos_say
         data:
-          sonos_entity: media_player.woonkamer
+          sonos_entity: media_player.sonos_beam
           volume: 0.5
           message: "Er wordt aan de deur gebeld!"
 
