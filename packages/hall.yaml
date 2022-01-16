@@ -1,4 +1,22 @@
 automation:
+  - id: 'LightOnInHallwayWhenMotion'
+    alias: Enable lights in hallway when there is motion
+    trigger: 
+    - platform: state
+      entity_id: binary_sensor.0x00158d0001f9faa1_occupancy 
+      to: 'on'
+    condition: 
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: state
+        entity_id: input_boolean.google_goodnight_routine
+        state: "off"
+    action: 
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_light 
+
   - id: 'LightOnInHallwayWhenActivity'
     alias: Enable lights in hallway when there is activity
     trigger:
@@ -7,9 +25,6 @@ automation:
       to: 'on'
     - platform: state
       entity_id: binary_sensor.doorbell_button_2
-      to: 'on'
-    - platform: state
-      entity_id: binary_sensor.0x00158d0001f9faa1_occupancy 
       to: 'on'
     condition: 
       - condition: state
@@ -36,9 +51,10 @@ automation:
     - service: light.turn_off
       data:
         entity_id: light.hall_light
-    - service: timer.finish
-      data: 
+    condition:
+      - condition: state
         entity_id: timer.hallway_lights_off_in
+        state: finished
 
   - alias: Turn off hallway lights 3 minutes after trigger
     trigger:

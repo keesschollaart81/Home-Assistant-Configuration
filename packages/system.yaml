@@ -76,6 +76,7 @@ automation:
             - share
             - ssl
             - media
+            - /backup/unifi/autobackup
       - service: notify.mobile_app_iphone_kees
         data:
             title: "Snapshot created"

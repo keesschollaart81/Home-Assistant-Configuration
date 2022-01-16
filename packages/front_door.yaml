@@ -59,14 +59,13 @@ automation:
     alias: Voordeur open of dicht
     trigger:
       - platform: state
-        entity_id: binary_sensor.0x00158d000208e0e0_contact
-        to: "on"
+        entity_id: binary_sensor.0x00158d000208e0e0_contact 
     action:
       - service: camera.snapshot
         target:
           entity_id: camera.front_door_camera
         data:
-          filename: '/media/local/front_door_closed_latest.png'
+          filename: '/media/local/front_door/open_close_{{ now().strftime("%Y%m%d-%H%M%S") }}.png'
  
 homeassistant:
   customize:
