@@ -17,14 +17,14 @@ automation:
           message: "Wie zou dat zijn?"
           data:
             image: "/media/local/front_door_latest.png"
-            push: 
-              interruption-level: critical 
-            entity_id: camera.front_door_camera
+            # push: 
+            #   interruption-level: critical 
+            # entity_id: camera.front_door_camera
       - service:  camera.snapshot
         target:
           entity_id: camera.front_door_camera
         data:
-          filename: '/media/local/{{ now().strftime("%Y%m%d-%H%M%S") }}.png'
+          filename: '/media/local/doorbell/{{ now().strftime("%Y%m%d-%H%M%S") }}.png'
 
   - id: "DoorbellNotificationViaSonos"
     alias: Doorbell Notification via Sonos
