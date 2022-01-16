@@ -160,6 +160,5 @@ samsungtv:
 
 shell_command:
   install_imagemagick: "apk add --update imagemagick"
-  clean_up: /config/shell_commands/clean-up.sh
-  delete_old_snapshots: find /backup/* -mtime +90 -exec rm {} \;
+  clean_up: /config/shell_commands/clean-up.sh 
  
