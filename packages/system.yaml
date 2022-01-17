@@ -57,8 +57,8 @@ automation:
         value_template: "{{ now().day == 1 }}"
     action:
       - service: hassio.backup_partial
-        data_template:
-          name: "Automated Backup {{ now().strftime('%Y-%m-%d') }}"
+        data:
+          name: "Automated Backup"
           addons:
             - 7be23ff5_dropbox_sync
             - core_git_pull

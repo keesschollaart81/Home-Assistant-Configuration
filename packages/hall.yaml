@@ -51,10 +51,10 @@ automation:
     - service: light.turn_off
       data:
         entity_id: light.hall_light
-    condition:
-      - condition: state
-        entity_id: timer.hallway_lights_off_in
-        state: finished
+    # condition:
+    #   - condition: state
+    #     entity_id: timer.hallway_lights_off_in
+    #     state: finished
 
   - alias: Turn off hallway lights 3 minutes after trigger
     trigger:

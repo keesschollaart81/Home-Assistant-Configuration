@@ -46,8 +46,7 @@ lovelace:
     - url: /hacsfiles/simple-thermostat/simple-thermostat.js?v=1
       type: module
 
-updater:
-  include_used_components: true
+updater: 
 
 discovery:
 
