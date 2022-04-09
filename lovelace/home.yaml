@@ -41,9 +41,11 @@ cards:
         name: Kitchen
         tap_action: 
           action: toggle
-      - entity: binary_sensor.0x00158d00027743b7_water_leak
-        name: "☕ Reservoir?"
-        icon: mdi:cup-water
+      - entity: switch.0xb4e3f9fffea52bae
+        name: "Aquarium"
+        icon: mdi:fish
+        tap_action: 
+          action: toggle
       - entity: scene.eating
         name: Eating
         icon: mdi:food
