@@ -46,8 +46,6 @@ lovelace:
     - url: /hacsfiles/simple-thermostat/simple-thermostat.js?v=1
       type: module
 
-updater: 
-
 discovery:
 
 recorder:
