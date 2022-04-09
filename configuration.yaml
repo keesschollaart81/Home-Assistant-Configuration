@@ -46,6 +46,8 @@ lovelace:
     - url: /hacsfiles/simple-thermostat/simple-thermostat.js?v=1
       type: module
 
+updater: 
+
 discovery:
 
 recorder:
@@ -95,10 +97,16 @@ cloud:
 
 mqtt:
   broker: core-mosquitto
-  # username: hassio
-  # password: !secret mqtt
-  # discovery: true
+  username: hassio
+  password: !secret mqtt
+  discovery: true
   discovery_prefix: homeassistant
+  birth_message:
+    topic: "hass/status"
+    payload: "online"
+  will_message:
+    topic: "hass/status"
+    payload: "offline"
 
 person:
   - name: Kees
