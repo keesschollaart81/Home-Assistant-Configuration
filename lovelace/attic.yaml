@@ -4,12 +4,14 @@ cards:
   - id: attic_card
     type: entities
     title: Attic
+    show_header_toggle: false
     entities: 
       - light.attic_ceiling_led_strip 
       - light.0x00124b002116c339_light
       - scene.colorfull_attic
       - scene.white_attic
       - light.attic_killswitch_lights
+      - binary_sensor.0x842e14fffe4b54f2_occupancy
   - id: ceiling_lights
     type: entities
     title: Attic
