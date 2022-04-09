@@ -56,6 +56,10 @@ homeassistant:
     switch.0x00158d0004f819c9:
       friendly_name: "Living Room - Cabinet Lights"
       icon: mdi:file-cabinet
+    
+    switch.0xb4e3f9fffea52bae:
+      friendly_name: "Aquarium Lights"
+      icon: mdi:fish
 
 light:
   # - platform: xiaomi_miio #ok
@@ -303,6 +307,26 @@ automation:
         target:
           entity_id: scene.living_room_lights_off
 
+  - alias: Aquarium Lights on
+    id: aquarium_lights_on
+    trigger:
+      - platform: time
+        at: "14:30:00"
+    action:
+      - service: switch.turn_on
+        target:
+          entity_id: switch.0x00158d0004f819c9
+
+  - alias: Aquarium Lights off
+    id: aquarium_lights_off
+    trigger:
+      - platform: time
+        at: "22:00:00"
+    action:
+      - service: switch.turn_on
+        target:
+          entity_id: switch.0x00158d0004f819c9
+          
 script:
   sonos_say:
     alias: "Sonos TTS script"
