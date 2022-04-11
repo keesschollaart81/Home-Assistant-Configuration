@@ -315,7 +315,7 @@ automation:
     action:
       - service: switch.turn_on
         target:
-          entity_id: switch.0x00158d0004f819c9
+          entity_id: switch.0xb4e3f9fffea52bae
 
   - alias: Aquarium Lights off
     id: aquarium_lights_off
@@ -325,7 +325,7 @@ automation:
     action:
       - service: switch.turn_off
         target:
-          entity_id: switch.0x00158d0004f819c9
+          entity_id: switch.0xb4e3f9fffea52bae
 
 script:
   sonos_say:
