@@ -33,6 +33,7 @@ sonos:
 auth:
 mobile_app:
 media_source:
+energy:
 
 http:
   ssl_certificate: /ssl/fullchain.pem
