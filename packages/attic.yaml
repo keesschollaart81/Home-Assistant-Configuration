@@ -24,6 +24,15 @@ homeassistant:
     binary_sensor.0x842e14fffe4b54f2_occupancy:
       friendly_name: "Attic Occupancy"
 
+    switch.0x84ba20fffe65529c:
+      friendly_name: "Airco Power Plug"
+
+    switch.0x84ba20fffe6ac289:
+      friendly_name: "WTF Area Plug"
+      
+    switch.0x84ba20fffe6ac1ff:
+      friendly_name: "Washing Machine Plug"
+
 light:
   - platform: group
     name: Attic Ceiling & LED Strip

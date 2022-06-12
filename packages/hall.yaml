@@ -1,3 +1,32 @@
+
+homeassistant:
+  customize: 
+    binary_sensor.0x00158d0001f9faa1_occupancy:
+        friendly_name: Hallway - Motion
+
+    sensor.0x00158d0001f9faa1_illuminance:
+        friendly_name: Hallway - Illuminance
+
+    sensor.0x00158d0001f9faa1_battery:
+        friendly_name: Hallway - Motion Sensor Battery 
+
+    light.0x90fd9ffffe10c5d1_light:
+        friendly_name: Hall Light 1
+
+    light.0x90fd9ffffe135ab2_light:
+        friendly_name: Hall Light 2
+
+    light.hall_light:
+        friendly_name: Hall Light
+        icon: mdi:ceiling-light
+
+    timer.hallway_lights_off_in :
+      friendly_name: Hallway lights off in 
+      
+    switch.0x84ba20fffe65522c:
+      friendly_name: Fuse Box Plug 
+    
+
 automation:
   - id: 'LightOnInHallwayWhenMotion'
     alias: Enable lights in hallway when there is motion
@@ -68,29 +97,6 @@ automation:
         entity_id:
           - light.hall_light 
 
-homeassistant:
-  customize: 
-    binary_sensor.0x00158d0001f9faa1_occupancy:
-        friendly_name: Hallway - Motion
-
-    sensor.0x00158d0001f9faa1_illuminance:
-        friendly_name: Hallway - Illuminance
-
-    sensor.0x00158d0001f9faa1_battery:
-        friendly_name: Hallway - Motion Sensor Battery 
-
-    light.0x90fd9ffffe10c5d1_light:
-        friendly_name: Hall Light 1
-
-    light.0x90fd9ffffe135ab2_light:
-        friendly_name: Hall Light 2
-
-    light.hall_light:
-        friendly_name: Hall Light
-        icon: mdi:ceiling-light
-
-    timer.hallway_lights_off_in :
-      friendly_name: Hallway lights off in
 timer:
   hallway_lights_off_in:
     duration: '00:02:00'
