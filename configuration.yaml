@@ -147,8 +147,8 @@ proximity:
     unit_of_measurement: km
  
 
-samsungtv:
-  - host: samsung.localdomain
+# samsungtv:
+#   - host: samsung.localdomain
 
 # tuya:
 #   username: !secret TuyaUsername
