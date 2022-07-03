@@ -26,11 +26,17 @@ homeassistant:
 
     switch.0x84ba20fffe65529c:
       friendly_name: "Airco Power Plug"
+    sensor.0x84ba20fffe65529c_energy:
+      friendly_name: "Airco Power Plug"
 
     switch.0x84ba20fffe6ac289:
       friendly_name: "WTF Area Plug"
+    sensor.0x84ba20fffe6ac289_energy:
+      friendly_name: "WTF Area Plug"
       
     switch.0x84ba20fffe6ac1ff:
+      friendly_name: "Washing Machine Plug"
+    sensor.0x84ba20fffe6ac1ff_energy:
       friendly_name: "Washing Machine Plug"
 
 light:

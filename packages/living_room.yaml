@@ -63,6 +63,8 @@ homeassistant:
 
     switch.0x84ba20fffe6ac2c7:
       friendly_name: "Couch Corner Plug"
+    sensor.0x84ba20fffe6ac2c7_energy:
+      friendly_name: "Couch Corner Plug"
 
 light:
   # - platform: xiaomi_miio #ok

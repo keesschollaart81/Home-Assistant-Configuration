@@ -25,6 +25,8 @@ homeassistant:
       
     switch.0x84ba20fffe65522c:
       friendly_name: Fuse Box Plug 
+    sensor.0x84ba20fffe65522c_energy:
+      friendly_name: Fuse Box Plug 
     
 
 automation:
