@@ -39,6 +39,9 @@ homeassistant:
     sensor.0x84ba20fffe6ac1ff_energy:
       friendly_name: "Washing Machine Plug"
 
+    binary_sensor.desktop_ag23eag_webcamactive:
+      friendly_name: "Webcam Laptop Active"
+
 light:
   - platform: group
     name: Attic Ceiling & LED Strip
@@ -85,6 +88,30 @@ automation:
     action:
       service: light.turn_off
       entity_id: light.attic_ceiling_led_strip
+
+  - alias: Start Call on Laptop
+    condition: 
+      - condition: template
+        value_template: "{{ states('device_tracker.iphone_kees') == 'home' }}"
+    trigger:
+      platform: state
+      entity_id: binary_sensor.desktop_ag23eag_webcamactive
+      to: "on"
+    action:
+      - service: scene.turn_on
+        target:
+          entity_id: scene.colorfull_attic 
+      - service: light.turn_on
+        entity_id: light.elgato_key_light_air
+
+  - alias: End Call on Laptop
+    trigger:
+      platform: state
+      entity_id: binary_sensor.desktop_ag23eag_webcamactive
+      to: "off"
+    action: 
+      - service: light.turn_off
+        entity_id: light.elgato_key_light_air
 
 scene:
   - name: Colorfull Attic
