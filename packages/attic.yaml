@@ -69,7 +69,7 @@ automation:
           entity_id: media_player.sonos_sonos_attic
       - service: climate.turn_off
         target:
-          entity_id: climate.zolder
+          entity_id: climate.airco_zolder
 
   - alias: Motion Detection - Attic Light on
     trigger:
