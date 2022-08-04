@@ -86,13 +86,7 @@ tts:
     pitch: high
     contour: (0, 0) (100, 100)
 
-cloud:
-
-# panel_iframe:
-#   esphomeyaml:
-#     title: Esphomeyaml
-#     icon: mdi:code-not-equal-variant
-#     url: http://schollaartthuis.duckdns.org:6052/,
+cloud: 
 
 mqtt:
   broker: core-mosquitto

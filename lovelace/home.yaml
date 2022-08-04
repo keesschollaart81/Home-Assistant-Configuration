@@ -8,28 +8,7 @@ cards:
     type: history-graph 
     entities:
     - device_tracker.iphone_van_marleen
-    - device_tracker.iphone_kees
-  - id: kees_naar_huis
-    type: history-graph
-    entities: [sensor.kees_naar_huis]
-    hours_to_show: 12
-    title: "Kees naar huis"
-  # - type: map
-  #   aspect_ratio: 16:9
-  #   default_zoom: 8
-  #   entities:
-  #   - zone.School
-  #   - zone.Thuis
-  #   - device_tracker.iphone_van_marleen
-  #   - device_tracker.iphone_kees
-  # - id: map
-  #   type: picture-entity 
-  #   entity: camera.locations
-  #   camera_image: camera.locations
-  #   show_state: false
-  #   show_name: true
-  #   tap_action: 
-  #     action: more-info
+    - device_tracker.iphone_kees 
   - id: living_room
     type: glance
     title: Living room  
@@ -85,10 +64,8 @@ cards:
     aspect_ratio: '16x9'
     entities:
       - binary_sensor.0x00158d000208e0e0_contact
-      - entity: camera.front_door_camera
-        name: Live 
       - switch.licht_in_tuin
-    camera_image: camera.front_door_camera
+    camera_image: camera.amcrest_camera
     tap_action: 
       action: more-info
   - id: hallway
