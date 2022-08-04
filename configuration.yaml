@@ -145,7 +145,12 @@ proximity:
       - device_tracker.iphone_kees
     tolerance: 50
     unit_of_measurement: km
- 
+
+amcrest:
+  - host: 192.168.1.191
+    username: admin
+    password: !secret doorbell_password
+  
 
 # samsungtv:
 #   - host: samsung.localdomain

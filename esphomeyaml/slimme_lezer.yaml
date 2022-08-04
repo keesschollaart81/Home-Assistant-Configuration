@@ -37,9 +37,9 @@ wifi:
 captive_portal:
  
 # Enable logging
-logger:1
+logger:
   baud_rate: 0
- 
+
 # Enable Home Assistant API
 api:
   services:
