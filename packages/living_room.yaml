@@ -316,7 +316,7 @@ automation:
     id: aquarium_lights_on
     trigger:
       - platform: time
-        at: "14:30:00"
+        at: "15:30:00"
     action:
       - service: switch.turn_on
         target:
@@ -326,7 +326,7 @@ automation:
     id: aquarium_lights_off
     trigger:
       - platform: time
-        at: "22:00:00"
+        at: "21:30:00"
     action:
       - service: switch.turn_off
         target:
