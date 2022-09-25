@@ -25,20 +25,26 @@ homeassistant:
       friendly_name: "Attic Occupancy"
 
     switch.0x84ba20fffe65529c:
-      friendly_name: "Airco Power Plug"
+      friendly_name: "Airco Power Plug (6)"
     sensor.0x84ba20fffe65529c_energy:
-      friendly_name: "Airco Power Plug"
+      friendly_name: "Airco Power Plug (6)"
 
     switch.0x84ba20fffe6ac289:
-      friendly_name: "WTF Area Plug"
+      friendly_name: "WFH Area Plug (5)"
     sensor.0x84ba20fffe6ac289_energy:
-      friendly_name: "WTF Area Plug"
+      friendly_name: "WFH Area Plug (5)"
+
+    switch.0x943469fffe7169b3:
+      friendly_name: "WFH Laptop Plug (4)"
+    sensor.0x943469fffe7169b3_energy:
+      friendly_name: "WFH Laptop Plug (4)"
       
+
     switch.0x84ba20fffe6ac1ff:
-      friendly_name: "Washing Machine Plug"
+      friendly_name: "Washing Machine Plug (7)"
       
     sensor.0x84ba20fffe6ac1ff_energy:
-      friendly_name: "Washing Machine Plug Energy"
+      friendly_name: "Washing Machine Plug (7)"
 
     binary_sensor.desktop_ag23eag_webcamactive:
       friendly_name: "Webcam Laptop Active"
