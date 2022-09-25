@@ -25,3 +25,19 @@ cards:
       - entity: sensor.0x84ba20fffe6ac2c7_energy
       - entity: sensor.0x943469fffe716cf4_energy
       - entity: sensor.0x943469fffe716b2c_energy
+  - id: power_plugs2
+    type: statistics-graph
+    days_to_show: 3
+    chart_type: line
+    period: hour
+    entities: 
+      - entity: sensor.0x84ba20fffe65529c_energy
+      - entity: sensor.0x84ba20fffe6ac289_energy
+      - entity: sensor.0x943469fffe7169b3_energy
+      - entity: sensor.0x84ba20fffe6ac1ff_energy
+      - entity: sensor.0x84ba20fffe65522c_energy
+      - entity: sensor.0xe0798dfffeb9108b_energy
+      - entity: sensor.0xe0798dfffeb91086_energy
+      - entity: sensor.0x84ba20fffe6ac2c7_energy
+      - entity: sensor.0x943469fffe716cf4_energy
+      - entity: sensor.0x943469fffe716b2c_energy
