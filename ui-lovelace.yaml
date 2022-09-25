@@ -3,3 +3,4 @@ views:
   - !include lovelace/home.yaml
   - !include lovelace/1st_floor.yaml
   - !include lovelace/attic.yaml
+  - !include lovelace/power.yaml
