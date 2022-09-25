@@ -17,6 +17,7 @@ cards:
     type: statistics-graph
     title: Airco & Washing Machine
     days_to_show: 3
+    stat_types: mean
     chart_type: line
     period: hour
     entities: 
@@ -27,6 +28,7 @@ cards:
     type: statistics-graph
     title: Work From Home
     days_to_show: 3
+    stat_types: mean
     chart_type: line
     period: hour
     entities: 
@@ -36,6 +38,7 @@ cards:
   - id: living_room_stats
     type: statistics-graph
     days_to_show: 3
+    stat_types: mean
     title: Living Room
     chart_type: line
     period: hour
@@ -48,6 +51,7 @@ cards:
   - id: others_stats
     type: statistics-graph
     days_to_show: 3
+    stat_types: mean
     title: Others
     chart_type: line
     period: hour
