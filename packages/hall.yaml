@@ -24,11 +24,21 @@ homeassistant:
       friendly_name: Hallway lights off in 
       
     switch.0x84ba20fffe65522c:
-      friendly_name: Fuse Box Plug 
+      friendly_name: Fuse Box Plug (8) 
     sensor.0x84ba20fffe65522c_energy:
-      friendly_name: Fuse Box Plug 
-    
+      friendly_name: Fuse Box Plug (8)
 
+    switch.0xe0798dfffeb9108b:
+      friendly_name: Dishwasher Plug (9) 
+    sensor.0xe0798dfffeb9108b_energy:
+      friendly_name: Dishwasher Plug (9)
+
+    switch.0xe0798dfffeb91086:
+      friendly_name: Flex Plug (10) 
+    sensor.0xe0798dfffeb91086_energy:
+      friendly_name: Flex Plug (10)
+
+      
 automation:
   - id: 'LightOnInHallwayWhenMotion'
     alias: Enable lights in hallway when there is motion
