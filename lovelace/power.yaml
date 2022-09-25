@@ -11,33 +11,46 @@ cards:
       - switch.axis_b8a44f310e82
       - switch.vip2952_de5e74
       - switch.vi
-      - switch.bosch_8000i
-  - id: power_plugs
-    type: history-graph
-    entities: 
-      - entity: sensor.0x84ba20fffe65529c_energy
-      - entity: sensor.0x84ba20fffe6ac289_energy
-      - entity: sensor.0x943469fffe7169b3_energy
-      - entity: sensor.0x84ba20fffe6ac1ff_energy
-      - entity: sensor.0x84ba20fffe65522c_energy
-      - entity: sensor.0xe0798dfffeb9108b_energy
-      - entity: sensor.0xe0798dfffeb91086_energy
-      - entity: sensor.0x84ba20fffe6ac2c7_energy
-      - entity: sensor.0x943469fffe716cf4_energy
-      - entity: sensor.0x943469fffe716b2c_energy
-  - id: power_plugs2
+      - switch.bosch_8000i 
+
+  - id: airco_washing_machine_stats
     type: statistics-graph
+    title: Airco & Washing Machine
     days_to_show: 3
     chart_type: line
     period: hour
     entities: 
       - entity: sensor.0x84ba20fffe65529c_power
+      - entity: sensor.0x84ba20fffe6ac1ff_power
+      
+  - id: wfh_stats
+    type: statistics-graph
+    title: Work From Home
+    days_to_show: 3
+    chart_type: line
+    period: hour
+    entities: 
       - entity: sensor.0x84ba20fffe6ac289_power
       - entity: sensor.0x943469fffe7169b3_power
-      - entity: sensor.0x84ba20fffe6ac1ff_power
-      - entity: sensor.0x84ba20fffe65522c_power
-      - entity: sensor.0xe0798dfffeb9108b_power
-      - entity: sensor.0xe0798dfffeb91086_power
+
+  - id: living_room_stats
+    type: statistics-graph
+    days_to_show: 3
+    title: Living Room
+    chart_type: line
+    period: hour
+    entities:   
       - entity: sensor.0x84ba20fffe6ac2c7_power
       - entity: sensor.0x943469fffe716cf4_power
       - entity: sensor.0x943469fffe716b2c_power
+      - entity: sensor.0xe0798dfffeb9108b_power
+
+  - id: others_stats
+    type: statistics-graph
+    days_to_show: 3
+    title: Others
+    chart_type: line
+    period: hour
+    entities:   
+      - entity: sensor.0x84ba20fffe65522c_power
+      - entity: sensor.0xe0798dfffeb91086_power
