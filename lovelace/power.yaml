@@ -1,0 +1,27 @@
+id: power_tab
+title: Power
+cards:
+  - id: poe_switches_card
+    type: entities
+    title: PoE Devices
+    show_header_toggle: true
+    entities: 
+      - switch.axis_b8a44f13a848
+      - switch.axis_b8a44f3057be
+      - switch.axis_b8a44f310e82
+      - switch.vip2952_de5e74
+      - switch.vi
+      - switch.bosch_8000i
+  - id: power_plugs
+    type: history-graph
+    entities: 
+      - entity: sensor.0x84ba20fffe65529c_energy
+      - entity: sensor.0x84ba20fffe6ac289_energy
+      - entity: sensor.0x943469fffe7169b3_energy
+      - entity: sensor.0x84ba20fffe6ac1ff_energy
+      - entity: sensor.0x84ba20fffe65522c_energy
+      - entity: sensor.0xe0798dfffeb9108b_energy
+      - entity: sensor.0xe0798dfffeb91086_energy
+      - entity: sensor.0x84ba20fffe6ac2c7_energy
+      - entity: sensor.0x943469fffe716cf4_energy
+      - entity: sensor.0x943469fffe716b2c_energy
