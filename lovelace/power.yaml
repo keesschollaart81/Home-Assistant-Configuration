@@ -31,13 +31,13 @@ cards:
     chart_type: line
     period: hour
     entities: 
-      - entity: sensor.0x84ba20fffe65529c_energy
-      - entity: sensor.0x84ba20fffe6ac289_energy
-      - entity: sensor.0x943469fffe7169b3_energy
-      - entity: sensor.0x84ba20fffe6ac1ff_energy
-      - entity: sensor.0x84ba20fffe65522c_energy
-      - entity: sensor.0xe0798dfffeb9108b_energy
-      - entity: sensor.0xe0798dfffeb91086_energy
-      - entity: sensor.0x84ba20fffe6ac2c7_energy
-      - entity: sensor.0x943469fffe716cf4_energy
-      - entity: sensor.0x943469fffe716b2c_energy
+      - entity: sensor.0x84ba20fffe65529c_power
+      - entity: sensor.0x84ba20fffe6ac289_power
+      - entity: sensor.0x943469fffe7169b3_power
+      - entity: sensor.0x84ba20fffe6ac1ff_power
+      - entity: sensor.0x84ba20fffe65522c_power
+      - entity: sensor.0xe0798dfffeb9108b_power
+      - entity: sensor.0xe0798dfffeb91086_power
+      - entity: sensor.0x84ba20fffe6ac2c7_power
+      - entity: sensor.0x943469fffe716cf4_power
+      - entity: sensor.0x943469fffe716b2c_power

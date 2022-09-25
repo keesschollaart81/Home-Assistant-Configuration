@@ -28,23 +28,30 @@ homeassistant:
       friendly_name: "Airco Power Plug (6)"
     sensor.0x84ba20fffe65529c_energy:
       friendly_name: "Airco Power Plug (6)"
+    sensor.0x84ba20fffe65529c_power:
+      friendly_name: "Airco Power Plug (6) - Power"
 
     switch.0x84ba20fffe6ac289:
       friendly_name: "WFH Area Plug (5)"
     sensor.0x84ba20fffe6ac289_energy:
       friendly_name: "WFH Area Plug (5)"
+    sensor.0x84ba20fffe6ac289_power:
+      friendly_name: "WFH Area Plug (5) - Power"
 
     switch.0x943469fffe7169b3:
       friendly_name: "WFH Laptop Plug (4)"
     sensor.0x943469fffe7169b3_energy:
       friendly_name: "WFH Laptop Plug (4)"
+    sensor.0x943469fffe7169b3_power:
+      friendly_name: "WFH Laptop Plug (4) - Power"
       
 
     switch.0x84ba20fffe6ac1ff:
-      friendly_name: "Washing Machine Plug (7)"
-      
+      friendly_name: "Washing Machine Plug (7)" 
     sensor.0x84ba20fffe6ac1ff_energy:
       friendly_name: "Washing Machine Plug (7)"
+    sensor.0x84ba20fffe6ac1ff_power:
+      friendly_name: "Washing Machine Plug (7) - Power"
 
     binary_sensor.desktop_ag23eag_webcamactive:
       friendly_name: "Webcam Laptop Active"
