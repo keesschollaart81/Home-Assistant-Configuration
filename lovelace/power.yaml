@@ -18,16 +18,16 @@ cards:
     title: Smart Plugs
     show_header_toggle: false
     entities: 
-      - entity: sensor.0xe0798dfffeb9108b
-      - entity: sensor.0x84ba20fffe6ac1ff
-      - entity: sensor.0x84ba20fffe6ac289
-      - entity: sensor.0x943469fffe7169b3
-      - entity: sensor.0x84ba20fffe65529c
-      - entity: sensor.0x84ba20fffe6ac2c7
-      - entity: sensor.0x943469fffe716cf4
-      - entity: sensor.0x943469fffe716b2c
-      - entity: sensor.0x84ba20fffe65522c
-      - entity: sensor.0xe0798dfffeb91086
+      - entity: switch.0xe0798dfffeb9108b
+      - entity: switch.0x84ba20fffe6ac1ff
+      - entity: switch.0x84ba20fffe6ac289
+      - entity: switch.0x943469fffe7169b3
+      - entity: switch.0x84ba20fffe65529c
+      - entity: switch.0x84ba20fffe6ac2c7
+      - entity: switch.0x943469fffe716cf4
+      - entity: switch.0x943469fffe716b2c
+      - entity: switch.0x84ba20fffe65522c
+      - entity: switch.0xe0798dfffeb91086
 
   - id: airco_washing_machine_stats
     type: statistics-graph
