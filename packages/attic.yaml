@@ -181,4 +181,10 @@ scene:
       light.0x00124b002116c339_light:
         state: "on"
         xy_color: [0.3, 0.3]
-        brightness: 255
+        brightness: 255 
+  - name: PowerSavingOn
+    entities:  
+      switch.0x943469fffe716cf4:
+        state: "off"
+      switch.0x943469fffe7169b3:
+        state: "off"

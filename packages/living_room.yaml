@@ -49,9 +49,9 @@ homeassistant:
     sensor.0x00158d0004a0166e_temperature:
       friendly_name: "Living Room - Temperature"
 
-    light.0x00158d00058d0cdf:
-      friendly_name: "Living Room - Couch Bulb"
-      icon: mdi:desk-lamp
+    # light.0x00158d00058d0cdf:
+    #   friendly_name: "Living Room - Couch Bulb"
+    #   icon: mdi:desk-lamp
 
     switch.0x00158d0004f819c9:
       friendly_name: "Living Room - Cabinet Lights"
@@ -136,10 +136,7 @@ scene:
         brightness: 29
       light.shellydimmer2_e8db84d2e4d6:
         state: "on"
-        brightness: 25
-      light.0x00158d00058d0cdf:
-        state: "on"
-        brightness: 30
+        brightness: 25 
       switch.0x00158d0004f819c9:
         state: "on"
 
@@ -150,10 +147,7 @@ scene:
         brightness: 125
       light.shellydimmer2_e8db84d2e4d6:
         state: "on"
-        brightness: 30
-      light.0x00158d00058d0cdf:
-        state: "on"
-        brightness: 50
+        brightness: 30 
       switch.0x00158d0004f819c9:
         state: "off"
         
@@ -164,10 +158,7 @@ scene:
         brightness: 30
       light.shellydimmer2_e8db84d2e4d6:
         state: "on"
-        brightness: 230 
-      light.0x00158d00058d0cdf:
-        state: "on"
-        brightness: 40
+        brightness: 230  
       switch.0x00158d0004f819c9:
         state: "off"
 
@@ -178,10 +169,7 @@ scene:
         brightness: 255
       light.shellydimmer2_e8db84d2e4d6:
         state: "on"
-        brightness: 255 
-      light.0x00158d00058d0cdf:
-        state: "on"
-        brightness: 255
+        brightness: 255  
       switch.0x00158d0004f819c9:
         state: "on"
 
@@ -190,9 +178,7 @@ scene:
       light.shellydimmer2_e8db84d2ed82:
         state: "off" 
       light.shellydimmer2_e8db84d2e4d6:
-        state: "off"
-      light.0x00158d00058d0cdf:
-        state: "off"
+        state: "off" 
       switch.0x00158d0004f819c9:
         state: "off"
 
