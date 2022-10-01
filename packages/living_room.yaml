@@ -68,14 +68,14 @@ homeassistant:
     sensor.0x84ba20fffe6ac2c7_power:
       friendly_name: "Couch Corner Plug (1) - Power" 
 
-    sensor.0x943469fffe716cf4:  
+    switch.0x943469fffe716cf4:  
       friendly_name: "TV & Xbox Plug (2)"
     sensor.0x943469fffe716cf4_energy:  
       friendly_name: "TV & Xbox Plug (2)"
     sensor.0x943469fffe716cf4_power:  
       friendly_name: "TV & Xbox Plug (2) - Power"
 
-    sensor.0x943469fffe716b2c:  
+    switch.0x943469fffe716b2c:  
       friendly_name: "Fridge Plug (3)" 
     sensor.0x943469fffe716b2c_energy:  
       friendly_name: "Fridge Plug (3)"

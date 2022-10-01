@@ -79,3 +79,14 @@ cards:
     entities: 
       - entity: sensor.0x84ba20fffe6ac1ff_power
       - entity: sensor.0xe0798dfffeb9108b_power
+
+  - id: consumption_vs_production
+    type: statistics-graph
+    title: Electricity
+    days_to_show: 3
+    stat_types: mean
+    chart_type: line
+    period: hour
+    entities: 
+      - entity: sensor.power_consumed
+      - entity: sensor.power_produced
