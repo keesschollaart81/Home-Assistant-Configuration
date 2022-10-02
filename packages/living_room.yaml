@@ -302,6 +302,16 @@ automation:
       - service: homeassistant.turn_on
         entity_id: scene.eating
 
+  - id: TVXBoxPlugOnWhenMotion
+    alias: TV 7 XBOX plug on when motion
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.0x00158d000222df56_occupancy
+        to: "on"
+    action:
+      - service: homeassistant.turn_on
+        entity_id: switch.0x943469fffe716cf4
+
   - alias: Auto off
     id: off_scene_automation
     trigger:
@@ -315,6 +325,8 @@ automation:
       - service: scene.turn_on
         target:
           entity_id: scene.living_room_lights_off
+      - service: homeassistant.turn_off
+        entity_id: switch.0x943469fffe716cf4
 
   - alias: Aquarium Lights on
     id: aquarium_lights_on

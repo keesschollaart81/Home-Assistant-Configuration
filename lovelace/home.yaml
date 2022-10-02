@@ -14,8 +14,10 @@ cards:
     title: Living room  
     columns: 3
     entities:
-      - entity: binary_sensor.0x00158d000222df56_occupancy
-        name: Occupancy
+      - entity: input_boolean.google_goodnight_routine
+        name: Night mode
+        tap_action: 
+          action: toggle
       - entity: light.shellydimmer2_e8db84d2e4d6
         name: Kitchen
         tap_action: 
@@ -49,6 +51,8 @@ cards:
           service: scene.turn_on
           service_data: 
             entity_id: scene.living_room_lights_off 
+
+            
   - id: living_room_all
     type: entities
     title: Individual lights
