@@ -348,6 +348,36 @@ automation:
         target:
           entity_id: switch.0xb4e3f9fffea52bae
 
+  - alias: Confirm Thermostat
+    id: confirm_thermostat
+    trigger:
+      - platform: state
+        entity_id: climate.toon_thermostat
+        to: heat
+    action:
+    - service: notify.mobile_app_iphone_kees
+      data:
+        message: "Heater went on"
+        data:
+          actions:
+            - action: "ALARM"
+              title: "Sound Alarm"
+              icon: "sfsymbols:bell"
+            - action: "TURN_OFF_HEATING"
+              title: "Zet uit"
+              icon: "sfsymbols:bell.slash"
+
+  - alias: "Turn off heating"
+    trigger:
+      - platform: event
+        event_type: mobile_app_notification_action
+        event_data:
+          action: "TURN_OFF_HEATING"
+    action:
+      - service: climate.turn_off
+        entity_id: climate.toon_thermostat
+
+
 script:
   sonos_say:
     alias: "Sonos TTS script"
