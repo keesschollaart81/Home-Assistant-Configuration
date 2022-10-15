@@ -353,32 +353,59 @@ automation:
     trigger:
       - platform: state
         entity_id: climate.toon_thermostat
-        to: heat
+        attribute: hvac_action
+        to: heating
     action:
-    - service: notify.mobile_app_iphone_kees
+    - service: notify.phones_kees_marleen
       data:
-        message: "Heater went on"
+        message: "CV gaat aan"
         data:
           actions:
-            - action: "ALARM"
-              title: "Sound Alarm"
-              icon: "sfsymbols:bell"
-            - action: "TURN_OFF_HEATING"
-              title: "Zet uit"
-              icon: "sfsymbols:bell.slash"
+            - action: "HEATING_AWAY"
+              title: "Away"
+              icon: "sfsymbols:person.crop.circle.badge.exclam"
+            - action: "HEATING_COMFORT"
+              title: "Comfort"
+              icon: "sfsymbols:flame"
+            - action: "HEATING_HOME"
+              title: "Home"
+              icon: "sfsymbols:house.fill"
 
-  - alias: "Turn off heating"
+  - alias: "Heating away"
     trigger:
       - platform: event
         event_type: mobile_app_notification_action
         event_data:
-          action: "TURN_OFF_HEATING"
+          action: "HEATING_AWAY"
     action:
-      - service: notify.mobile_app_iphone_kees
-        data:
-          message: "test"
-      - service: climate.turn_off
+      - service: climate.set_preset_mode
         entity_id: climate.toon_thermostat
+        data:
+          preset_mode: "away"
+
+  - alias: "Heating comfort"
+    trigger:
+      - platform: event
+        event_type: mobile_app_notification_action
+        event_data:
+          action: "HEATING_COMFORT"
+    action:
+      - service: climate.set_preset_mode
+        entity_id: climate.toon_thermostat
+        data:
+          preset_mode: "comfort"
+
+  - alias: "Heating home"
+    trigger:
+      - platform: event
+        event_type: mobile_app_notification_action
+        event_data:
+          action: "HEATING_HOME"
+    action:
+      - service: climate.set_preset_mode
+        entity_id: climate.toon_thermostat
+        data:
+          preset_mode: "home"
 
 
 script:
