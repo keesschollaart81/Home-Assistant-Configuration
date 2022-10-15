@@ -374,6 +374,9 @@ automation:
         event_data:
           action: "TURN_OFF_HEATING"
     action:
+      - service: notify.mobile_app_iphone_kees
+        data:
+          message: "test"
       - service: climate.turn_off
         entity_id: climate.toon_thermostat
 
