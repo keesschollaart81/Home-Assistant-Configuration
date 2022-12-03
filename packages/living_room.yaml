@@ -282,6 +282,8 @@ automation:
     action:
       - service: homeassistant.turn_on
         entity_id: input_boolean.google_goodnight_routine 
+      - service: homeassistant.turn_off
+        entity_id: switch.0x943469fffe716cf4
 
   - id: LightsOnAutoWhenMotion
     alias: Lights on when motion
@@ -355,10 +357,17 @@ automation:
         entity_id: climate.toon_thermostat
         attribute: hvac_action
         to: heating
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ states('device_tracker.iphone_van_marleen') != 'home' }}"
+        - condition: template
+          value_template: "{{ states('device_tracker.iphone_kees') != 'home' }}"
     action:
     - service: notify.phones_kees_marleen
       data:
-        message: "CV gaat aan"
+        message: "CV gaat aan en er is niemand thuis"
         data:
           actions:
             - action: "HEATING_AWAY"

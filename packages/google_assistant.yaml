@@ -14,15 +14,14 @@ automation:
         entity_id: input_boolean.google_goodnight_routine
         to: "on"
     action:
-      - service: light.turn_off
+      - service: homeassistant.turn_off
         entity_id:
           - light.staandelamp
           - light.bank 
           - light.shellydimmer2_e8db84d2e4d6
-          # - light.0x00158d00058d0cdf
-          - light.0x00158d0004f819c9_light 
+          - light.0x00158d0004f819c9_light
           - switch.0x943469fffe716cf4
-          - switch.0x943469fffe7169b3
+          - unif
       - service: light.turn_on
         entity_id: light.shellydimmer2_e8db84d2ed82
         data_template:
@@ -33,6 +32,7 @@ automation:
         - light.shellydimmer2_e8db84d2ed82
         - switch.licht_in_tuin
 
+          
 input_boolean:
   google_goodnight_routine:
     initial: off

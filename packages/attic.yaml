@@ -106,9 +106,32 @@ automation:
       platform: time
       at: "18:00:00"
     action:
-      service: light.turn_off
-      entity_id: light.attic_ceiling_led_strip
+      - service: light.turn_off
+        entity_id: light.attic_ceiling_led_strip
+      - service: notify.mobile_app_iphone_kees
+        data:
+          message: "Turn of power at WFH plug?"
+          data:
+            actions:
+              - action: "TURN_OFF_WFH_POWER"
+                title: "Turn off"
+                icon: "sfsymbols:person.crop.circle.badge.exclam"
 
+  - alias: "Turn off WFH plug notification"
+    condition:
+      - condition: state
+        entity_id: switch.0x943469fffe7169b3
+        state: "on"
+    trigger:
+      - platform: event
+        event_type: mobile_app_notification_action
+        event_data:
+          action: "TURN_OFF_WFH_POWER"
+    action:
+      - service: homeassistant.turn_off
+        entity_id: switch.0x943469fffe7169b3
+
+ 
   - alias: Start Call on Laptop
     condition: 
       - condition: template
@@ -128,7 +151,6 @@ automation:
           is_volume_muted: true
         target:
           entity_id: media_player.sonos_sonos_attic
-
 
   - alias: End Call on Laptop
     trigger:
