@@ -13,11 +13,10 @@ homeassistant:
 sensor: !include sensors.yaml
 history: !include history.yaml
 
-binary_sensor: 
+binary_sensor:
   - platform: workday
-    country: NL 
- 
-  
+    country: NL
+
 group:
   everyone:
     name: Everyone
@@ -38,7 +37,7 @@ energy:
 http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
-  
+
 lovelace:
   mode: yaml
   resources:
@@ -66,7 +65,6 @@ logger:
 map:
 
 sun:
- 
   # - platform: local_file
   #   name: backyard_latest
 
@@ -86,20 +84,20 @@ tts:
     pitch: high
     contour: (0, 0) (100, 100)
 
-cloud: 
+cloud:
 
-mqtt:
-  broker: core-mosquitto
-  username: hassio
-  password: !secret mqtt
-  discovery: true
-  discovery_prefix: homeassistant
-  birth_message:
-    topic: "hass/status"
-    payload: "online"
-  will_message:
-    topic: "hass/status"
-    payload: "offline"
+#mqtt:
+  # broker: core-mosquitto
+  # username: hassio
+  # password: !secret mqtt
+  # discovery: true
+  # discovery_prefix: homeassistant
+  # birth_message:
+  #   topic: "hass/status"
+  #   payload: "online"
+  # will_message:
+  #   payload: "offline"
+  #   topic: "hass/status"
 
 person:
   - name: Kees
@@ -129,7 +127,7 @@ zone:
 notify:
   - name: phones_kees_marleen
     platform: group
-    services: 
+    services:
       - service: mobile_app_iphone_kees
       - service: mobile_app_iphone_van_marleen_2
 
@@ -144,7 +142,6 @@ amcrest:
   - host: 192.168.1.191
     username: admin
     password: !secret doorbell_password
-  
 
 # samsungtv:
 #   - host: samsung.localdomain
@@ -157,5 +154,4 @@ amcrest:
 
 shell_command:
   install_imagemagick: "apk add --update imagemagick"
-  clean_up: /config/shell_commands/clean-up.sh 
- 
+  clean_up: /config/shell_commands/clean-up.sh
