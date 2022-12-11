@@ -108,6 +108,16 @@ automation:
     action:
       - service: light.turn_off
         entity_id: light.attic_ceiling_led_strip
+
+  - alias: "Ask to turn off power"
+    trigger:
+      platform: time
+      at: "18:00:00"
+    condition:
+      - condition: state
+        entity_id: switch.0x943469fffe7169b3
+        state: "on"
+    action:
       - service: notify.mobile_app_iphone_kees
         data:
           message: "Turn of power at WFH plug?"
@@ -118,10 +128,6 @@ automation:
                 icon: "sfsymbols:person.crop.circle.badge.exclam"
 
   - alias: "Turn off WFH plug notification"
-    condition:
-      - condition: state
-        entity_id: switch.0x943469fffe7169b3
-        state: "on"
     trigger:
       - platform: event
         event_type: mobile_app_notification_action

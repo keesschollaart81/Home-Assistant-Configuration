@@ -20,8 +20,7 @@ automation:
           - light.bank 
           - light.shellydimmer2_e8db84d2e4d6
           - light.0x00158d0004f819c9_light
-          - switch.0x943469fffe716cf4
-          - unif
+          - light.shellydimmer2_e8db84d2ed82
       - service: light.turn_on
         entity_id: light.shellydimmer2_e8db84d2ed82
         data_template:
@@ -29,8 +28,8 @@ automation:
       - delay: "00:02"
       - service: light.turn_off
         entity_id: 
-        - light.shellydimmer2_e8db84d2ed82
         - switch.licht_in_tuin
+        - switch.0x943469fffe716cf4
 
           
 input_boolean:
