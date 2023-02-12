@@ -86,6 +86,9 @@ cards:
       - light.0x90fd9ffffe2b5781_light
       - binary_sensor.0x00158d0002e2eecc_occupancy
       - timer.toilet_lights_off_in
+  - id: toon
+    type: thermostat
+    entity: climate.toon_thermostat 
   - id: temperatures
     type: history-graph
     entities: 
@@ -103,18 +106,26 @@ cards:
         name: "Heating"
     hours_to_show: 12
     title: "Climate (12hr)"   
-  #
-  # - id: thermostat_entities
-  #   type: entities
-  #   title: Toon
-  #   show_header_toggle: false
-  #   entities:
-  #     - sensor.toon_gas_used_last_hour
-  #     # - sensor.toon_gas_used_cnt
-  #     # - sensor.toon_power_use_cnt
-  #     - sensor.toon_power_use
-  #     - sensor.toon_p1_power_use_cnt_low
-  #     - sensor.toon_p1_power_use_cnt_high
-  #     - sensor.toon_p1_power_use_low
-  #     - sensor.toon_p1_power_use_high
-    
+
+  - id: living_room_stats_home
+    type: statistics-graph
+    days_to_show: 2
+    stat_types: mean
+    title: Living Room
+    chart_type: line
+    period: hour
+    entities:   
+      - entity: sensor.0x84ba20fffe6ac2c7_power
+      - entity: sensor.0x943469fffe716cf4_power
+      - entity: sensor.0x943469fffe716b2c_power 
+
+  - id: gas_home
+    type: statistics-graph
+    days_to_show: 2
+    stat_types: mean
+    title: Living Room
+    chart_type: line
+    period: hour
+    entities:    
+      - entity: sensor.gas_consumed
+  
