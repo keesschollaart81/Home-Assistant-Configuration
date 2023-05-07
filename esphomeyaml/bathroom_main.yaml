@@ -29,7 +29,8 @@ web_server:
     password: !secret esphome_webserver_password
 
 api:
-  password: !secret esphome_api_password
+  encryption:
+    key: !secret esphome_api_key
 
 logger:
 

@@ -40,8 +40,9 @@ captive_portal:
 logger:
   baud_rate: 0
 
-# Enable Home Assistant API
 api:
+  encryption:
+    key: !secret esphome_api_key 
   services:
     service: set_dsmr_key
     variables:
@@ -59,6 +60,7 @@ api:
           id(dsmr_instance).set_decryption_key(private_key);
  
 ota:
+  password: !secret esphome_ota_password
  
 web_server:
   port: 80

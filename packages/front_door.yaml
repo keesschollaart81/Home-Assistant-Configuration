@@ -15,23 +15,10 @@ automation:
         for:
           seconds: 2
     action:
-      - service: camera.snapshot
-        target:
-          entity_id: camera.front_door_camera
-        data:
-          filename: '/media/local/front_door_nobodyhome_latest.png'
       - service: notify.phones_kees_marleen
         data_template:
-          title: "Er wordt aan de deur gebeld"
-          message: "Wie zou dat zijn?"
-          data:
-            image: "/media/local/front_door_nobodyhome_latest.png"  
-            # entity_id: camera.front_door_camera
-      - service:  camera.snapshot
-        target:
-          entity_id: camera.front_door_camera
-        data:
-          filename: '/media/local/doorbell/{{ now().strftime("%Y%m%d-%H%M%S") }}.png'
+          title: "Voordeur open en niemand thuis"
+          message: "Hoe kan dat?"
 
   - id: "VoordeurNotificatieTeLangOpen"
     alias: Voordeur te lang open
@@ -53,19 +40,6 @@ automation:
           message: "Misschien vergeten dicht te doen?"
           data:
             image: "/media/local/front_door_open_too_long_latest.png"  
-            # entity_id: camera.front_door_camera
-
-  - id: "VoordeurOpenDicht"
-    alias: Voordeur open of dicht
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.0x00158d000208e0e0_contact 
-    action:
-      - service: camera.snapshot
-        target:
-          entity_id: camera.front_door_camera
-        data:
-          filename: '/media/local/front_door/open_close_{{ now().strftime("%Y%m%d-%H%M%S") }}.png'
  
 homeassistant:
   customize:
