@@ -128,9 +128,10 @@ light:
       - light.shellydimmer2_e8db84d2e4d6
       - light.0x00158d00058d0cdf
       - light.0x00158d0004f819c9_light
-home_connect_alt:
-  client_id: !secret home_connect_client_id
-  client_secret: !secret home_connect_client_secret 
+      
+# home_connect_alt:
+#   client_id: !secret home_connect_client_id
+#   client_secret: !secret home_connect_client_secret 
 
 scene:
   - name: Evening
