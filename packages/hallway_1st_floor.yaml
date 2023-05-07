@@ -51,51 +51,7 @@ automation:
       data:
         transition: 0
         entity_id:
-          - light.shellydimmer2_40f5200033ef
-
-  - id: "TurnOnLightsInHallwayAtSevenWorkingDays"
-    alias: Turn on lights in hallway at seven
-    condition:
-      - condition: state
-        entity_id: "binary_sensor.workday_sensor"
-        state: "on"
-    trigger:
-      - platform: time
-        at: "06:57:00"
-    action:
-      - service: light.turn_on
-        data:
-          entity_id: light.shellydimmer2_40f5200033ef
-          brightness: 125
-          transition: 0
-      - delay:
-          minutes: 3
-      - service: light.turn_off
-        data:
-          entity_id: light.shellydimmer2_40f5200033ef
-          transition: 0
-
-  - id: "TurnOnLightsInHallwayAtSevenNonWorkingDays"
-    alias: Turn on lights in hallway at seven
-    condition:
-      - condition: state
-        entity_id: "binary_sensor.workday_sensor"
-        state: "off"
-    trigger:
-      - platform: time
-        at: "07:30:00"
-    action:
-      - service: light.turn_on
-        data:
-          entity_id: light.shellydimmer2_40f5200033ef
-          brightness: 125
-          transition: 0
-      - delay:
-          minutes: 3
-      - service: light.turn_off
-        data:
-          entity_id: light.shellydimmer2_40f5200033ef
-          transition: 0
+          - light.shellydimmer2_40f5200033ef 
 
 timer:
   hallway_1st_floor_dimmer_lights_off_in:

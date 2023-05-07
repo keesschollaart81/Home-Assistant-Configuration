@@ -13,10 +13,6 @@ homeassistant:
 sensor: !include sensors.yaml
 history: !include history.yaml
 
-binary_sensor:
-  - platform: workday
-    country: NL
-
 group:
   everyone:
     name: Everyone
