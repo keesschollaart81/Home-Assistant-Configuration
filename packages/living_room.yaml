@@ -217,6 +217,9 @@ automation:
       - condition: state
         entity_id: light.shellydimmer2_e8db84d2e4d6
         state: "off"
+      - condition: state
+        entity_id: "group.everyone"
+        state: "home"
     action:
       - service: scene.turn_on
         target:
@@ -230,6 +233,10 @@ automation:
     trigger:
       platform: time
       at: "17:15:00"
+    condition:
+      - condition: state
+        entity_id: "group.everyone"
+        state: "home"
     action:
       - service: scene.turn_on
         target:
