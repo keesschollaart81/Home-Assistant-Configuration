@@ -69,7 +69,7 @@ sun:
 tts:
   - platform: google_translate
     language: "nl"
-    base_url: https://schollaartthuis.duckdns.org:8123
+    # base_url: https://schollaartthuis.duckdns.org:8123
   - platform: microsoft
     api_key: !secret cogntive_services_api_key
     language: en-us
