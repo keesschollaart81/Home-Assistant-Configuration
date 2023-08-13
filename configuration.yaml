@@ -11,7 +11,7 @@ homeassistant:
     - type: homeassistant
 
 sensor: !include sensors.yaml
-history: !include history.yaml
+# history: !include history.yaml
 
 group:
   everyone:
@@ -42,7 +42,7 @@ lovelace:
     - url: /hacsfiles/simple-thermostat/simple-thermostat.js?v=1
       type: module
 
-discovery:
+# discovery:
 
 recorder:
   db_url: !secret recorder_db_url
