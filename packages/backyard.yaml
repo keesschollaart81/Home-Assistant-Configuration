@@ -1,8 +1,4 @@
-homeassistant:
-  customize:
-    switch.licht_in_tuin:
-      friendly_name: Garden - Light Switch
-      icon: mdi:flower
+homeassistant: 
 
 # switch:
 #   - platform: xiaomi_miio
@@ -20,7 +16,7 @@ automation:
       offset: "-00:45:00"
     action:
       service: homeassistant.turn_on
-      entity_id: switch.licht_in_tuin
+      entity_id: switch.0xe0798dfffeb91086
 
   - id: 'TuinlichtUitNaEenTijdje'
     alias: 'TuinlichtUitNaEenTijdje'
@@ -32,7 +28,7 @@ automation:
       # offset: "+02:00:00"
     action:
       service: homeassistant.turn_off
-      entity_id: switch.licht_in_tuin
+      entity_id: switch.0xe0798dfffeb91086
 
   - id: 'TuinlichtAanVoorZonsopkomst'
     alias: 'TuinlichtAanVoorZonsopkomst' 
@@ -42,7 +38,7 @@ automation:
       offset: "-00:45:00"
     action:
       service: homeassistant.turn_on
-      entity_id: switch.licht_in_tuin
+      entity_id: switch.0xe0798dfffeb91086
 
   - id: 'TuinlichtUitNaZonsopkomst'
     alias: 'TuinlichtUitNaZonsopkomst'
@@ -52,7 +48,7 @@ automation:
       offset: "00:45:00"
     action:
       service: homeassistant.turn_off
-      entity_id: switch.licht_in_tuin
+      entity_id: switch.0xe0798dfffeb91086
   
           
 

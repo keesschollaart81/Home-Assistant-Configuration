@@ -28,7 +28,7 @@ automation:
       - delay: "00:02"
       - service: light.turn_off
         entity_id: 
-        - switch.licht_in_tuin
+        - switch.0xe0798dfffeb91086
         - switch.0x943469fffe716cf4
 
           
@@ -104,10 +104,4 @@ google_assistant:
       name: Deurbel
       expose: true
       aliases:
-        - Deurbel geluid
-    switch.licht_in_tuin:
-      name: Tuin
-      expose: true
-      aliases:
-        - Achtertuin
-        - Buiten
+        - Deurbel geluid 

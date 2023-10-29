@@ -68,7 +68,7 @@ cards:
     aspect_ratio: '16x9'
     entities:
       - binary_sensor.0x00158d000208e0e0_contact
-      - switch.licht_in_tuin
+      - switch.0xe0798dfffeb91086
     camera_image: camera.amcrest_camera
     tap_action: 
       action: more-info

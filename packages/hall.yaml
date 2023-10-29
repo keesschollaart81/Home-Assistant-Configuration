@@ -38,11 +38,11 @@ homeassistant:
       friendly_name: Dishwasher Plug (9) - Power
 
     switch.0xe0798dfffeb91086:
-      friendly_name: Flex Plug (10) 
+      friendly_name: Backyard Lights Plug (10) 
     sensor.0xe0798dfffeb91086_energy:
-      friendly_name: Flex Plug (10)
+      friendly_name: Backyard Lights Plug (10)
     sensor.0xe0798dfffeb91086_power:
-      friendly_name: Flex Plug (10) - Power
+      friendly_name: Backyard Lights Plug (10) - Power
 
       
 automation:
