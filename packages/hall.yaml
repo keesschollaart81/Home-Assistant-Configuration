@@ -38,6 +38,7 @@ homeassistant:
       friendly_name: Dishwasher Plug (9) - Power
 
     switch.0xe0798dfffeb91086:
+      icon: mdi:flow
       friendly_name: Backyard Lights Plug (10) 
     sensor.0xe0798dfffeb91086_energy:
       friendly_name: Backyard Lights Plug (10)
