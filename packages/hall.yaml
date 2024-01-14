@@ -64,6 +64,9 @@ automation:
     - service: light.turn_on
       data:
         entity_id: light.hall_light 
+    - service: timer.cancel
+      data:
+        entity_id: timer.hallway_lights_off_in
 
   - id: 'ToggleLightsForHallwaySwitch'
     alias: Toggle the lighs when switch is flipped
@@ -78,13 +81,32 @@ automation:
       data:
         entity_id: timer.hallway_lights_off_in
         duration: '00:10:00' # when manually switched, keep running longer
+ 
+  - alias: Doorbell Pressed
+    description: "Trigger when Amcrest Button Press Event Fires"
+    trigger:
+      - platform: event
+        event_type: amcrest
+        event_data:
+          event: "CallNoAnswered"
+          payload:
+            action: "Start"
+    action: 
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_light 
+    - service: timer.start
+      data:
+        entity_id: timer.hallway_lights_off_in
+
+action:
+  - type: flash
+    entity_id: light.living_room
+    domain: light
 
   - id: 'LightOnInHallwayWhenActivity'
     alias: Enable lights in hallway when there is activity
-    trigger:
-    - platform: state
-      entity_id: binary_sensor.0x00158d000208e0e0_contact #front door opens
-      to: 'on'
+    trigger: 
     - platform: state
       entity_id: binary_sensor.doorbell_button_2
       to: 'on'

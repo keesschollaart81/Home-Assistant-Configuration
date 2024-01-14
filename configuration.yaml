@@ -138,6 +138,7 @@ amcrest:
   - host: 192.168.1.191
     username: admin
     password: !secret doorbell_password
+    binary_sensors: 
 
 # samsungtv:
 #   - host: samsung.localdomain
