@@ -1,10 +1,10 @@
 homeassistant:
   customize:
-    shellydimmer2_40f5200033ef:
+    light.shellydimmer2_40f5200033ef:
       friendly_name: Lights Hallway 1st floor
       icon: mdi:ceiling-light
 
-    shellydimmer2_485519f2af15:
+    light.shellydimmer2_485519f2af15:
       friendly_name: Lights Jasmijn
       icon: mdi:ceiling-light
         

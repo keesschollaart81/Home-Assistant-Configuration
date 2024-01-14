@@ -21,7 +21,7 @@ cards:
       - binary_sensor.0x00158d0002e2ab4d_occupancy 
   - id: room_jasmijn
     type: entities
-    title: Hallway
+    title: Jasmijn
     entities: 
       - light.shellydimmer2_485519f2af15
   - id: motion_first_floor_card
