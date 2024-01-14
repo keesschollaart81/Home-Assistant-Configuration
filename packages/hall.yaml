@@ -85,7 +85,7 @@ automation:
     - service: light.turn_on
       data:
         entity_id: light.hall_light
-    - service: timer.start
+    - service: timer.cancel
       data:
         entity_id: timer.hallway_lights_off_in
 
@@ -96,13 +96,9 @@ automation:
       entity_id: binary_sensor.0x00158d0001f9faa1_occupancy 
       to: 'off'
     action:  
-    - service: light.turn_off
+    - service: timer.start
       data:
-        entity_id: light.hall_light
-    # condition:
-    #   - condition: state
-    #     entity_id: timer.hallway_lights_off_in
-    #     state: finished
+        entity_id: timer.hallway_lights_off_in
 
   - alias: Turn off hallway lights 3 minutes after trigger
     trigger:

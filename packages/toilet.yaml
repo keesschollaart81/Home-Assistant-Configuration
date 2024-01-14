@@ -14,7 +14,7 @@ homeassistant:
 
 timer:
   toilet_lights_off_in:
-    duration: "00:06:00"
+    duration: "00:03:00"
 
 automation:
   - id: toilet_button
@@ -38,6 +38,17 @@ automation:
       - service: light.turn_on
         data:
           entity_id: light.0x90fd9ffffe2b5781_light
+      - service: timer.cancel
+        data:
+          entity_id: timer.toilet_lights_off_in
+
+  - id: "ToiletLightsOffAfterNminutesNoMotion"
+    alias: Turn on the toilet lights when motion is detected
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.0x00158d0002e2eecc_occupancy
+        to: "off"
+    action: 
       - service: timer.start
         data:
           entity_id: timer.toilet_lights_off_in

@@ -19,6 +19,11 @@ cards:
       - light.shellydimmer2_40f5200033ef
       - timer.hallway_1st_floor_dimmer_lights_off_in 
       - binary_sensor.0x00158d0002e2ab4d_occupancy 
+  - id: room_jasmijn
+    type: entities
+    title: Hallway
+    entities: 
+      - light.shellydimmer2_485519f2af15
   - id: motion_first_floor_card
     type: history-graph
     hours_to_show: 24
