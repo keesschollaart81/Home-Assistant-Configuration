@@ -3,7 +3,7 @@ homeassistant:
     shellydimmer2_40f5200033ef:
       friendly_name: Lights Hallway 1st floor
       icon: mdi:ceiling-light
-      
+
     shellydimmer2_485519f2af15:
       friendly_name: Lights Jasmijn
       icon: mdi:ceiling-light
@@ -57,6 +57,31 @@ automation:
         entity_id:
           - light.shellydimmer2_40f5200033ef 
 
+  - alias: "Trigger timer when lights are turned on for room Jasmijn"
+    trigger:
+      platform: state
+      entity_id: light.shellydimmer2_485519f2af15
+      to: "on"
+    action:
+      - service: timer.start
+        data:
+          entity_id: timer.room_jasmijn_lights_off_in
+
+  - alias: Turn off lights Jasmijn after 1hr
+    trigger:
+      platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.room_jasmijn_lights_off_in
+    action:
+      service: light.turn_off
+      data:
+        transition: 0
+        entity_id:
+          - light.shellydimmer2_485519f2af15 
+
 timer:
   hallway_1st_floor_dimmer_lights_off_in:
     duration: "00:02:00"
+  room_jasmijn_lights_off_in:
+    duration: "01:00:00"
