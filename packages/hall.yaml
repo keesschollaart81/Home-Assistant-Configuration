@@ -74,6 +74,10 @@ automation:
     - service: light.toggle
       data:
         entity_id: light.hall_light 
+    - service: timer.start
+      data:
+        entity_id: timer.hallway_lights_off_in
+        duration: '00:10:00' # when manually switched, keep running longer
 
   - id: 'LightOnInHallwayWhenActivity'
     alias: Enable lights in hallway when there is activity
