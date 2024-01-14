@@ -108,7 +108,7 @@ action:
     alias: Enable lights in hallway when there is activity
     trigger: 
     - platform: state
-      entity_id: binary_sensor.doorbell_button_2
+      entity_id: binary_sensor.0x00158d000208e0e0_contact #front door opens
       to: 'on'
     condition: 
       - condition: state
