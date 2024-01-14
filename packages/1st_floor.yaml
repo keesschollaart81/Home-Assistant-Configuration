@@ -11,6 +11,10 @@ homeassistant:
     timer.hallway_1st_floor_dimmer_lights_off_in:
       friendly_name: Hallway 1st floor lights off in
 
+    binary_sensor.0x00158d0002e2ab4d_occupancy:
+      friendly_name: Hallway 1st floor motion
+
+
 automation:  
   - id: "LightOnInHallway1stFloorWhenActivity"
     alias: Enable lights in hallway on the first floor when there is activity
@@ -84,4 +88,5 @@ timer:
   hallway_1st_floor_dimmer_lights_off_in:
     duration: "00:02:00"
   room_jasmijn_lights_off_in:
+    name: Lights of in room Jasmijn timer
     duration: "01:00:00"

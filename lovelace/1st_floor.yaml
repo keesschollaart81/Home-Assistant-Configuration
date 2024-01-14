@@ -12,6 +12,24 @@ cards:
         name: Temperature
       - entity: binary_sensor.0x00158d0002e2e35e_occupancy
         name: Occupancy
+  - id: bathoom_card
+    type: entities
+    title: Bathoom
+    entities: 
+      - light.0x000b57fffed598bc_light  
+      - light.bathroom_main_lights
+      - entity: sensor.0x00158d0001f5358e_humidity
+        name: Humidity 
+      - entity: binary_sensor.0x00158d0003120fb3_contact
+        name: "Door"
+      - timer.bathroom_lights_off_in 
+      - binary_sensor.0x00158d0002e2e35e_occupancy 
+  - id: room_jasmijn
+    type: entities
+    title: Jasmijn
+    entities: 
+      - light.shellydimmer2_485519f2af15
+      - timer.room_jasmijn_lights_off_in
   - id: hallway_1st_floor_dimmer
     type: entities
     title: Hallway
@@ -19,11 +37,6 @@ cards:
       - light.shellydimmer2_40f5200033ef
       - timer.hallway_1st_floor_dimmer_lights_off_in 
       - binary_sensor.0x00158d0002e2ab4d_occupancy 
-  - id: room_jasmijn
-    type: entities
-    title: Jasmijn
-    entities: 
-      - light.shellydimmer2_485519f2af15
   - id: motion_first_floor_card
     type: history-graph
     hours_to_show: 24
@@ -50,15 +63,3 @@ cards:
     title: "Bathroom humidity"
     entities: 
       - entity: sensor.0x00158d0001f5358e_humidity
-  - id: bathoom_card
-    type: entities
-    title: Bathoom
-    entities: 
-      - light.0x000b57fffed598bc_light  
-      - light.bathroom_main_lights
-      - entity: sensor.0x00158d0001f5358e_humidity
-        name: Humidity 
-      - entity: binary_sensor.0x00158d0003120fb3_contact
-        name: "Door"
-      - timer.bathroom_lights_off_in 
-      - binary_sensor.0x00158d0002e2e35e_occupancy 
