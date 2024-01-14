@@ -65,6 +65,16 @@ automation:
       data:
         entity_id: light.hall_light 
 
+  - id: 'ToggleLightsForHallwaySwitch'
+    alias: Toggle the lighs when switch is flipped
+    trigger: 
+    - platform: state
+      entity_id: binary_sensor.hall_switch 
+    action: 
+    - service: light.toggle
+      data:
+        entity_id: light.hall_light 
+
   - id: 'LightOnInHallwayWhenActivity'
     alias: Enable lights in hallway when there is activity
     trigger:

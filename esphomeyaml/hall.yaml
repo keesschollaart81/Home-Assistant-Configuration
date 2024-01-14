@@ -1,0 +1,60 @@
+esphome:
+  name: hall_switch
+  platform: ESP8266
+  board: esp01_1m
+  board_flash_mode: dout
+
+
+wifi:
+  networks:
+  - ssid: !secret esphome_wifi_1_ssid
+    password: !secret esphome_wifi_1_password
+  - ssid: !secret esphome_wifi_2_ssid
+    password: !secret esphome_wifi_2_password 
+  # use_address: 192.168.1.235
+  # manual_ip:
+  #   static_ip: 192.168.1.235
+    # gateway: !secret esphome_network_gateway 
+    # subnet: !secret esphome_network_subnet 
+    # dns1: !secret esphome_network_dns1 
+  ap:
+    ssid: "Esphome Hall"
+    password: !secret esphome_ap_password 
+
+captive_portal: 
+
+web_server:
+  port: 80
+  auth:
+    username: admin
+    password: !secret esphome_webserver_password
+
+api:
+  encryption:
+    key: !secret esphome_api_key
+
+logger:
+
+ota:
+  password: !secret esphome_ota_password
+
+binary_sensor:
+  - platform: gpio
+    pin: GPIO5
+    name: "hall_switch" 
+
+light:
+  - platform: binary
+    id: hall_killswitch_lights
+    name: "hall_killswitch_lights"
+    output: hall_relay
+    restore_mode: ALWAYS_ON
+
+output:
+  - platform: gpio
+    id: hall_relay
+    pin: GPIO4
+ 
+switch:
+  - platform: restart
+    name: "Hall floor Restart"
