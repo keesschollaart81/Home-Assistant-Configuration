@@ -18,13 +18,13 @@ homeassistant:
     sensor.0x000b57fffed598bc_linkquality:
       friendly_name: Bathroom - Mirror Light Linkquality
 
-    sensor.0x00158d0001f5358e_pressure:
+    sensor.0x00158d000a843b7c_pressure:
       friendly_name: Bathroom - Environment Sensor Pressure
-    sensor.0x00158d0001f5358e_humidity:
+    sensor.0x00158d000a843b7c_humidity:
       friendly_name: Bathroom - Environment Sensor Humidity
-    sensor.0x00158d0001f5358e_temperature:
+    sensor.0x00158d000a843b7c_temperature:
       friendly_name: Bathroom - Environment Sensor Temperature
-    sensor.0x00158d0001f5358e_battery:
+    sensor.0x00158d000a843b7c_battery:
       friendly_name: Bathroom - Environment Sensor Battery
 
     binary_sensor.0x00158d0002e2e35e_occupancy:
@@ -128,7 +128,7 @@ automation:
     # condition:
     #   - condition: numeric_state
     #     below: 70 #showering 
-    #     entity_id: sensor.0x00158d0001f5358e_humidity
+    #     entity_id: sensor.0x00158d000a843b7c_humidity
     action:
       service: light.turn_off
       data:

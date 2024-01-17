@@ -92,8 +92,6 @@ cards:
   - id: temperatures
     type: history-graph
     entities: 
-      - entity: sensor.0x00158d0001f5358e_temperature
-        name: "Bathroom"
       - entity: sensor.rotterdam_temperature
         name: "Outside"
       - entity: sensor.toon_current_temperature

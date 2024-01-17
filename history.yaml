@@ -15,7 +15,7 @@ exclude:
     - sensor.iphone_van_marleen_battery_state 
     - sensor.bridge_state
     - sensor.temperature_1d 
-    - sensor.0x00158d0001f5358e_battery
+    - sensor.0x00158d000a843b7c_battery
     - sensor.0x00158d000222df56_battery
     - sensor.0x00158d0001639d5a_battery
     - sensor.0x00158d0001f9faa1_battery

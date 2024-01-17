@@ -8,7 +8,7 @@ cards:
     entities:
       - entity: light.bathroom_lights
         name: Light
-      - entity: sensor.0x00158d0001f5358e_temperature
+      - entity: sensor.0x00158d000a843b7c_temperature
         name: Temperature
       - entity: binary_sensor.0x00158d0002e2e35e_occupancy
         name: Occupancy
@@ -18,7 +18,7 @@ cards:
     entities: 
       - light.0x000b57fffed598bc_light  
       - light.bathroom_main_lights
-      - entity: sensor.0x00158d0001f5358e_humidity
+      - entity: sensor.0x00158d000a843b7c_humidity
         name: Humidity 
       - entity: binary_sensor.0x00158d0003120fb3_contact
         name: "Door"
@@ -55,11 +55,11 @@ cards:
     hours_to_show: 24
     title: "Bathroom temperature"
     entities: 
-      - entity: sensor.0x00158d0001f5358e_temperature
+      - entity: sensor.0x00158d000a843b7c_temperature
         name: "Bathroom"
   - id: humidity_card
     type: history-graph
     hours_to_show: 24
     title: "Bathroom humidity"
     entities: 
-      - entity: sensor.0x00158d0001f5358e_humidity
+      - entity: sensor.0x00158d000a843b7c_humidity

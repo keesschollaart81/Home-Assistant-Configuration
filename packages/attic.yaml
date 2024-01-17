@@ -12,13 +12,13 @@ homeassistant:
     light.0x00124b002116c339_light:
       friendly_name: Attic LED Strip
 
-    sensor.0x00158d0004a015c5_humidity:
+    sensor.0x00158d000a838163_humidity:
       friendly_name: "Attic Humidity"
   
-    sensor.0x00158d0004a015c5_pressure:
+    sensor.0x00158d000a838163_pressure:
       friendly_name: "Attic Pressure"
       
-    sensor.0x00158d0004a015c5_temperature:
+    sensor.0x00158d000a838163_temperature:
       friendly_name: "Attic Temperature"
 
     binary_sensor.0x842e14fffe4b54f2_occupancy:
