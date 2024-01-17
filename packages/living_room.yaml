@@ -83,6 +83,12 @@ homeassistant:
       friendly_name: "Fridge Plug (3) - Power"
 
 
+    binary_sensor.0x00158d000ad822da_contact:
+      friendly_name: Aquarium - Entry Contact
+    sensor.0x00158d000ad822da_battery:
+      friendly_name: Aquarium - Entry Battery
+    sensor.0x00158d000ad822da_linkquality:
+      friendly_name: Aquarium - Entry  Quality
   
 light:
   # - platform: xiaomi_miio #ok
