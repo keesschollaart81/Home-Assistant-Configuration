@@ -6,11 +6,11 @@ homeassistant:
       friendly_name: Bathroom - Main Light 1 
     light.0x086bd7fffe363173_light:
       friendly_name: Bathroom - Main Light 2
-    
-    binary_sensor.bathroom_main_switch:
+      
+    binary_sensor.shelly1minig3_84fce63c1ad8_input_0_input:
       friendly_name: Bathroom - Switch 
 
-    switch.bathroom_main_relay:
+    switch.shelly1minig3_84fce63c1ad8_switch_0:
       friendly_name: Bathroom - Main Light Relay 
 
     light.0x000b57fffed598bc_light:
@@ -65,11 +65,11 @@ automation:
   - alias: "Switch bathroom lights when switch is used"
     trigger:
       - platform: state
-        entity_id: binary_sensor.bathroom_main_switch
+        entity_id: binary_sensor.shelly1minig3_84fce63c1ad8_input_0_input
         from: "off"
         to: "on"
       - platform: state
-        entity_id: binary_sensor.bathroom_main_switch
+        entity_id: binary_sensor.shelly1minig3_84fce63c1ad8_input_0_input
         from: "on"
         to: "off"
     action:
