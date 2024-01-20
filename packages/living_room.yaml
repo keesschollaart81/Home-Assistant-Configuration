@@ -90,6 +90,10 @@ homeassistant:
     sensor.0x00158d000ad822da_linkquality:
       friendly_name: Aquarium - Entry  Quality
   
+input_boolean:
+  fish_got_food:
+    initial: off
+
 light:
   # - platform: xiaomi_miio #ok
   #   name: staandelamp
@@ -433,6 +437,39 @@ automation:
         entity_id: climate.toon_thermostat
         data:
           preset_mode: "home"
+
+  - alias: Daily reset fish got food routine
+    id: daily_reset_fish_got_food_routing
+    trigger:
+      platform: time
+      at: "07:30:00"
+    action:
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.fish_got_food
+
+  - alias: Fish got food
+    id: fish_got_food
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.0x00158d000ad822da_contact
+        from: "off"
+        to: "on"
+    action:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.fish_got_food
+
+  - alias: "Warn fish did not get food"
+    trigger:
+      platform: time
+      at: "19:45:00"
+    condition:
+      - condition: state
+        entity_id: input_boolean.fish_got_food
+        state: "off"
+    action:
+      - service: notify.mobile_app_iphone_kees
+        data:
+          message: "Hebben de vissen wel eten gehad?" 
 
 
 script:
