@@ -1,13 +1,4 @@
- 
-- platform: systemmonitor
-  scan_interval: 300
-  resources:
-    - type: disk_use
-      arg: /
-    - type: disk_free
-      arg: /
-    - type: memory_free
-    - type: processor_use
+
 
 - platform: template
   sensors:   
