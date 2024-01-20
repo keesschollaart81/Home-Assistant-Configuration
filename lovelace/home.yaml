@@ -13,7 +13,7 @@ cards:
   - id: living_room
     type: glance
     title: Living room  
-    columns: 4
+    columns: 3
     entities:
       - entity: input_boolean.google_goodnight_routine
         name: Night mode
