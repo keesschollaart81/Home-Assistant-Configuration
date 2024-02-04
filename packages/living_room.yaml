@@ -467,7 +467,7 @@ automation:
         entity_id: input_boolean.fish_got_food
         state: "off"
     action:
-      - service: notify.mobile_app_iphone_kees
+      - service: notify.phones_kees_marleen
         data:
           message: "Hebben de vissen wel eten gehad?" 
 
