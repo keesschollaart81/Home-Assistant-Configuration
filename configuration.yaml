@@ -58,8 +58,6 @@ logger:
     homeassistant.components.shell_command: debug
     homeassistant.components.google_assistant: debug
 
-map:
-
 sun:
   # - platform: local_file
   #   name: backyard_latest
@@ -126,13 +124,6 @@ notify:
     services:
       - service: mobile_app_iphone_kees
       - service: mobile_app_iphone_van_marleen_2
-
-proximity:
-  thuis:
-    devices:
-      - device_tracker.iphone_kees
-    tolerance: 50
-    unit_of_measurement: km
 
 amcrest:
   - host: 192.168.1.191
