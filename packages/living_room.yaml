@@ -482,7 +482,7 @@ automation:
     trigger:
       - platform: state
         entity_id: binary_sensor.0x00158d000ad82338_contact
-        to: on
+        to: "on"
     action:
       - service: switch.turn_on
         data:
@@ -493,7 +493,7 @@ automation:
     trigger:
       - platform: state
         entity_id: binary_sensor.0x00158d000ad82338_contact
-        to: off
+        to: "off"
     action:
       - service: switch.turn_off
         data:
