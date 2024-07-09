@@ -89,6 +89,12 @@ homeassistant:
       friendly_name: Aquarium - Entry Battery
     sensor.0x00158d000ad822da_linkquality:
       friendly_name: Aquarium - Entry  Quality
+
+    switch.shellyplus1_80646fdaacf0_switch_0:
+      friendly_name: Light trapkast
+
+    binary_sensor.0x00158d000ad82338_contact:
+      friendly_name: Trapkast deur
   
 input_boolean:
   fish_got_food:
@@ -470,6 +476,28 @@ automation:
       - service: notify.phones_kees_marleen
         data:
           message: "Hebben de vissen wel eten gehad?" 
+
+  - id: trapkast_door_open
+    alias: Trapkast Door Open
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.0x00158d000ad82338_contact
+        to: on
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id: switch.shellyplus1_80646fdaacf0_switch_0
+
+  - id: trapkast_door_closed
+    alias: Trapkast Door Closed
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.0x00158d000ad82338_contact
+        to: off
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id: switch.shellyplus1_80646fdaacf0_switch_0
 
 
 script:
