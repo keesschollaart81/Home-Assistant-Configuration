@@ -362,7 +362,7 @@ automation:
     id: aquarium_lights_on
     trigger:
       - platform: time
-        at: "15:30:00"
+        at: "18:30:00"
     action:
       - service: switch.turn_on
         target:
@@ -464,18 +464,18 @@ automation:
       - service: homeassistant.turn_on
         entity_id: input_boolean.fish_got_food
 
-  - alias: "Warn fish did not get food"
-    trigger:
-      platform: time
-      at: "19:45:00"
-    condition:
-      - condition: state
-        entity_id: input_boolean.fish_got_food
-        state: "off"
-    action:
-      - service: notify.phones_kees_marleen
-        data:
-          message: "Hebben de vissen wel eten gehad?" 
+  # - alias: "Warn fish did not get food"
+  #   trigger:
+  #     platform: time
+  #     at: "19:45:00"
+  #   condition:
+  #     - condition: state
+  #       entity_id: input_boolean.fish_got_food
+  #       state: "off"
+  #   action:
+  #     - service: notify.phones_kees_marleen
+  #       data:
+  #         message: "Hebben de vissen wel eten gehad?" 
 
   - id: trapkast_door_open
     alias: Trapkast Door Open
