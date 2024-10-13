@@ -71,7 +71,7 @@ cards:
     entities:
       - binary_sensor.0x00158d000208e0e0_contact
       - switch.0xe0798dfffeb91086
-    camera_image: camera.amcrest_camera
+    camera_image: camera.amcrest_camera_2
     tap_action: 
       action: more-info
   - id: hallway
