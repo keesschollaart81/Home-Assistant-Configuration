@@ -58,8 +58,8 @@ homeassistant:
       icon: mdi:file-cabinet
     
     switch.0xb4e3f9fffea52bae:
-      friendly_name: "Aquarium Lights"
-      icon: mdi:fish
+      friendly_name: "Christmass tree Lights"
+      icon: mdi:tree
 
     switch.0x84ba20fffe6ac2c7:
       friendly_name: "Couch Corner Plug (1)"
@@ -81,14 +81,7 @@ homeassistant:
       friendly_name: "Fridge Plug (3)"
     sensor.0x943469fffe716b2c_power:  
       friendly_name: "Fridge Plug (3) - Power"
-
-
-    binary_sensor.0x00158d000ad822da_contact:
-      friendly_name: Aquarium - Entry Contact
-    sensor.0x00158d000ad822da_battery:
-      friendly_name: Aquarium - Entry Battery
-    sensor.0x00158d000ad822da_linkquality:
-      friendly_name: Aquarium - Entry  Quality
+ 
 
     switch.shellyplus1_80646fdaacf0_switch_0:
       friendly_name: Light trapkast
@@ -122,6 +115,7 @@ light:
       - light.0x00158d00058d0cdf
       - light.0x00158d0004f819c9_light
       - light.0x00158d00097057c6
+      - switch.0xb4e3f9fffea52bae
       
 # home_connect_alt:
 #   client_id: !secret home_connect_client_id
@@ -141,6 +135,8 @@ scene:
       light.0x00158d00097057c6:
         state: "on"
         brightness: 25 
+      switch.0xb4e3f9fffea52bae:
+        state: "on"
 
   - name: Eating
     entities: 
@@ -155,6 +151,8 @@ scene:
       light.0x00158d00097057c6:
         state: "on"
         brightness: 25 
+      switch.0xb4e3f9fffea52bae:
+        state: "on"
         
   - name: Cooking
     entities: 
@@ -169,6 +167,8 @@ scene:
       light.0x00158d00097057c6:
         state: "on"
         brightness: 25 
+      switch.0xb4e3f9fffea52bae:
+        state: "on"
 
   - name: Maximum
     entities:
@@ -183,6 +183,8 @@ scene:
       light.0x00158d00097057c6:
         state: "on"
         brightness: 255
+      switch.0xb4e3f9fffea52bae:
+        state: "on"
 
   - name: living_room_lights_off
     entities:
@@ -193,6 +195,8 @@ scene:
       switch.0x00158d0004f819c9:
         state: "off"
       light.0x00158d00097057c6:
+        state: "off"
+      switch.0xb4e3f9fffea52bae:
         state: "off"
 
 automation:
@@ -350,25 +354,6 @@ automation:
       - service: homeassistant.turn_off
         entity_id: switch.0x943469fffe716cf4
 
-  - alias: Aquarium Lights on
-    id: aquarium_lights_on
-    trigger:
-      - platform: time
-        at: "18:30:00"
-    action:
-      - service: switch.turn_on
-        target:
-          entity_id: switch.0xb4e3f9fffea52bae
-
-  - alias: Aquarium Lights off
-    id: aquarium_lights_off
-    trigger:
-      - platform: time
-        at: "21:30:00"
-    action:
-      - service: switch.turn_off
-        target:
-          entity_id: switch.0xb4e3f9fffea52bae
 
   - alias: Confirm Thermostat
     id: confirm_thermostat
@@ -435,26 +420,6 @@ automation:
         entity_id: climate.toon_thermostat
         data:
           preset_mode: "home"
-
-  - alias: Daily reset fish got food routine
-    id: daily_reset_fish_got_food_routing
-    trigger:
-      platform: time
-      at: "07:30:00"
-    action:
-      - service: homeassistant.turn_off
-        entity_id: input_boolean.fish_got_food
-
-  - alias: Fish got food
-    id: fish_got_food
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.0x00158d000ad822da_contact
-        from: "off"
-        to: "on"
-    action:
-      - service: homeassistant.turn_on
-        entity_id: input_boolean.fish_got_food
 
   # - alias: "Warn fish did not get food"
   #   trigger:
