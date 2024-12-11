@@ -95,38 +95,15 @@ homeassistant:
 
     binary_sensor.0x00158d000ad82338_contact:
       friendly_name: Trapkast deur
-  
+
+    light.0x00158d00097057c6:
+      friendly_name: Couch bulb
+      
 input_boolean:
   fish_got_food:
     initial: off
 
-light:
-  # - platform: xiaomi_miio #ok
-  #   name: staandelamp
-  #   host: philips-light-bulb_miio61632965.localdomain
-  #   token: !secret staandelamp_token
-  # - platform: xiaomi_miio #ok
-  #   name: bank
-  #   host: philips-light-bulb_miio61510856.localdomain
-  #   token: !secret bank_token
-  # - platform: xiaomi_miio
-  #   name: tafel1
-  #   host: philips-light-bulb_miio61623717.localdomain
-  #   token: !secret tafel1_token
-  # - platform: xiaomi_miio #ok
-  #   name: tafel2
-  #   host: philips-light-bulb_miio61511979.localdomain
-  #   token: !secret tafel2_token
-  # - platform: xiaomi_miio
-  #   name: tafel3
-  #   host: philips-light-bulb_miio60379202.localdomain
-  #   token: !secret tafel3_token
-  # - platform: group
-  #   name: LampenTafel
-  #   entities:
-  #     - light.tafel1
-  #     - light.tafel2
-  #     - light.tafel3
+light: 
   - platform: group
     name: Hall Light
     entities:
@@ -144,6 +121,7 @@ light:
       - light.shellydimmer2_e8db84d2e4d6
       - light.0x00158d00058d0cdf
       - light.0x00158d0004f819c9_light
+      - light.0x00158d00097057c6
       
 # home_connect_alt:
 #   client_id: !secret home_connect_client_id
@@ -160,6 +138,9 @@ scene:
         brightness: 25 
       switch.0x00158d0004f819c9:
         state: "on"
+      light.0x00158d00097057c6:
+        state: "on"
+        brightness: 25 
 
   - name: Eating
     entities: 
@@ -171,6 +152,9 @@ scene:
         brightness: 30 
       switch.0x00158d0004f819c9:
         state: "off"
+      light.0x00158d00097057c6:
+        state: "on"
+        brightness: 25 
         
   - name: Cooking
     entities: 
@@ -182,6 +166,9 @@ scene:
         brightness: 230  
       switch.0x00158d0004f819c9:
         state: "off"
+      light.0x00158d00097057c6:
+        state: "on"
+        brightness: 25 
 
   - name: Maximum
     entities:
@@ -193,6 +180,9 @@ scene:
         brightness: 255  
       switch.0x00158d0004f819c9:
         state: "on"
+      light.0x00158d00097057c6:
+        state: "on"
+        brightness: 255
 
   - name: living_room_lights_off
     entities:
@@ -201,6 +191,8 @@ scene:
       light.shellydimmer2_e8db84d2e4d6:
         state: "off" 
       switch.0x00158d0004f819c9:
+        state: "off"
+      light.0x00158d00097057c6:
         state: "off"
 
 automation:
