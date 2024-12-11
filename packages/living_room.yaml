@@ -134,7 +134,7 @@ scene:
         state: "on"
       light.0x00158d00097057c6:
         state: "on"
-        brightness: 25 
+        brightness: 40 
       light.0xb4e3f9fffea52bae:
         state: "on"
 
@@ -150,7 +150,7 @@ scene:
         state: "off"
       light.0x00158d00097057c6:
         state: "on"
-        brightness: 25 
+        brightness: 40 
       light.0xb4e3f9fffea52bae:
         state: "on"
         
@@ -166,7 +166,7 @@ scene:
         state: "off"
       light.0x00158d00097057c6:
         state: "on"
-        brightness: 25 
+        brightness: 40 
       light.0xb4e3f9fffea52bae:
         state: "on"
 
