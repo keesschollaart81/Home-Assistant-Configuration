@@ -57,7 +57,7 @@ homeassistant:
       friendly_name: "Living Room - Cabinet Lights"
       icon: mdi:file-cabinet
     
-    switch.0xb4e3f9fffea52bae:
+    light.0xb4e3f9fffea52bae:
       friendly_name: "Christmass tree Lights"
       icon: mdi:tree
 
@@ -115,7 +115,7 @@ light:
       - light.0x00158d00058d0cdf
       - light.0x00158d0004f819c9_light
       - light.0x00158d00097057c6
-      - switch.0xb4e3f9fffea52bae
+      - light.0xb4e3f9fffea52bae
       
 # home_connect_alt:
 #   client_id: !secret home_connect_client_id
@@ -135,7 +135,7 @@ scene:
       light.0x00158d00097057c6:
         state: "on"
         brightness: 25 
-      switch.0xb4e3f9fffea52bae:
+      light.0xb4e3f9fffea52bae:
         state: "on"
 
   - name: Eating
@@ -151,7 +151,7 @@ scene:
       light.0x00158d00097057c6:
         state: "on"
         brightness: 25 
-      switch.0xb4e3f9fffea52bae:
+      light.0xb4e3f9fffea52bae:
         state: "on"
         
   - name: Cooking
@@ -167,7 +167,7 @@ scene:
       light.0x00158d00097057c6:
         state: "on"
         brightness: 25 
-      switch.0xb4e3f9fffea52bae:
+      light.0xb4e3f9fffea52bae:
         state: "on"
 
   - name: Maximum
@@ -183,7 +183,7 @@ scene:
       light.0x00158d00097057c6:
         state: "on"
         brightness: 255
-      switch.0xb4e3f9fffea52bae:
+      light.0xb4e3f9fffea52bae:
         state: "on"
 
   - name: living_room_lights_off
@@ -196,7 +196,7 @@ scene:
         state: "off"
       light.0x00158d00097057c6:
         state: "off"
-      switch.0xb4e3f9fffea52bae:
+      light.0xb4e3f9fffea52bae:
         state: "off"
 
 automation:
