@@ -421,18 +421,14 @@ automation:
         data:
           preset_mode: "home"
 
-  # - alias: "Warn fish did not get food"
-  #   trigger:
-  #     platform: time
-  #     at: "19:45:00"
-  #   condition:
-  #     - condition: state
-  #       entity_id: input_boolean.fish_got_food
-  #       state: "off"
-  #   action:
-  #     - service: notify.phones_kees_marleen
-  #       data:
-  #         message: "Hebben de vissen wel eten gehad?" 
+  - alias: "Turn on the Chrismas tree" 
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.0x00158d000222df56_occupancy
+        to: "on"
+    action:
+      - service: homeassistant.turn_on
+        entity_id: light.0xb4e3f9fffea52bae
 
   - id: trapkast_door_open
     alias: Trapkast Door Open
