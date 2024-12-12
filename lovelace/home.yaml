@@ -24,8 +24,8 @@ cards:
         tap_action: 
           action: toggle
       - entity: switch.0xb4e3f9fffea52bae
-        name: "Aquarium"
-        icon: mdi:fish
+        name: "Chrismas tree"
+        icon: mdi:tree
         tap_action: 
           action: toggle
       - entity: scene.eating
@@ -118,6 +118,7 @@ cards:
       - entity: sensor.0x84ba20fffe6ac2c7_power
       - entity: sensor.0x943469fffe716cf4_power
       - entity: sensor.0x943469fffe716b2c_power 
+      - entity: light.0x00158d00097057c6
 
   - id: gas_home
     type: statistics-graph
