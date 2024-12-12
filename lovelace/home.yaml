@@ -62,6 +62,7 @@ cards:
       - switch.0x00158d0004f819c9
       - light.shellydimmer2_e8db84d2ed82
       - light.shellydimmer2_e8db84d2e4d6
+      - light.0x00158d00097057c6
       - binary_sensor.0x00158d000ad822da_contact
       - binary_sensor.0x00158d000222df56_occupancy
   - id: front_door
@@ -117,8 +118,7 @@ cards:
     entities:   
       - entity: sensor.0x84ba20fffe6ac2c7_power
       - entity: sensor.0x943469fffe716cf4_power
-      - entity: sensor.0x943469fffe716b2c_power 
-      - entity: light.0x00158d00097057c6
+      - entity: sensor.0x943469fffe716b2c_power
 
   - id: gas_home
     type: statistics-graph
