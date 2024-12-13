@@ -314,10 +314,12 @@ automation:
     trigger:
       - platform: state
         entity_id: binary_sensor.0x00158d000222df56_occupancy
-        to: "on"
+        to: "on" 
     condition:
       condition: and
       conditions:
+        - condition: time
+          after: '06:30:00' 
         - condition: state
           entity_id: sun.sun
           state: "below_horizon"
@@ -337,6 +339,9 @@ automation:
     action:
       - service: homeassistant.turn_on
         entity_id: switch.0x943469fffe716cf4
+    condition: 
+      - condition: time
+        after: '06:30:00' 
 
   - alias: Auto off
     id: off_scene_automation
@@ -426,6 +431,9 @@ automation:
       - platform: state
         entity_id: binary_sensor.0x00158d000222df56_occupancy
         to: "on"
+    condition:
+      - condition: time
+        after: '06:30:00' 
     action:
       - service: homeassistant.turn_on
         entity_id: light.0xb4e3f9fffea52bae
