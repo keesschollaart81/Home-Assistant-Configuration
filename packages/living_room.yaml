@@ -90,7 +90,10 @@ homeassistant:
       friendly_name: Trapkast deur
 
     light.0x00158d00097057c6:
-      friendly_name: Couch bulb
+      friendly_name: Bench bulb
+
+    light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0:
+      friendly_name: Led strip bench
       
 input_boolean:
   fish_got_food:
@@ -116,6 +119,7 @@ light:
       - light.0x00158d0004f819c9_light
       - light.0x00158d00097057c6
       - light.0xb4e3f9fffea52bae
+      - light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0
       
 # home_connect_alt:
 #   client_id: !secret home_connect_client_id
@@ -137,6 +141,10 @@ scene:
         brightness: 40 
       light.0xb4e3f9fffea52bae:
         state: "on"
+      light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0:
+        state: "on"
+        brightness: 40 
+
 
   - name: Eating
     entities: 
@@ -153,6 +161,9 @@ scene:
         brightness: 40 
       light.0xb4e3f9fffea52bae:
         state: "on"
+      light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0:
+        state: "on"
+        brightness: 40 
         
   - name: Cooking
     entities: 
@@ -169,6 +180,9 @@ scene:
         brightness: 40 
       light.0xb4e3f9fffea52bae:
         state: "on"
+      light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0:
+        state: "on"
+        brightness: 40 
 
   - name: Maximum
     entities:
@@ -185,6 +199,9 @@ scene:
         brightness: 255
       light.0xb4e3f9fffea52bae:
         state: "on"
+      light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0:
+        state: "on"
+        brightness: 255 
 
   - name: living_room_lights_off
     entities:
@@ -197,6 +214,8 @@ scene:
       light.0x00158d00097057c6:
         state: "off"
       light.0xb4e3f9fffea52bae:
+        state: "off"
+      light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0:
         state: "off"
 
 automation:
