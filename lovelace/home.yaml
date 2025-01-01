@@ -76,10 +76,9 @@ cards:
     tap_action: 
       action: more-info
   - id: dog_cam
-    type: picture-glance
-    title: Dog cam
+    type: picture-entity
     aspect_ratio: '16x9' 
-    camera_image: camera.m1075_l_0
+    entity: camera.m1075_l_0
   - id: hallway
     type: entities
     title: Hallway
