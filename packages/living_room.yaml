@@ -325,8 +325,8 @@ automation:
     action:
       - service: homeassistant.turn_on
         entity_id: input_boolean.google_goodnight_routine 
-      - service: homeassistant.turn_off
-        entity_id: switch.0x943469fffe716cf4
+      # - service: homeassistant.turn_off
+      #   entity_id: switch.0x943469fffe716cf4
 
   - id: LightsOnAutoWhenMotion
     alias: Lights on when motion
@@ -350,19 +350,19 @@ automation:
       - service: homeassistant.turn_on
         entity_id: scene.eating
 
-  - id: TVXBoxPlugOnWhenMotion
-    alias: TV 7 XBOX plug on when motion
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.0x00158d000222df56_occupancy
-        to: "on"
-    action:
-      - service: homeassistant.turn_on
-        entity_id: switch.0x943469fffe716cf4
-    condition: 
-      - condition: time
-        after: '06:30:00' 
-        before: '22:00:00' 
+  # - id: TVXBoxPlugOnWhenMotion
+  #   alias: TV 7 XBOX plug on when motion
+  #   trigger:
+  #     - platform: state
+  #       entity_id: binary_sensor.0x00158d000222df56_occupancy
+  #       to: "on"
+  #   action:
+  #     - service: homeassistant.turn_on
+  #       entity_id: switch.0x943469fffe716cf4
+  #   condition: 
+  #     - condition: time
+  #       after: '06:30:00' 
+  #       before: '22:00:00' 
 
   - alias: Auto off
     id: off_scene_automation
@@ -377,8 +377,8 @@ automation:
       - service: scene.turn_on
         target:
           entity_id: scene.living_room_lights_off
-      - service: homeassistant.turn_off
-        entity_id: switch.0x943469fffe716cf4
+      # - service: homeassistant.turn_off
+      #   entity_id: switch.0x943469fffe716cf4
 
 
   - alias: Confirm Thermostat
