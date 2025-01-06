@@ -81,7 +81,6 @@ homeassistant:
       friendly_name: "Fridge Plug (3)"
     sensor.0x943469fffe716b2c_power:  
       friendly_name: "Fridge Plug (3) - Power"
- 
 
     switch.shellyplus1_80646fdaacf0_switch_0:
       friendly_name: Light trapkast
@@ -278,9 +277,10 @@ automation:
   - id: knop1
     alias: Living Room - Switch 1 (Eating)
     trigger:
-      - platform: state
-        entity_id: sensor.0x00158d0001639d5a_click
-        to: "left"
+      - trigger: state
+        entity_id: event.0x00158d0001639d5a_action
+        attribute: event_type
+        to: single_left 
     action:
       - service: homeassistant.turn_on
         entity_id: scene.Eating
@@ -288,9 +288,10 @@ automation:
   - id: knop2
     alias: Living Room - Switch 2 (Evening)
     trigger:
-      - platform: state
-        entity_id: sensor.0x00158d0001639d5a_click
-        to: "right"
+      - trigger: state
+        entity_id: event.0x00158d0001639d5a_action
+        attribute: event_type
+        to: single_right 
     action:
       - service: homeassistant.turn_on
         entity_id: scene.evening
@@ -298,20 +299,22 @@ automation:
   - id: knop3
     alias: Living Room - Switch 3 (Kitchen)
     trigger:
-      - platform: state
-        entity_id: sensor.0x00158d0001710729_click
-        to: "left"
+      - trigger: state
+        entity_id: event.0x00158d0001710729_action
+        attribute: event_type
+        to: single_left
     action:
-      - service: light.toggle
+      - service: light. toggle
         data:
           entity_id: light.shellydimmer2_e8db84d2e4d6
 
   - id: knop4
     alias: Living Room - Switch 4 (All off)
     trigger:
-      - platform: state
-        entity_id: sensor.0x00158d0001710729_click
-        to: "right"
+      - trigger: state
+        entity_id: event.0x00158d0001710729_action
+        attribute: event_type
+        to: single_right 
     action:
       - service: homeassistant.turn_on
         entity_id: scene.living_room_lights_off
@@ -319,9 +322,10 @@ automation:
   - id: knop5
     alias: Living Room - Switch 5
     trigger:
-      - platform: state
-        entity_id: sensor.0x00158d0001710729_click
-        to: "both"
+      - trigger: state
+        entity_id: event.0x00158d0001710729_action
+        attribute: event_type
+        to: single_both
     action:
       - service: homeassistant.turn_on
         entity_id: input_boolean.google_goodnight_routine 
