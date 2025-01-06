@@ -221,7 +221,7 @@ automation:
   - alias: Evening Scene
     id: evening_scene
     trigger:
-      platform: time
+      trigger: time
       at: "18:30:00"
     condition:
       - condition: state
@@ -231,7 +231,7 @@ automation:
         entity_id: "group.everyone"
         state: "home"
     action:
-      - service: scene.turn_on
+      - action: scene.turn_on
         target:
           entity_id: scene.evening
         data:
@@ -251,7 +251,7 @@ automation:
         entity_id: "group.everyone"
         state: "home"
     action:
-      - service: scene.turn_on
+      - action: scene.turn_on
         target:
           entity_id: scene.cooking
         data:
@@ -268,7 +268,7 @@ automation:
         entity_id: "group.everyone"
         state: "home"
     action:
-      - service: scene.turn_on
+      - action: scene.turn_on
         target:
           entity_id: scene.eating
         data:
@@ -282,7 +282,7 @@ automation:
         attribute: event_type
         to: single_left 
     action:
-      - service: homeassistant.turn_on
+      - action: homeassistant.turn_on
         entity_id: scene.Eating
 
   - id: knop2
@@ -293,7 +293,7 @@ automation:
         attribute: event_type
         to: single_right 
     action:
-      - service: homeassistant.turn_on
+      - action: homeassistant.turn_on
         entity_id: scene.evening
 
   - id: knop3
@@ -304,7 +304,7 @@ automation:
         attribute: event_type
         to: single_left
     action:
-      - service: light. toggle
+      - action: light.toggle
         data:
           entity_id: light.shellydimmer2_e8db84d2e4d6
 
@@ -316,7 +316,7 @@ automation:
         attribute: event_type
         to: single_right 
     action:
-      - service: homeassistant.turn_on
+      - action: homeassistant.turn_on
         entity_id: scene.living_room_lights_off
 
   - id: knop5
@@ -327,9 +327,9 @@ automation:
         attribute: event_type
         to: single_both
     action:
-      - service: homeassistant.turn_on
+      - action: homeassistant.turn_on
         entity_id: input_boolean.google_goodnight_routine 
-      # - service: homeassistant.turn_off
+      # - action: homeassistant.turn_off
       #   entity_id: switch.0x943469fffe716cf4
 
   - id: LightsOnAutoWhenMotion
@@ -351,7 +351,7 @@ automation:
           entity_id: light.shellydimmer2_e8db84d2e4d6
           state: "off"
     action:
-      - service: homeassistant.turn_on
+      - action: homeassistant.turn_on
         entity_id: scene.eating
 
   # - id: TVXBoxPlugOnWhenMotion
@@ -361,7 +361,7 @@ automation:
   #       entity_id: binary_sensor.0x00158d000222df56_occupancy
   #       to: "on"
   #   action:
-  #     - service: homeassistant.turn_on
+  #     - action: homeassistant.turn_on
   #       entity_id: switch.0x943469fffe716cf4
   #   condition: 
   #     - condition: time
@@ -378,10 +378,10 @@ automation:
         entity_id: "group.everyone"
         state: "not_home"
     action:
-      - service: scene.turn_on
+      - action: scene.turn_on
         target:
           entity_id: scene.living_room_lights_off
-      # - service: homeassistant.turn_off
+      # - action: homeassistant.turn_off
       #   entity_id: switch.0x943469fffe716cf4
 
 
@@ -400,7 +400,7 @@ automation:
         - condition: template
           value_template: "{{ states('device_tracker.iphone_kees') != 'home' }}"
     action:
-    - service: notify.phones_kees_marleen
+    - action: notify.phones_kees_marleen
       data:
         message: "CV gaat aan en er is niemand thuis"
         data:
@@ -422,7 +422,7 @@ automation:
         event_data:
           action: "HEATING_AWAY"
     action:
-      - service: climate.set_preset_mode
+      - action: climate.set_preset_mode
         entity_id: climate.toon_thermostat
         data:
           preset_mode: "away"
@@ -434,7 +434,7 @@ automation:
         event_data:
           action: "HEATING_COMFORT"
     action:
-      - service: climate.set_preset_mode
+      - action: climate.set_preset_mode
         entity_id: climate.toon_thermostat
         data:
           preset_mode: "comfort"
@@ -446,7 +446,7 @@ automation:
         event_data:
           action: "HEATING_HOME"
     action:
-      - service: climate.set_preset_mode
+      - action: climate.set_preset_mode
         entity_id: climate.toon_thermostat
         data:
           preset_mode: "home"
@@ -461,7 +461,7 @@ automation:
         after: '06:30:00'  
         before: '22:00:00' 
     action:
-      - service: homeassistant.turn_on
+      - action: homeassistant.turn_on
         entity_id: light.0xb4e3f9fffea52bae
 
   - id: trapkast_door_open
@@ -471,7 +471,7 @@ automation:
         entity_id: binary_sensor.0x00158d000ad82338_contact
         to: "on"
     action:
-      - service: switch.turn_on
+      - action: switch.turn_on
         data:
           entity_id: switch.shellyplus1_80646fdaacf0_switch_0
 
@@ -482,7 +482,7 @@ automation:
         entity_id: binary_sensor.0x00158d000ad82338_contact
         to: "off"
     action:
-      - service: switch.turn_off
+      - action: switch.turn_off
         data:
           entity_id: switch.shellyplus1_80646fdaacf0_switch_0
 
@@ -491,22 +491,22 @@ script:
   sonos_say:
     alias: "Sonos TTS script"
     sequence:
-      - service: sonos.snapshot
+      - action: sonos.snapshot
         data_template:
           entity_id: "{{ sonos_entity }}"
-      - service: sonos.unjoin
+      - action: sonos.unjoin
         data_template:
           entity_id: "{{ sonos_entity }}"
-      - service: media_player.volume_set
+      - action: media_player.volume_set
         data_template:
           entity_id: "{{ sonos_entity }}"
           volume_level: "{{ volume }}"
-      - service: tts.google_translate_say
+      - action: tts.google_translate_say
         data_template:
           entity_id: "{{ sonos_entity }}"
           message: "{{ message }}"
       - delay: "00:00:08"
-      - service: sonos.restore
+      - action: sonos.restore
         data_template:
           entity_id: "{{ sonos_entity }}"
 
