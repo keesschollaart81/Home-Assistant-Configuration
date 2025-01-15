@@ -277,10 +277,16 @@ automation:
   - id: knop1
     alias: Living Room - Switch 1 (Eating)
     trigger:
-      - trigger: state
-        entity_id: event.0x00158d0001639d5a_action
-        attribute: event_type
-        to: single_left 
+      - trigger: device
+        domain: mqtt
+        device_id: abc2b63131dd48f1ae58606c4880e75f
+        type: action
+        subtype: single_left
+
+      # - trigger: state
+      #   entity_id: event.0x00158d0001639d5a_action
+      #   attribute: event_type
+      #   to: single_left 
     action:
       - action: homeassistant.turn_on
         entity_id: scene.Eating
@@ -288,10 +294,15 @@ automation:
   - id: knop2
     alias: Living Room - Switch 2 (Evening)
     trigger:
-      - trigger: state
-        entity_id: event.0x00158d0001639d5a_action
-        attribute: event_type
-        to: single_right 
+      - trigger: device
+        domain: mqtt
+        device_id: abc2b63131dd48f1ae58606c4880e75f
+        type: action
+        subtype: single_right
+      # - trigger: state
+      #   entity_id: event.0x00158d0001639d5a_action
+      #   attribute: event_type
+      #   to: single_right 
     action:
       - action: homeassistant.turn_on
         entity_id: scene.evening
@@ -299,10 +310,15 @@ automation:
   - id: knop3
     alias: Living Room - Switch 3 (Kitchen)
     trigger:
-      - trigger: state
-        entity_id: event.0x00158d0001710729_action
-        attribute: event_type
-        to: single_left
+      - trigger: device
+        domain: mqtt
+        device_id: 7a59a5aef0f14ada9c1418b4d7a8a00c
+        type: action
+        subtype: single_left
+      # - trigger: state
+      #   entity_id: event.0x00158d0001710729_action
+      #   attribute: event_type
+      #   to: single_left
     action:
       - action: light.toggle
         data:
@@ -311,10 +327,15 @@ automation:
   - id: knop4
     alias: Living Room - Switch 4 (All off)
     trigger:
-      - trigger: state
-        entity_id: event.0x00158d0001710729_action
-        attribute: event_type
-        to: single_right 
+      - trigger: device
+        domain: mqtt
+        device_id: 7a59a5aef0f14ada9c1418b4d7a8a00c
+        type: action
+        subtype: single_right
+      # - trigger: state
+      #   entity_id: event.0x00158d0001710729_action
+      #   attribute: event_type
+      #   to: single_right 
     action:
       - action: homeassistant.turn_on
         entity_id: scene.living_room_lights_off
@@ -322,10 +343,15 @@ automation:
   - id: knop5
     alias: Living Room - Switch 5
     trigger:
-      - trigger: state
-        entity_id: event.0x00158d0001710729_action
-        attribute: event_type
-        to: single_both
+      - trigger: device
+        domain: mqtt
+        device_id: 7a59a5aef0f14ada9c1418b4d7a8a00c
+        type: action
+        subtype: single_both
+      # - trigger: state
+      #   entity_id: event.0x00158d0001710729_action
+      #   attribute: event_type
+      #   to: single_both
     action:
       - action: homeassistant.turn_on
         entity_id: input_boolean.google_goodnight_routine 
