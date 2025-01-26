@@ -18,16 +18,16 @@ timer:
     name: "Toilet - Lights off in"
 
 automation:
-  - id: toilet_button
-    alias: Toilet Switch
-    trigger:
-      - platform: state
-        entity_id: sensor.0x00158d0002138221_click
-        to: "single"
-    action:
-      - service: light.toggle
-        data:
-          entity_id: light.0x90fd9ffffe2b5781_light
+  # - id: toilet_button
+  #   alias: Toilet Switch
+  #   trigger:
+  #     - platform: state
+  #       entity_id: sensor.0x00158d0002138221_click
+  #       to: "single"
+  #   action:
+  #     - service: light.toggle
+  #       data:
+  #         entity_id: light.0x90fd9ffffe2b5781_light
 
   - id: "ToiletLightsOnWhenMotion"
     alias: Turn on the toilet lights when motion is detected
