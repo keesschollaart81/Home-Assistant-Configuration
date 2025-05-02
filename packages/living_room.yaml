@@ -58,8 +58,8 @@ homeassistant:
       icon: mdi:file-cabinet
     
     light.0xb4e3f9fffea52bae:
-      friendly_name: "Christmass tree Lights"
-      icon: mdi:tree
+      friendly_name: "Bench Electra"
+      icon: mdi:dog
 
     switch.0x84ba20fffe6ac2c7:
       friendly_name: "Couch Corner Plug (1)"
@@ -216,6 +216,7 @@ scene:
         state: "off"
       light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0:
         state: "off"
+        brightness: 0 
 
 automation:
   - alias: Evening Scene
@@ -477,7 +478,7 @@ automation:
         data:
           preset_mode: "home"
 
-  - alias: "Turn on the Chrismas tree" 
+  - alias: "Turn on the Bench electra" 
     trigger:
       - platform: state
         entity_id: binary_sensor.0x00158d000222df56_occupancy

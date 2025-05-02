@@ -24,7 +24,7 @@ cards:
         tap_action: 
           action: toggle
       - entity: switch.0xb4e3f9fffea52bae
-        name: "Chrismas tree"
+        name: "Bench Electra"
         icon: mdi:tree
         tap_action: 
           action: toggle
