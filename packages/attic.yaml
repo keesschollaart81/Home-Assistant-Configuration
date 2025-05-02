@@ -14,10 +14,10 @@ homeassistant:
 
     sensor.0x00158d000a838163_humidity:
       friendly_name: "Attic Humidity"
-  
+
     sensor.0x00158d000a838163_pressure:
       friendly_name: "Attic Pressure"
-      
+
     sensor.0x00158d000a838163_temperature:
       friendly_name: "Attic Temperature"
 
@@ -44,10 +44,9 @@ homeassistant:
       friendly_name: "WFH Laptop Plug (4)"
     sensor.0x943469fffe7169b3_power:
       friendly_name: "WFH Laptop Plug (4) - Power"
-      
 
     switch.0x84ba20fffe6ac1ff:
-      friendly_name: "Washing Machine Plug (7)" 
+      friendly_name: "Washing Machine Plug (7)"
     sensor.0x84ba20fffe6ac1ff_energy:
       friendly_name: "Washing Machine Plug (7)"
     sensor.0x84ba20fffe6ac1ff_power:
@@ -77,7 +76,7 @@ automation:
         entity_id: light.attic_ceiling_led_strip
       - service: light.turn_off
         entity_id: light.elgato_key_light_air
-      - service: media_player.media_stop 
+      - service: media_player.media_stop
         target:
           entity_id: media_player.sonos_sonos_attic
       - service: climate.turn_off
@@ -137,19 +136,18 @@ automation:
       - service: homeassistant.turn_off
         entity_id: switch.0x943469fffe7169b3
 
- 
   - alias: Start Call on Laptop
     condition: 
       - condition: template
         value_template: "{{ states('device_tracker.iphone_kees') == 'home' }}"
     trigger:
       platform: state
-      entity_id: binary_sensor.desktop_ag23eag_webcamactive
-      to: "on"
+      entity_id: sensor.msteams_kees_status
+      to: "In a call"
     action:
       - service: scene.turn_on
         target:
-          entity_id: scene.colorfull_attic 
+          entity_id: scene.colorfull_attic
       - service: light.turn_on
         entity_id: light.elgato_key_light_air
       - service: media_player.volume_mute
@@ -161,9 +159,9 @@ automation:
   - alias: End Call on Laptop
     trigger:
       platform: state
-      entity_id: binary_sensor.desktop_ag23eag_webcamactive
-      to: "off"
-    action: 
+      entity_id: sensor.msteams_kees_status
+      from: "In a call"
+    action:
       - service: light.turn_off
         entity_id: light.elgato_key_light_air
       - service: media_player.volume_mute
@@ -209,9 +207,9 @@ scene:
       light.0x00124b002116c339_light:
         state: "on"
         xy_color: [0.3, 0.3]
-        brightness: 255 
+        brightness: 255
   - name: PowerSavingOn
-    entities:  
+    entities:
       switch.0x943469fffe716cf4:
         state: "off"
       switch.0x943469fffe7169b3:
