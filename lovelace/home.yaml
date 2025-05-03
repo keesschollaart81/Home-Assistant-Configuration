@@ -25,7 +25,7 @@ cards:
           action: toggle
       - entity: switch.0xb4e3f9fffea52bae
         name: "Bench Electra"
-        icon: mdi:tree
+        icon: mdi:dog
         tap_action: 
           action: toggle
       - entity: scene.eating
@@ -63,7 +63,7 @@ cards:
       - light.shellydimmer2_e8db84d2ed82
       - light.shellydimmer2_e8db84d2e4d6
       - light.0x00158d00097057c6
-      - binary_sensor.0x00158d000ad822da_contact
+      - binary_sensor.0x00158d000ad82338_contact
       - binary_sensor.0x00158d000222df56_occupancy
       - light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0
   - id: front_door
