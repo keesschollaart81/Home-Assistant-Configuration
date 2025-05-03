@@ -106,7 +106,7 @@ light:
       - light.0x90fd9ffffe135ab2_light
   - platform: switch    
     name: "0x00158d0004f819c9_light" 
-    entity_id: light.0x00158d0004f819c9_light
+    entity_id: switch.0x00158d0004f819c9
   - platform: group
     name: Livingroom
     entities:
