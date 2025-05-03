@@ -8,8 +8,8 @@ cards:
       - scene.colorfull_attic
       - scene.white_attic
       - switch.0x943469fffe7169b3
-      - binary_sensor.desktop_ag23eag_webcamactive
       - binary_sensor.0x842e14fffe4b54f2_occupancy
+      - light.attic_ceiling_led_strip
   - id: attic_temperatures
     type: history-graph
     entities: 

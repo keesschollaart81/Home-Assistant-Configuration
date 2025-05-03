@@ -53,7 +53,7 @@ homeassistant:
     #   friendly_name: "Living Room - Couch Bulb"
     #   icon: mdi:desk-lamp
 
-    switch.0x00158d0004f819c9:
+    light.0x00158d0004f819c9_light:
       friendly_name: "Living Room - Cabinet Lights"
       icon: mdi:file-cabinet
     
@@ -106,7 +106,7 @@ light:
       - light.0x90fd9ffffe135ab2_light
   - platform: switch    
     name: "0x00158d0004f819c9_light" 
-    entity_id: switch.0x00158d0004f819c9
+    entity_id: light.0x00158d0004f819c9_light
   - platform: group
     name: Livingroom
     entities:
@@ -133,7 +133,7 @@ scene:
       light.shellydimmer2_e8db84d2e4d6:
         state: "on"
         brightness: 25 
-      switch.0x00158d0004f819c9:
+      light.0x00158d0004f819c9_light:
         state: "on"
       light.0x00158d00097057c6:
         state: "on"
@@ -153,7 +153,7 @@ scene:
       light.shellydimmer2_e8db84d2e4d6:
         state: "on"
         brightness: 30 
-      switch.0x00158d0004f819c9:
+      light.0x00158d0004f819c9_light:
         state: "off"
       light.0x00158d00097057c6:
         state: "on"
@@ -172,7 +172,7 @@ scene:
       light.shellydimmer2_e8db84d2e4d6:
         state: "on"
         brightness: 230  
-      switch.0x00158d0004f819c9:
+      light.0x00158d0004f819c9_light:
         state: "off"
       light.0x00158d00097057c6:
         state: "on"
@@ -191,7 +191,7 @@ scene:
       light.shellydimmer2_e8db84d2e4d6:
         state: "on"
         brightness: 255  
-      switch.0x00158d0004f819c9:
+      light.0x00158d0004f819c9_light:
         state: "on"
       light.0x00158d00097057c6:
         state: "on"
@@ -208,11 +208,9 @@ scene:
         state: "off" 
       light.shellydimmer2_e8db84d2e4d6:
         state: "off" 
-      switch.0x00158d0004f819c9:
+      light.0x00158d0004f819c9_light:
         state: "off"
       light.0x00158d00097057c6:
-        state: "off"
-      light.0xb4e3f9fffea52bae:
         state: "off"
       light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0:
         state: "off"
@@ -513,6 +511,42 @@ automation:
         data:
           entity_id: switch.shellyplus1_80646fdaacf0_switch_0
 
+  - alias: Daily reset goodnight routine
+    id: daily_reset_goodnight_routine
+    trigger:
+      trigger: time
+      at: "07:30:00"
+    action:
+      - action: homeassistant.turn_off
+        entity_id: input_boolean.google_goodnight_routine
+
+  - id: google_goodnight_routine
+    trigger:
+      - trigger: state
+        entity_id: input_boolean.google_goodnight_routine
+        to: "on"
+    action:
+      - action: homeassistant.turn_off
+        entity_id:
+          - light.staandelamp
+          - light.bank 
+          - light.shellydimmer2_e8db84d2e4d6
+          - light.0x00158d0004f819c9_light
+          - light.0x00158d00097057c6
+          - light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0
+      - action: light.turn_on
+        entity_id: light.shellydimmer2_e8db84d2ed82
+        data_template:
+          brightness: "10"
+      - delay: "00:02"
+      - action: light.turn_off
+        entity_id: 
+        - switch.0xe0798dfffeb91086
+        - switch.0x943469fffe716cf4
+      - delay: "00:02"
+      - action: light.turn_off
+        entity_id: 
+        - light.0xb4e3f9fffea52bae
 
 script:
   sonos_say:
