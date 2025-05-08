@@ -140,7 +140,7 @@ automation:
     trigger:
       trigger: state
       entity_id: sensor.msteams_kees_status
-      to: "In a call"
+      to: "InACall"
     action:
       - action: scene.turn_on
         target:
@@ -157,7 +157,7 @@ automation:
     trigger:
       trigger: state
       entity_id: sensor.msteams_kees_status
-      from: "In a call"
+      from: "InACall"
     action:
       - action: light.turn_off
         entity_id: light.elgato_key_light_air
