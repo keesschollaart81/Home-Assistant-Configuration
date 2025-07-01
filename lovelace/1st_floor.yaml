@@ -60,7 +60,7 @@ cards:
   - id: temperature_sleeping_room_card
     type: history-graph
     hours_to_show: 24
-    title: "Bathroom temperature"
+    title: "Sleeping room temperature"
     entities: 
       - entity: sensor.0x00158d0001f5358e_temperature
         name: "Sleeping room"
