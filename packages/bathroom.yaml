@@ -27,6 +27,15 @@ homeassistant:
     sensor.0x00158d000a843b7c_battery:
       friendly_name: Bathroom - Environment Sensor Battery
 
+    sensor.0x00158d0001f5358e_pressure:
+      friendly_name: Sleeping Room - Environment Sensor Pressure
+    sensor.00158d0001f5358e_humidity:
+      friendly_name: Sleeping Room - Environment Sensor Humidity
+    sensor.00158d0001f5358e_temperature:
+      friendly_name: Sleeping Room - Environment Sensor Temperature
+    sensor.00158d0001f5358e_battery:
+      friendly_name: Sleeping Room - Environment Sensor Battery
+
     binary_sensor.0x00158d0002e2e35e_occupancy:
       friendly_name: Bathroom - Occupancy
     sensor.0x00158d0002e2e35e_battery:
