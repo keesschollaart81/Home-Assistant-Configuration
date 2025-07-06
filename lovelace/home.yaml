@@ -23,11 +23,11 @@ cards:
         name: Kitchen
         tap_action: 
           action: toggle
-      - entity: switch.0xb4e3f9fffea52bae
-        name: "Bench Electra"
-        icon: mdi:dog
-        tap_action: 
-          action: toggle
+      # - entity: switch.0xb4e3f9fffea52bae
+      #   name: "Bench Electra"
+      #   icon: mdi:dog
+      #   tap_action: 
+      #     action: toggle
       - entity: scene.eating
         name: Eating
         icon: mdi:food
@@ -58,11 +58,9 @@ cards:
     title: Living room
     show_header_toggle: false
     entities:
-      # - light.0x00158d00058d0cdf
       - switch.0x00158d0004f819c9
       - light.shellydimmer2_e8db84d2ed82
       - light.shellydimmer2_e8db84d2e4d6
-      - light.0x00158d00097057c6
       - binary_sensor.0x00158d000ad82338_contact
       - binary_sensor.0x00158d000222df56_occupancy
       - light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0

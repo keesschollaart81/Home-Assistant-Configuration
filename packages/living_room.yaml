@@ -57,9 +57,9 @@ homeassistant:
       friendly_name: "Living Room - Cabinet Lights"
       icon: mdi:file-cabinet
     
-    light.0xb4e3f9fffea52bae:
-      friendly_name: "Bench Electra"
-      icon: mdi:dog
+    # light.0xb4e3f9fffea52bae:
+    #   friendly_name: "Bench Electra"
+    #   icon: mdi:dog
 
     switch.0x84ba20fffe6ac2c7:
       friendly_name: "Couch Corner Plug (1)"
@@ -88,8 +88,8 @@ homeassistant:
     binary_sensor.0x00158d000ad82338_contact:
       friendly_name: Trapkast deur
 
-    light.0x00158d00097057c6:
-      friendly_name: Bench bulb
+    # light.0x00158d00097057c6:
+    #   friendly_name: Bench bulb
 
     light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0:
       friendly_name: Led strip bench
@@ -116,8 +116,6 @@ light:
       - light.shellydimmer2_e8db84d2e4d6
       - light.0x00158d00058d0cdf
       - light.0x00158d0004f819c9_light
-      - light.0x00158d00097057c6
-      - light.0xb4e3f9fffea52bae
       - light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0
       
 # home_connect_alt:
@@ -135,11 +133,6 @@ scene:
         brightness: 25 
       light.0x00158d0004f819c9_light:
         state: "on"
-      light.0x00158d00097057c6:
-        state: "on"
-        brightness: 70 
-      light.0xb4e3f9fffea52bae:
-        state: "on"
       light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0:
         state: "on"
         brightness: 40 
@@ -155,11 +148,6 @@ scene:
         brightness: 30 
       light.0x00158d0004f819c9_light:
         state: "off"
-      light.0x00158d00097057c6:
-        state: "on"
-        brightness: 40 
-      light.0xb4e3f9fffea52bae:
-        state: "on"
       light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0:
         state: "on"
         brightness: 40 
@@ -174,11 +162,6 @@ scene:
         brightness: 230  
       light.0x00158d0004f819c9_light:
         state: "off"
-      light.0x00158d00097057c6:
-        state: "on"
-        brightness: 40 
-      light.0xb4e3f9fffea52bae:
-        state: "on"
       light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0:
         state: "on"
         brightness: 40 
@@ -193,11 +176,6 @@ scene:
         brightness: 255  
       light.0x00158d0004f819c9_light:
         state: "on"
-      light.0x00158d00097057c6:
-        state: "on"
-        brightness: 255
-      light.0xb4e3f9fffea52bae:
-        state: "on"
       light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0:
         state: "on"
         brightness: 255 
@@ -209,8 +187,6 @@ scene:
       light.shellydimmer2_e8db84d2e4d6:
         state: "off" 
       light.0x00158d0004f819c9_light:
-        state: "off"
-      light.0x00158d00097057c6:
         state: "off"
       light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0:
         state: "off"
@@ -476,19 +452,6 @@ automation:
         data:
           preset_mode: "home"
 
-  - alias: "Turn on the Bench electra" 
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.0x00158d000222df56_occupancy
-        to: "on"
-    condition:
-      - condition: time
-        after: '06:30:00'  
-        before: '22:00:00' 
-    action:
-      - action: homeassistant.turn_on
-        entity_id: light.0xb4e3f9fffea52bae
-
   - id: trapkast_door_open
     alias: Trapkast Door Open
     trigger:
@@ -532,7 +495,6 @@ automation:
           - light.bank 
           - light.shellydimmer2_e8db84d2e4d6
           - light.0x00158d0004f819c9_light
-          - light.0x00158d00097057c6
           - light.shellyplusrgbwpm_d8132add30ac_rgbw_light_0
       - action: light.turn_on
         entity_id: light.shellydimmer2_e8db84d2ed82
@@ -543,10 +505,6 @@ automation:
         entity_id: 
         - switch.0xe0798dfffeb91086
         - switch.0x943469fffe716cf4
-      - delay: "00:02"
-      - action: light.turn_off
-        entity_id: 
-        - light.0xb4e3f9fffea52bae
 
 script:
   sonos_say:
