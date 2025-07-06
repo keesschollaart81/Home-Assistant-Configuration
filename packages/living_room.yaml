@@ -500,6 +500,9 @@ automation:
         entity_id: light.shellydimmer2_e8db84d2ed82
         data_template:
           brightness: "10"
+      - delay: "00:00:30"
+      - action: light.turn_off
+        entity_id: light.hall_light
       - delay: "00:02"
       - action: light.turn_off
         entity_id: 
