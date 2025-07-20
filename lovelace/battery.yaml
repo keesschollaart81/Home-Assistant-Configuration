@@ -2,6 +2,58 @@ id: battery
 title: Battery Status
 badges: []
 cards:
+  - type: history-graph
+    title: Battery Levels - 2 Month Trend
+    hours_to_show: 1440
+    refresh_interval: 3600
+    entities:
+      - sensor.0x00158d0002138221_battery
+      - sensor.0x00158d0001f5358e_battery
+      - sensor.0x00158d000222df56_battery
+      - sensor.0x00158d0001639d5a_battery
+      - sensor.0x00158d0001710729_battery
+      - sensor.0x00158d0001f9faa1_battery
+      - sensor.0x00158d000208e0e0_battery
+      - sensor.0x00158d0002e2ab4d_battery
+      - sensor.0x00158d0002e2eecc_battery
+      - sensor.0x00158d0002e2e35e_battery
+      - sensor.0x00158d0003120fb3_battery
+      - sensor.0x842e14fffe4b54f2_battery
+      - sensor.0x00158d0004a0166e_battery
+      - sensor.0x00158d000a843b7c_battery
+      - sensor.0x00158d000a838163_battery
+      - sensor.0x00158d000ad822da_battery
+      - sensor.0x00158d000ad82338_battery
+
+  - type: statistics-graph
+    title: Battery Statistics (60 days)
+    stat_types:
+      - min
+      - max
+      - mean
+    period:
+      calendar:
+        period: month
+        offset: -2
+    entities:
+      - sensor.0x00158d0002138221_battery
+      - sensor.0x00158d0001f5358e_battery
+      - sensor.0x00158d000222df56_battery
+      - sensor.0x00158d0001639d5a_battery
+      - sensor.0x00158d0001710729_battery
+      - sensor.0x00158d0001f9faa1_battery
+      - sensor.0x00158d000208e0e0_battery
+      - sensor.0x00158d0002e2ab4d_battery
+      - sensor.0x00158d0002e2eecc_battery
+      - sensor.0x00158d0002e2e35e_battery
+      - sensor.0x00158d0003120fb3_battery
+      - sensor.0x842e14fffe4b54f2_battery
+      - sensor.0x00158d0004a0166e_battery
+      - sensor.0x00158d000a843b7c_battery
+      - sensor.0x00158d000a838163_battery
+      - sensor.0x00158d000ad822da_battery
+      - sensor.0x00158d000ad82338_battery
+      
   - id: battery_levels
     type: entities
     title: Device Battery Levels
