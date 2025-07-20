@@ -14,6 +14,9 @@ homeassistant:
     binary_sensor.0x00158d0002e2ab4d_occupancy:
       friendly_name: Hallway 1st floor motion
 
+    sensor.0x00158d0002e2ab4d_battery:
+      friendly_name: Hallway 1st Floor - Motion Sensor Battery
+
 
 automation:  
   - id: "LightOnInHallway1stFloorWhenActivity"

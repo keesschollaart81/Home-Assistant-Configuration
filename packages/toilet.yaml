@@ -9,6 +9,12 @@ homeassistant:
     sensor.0x00158d0002138221:
       friendly_name: Toilet - Switch
 
+    sensor.0x00158d0002138221_battery:
+      friendly_name: Toilet - Switch Battery
+
+    sensor.0x00158d0002e2eecc_battery:
+      friendly_name: Toilet - Motion Sensor Battery
+
     light.0x90fd9ffffe2b5781_light:
       friendly_name: Toilet - Light
 

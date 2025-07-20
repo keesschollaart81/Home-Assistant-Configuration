@@ -20,7 +20,6 @@ homeassistant:
 
     camera.locations:
       friendly_name: Location Kees & Marleen
-
   
 automation:
   - id: GetSonoffStateOnHAStartUp

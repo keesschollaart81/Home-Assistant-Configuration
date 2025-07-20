@@ -24,6 +24,12 @@ homeassistant:
     binary_sensor.0x842e14fffe4b54f2_occupancy:
       friendly_name: "Attic Occupancy"
 
+    sensor.0x842e14fffe4b54f2_battery:
+      friendly_name: "Attic - Occupancy Sensor Battery"
+
+    sensor.0x00158d000a838163_battery:
+      friendly_name: "Attic - Environment Sensor Battery"
+
     switch.0x84ba20fffe65529c:
       friendly_name: "Airco Power Plug (6)"
     sensor.0x84ba20fffe65529c_energy:

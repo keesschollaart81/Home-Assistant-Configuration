@@ -51,6 +51,9 @@ homeassistant:
     sensor.0x00158d0004a0166e_temperature:
       friendly_name: "Living Room - Temperature"
 
+    sensor.0x00158d0004a0166e_battery:
+      friendly_name: "Living Room - Sensor Battery"
+
     # light.0x00158d00058d0cdf:
     #   friendly_name: "Living Room - Couch Bulb"
     #   icon: mdi:desk-lamp
@@ -89,6 +92,9 @@ homeassistant:
 
     binary_sensor.0x00158d000ad82338_contact:
       friendly_name: Trapkast deur
+
+    sensor.0x00158d000ad82338_battery:
+      friendly_name: Trapkast Door - Battery
 
     # light.0x00158d00097057c6:
     #   friendly_name: Bench bulb

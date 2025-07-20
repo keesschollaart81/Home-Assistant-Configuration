@@ -46,5 +46,5 @@ homeassistant:
     binary_sensor.0x00158d000208e0e0_contact:
       friendly_name: Front door
 
-    binary_sensor.0x00158d000208e0e0_battery:
-      friendly_name: Front door Battery
+    sensor.0x00158d000208e0e0_battery:
+      friendly_name: Front Door - Battery
