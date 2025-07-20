@@ -14,16 +14,11 @@ cards:
       - sensor.0x00158d0001710729_battery
       - sensor.0x00158d0001f9faa1_battery
       - sensor.0x00158d000208e0e0_battery
-      - sensor.0x00158d00027743b7_battery
       - sensor.0x00158d0002e2ab4d_battery
       - sensor.0x00158d0002e2eecc_battery
-      - sensor.0x000b57fffe8a54fe_battery
       - sensor.0x00158d0002e2e35e_battery
       - sensor.0x00158d0003120fb3_battery
-      - sensor.0x60a423fffef25cb2_battery
-      - sensor.0x680ae2fffe96f00b_battery
       - sensor.0x842e14fffe4b54f2_battery
-      - sensor.0x00158d0004a015c5_battery
       - sensor.0x00158d0004a0166e_battery
       - sensor.0x00158d000a843b7c_battery
       - sensor.0x00158d000a838163_battery
@@ -37,3 +32,7 @@ cards:
     show_header_toggle: false
     entities: 
       - sensor.0x00158d00027743b7_battery
+      - sensor.0x000b57fffe8a54fe_battery
+      - sensor.0x60a423fffef25cb2_battery
+      - sensor.0x680ae2fffe96f00b_battery
+      - sensor.0x00158d0004a015c5_battery
