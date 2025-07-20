@@ -4,3 +4,4 @@ views:
   - !include lovelace/1st_floor.yaml
   - !include lovelace/attic.yaml
   - !include lovelace/power.yaml
+  - !include lovelace/battery.yaml

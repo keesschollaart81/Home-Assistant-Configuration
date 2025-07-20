@@ -1,0 +1,53 @@
+id: battery
+title: Battery Status
+badges: []
+cards:
+  - id: battery_levels
+    type: entities
+    title: Device Battery Levels
+    show_header_toggle: false
+    entities:
+      - entity: sensor.0x00158d0002138221_battery
+        name: "Device 0x00158d0002138221"
+      - entity: sensor.0x00158d0001f5358e_battery
+        name: "Device 0x00158d0001f5358e"
+      - entity: sensor.0x00158d000222df56_battery
+        name: "Living Room Motion Sensor"
+      - entity: sensor.0x00158d0001639d5a_battery
+        name: "Living Room Switch Left"
+      - entity: sensor.0x00158d0001710729_battery
+        name: "Living Room Switch Right"
+      - entity: sensor.0x00158d0001f9faa1_battery
+        name: "Hallway Motion Sensor"
+      - entity: sensor.0x00158d000208e0e0_battery
+        name: "Device 0x00158d000208e0e0"
+      - entity: sensor.0x00158d00027743b7_battery
+        name: "Device 0x00158d00027743b7"
+      - entity: sensor.0x00158d0002e2ab4d_battery
+        name: "Device 0x00158d0002e2ab4d"
+      - entity: sensor.0x00158d0002e2eecc_battery
+        name: "Device 0x00158d0002e2eecc"
+      - entity: sensor.0x000b57fffe8a54fe_battery
+        name: "Device 0x000b57fffe8a54fe"
+      - entity: sensor.0x00158d0002e2e35e_battery
+        name: "Bathroom Occupancy"
+      - entity: sensor.0x00158d0003120fb3_battery
+        name: "Bathroom Door"
+      - entity: sensor.0x60a423fffef25cb2_battery
+        name: "Device 0x60a423fffef25cb2"
+      - entity: sensor.0x680ae2fffe96f00b_battery
+        name: "Device 0x680ae2fffe96f00b"
+      - entity: sensor.0x842e14fffe4b54f2_battery
+        name: "Device 0x842e14fffe4b54f2"
+      - entity: sensor.0x00158d0004a015c5_battery
+        name: "Device 0x00158d0004a015c5"
+      - entity: sensor.0x00158d0004a0166e_battery
+        name: "Device 0x00158d0004a0166e"
+      - entity: sensor.0x00158d000a843b7c_battery
+        name: "Bathroom Environment Sensor"
+      - entity: sensor.0x00158d000a838163_battery
+        name: "Device 0x00158d000a838163"
+      - entity: sensor.0x00158d000ad822da_battery
+        name: "Device 0x00158d000ad822da"
+      - entity: sensor.0x00158d000ad82338_battery
+        name: "Device 0x00158d000ad82338"
