@@ -51,9 +51,8 @@ cards:
       - sensor.0x00158d0004a0166e_battery
       - sensor.0x00158d000a843b7c_battery
       - sensor.0x00158d000a838163_battery
-      - sensor.0x00158d000ad822da_battery
       - sensor.0x00158d000ad82338_battery
-      
+
   - id: battery_levels
     type: entities
     title: Device Battery Levels
@@ -74,7 +73,6 @@ cards:
       - sensor.0x00158d0004a0166e_battery
       - sensor.0x00158d000a843b7c_battery
       - sensor.0x00158d000a838163_battery
-      - sensor.0x00158d000ad822da_battery
       - sensor.0x00158d000ad82338_battery
 
 
@@ -88,3 +86,4 @@ cards:
       - sensor.0x60a423fffef25cb2_battery
       - sensor.0x680ae2fffe96f00b_battery
       - sensor.0x00158d0004a015c5_battery
+      - sensor.0x00158d000ad822da_battery
