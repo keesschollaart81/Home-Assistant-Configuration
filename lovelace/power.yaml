@@ -2,20 +2,6 @@ id: power_tab
 title: Power
 type: sidebar
 cards:
-  - id: poe_switches_card
-    type: entities
-    title: PoE Devices
-    view_layout:
-      position: sidebar
-    show_header_toggle: true
-    entities: 
-      - switch.axis_b8a44f13a848
-      - switch.axis_b8a44f3057be
-      - switch.axis_b8a44f310e82
-      - switch.vip2952_de5e74
-      - switch.vi
-      - switch.bosch_8000i 
-
   - id: smart_plugs
     type: entities
     title: Smart Plugs

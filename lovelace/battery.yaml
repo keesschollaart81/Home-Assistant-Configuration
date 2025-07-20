@@ -51,3 +51,12 @@ cards:
         name: "Device 0x00158d000ad822da"
       - entity: sensor.0x00158d000ad82338_battery
         name: "Device 0x00158d000ad82338"
+
+
+  - id: battery_levels_unused
+    type: entities
+    title: Device Battery Levels (unsuded)
+    show_header_toggle: false
+    entities: 
+      - entity: sensor.0x00158d00027743b7_battery
+        name: "Device 0x00158d00027743b7

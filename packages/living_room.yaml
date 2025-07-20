@@ -39,6 +39,8 @@ homeassistant:
 
     binary_sensor.0x00158d00027743b7_water_leak:
       friendly_name: Coffee Machine water reservoir
+    sensor.0x00158d00027743b7_battery:
+      friendly_name: Coffee Machine water reservoir - Battery
 
     sensor.0x00158d0004a0166e_humidity:
       friendly_name: "Living Room - Humidity"
