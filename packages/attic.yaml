@@ -61,14 +61,31 @@ light:
       - light.0x0017880108c51275_light
       - light.0x00124b002116c339_light
 
+input_boolean:
+  attic_keep_on_requested:
+    name: "Attic Keep On Requested"
+    initial: false
+
 automation:
-  - alias: Motion Detection - Attic Light off
+  - alias: "Attic Auto-off Notification"
     trigger:
       trigger: state
       entity_id: binary_sensor.0x842e14fffe4b54f2_occupancy
       to: "off"
-      for: "00:30:00"
+      for: "01:00:00"
     action:
+      - action: notify.mobile_app_iphone_kees
+        data:
+          message: "Attic lights and airco will turn off in 15 minutes. Tap to keep on."
+          data:
+            tag: "attic_auto_off"
+            actions:
+              - action: "KEEP_ATTIC_ON"
+                title: "Keep On"
+                icon: "sfsymbols:lightbulb.fill"
+      - delay: "00:15:00"
+      - condition: template
+        value_template: "{{ not states('input_boolean.attic_keep_on_requested') == 'on' }}"
       - action: light.turn_off
         entity_id: light.attic_ceiling_led_strip
       - action: light.turn_off
@@ -79,6 +96,11 @@ automation:
       - action: climate.turn_off
         target:
           entity_id: climate.airco_zolder
+      - action: notify.mobile_app_iphone_kees
+        data:
+          message: "clear_notification"
+          data:
+            tag: "attic_auto_off"
 
   - alias: Motion Detection - Attic Light on
     trigger:
@@ -88,6 +110,8 @@ automation:
     action:
       - action: light.turn_on
         entity_id: light.attic_ceiling_led_strip
+      - action: input_boolean.turn_off
+        entity_id: input_boolean.attic_keep_on_requested
 
   - alias: "Turn on attic lights via switch"
     trigger:
@@ -132,6 +156,24 @@ automation:
     action:
       - action: homeassistant.turn_off
         entity_id: switch.0x943469fffe7169b3
+
+  - alias: "Keep Attic On Notification Handler"
+    trigger:
+      - trigger: event
+        event_type: mobile_app_notification_action
+        event_data:
+          action: "KEEP_ATTIC_ON"
+    action:
+      - action: input_boolean.turn_on
+        entity_id: input_boolean.attic_keep_on_requested
+      - action: notify.mobile_app_iphone_kees
+        data:
+          message: "clear_notification"
+          data:
+            tag: "attic_auto_off"
+      - delay: "00:00:05"
+      - action: input_boolean.turn_off
+        entity_id: input_boolean.attic_keep_on_requested
 
   - alias: Start Call on Laptop
     condition: 
