@@ -195,9 +195,18 @@ automation:
       - condition: template
         value_template: "{{ states('device_tracker.iphone_kees') == 'home' }}"
     trigger:
-      trigger: state
-      entity_id: sensor.msteams_kees_status
-      to: "InACall"
+      - trigger: state
+        entity_id: sensor.msteams_kees_status
+        to: "InACall"
+      - trigger: state
+        entity_id: sensor.msteams_kees_status
+        to: "InAMeeting"
+      - trigger: state
+        entity_id: sensor.msteams_kees_status
+        to: "InAConferenceCall"
+      - trigger: state
+        entity_id: sensor.msteams_kees_status
+        to: "Presenting"
     action:
       - action: scene.turn_on
         target:
@@ -212,9 +221,18 @@ automation:
 
   - alias: End Call on Laptop
     trigger:
-      trigger: state
-      entity_id: sensor.msteams_kees_status
-      from: "InACall"
+      - trigger: state
+        entity_id: sensor.msteams_kees_status
+        from: "InACall"
+      - trigger: state
+        entity_id: sensor.msteams_kees_status
+        from: "InAMeeting"
+      - trigger: state
+        entity_id: sensor.msteams_kees_status
+        from: "InAConferenceCall"
+      - trigger: state
+        entity_id: sensor.msteams_kees_status
+        from: "Presenting"
     action:
       - action: light.turn_off
         entity_id: light.elgato_key_light_air
