@@ -84,7 +84,7 @@ automation:
         entity_id: device_tracker.iphone_kees
         state: "home"
       - condition: state
-        entity_id: switch.0x84ba20fffe6ac289
+        entity_id: switch.0x943469fffe7169b3
         state: "on"
     action:
       - action: notify.mobile_app_iphone_kees
@@ -110,7 +110,7 @@ automation:
         target:
           entity_id: climate.airco_zolder
       - action: switch.turn_off
-        entity_id: switch.0x84ba20fffe6ac289
+        entity_id: switch.0x943469fffe7169b3
       - action: notify.mobile_app_iphone_kees
         data:
           message: "clear_notification"
