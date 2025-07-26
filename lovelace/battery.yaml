@@ -52,41 +52,6 @@ cards:
       - sensor.0x00158d000a838163_battery
       - sensor.0x00158d000ad82338_battery
 
-  - id: battery_levels
-    type: entities
-    title: Device Battery Levels
-    show_header_toggle: false
-    entities:
-      - sensor.0x00158d0002138221_battery
-      - sensor.0x00158d0001f5358e_battery
-      - sensor.0x00158d000222df56_battery
-      - sensor.0x00158d0001639d5a_battery
-      - sensor.0x00158d0001710729_battery
-      - sensor.0x00158d0001f9faa1_battery
-      - sensor.0x00158d000208e0e0_battery
-      - sensor.0x00158d0002e2ab4d_battery
-      - sensor.0x00158d0002e2eecc_battery
-      - sensor.0x00158d0002e2e35e_battery
-      - sensor.0x00158d0003120fb3_battery
-      - sensor.0x842e14fffe4b54f2_battery
-      - sensor.0x00158d0004a0166e_battery
-      - sensor.0x00158d000a843b7c_battery
-      - sensor.0x00158d000a838163_battery
-      - sensor.0x00158d000ad82338_battery
-
-
-  - id: battery_levels_unused
-    type: entities
-    title: Device Battery Levels (unused)
-    show_header_toggle: false
-    entities: 
-      - sensor.0x00158d00027743b7_battery
-      - sensor.0x000b57fffe8a54fe_battery
-      - sensor.0x60a423fffef25cb2_battery
-      - sensor.0x680ae2fffe96f00b_battery
-      - sensor.0x00158d0004a015c5_battery
-      - sensor.0x00158d000ad822da_battery
-
   - id: battery_last_updated
     type: entities
     title: Battery Sensors - Last Update
@@ -124,3 +89,45 @@ cards:
         secondary_info: last-updated
       - entity: sensor.0x00158d000ad82338_battery
         secondary_info: last-updated
+
+
+
+  - id: battery_warnings
+    type: entity-filter
+    title: Battery Sensors - Warnings (No Update > 1 Hour OR Battery < 20%)
+    show_empty: false
+    entities:
+      - sensor.0x00158d0002138221_battery
+      - sensor.0x00158d0001f5358e_battery
+      - sensor.0x00158d000222df56_battery
+      - sensor.0x00158d0001639d5a_battery
+      - sensor.0x00158d0001710729_battery
+      - sensor.0x00158d0001f9faa1_battery
+      - sensor.0x00158d000208e0e0_battery
+      - sensor.0x00158d0002e2ab4d_battery
+      - sensor.0x00158d0002e2eecc_battery
+      - sensor.0x00158d0002e2e35e_battery
+      - sensor.0x00158d0003120fb3_battery
+      - sensor.0x842e14fffe4b54f2_battery
+      - sensor.0x00158d0004a0166e_battery
+      - sensor.0x00158d000a843b7c_battery
+      - sensor.0x00158d000a838163_battery
+      - sensor.0x00158d000ad82338_battery
+    state_filter:
+      - operator: template
+        value: "{{ (now() - states[item].last_updated).total_seconds() > 3600 or (states[item].state | float(0) < 20 and states[item].state != 'unavailable') }}"
+    card:
+      type: entities
+      secondary_info: last-updated
+
+  - id: battery_levels_unused
+    type: entities
+    title: Device Battery Levels (unused)
+    show_header_toggle: false
+    entities: 
+      - sensor.0x00158d00027743b7_battery
+      - sensor.0x000b57fffe8a54fe_battery
+      - sensor.0x60a423fffef25cb2_battery
+      - sensor.0x680ae2fffe96f00b_battery
+      - sensor.0x00158d0004a015c5_battery
+      - sensor.0x00158d000ad822da_battery
