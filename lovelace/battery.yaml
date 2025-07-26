@@ -22,7 +22,6 @@ cards:
       - sensor.0x00158d0004a0166e_battery
       - sensor.0x00158d000a843b7c_battery
       - sensor.0x00158d000a838163_battery
-      - sensor.0x00158d000ad822da_battery
       - sensor.0x00158d000ad82338_battery
 
   - type: statistics-graph
@@ -87,3 +86,41 @@ cards:
       - sensor.0x680ae2fffe96f00b_battery
       - sensor.0x00158d0004a015c5_battery
       - sensor.0x00158d000ad822da_battery
+
+  - id: battery_last_updated
+    type: entities
+    title: Battery Sensors - Last Update
+    show_header_toggle: false
+    entities:
+      - entity: sensor.0x00158d0002138221_battery
+        secondary_info: last-updated
+      - entity: sensor.0x00158d0001f5358e_battery
+        secondary_info: last-updated
+      - entity: sensor.0x00158d000222df56_battery
+        secondary_info: last-updated
+      - entity: sensor.0x00158d0001639d5a_battery
+        secondary_info: last-updated
+      - entity: sensor.0x00158d0001710729_battery
+        secondary_info: last-updated
+      - entity: sensor.0x00158d0001f9faa1_battery
+        secondary_info: last-updated
+      - entity: sensor.0x00158d000208e0e0_battery
+        secondary_info: last-updated
+      - entity: sensor.0x00158d0002e2ab4d_battery
+        secondary_info: last-updated
+      - entity: sensor.0x00158d0002e2eecc_battery
+        secondary_info: last-updated
+      - entity: sensor.0x00158d0002e2e35e_battery
+        secondary_info: last-updated
+      - entity: sensor.0x00158d0003120fb3_battery
+        secondary_info: last-updated
+      - entity: sensor.0x842e14fffe4b54f2_battery
+        secondary_info: last-updated
+      - entity: sensor.0x00158d0004a0166e_battery
+        secondary_info: last-updated
+      - entity: sensor.0x00158d000a843b7c_battery
+        secondary_info: last-updated
+      - entity: sensor.0x00158d000a838163_battery
+        secondary_info: last-updated
+      - entity: sensor.0x00158d000ad82338_battery
+        secondary_info: last-updated
