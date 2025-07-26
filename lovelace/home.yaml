@@ -109,7 +109,16 @@ cards:
       - entity: climate.toon_thermostat
         name: "Heating"
     hours_to_show: 12
-    title: "Climate (12hr)"   
+    title: "Climate (12hr)"
+    graph_config:
+      sensor.toon_current_temperature:
+        min: 11
+      sensor.toon_target_temperature:
+        min: 11
+      sensor.0x00158d0004a0166e_temperature:
+        min: 11
+      climate.toon_thermostat:
+        min: 11   
 
   - id: living_room_stats_home
     type: statistics-graph

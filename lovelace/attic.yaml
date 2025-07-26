@@ -18,7 +18,10 @@ cards:
       - entity: sensor.0x00158d000a838163_pressure
         name: "Pressure" 
       - entity: sensor.0x00158d000a838163_temperature
-        name: "Temperature"  
+        name: "Temperature"
+    graph_config:
+      sensor.0x00158d000a838163_temperature:
+        min: 11  
   - id: airco_ent
     type: entities
     entities:
