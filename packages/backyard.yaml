@@ -1,19 +1,5 @@
 homeassistant:
 
-camera:
-  - platform: generic
-    name: "M4308 Main Stream"
-    stream_source: !secret m4308_rtsp_main
-    still_image_url: !secret m4308_jpeg_main
-    username: !secret m4308_username
-    password: !secret m4308_password
-  - platform: generic
-    name: "M4308 Secondary Stream"
-    stream_source: !secret m4308_rtsp_secondary
-    still_image_url: !secret m4308_jpeg_secondary
-    username: !secret m4308_username
-    password: !secret m4308_password 
-
 # switch:
 #   - platform: xiaomi_miio
 #     name: Licht in tuin
