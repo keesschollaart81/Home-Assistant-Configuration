@@ -1,4 +1,17 @@
-homeassistant: 
+homeassistant:
+
+axis:
+  - host: !secret m4308_host
+    username: !secret m4308_username
+    password: !secret m4308_password
+    port: 80
+    include:
+      - camera
+    camera:
+      - name: "M4308 Main Stream"
+        video_source: 0
+      - name: "M4308 Secondary Stream" 
+        video_source: 1 
 
 # switch:
 #   - platform: xiaomi_miio
