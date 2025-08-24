@@ -82,6 +82,11 @@ cards:
     type: picture-entity
     aspect_ratio: '16x9'
     entity: camera.m4308_ple_0
+  - id: front_yard_cam_alt
+    type: picture-entity
+    aspect_ratio: '16x9'
+    entity: camera.m4308_ple_0
+    camera_view: live
   - id: hallway
     type: entities
     title: Hallway
