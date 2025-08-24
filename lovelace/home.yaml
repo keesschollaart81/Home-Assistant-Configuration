@@ -81,13 +81,13 @@ cards:
   - id: front_yard_cam_main
     type: picture-entity
     aspect_ratio: '16x9'
-    entity: camera.m4308_main_stream
-    title: "M4308 Main Stream"
+    entity: camera.m4308_backyard
+    title: "M4308 Backyard"
   - id: front_yard_cam_secondary
     type: picture-entity
     aspect_ratio: '16x9'
-    entity: camera.m4308_secondary_stream
-    title: "M4308 Secondary Stream"
+    entity: camera.m4308_parking
+    title: "M4308 Parking"
   - id: hallway
     type: entities
     title: Hallway
