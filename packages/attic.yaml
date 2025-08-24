@@ -186,9 +186,6 @@ automation:
           message: "clear_notification"
           data:
             tag: "attic_auto_off"
-      - delay: "00:00:05"
-      - action: input_boolean.turn_off
-        entity_id: input_boolean.attic_keep_on_requested
 
   - alias: Start Call on Laptop
     condition: 
