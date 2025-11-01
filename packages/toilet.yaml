@@ -15,7 +15,7 @@ homeassistant:
     sensor.0x00158d0002e2eecc_battery:
       friendly_name: Toilet - Motion Sensor Battery
 
-    light.0x90fd9ffffe2b5781_light:
+    light.0xf84477fffe7b4595_light:
       friendly_name: Toilet - Light
 
 timer:
@@ -33,7 +33,7 @@ automation:
     action:
       - service: light.toggle
         data:
-          entity_id: light.0x90fd9ffffe2b5781_light
+          entity_id: light.0xf84477fffe7b4595_light
 
   - id: "ToiletLightsOnWhenMotion"
     alias: Turn on the toilet lights when motion is detected
@@ -44,7 +44,7 @@ automation:
     action:
       - service: light.turn_on
         data:
-          entity_id: light.0x90fd9ffffe2b5781_light
+          entity_id: light.0xf84477fffe7b4595_light
       - service: timer.cancel
         data:
           entity_id: timer.toilet_lights_off_in
@@ -70,4 +70,4 @@ automation:
       service: light.turn_off
       data:
         entity_id:
-          - light.0x90fd9ffffe2b5781_light
+          - light.0xf84477fffe7b4595_light

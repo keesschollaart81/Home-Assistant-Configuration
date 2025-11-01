@@ -14,7 +14,7 @@ google_assistant:
     input_boolean.google_goodnight_routine:
       name: Goodnight
       expose: true
-    light.0x90fd9ffffe2b5781_light:
+    light.0xf84477fffe7b4595_light:
       name: Toilet
       expose: true
       aliases:
