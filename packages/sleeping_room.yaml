@@ -1,0 +1,30 @@
+homeassistant:
+  customize:
+    sensor.0x00158d0001f5358e_pressure:
+      friendly_name: Sleeping Room - Environment Sensor Pressure
+    sensor.0x00158d0001f5358e_humidity:
+      friendly_name: Sleeping Room - Environment Sensor Humidity
+    sensor.0x00158d0001f5358e_temperature:
+      friendly_name: Sleeping Room - Environment Sensor Temperature
+    sensor.0x00158d0001f5358e_battery:
+      friendly_name: Sleeping Room - Environment Sensor Battery
+
+automation:
+  - alias: "Airco reminder at 20:00"
+    trigger:
+      platform: time
+      at: "20:00:00"
+    condition:
+      condition: and
+      conditions:
+        - condition: numeric_state
+          entity_id: sensor.0x00158d0001f5358e_temperature
+          above: 23
+        - condition: numeric_state
+          entity_id: sensor.rotterdam_temperature
+          above: 20
+    action:
+      - service: notify.phones_kees_marleen
+        data:
+          title: "🌡️ Airco Reminder"
+          message: "Het is {{ states('sensor.0x00158d0001f5358e_temperature') }}°C in de slaapkamer. Tijd om de airco aan te zetten!"

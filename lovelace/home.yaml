@@ -78,6 +78,16 @@ cards:
     type: picture-entity
     aspect_ratio: '16x9' 
     entity: camera.m1075_l_0
+  - id: front_yard_cam_main
+    type: picture-entity
+    aspect_ratio: '16x9'
+    entity: camera.m4308_backyard
+    title: "M4308 Backyard"
+  - id: front_yard_cam_secondary
+    type: picture-entity
+    aspect_ratio: '16x9'
+    entity: camera.m4308_parking
+    title: "M4308 Parking"
   - id: hallway
     type: entities
     title: Hallway
@@ -89,7 +99,7 @@ cards:
     type: entities
     title: Toilet
     entities:  
-      - light.0x90fd9ffffe2b5781_light
+      - light.0xf84477fffe7b4595
       - binary_sensor.0x00158d0002e2eecc_occupancy
       - timer.toilet_lights_off_in
   - id: toon
@@ -109,7 +119,9 @@ cards:
       - entity: climate.toon_thermostat
         name: "Heating"
     hours_to_show: 12
-    title: "Climate (12hr)"   
+    title: "Climate (12hr)"
+    y_axis:
+      min: 11   
 
   - id: living_room_stats_home
     type: statistics-graph

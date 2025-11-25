@@ -57,6 +57,8 @@ cards:
     entities: 
       - entity: sensor.0x00158d000a843b7c_temperature
         name: "Bathroom"
+    y_axis:
+      min: 11
   - id: temperature_sleeping_room_card
     type: history-graph
     hours_to_show: 24
@@ -64,6 +66,8 @@ cards:
     entities: 
       - entity: sensor.0x00158d0001f5358e_temperature
         name: "Sleeping room"
+    y_axis:
+      min: 11
   - id: humidity_card
     type: history-graph
     hours_to_show: 24

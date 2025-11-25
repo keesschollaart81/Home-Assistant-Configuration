@@ -22,7 +22,6 @@ cards:
       - sensor.0x00158d0004a0166e_battery
       - sensor.0x00158d000a843b7c_battery
       - sensor.0x00158d000a838163_battery
-      - sensor.0x00158d000ad822da_battery
       - sensor.0x00158d000ad82338_battery
 
   - type: statistics-graph
@@ -53,10 +52,50 @@ cards:
       - sensor.0x00158d000a838163_battery
       - sensor.0x00158d000ad82338_battery
 
-  - id: battery_levels
+  - id: battery_last_updated
     type: entities
-    title: Device Battery Levels
+    title: Battery Sensors - Last Update
     show_header_toggle: false
+    entities:
+      - entity: sensor.0x00158d0002138221_battery
+        secondary_info: last-changed
+      - entity: sensor.0x00158d0001f5358e_battery
+        secondary_info: last-changed
+      - entity: sensor.0x00158d000222df56_battery
+        secondary_info: last-changed
+      - entity: sensor.0x00158d0001639d5a_battery
+        secondary_info: last-changed
+      - entity: sensor.0x00158d0001710729_battery
+        secondary_info: last-changed
+      - entity: sensor.0x00158d0001f9faa1_battery
+        secondary_info: last-changed
+      - entity: sensor.0x00158d000208e0e0_battery
+        secondary_info: last-changed
+      - entity: sensor.0x00158d0002e2ab4d_battery
+        secondary_info: last-changed
+      - entity: sensor.0x00158d0002e2eecc_battery
+        secondary_info: last-changed
+      - entity: sensor.0x00158d0002e2e35e_battery
+        secondary_info: last-changed
+      - entity: sensor.0x00158d0003120fb3_battery
+        secondary_info: last-changed
+      - entity: sensor.0x842e14fffe4b54f2_battery
+        secondary_info: last-changed
+      - entity: sensor.0x00158d0004a0166e_battery
+        secondary_info: last-changed
+      - entity: sensor.0x00158d000a843b7c_battery
+        secondary_info: last-changed
+      - entity: sensor.0x00158d000a838163_battery
+        secondary_info: last-changed
+      - entity: sensor.0x00158d000ad82338_battery
+        secondary_info: last-changed
+
+
+
+  - id: battery_warnings
+    type: entity-filter
+    title: Battery Sensors - Warnings (No Update > 1 Hour OR Battery < 20%)
+    show_empty: false
     entities:
       - sensor.0x00158d0002138221_battery
       - sensor.0x00158d0001f5358e_battery
@@ -74,7 +113,12 @@ cards:
       - sensor.0x00158d000a843b7c_battery
       - sensor.0x00158d000a838163_battery
       - sensor.0x00158d000ad82338_battery
-
+    state_filter:
+      - operator: template
+        value: "{{ (now() - states[item].last_updated).total_seconds() > 3600 or (states[item].state | float(0) < 20 and states[item].state != 'unavailable') }}"
+    card:
+      type: entities
+      secondary_info: last-updated
 
   - id: battery_levels_unused
     type: entities
