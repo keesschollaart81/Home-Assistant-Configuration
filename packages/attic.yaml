@@ -105,7 +105,7 @@ automation:
         entity_id: light.elgato_key_light_air
       - action: media_player.media_stop
         target:
-          entity_id: media_player.sonos_sonos_attic
+          entity_id: media_player.sonos_era_100
       - action: climate.turn_off
         target:
           entity_id: climate.airco_zolder
@@ -210,11 +210,9 @@ automation:
           entity_id: scene.colorfull_attic
       - action: light.turn_on
         entity_id: light.elgato_key_light_air
-      - action: media_player.volume_mute
-        data:
-          is_volume_muted: true
+      - action: media_player.media_pause
         target:
-          entity_id: media_player.sonos_sonos_attic
+          entity_id: media_player.sonos_era_100
 
   - alias: End Call on Laptop
     trigger:
@@ -233,11 +231,40 @@ automation:
     action:
       - action: light.turn_off
         entity_id: light.elgato_key_light_air
-      - action: media_player.volume_mute
-        data:
-          is_volume_muted: false
+      - action: media_player.media_play
         target:
-          entity_id: media_player.sonos_sonos_attic
+          entity_id: media_player.sonos_era_100
+
+script:
+  attic_play_qmusic:
+    alias: "Attic - Play Q-Music"
+    icon: mdi:radio
+    sequence:
+      - action: media_player.play_media
+        target:
+          entity_id: media_player.sonos_era_100
+        data:
+          media_content_id: "x-rincon-mp3radio://icecast-qmusicnl-cdp.triple-it.nl/Qmusic_nl_live_96.mp3"
+          media_content_type: "music"
+
+  attic_play_100nl:
+    alias: "Attic - Play 100% NL"
+    icon: mdi:radio
+    sequence:
+      - action: media_player.play_media
+        target:
+          entity_id: media_player.sonos_era_100
+        data:
+          media_content_id: "x-rincon-mp3radio://stream.100p.nl/100pctnl.mp3"
+          media_content_type: "music"
+
+  attic_stop_sonos:
+    alias: "Attic - Stop Sonos"
+    icon: mdi:stop
+    sequence:
+      - action: media_player.media_stop
+        target:
+          entity_id: media_player.sonos_era_100
 
 scene:
   - name: Colorfull Attic

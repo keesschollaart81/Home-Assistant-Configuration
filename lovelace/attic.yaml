@@ -1,15 +1,39 @@
 id: attic_tab
 title: Attic
-cards: 
+cards:
   - id: ceiling_lights
     type: entities
     title: Attic
-    entities: 
+    entities:
       - scene.colorfull_attic
       - scene.white_attic
       - switch.0x943469fffe7169b3
       - binary_sensor.0x842e14fffe4b54f2_occupancy
       - light.attic_ceiling_led_strip
+  - id: sonos_player
+    type: media-control
+    entity: media_player.sonos_era_100
+  - id: sonos_radio_buttons
+    type: horizontal-stack
+    cards:
+      - type: button
+        name: Q-Music
+        icon: mdi:radio
+        tap_action:
+          action: call-service
+          service: script.attic_play_qmusic
+      - type: button
+        name: 100% NL
+        icon: mdi:radio
+        tap_action:
+          action: call-service
+          service: script.attic_play_100nl
+      - type: button
+        name: Stop
+        icon: mdi:stop
+        tap_action:
+          action: call-service
+          service: script.attic_stop_sonos
   - id: attic_temperatures
     type: history-graph
     entities: 
