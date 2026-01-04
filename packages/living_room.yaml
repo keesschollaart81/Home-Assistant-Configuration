@@ -540,20 +540,20 @@ script:
         data_template:
           entity_id: "{{ sonos_entity }}"
 
-climate:
-  - platform: toon_climate
-    host: eneco-001-039306.localdomain
+# climate:
+#   - platform: toon_climate
+#     host: eneco-001-039306.localdomain
 
-sensor:
-  - platform: toon_smartmeter
-    host: eneco-001-039306.localdomain
-    resources:
-      - gasused
-      - gasusedcnt
-      - elecusageflowpulse
-      - elecusagecntpulse
-      - elecusageflowlow
-      - elecusagecntlow
-      - elecusageflowhigh
-      - elecusagecnthigh
-      - heat
+# sensor:
+#   - platform: toon_smartmeter
+#     host: eneco-001-039306.localdomain
+#     resources:
+#       - gasused
+#       - gasusedcnt
+#       - elecusageflowpulse
+#       - elecusagecntpulse
+#       - elecusageflowlow
+#       - elecusagecntlow
+#       - elecusageflowhigh
+#       - elecusagecnthigh
+#       - heat
