@@ -407,6 +407,8 @@ automation:
         - condition: template
           value_template: "{{ states('device_tracker.iphone_van_marleen') != 'home' }}"
         - condition: template
+          value_template: "{{ states('device_tracker.iphone_van_jasmijn') != 'home' }}"
+        - condition: template
           value_template: "{{ states('device_tracker.iphone_kees') != 'home' }}"
     action:
     - action: notify.phones_kees_marleen

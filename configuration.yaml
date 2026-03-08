@@ -131,6 +131,11 @@ person:
     user_id: faf0f3e6fb334c01bdb00cd6926003e5
     device_trackers:
       - device_tracker.iphone_van_marleen
+  - name: Jasmijn
+    id: jasmijn
+    user_id: f9a4912413e7498aa7cd263eea65c781
+    device_trackers:
+      - device_tracker.iphone_van_jasmij
 
 zone:
   - name: Thuis
@@ -150,7 +155,7 @@ notify:
     platform: group
     services:
       - service: mobile_app_iphone_kees
-      - service: mobile_app_iphone_van_marleen_2
+      - service: mobile_app_iphone_van_marleen
 
 amcrest:
   - host: 192.168.1.191
