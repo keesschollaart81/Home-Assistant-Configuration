@@ -12,8 +12,22 @@ homeassistant:
   internal_url: !secret internal_url  
   external_url: !secret external_url 
 
-sensor: !include sensors.yaml
 # history: !include history.yaml
+
+template:
+  - sensor:
+      - name: "Electricity tarif"
+        unit_of_measurement: EUR
+        state: >
+          {% if now().weekday() >= 0
+              and now().weekday() < 5
+              and now().hour >= 7
+              and now().hour < 20 %}  0.20834
+          {% elif now().weekday() == 5
+              and now().hour >= 7
+              and now().hour < 13 %} 0.20834
+          {% else %} 0.1827
+          {% endif %}
 
 group:
   everyone:
@@ -42,12 +56,19 @@ http:
   ssl_key: /ssl/privkey.pem
 
 lovelace:
-  mode: yaml
+  resource_mode: yaml
   resources:
     - url: /hacsfiles/banner-card/banner-card.js?v=1
       type: module
     - url: /hacsfiles/simple-thermostat/simple-thermostat.js?v=1
       type: module
+  dashboards:
+    lovelace:
+      mode: yaml
+      filename: ui-lovelace.yaml
+      title: Overview
+      icon: mdi:view-dashboard
+      show_in_sidebar: true
 
 # discovery:
 
