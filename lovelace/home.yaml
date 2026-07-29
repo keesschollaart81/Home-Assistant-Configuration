@@ -4,6 +4,10 @@ badges:
   - device_tracker.iphone_van_marleen
   - device_tracker.iphone_van_jasmijn
   - device_tracker.iphone_kees
+  - entity: binary_sensor.backyard_axis_m4308_ple_b8a44f46b9dc_vmd4_ha
+    name: "Backyard Motion"
+  - entity: binary_sensor.m1075_l_0_vmd4_camera1profile2
+    name: "Living Room Motion"
 cards:
   - id: tracker_history
     type: history-graph 
