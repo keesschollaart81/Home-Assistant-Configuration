@@ -8,7 +8,10 @@ cards:
       - scene.colorfull_attic
       - scene.white_attic
       - switch.0x943469fffe7169b3
+      - switch.0x84ba20fffe6ac289
       - binary_sensor.0x842e14fffe4b54f2_occupancy
+      - entity: light.attic_ceiling_lights
+        name: "Attic Ceiling Lights"
       - light.attic_ceiling_led_strip
   - id: sonos_player
     type: media-control

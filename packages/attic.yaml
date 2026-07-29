@@ -38,11 +38,11 @@ homeassistant:
       friendly_name: "Airco Power Plug (6) - Power"
 
     switch.0x84ba20fffe6ac289:
-      friendly_name: "WFH Area Plug (5)"
+      friendly_name: "AI Server Plug (5)"
     sensor.0x84ba20fffe6ac289_energy:
-      friendly_name: "WFH Area Plug (5)"
+      friendly_name: "AI Server Plug (5)"
     sensor.0x84ba20fffe6ac289_power:
-      friendly_name: "WFH Area Plug (5) - Power"
+      friendly_name: "AI Server Plug (5) - Power"
 
     switch.0x943469fffe7169b3:
       friendly_name: "WFH Laptop Plug (4)"
@@ -66,6 +66,13 @@ light:
       - light.0x001788010929be34_light
       - light.0x0017880108c51275_light
       - light.0x00124b002116c339_light
+
+  - platform: group
+    name: Attic Ceiling Lights
+    entities:
+      - light.0x0017880108ca5f8e_light
+      - light.0x001788010929be34_light
+      - light.0x0017880108c51275_light
 
 input_boolean:
   attic_keep_on_requested:
@@ -211,27 +218,28 @@ automation:
         target:
           entity_id: media_player.sonos_era_100
 
-  - alias: End Call on Laptop
-    condition:
-      - condition: template
-        value_template: "{{ trigger.to_state.state not in ['InACall', 'InAMeeting', 'InAConferenceCall', 'Presenting'] }}"
-    trigger:
-      - trigger: state
-        entity_id: sensor.msteams_kees_status
-        from: "InACall"
-      - trigger: state
-        entity_id: sensor.msteams_kees_status
-        from: "InAMeeting"
-      - trigger: state
-        entity_id: sensor.msteams_kees_status
-        from: "InAConferenceCall"
-      - trigger: state
-        entity_id: sensor.msteams_kees_status
-        from: "Presenting"
-    action:
-      - action: media_player.media_play
-        target:
-          entity_id: media_player.sonos_era_100
+  # Disabled: no longer auto-resume the radio when a call/meeting ends.
+  # - alias: End Call on Laptop
+  #   condition:
+  #     - condition: template
+  #       value_template: "{{ trigger.to_state.state not in ['InACall', 'InAMeeting', 'InAConferenceCall', 'Presenting'] }}"
+  #   trigger:
+  #     - trigger: state
+  #       entity_id: sensor.msteams_kees_status
+  #       from: "InACall"
+  #     - trigger: state
+  #       entity_id: sensor.msteams_kees_status
+  #       from: "InAMeeting"
+  #     - trigger: state
+  #       entity_id: sensor.msteams_kees_status
+  #       from: "InAConferenceCall"
+  #     - trigger: state
+  #       entity_id: sensor.msteams_kees_status
+  #       from: "Presenting"
+  #   action:
+  #     - action: media_player.media_play
+  #       target:
+  #         entity_id: media_player.sonos_era_100
 
 script:
   attic_play_qmusic:
