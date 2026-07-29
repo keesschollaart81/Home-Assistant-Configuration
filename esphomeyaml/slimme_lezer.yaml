@@ -6,9 +6,6 @@ substitutions:
 esphome:
   name: ${device_name}
   comment: "${device_description}"
-  platform: ESP8266
-  esp8266_restore_from_flash: true
-  board: d1_mini
   name_add_mac_suffix: false
   on_boot:
     then:
@@ -24,6 +21,10 @@ esphome:
                 level: info
                 format: "Not using decryption key. If you need to set a key use Home Assistant service 'ESPHome:  ${device_name}_set_dsmr_key'"
  
+esp8266:
+  board: d1_mini
+  restore_from_flash: true
+
 wifi:
   networks:
     - ssid: !secret esphome_wifi_1_ssid
@@ -60,10 +61,12 @@ api:
           id(dsmr_instance).set_decryption_key(private_key);
  
 ota:
-  password: !secret esphome_ota_password
- 
+  - platform: esphome
+    password: !secret esphome_ota_password
+
 web_server:
   port: 80
+  version: 2
  
 uart:
   baud_rate: 115200
@@ -87,17 +90,11 @@ dsmr:
  
 sensor:
   - platform: dsmr
-    energy_delivered_lux:
-      name: "Energy Consumed Luxembourg"
-      state_class: total_increasing
     energy_delivered_tariff1:
       name: "Energy Consumed Tariff 1"
       state_class: total_increasing
     energy_delivered_tariff2:
       name: "Energy Consumed Tariff 2"
-      state_class: total_increasing
-    energy_returned_lux:
-      name: "Energy Produced Luxembourg"
       state_class: total_increasing
     energy_returned_tariff1:
       name: "Energy Produced Tariff 1"
@@ -117,41 +114,16 @@ sensor:
     electricity_long_failures:
       name: "Long Electricity Failures"
       icon: mdi:alert
-    voltage_l1:
-      name: "Voltage Phase 1"
-    voltage_l2:
-      name: "Voltage Phase 2"
-    voltage_l3:
-      name: "Voltage Phase 3"
     current_l1:
       name: "Current Phase 1"
-    current_l2:
-      name: "Current Phase 2"
-    current_l3:
-      name: "Current Phase 3"
     power_delivered_l1:
       name: "Power Consumed Phase 1"
-      accuracy_decimals: 3
-    power_delivered_l2:
-      name: "Power Consumed Phase 2"
-      accuracy_decimals: 3
-    power_delivered_l3:
-      name: "Power Consumed Phase 3"
       accuracy_decimals: 3
     power_returned_l1:
       name: "Power Produced Phase 1"
       accuracy_decimals: 3
-    power_returned_l2:
-      name: "Power Produced Phase 2"
-      accuracy_decimals: 3
-    power_returned_l3:
-      name: "Power Produced Phase 3"
-      accuracy_decimals: 3
     gas_delivered:
       name: "Gas Consumed"
-      state_class: total_increasing
-    gas_delivered_be:
-      name: "Gas Consumed Belgium"
       state_class: total_increasing
   - platform: uptime
     name: "SlimmeLezer Uptime"
@@ -165,8 +137,6 @@ text_sensor:
       name: "DSMR Identification"
     p1_version:
       name: "DSMR Version"
-    p1_version_be:
-      name: "DSMR Version Belgium"
   - platform: wifi_info
     ip_address:
       name: "SlimmeLezer IP Address"
