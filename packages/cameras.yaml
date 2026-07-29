@@ -1,0 +1,47 @@
+homeassistant:
+
+# Axis cameras with a VMD4 profile named "HA":
+#   - AXIS M4308-PLE (192.168.1.187, Backyard) -> profile "HA"
+#   - AXIS M1075-L   (192.168.1.246, Living Room) -> profile uid 2, renamed to "HA"
+#     (its entity_id still carries the original "camera1profile2" name)
+
+automation:
+  - id: 'axis_vmd_backyard_notification'
+    alias: "Camera VMD - Backyard motion notification"
+    mode: single
+    max_exceeded: silent
+    trigger:
+      - trigger: state
+        entity_id: binary_sensor.backyard_axis_m4308_ple_b8a44f46b9dc_vmd4_ha
+        from: "off"
+        to: "on"
+    action:
+      - action: notify.mobile_app_iphone_kees
+        data:
+          title: "Motion in the backyard"
+          message: "The backyard camera (M4308-PLE) detected motion"
+          data:
+            tag: "axis_vmd_backyard"
+            entity_id: camera.backyard_axis_m4308_ple_b8a44f46b9dc
+      # Cooldown, so continuous motion does not spam notifications
+      - delay: "00:05:00"
+
+  - id: 'axis_vmd_living_room_notification'
+    alias: "Camera VMD - Living Room motion notification"
+    mode: single
+    max_exceeded: silent
+    trigger:
+      - trigger: state
+        entity_id: binary_sensor.m1075_l_0_vmd4_camera1profile2
+        from: "off"
+        to: "on"
+    action:
+      - action: notify.mobile_app_iphone_kees
+        data:
+          title: "Motion in the living room"
+          message: "The living room camera (M1075-L) detected motion"
+          data:
+            tag: "axis_vmd_living_room"
+            entity_id: camera.m1075_l_0
+      # Cooldown, so continuous motion does not spam notifications
+      - delay: "00:05:00"
