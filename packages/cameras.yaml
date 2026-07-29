@@ -5,6 +5,12 @@ homeassistant:
 #   - AXIS M1075-L   (192.168.1.246, Living Room) -> profile uid 2, renamed to "HA"
 #     (its entity_id still carries the original "camera1profile2" name)
 
+input_boolean:
+  camera_motion_notifications:
+    name: "Camera motion notifications"
+    icon: mdi:cctv
+    initial: true
+
 automation:
   - id: 'axis_vmd_backyard_notification'
     alias: "Camera VMD - Backyard motion notification"
@@ -15,14 +21,23 @@ automation:
         entity_id: binary_sensor.backyard_axis_m4308_ple_b8a44f46b9dc_vmd4_ha
         from: "off"
         to: "on"
+    condition:
+      - condition: state
+        entity_id: input_boolean.camera_motion_notifications
+        state: "on"
     action:
+      - action: camera.snapshot
+        target:
+          entity_id: camera.m4308_backyard
+        data:
+          filename: '/media/local/backyard_motion_latest.jpg'
       - action: notify.mobile_app_iphone_kees
         data:
           title: "Motion in the backyard"
           message: "The backyard camera (M4308-PLE) detected motion"
           data:
             tag: "axis_vmd_backyard"
-            entity_id: camera.backyard_axis_m4308_ple_b8a44f46b9dc
+            image: "/media/local/backyard_motion_latest.jpg"
       # Cooldown, so continuous motion does not spam notifications
       - delay: "00:05:00"
 
@@ -35,13 +50,22 @@ automation:
         entity_id: binary_sensor.m1075_l_0_vmd4_camera1profile2
         from: "off"
         to: "on"
+    condition:
+      - condition: state
+        entity_id: input_boolean.camera_motion_notifications
+        state: "on"
     action:
+      - action: camera.snapshot
+        target:
+          entity_id: camera.m1075_l_0
+        data:
+          filename: '/media/local/living_room_motion_latest.jpg'
       - action: notify.mobile_app_iphone_kees
         data:
           title: "Motion in the living room"
           message: "The living room camera (M1075-L) detected motion"
           data:
             tag: "axis_vmd_living_room"
-            entity_id: camera.m1075_l_0
+            image: "/media/local/living_room_motion_latest.jpg"
       # Cooldown, so continuous motion does not spam notifications
       - delay: "00:05:00"

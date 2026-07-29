@@ -16,6 +16,17 @@ cards:
       name: "Backyard motion (camera)"
     - entity: binary_sensor.m1075_l_0_vmd4_camera1profile2
       name: "Living room motion (camera)"
+  - id: camera_motion
+    type: entities
+    title: Camera motion
+    show_header_toggle: false
+    entities:
+      - entity: input_boolean.camera_motion_notifications
+        name: "Push notifications"
+      - entity: binary_sensor.backyard_axis_m4308_ple_b8a44f46b9dc_vmd4_ha
+        name: "Backyard motion (camera)"
+      - entity: binary_sensor.m1075_l_0_vmd4_camera1profile2
+        name: "Living room motion (camera)"
   - id: living_room
     type: glance
     title: Living room  
