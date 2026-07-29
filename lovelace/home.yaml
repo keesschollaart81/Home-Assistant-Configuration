@@ -13,9 +13,9 @@ cards:
     - device_tracker.iphone_kees
     - binary_sensor.0x00158d000222df56_occupancy
     - entity: binary_sensor.backyard_axis_m4308_ple_b8a44f46b9dc_vmd4_ha
-      name: "Backyard Motion"
+      name: "Backyard motion (camera)"
     - entity: binary_sensor.m1075_l_0_vmd4_camera1profile2
-      name: "Living Room Motion"
+      name: "Living room motion (camera)"
   - id: living_room
     type: glance
     title: Living room  
