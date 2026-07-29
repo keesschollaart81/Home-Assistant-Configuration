@@ -30,14 +30,17 @@ automation:
         target:
           entity_id: camera.m4308_backyard
         data:
-          filename: '/media/local/backyard_motion_latest.jpg'
+          filename: '/media/motion/backyard_motion_latest.jpg'
       - action: notify.mobile_app_iphone_kees
         data:
           title: "Motion in the backyard"
           message: "The backyard camera (M4308-PLE) detected motion"
           data:
             tag: "axis_vmd_backyard"
-            image: "/media/local/backyard_motion_latest.jpg"
+            # /media/<x> on disk is served as /media/local/<x> over http
+            image: "/media/local/motion/backyard_motion_latest.jpg"
+            push:
+              interruption-level: time-sensitive
       # Cooldown, so continuous motion does not spam notifications
       - delay: "00:05:00"
 
@@ -59,13 +62,16 @@ automation:
         target:
           entity_id: camera.m1075_l_0
         data:
-          filename: '/media/local/living_room_motion_latest.jpg'
+          filename: '/media/motion/living_room_motion_latest.jpg'
       - action: notify.mobile_app_iphone_kees
         data:
           title: "Motion in the living room"
           message: "The living room camera (M1075-L) detected motion"
           data:
             tag: "axis_vmd_living_room"
-            image: "/media/local/living_room_motion_latest.jpg"
+            # /media/<x> on disk is served as /media/local/<x> over http
+            image: "/media/local/motion/living_room_motion_latest.jpg"
+            push:
+              interruption-level: time-sensitive
       # Cooldown, so continuous motion does not spam notifications
       - delay: "00:05:00"
